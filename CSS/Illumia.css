@@ -1,0 +1,123 @@
+/* Path: Project_Web\Home.css */
+/* Compare this snippet from Project_Web\CSS\CommonAll.css: */
+
+.background {
+    width: 100%;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+.champ-img {
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+    min-width: 120px;
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 50%;
+    display: flex;
+    box-shadow: black 0px 0px 10px;
+    background-size: 120px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(../Images/Champions/Illumia.jpg);
+}
+
+@media screen and (max-width:768px) {
+    .sp-a1 {
+        background-image: url(../Images/Champions/Illumia.jpg);
+    }
+}
+/* Content wrapper */
+.ch-ct {
+    gap: 40px;
+    grid-gap:40px;
+}
+
+.content-wrapper {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.color-bg {
+    background-color: rgb(55, 55, 55);
+}
+.sp-a1 {
+    position: absolute;
+    padding-right: 0;
+    overflow: hidden;
+}
+.champ-style {
+    border-style: solid;
+    border-width: 4px;
+    border-color: rgb(102, 136, 243);
+    background-color: rgb(102, 136, 243);
+}
+
+.img-role {
+    filter: drop-shadow(0 0 1px black);
+    margin: 3px;
+}
+
+.title {
+    text-shadow: 0 0 10px #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title-inner2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.spct-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.map-mode {
+    width: 100%;
+    margin-top:2.6%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.ge-st {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+    border-bottom: 2px solid;
+    filter: drop-shadow(0 0 10px black);
+}
+
+.ge-st.active {
+    border-bottom-color: rgb(251, 175, 23)!important;
+}
+
+.ge-st.active .text-hover {
+    color: rgb(251, 175, 23)!important;
+}
+.name-map {
+    white-space: nowrap;
+    color: #fff;
+    font-size: 15px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    grid-gap: 5px;
+}
+
+
+
+
+

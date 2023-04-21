@@ -1,0 +1,6 @@
+ID = "1": Pháp sư
+ID = "2": Xạ thủ
+ID = "3": Đấu sĩ
+ID = "4": Đỡ đòn
+ID = "5": Trợ thủ
+ID = "6": Sát thủ

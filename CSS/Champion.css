@@ -1,0 +1,520 @@
+/* Common All */
+/* Thuoc tinh chung css */
+
+html {
+    overflow-y: scroll;
+    font-size: 10px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../Images/5v5.png) center center fixed no-repeat;
+    font-family: monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(37,37,37,.85);
+    z-index: -1;
+}
+
+body,
+div,
+img,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dd,
+dt,
+blockquote,
+fieldset,
+legend,
+label,
+textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    outline: none !important;
+}
+
+div {
+    display: block;
+}
+
+
+button {
+    background: #fff;
+    border: none;
+    outline: none !important;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: rgb(0,0,0);
+    text-decoration: none;
+    outline: none!important;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    height: auto;
+    border: 0 none;
+    max-width: 100%;
+}
+
+.wrapper-page {
+    min-width: 805px;
+}
+/* Head wrapper */
+.content {
+    display: flex;
+    width: 100%;
+}
+
+.hd-wr {
+    width: 1600px;
+    float: left;
+}
+
+._bca1{
+    background-color: rgb(22, 14, 30);
+}
+
+.inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.head-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.logo {
+    width: 250px;
+    position: absolute;
+    top:-50px;
+    left: 50%;
+    margin-left: -130px;
+}
+
+.menu-top {
+    overflow: hidden;
+}
+
+.menu-top li {
+    float: left;
+}
+
+.menu-top li a {
+    color: rgb(255,255,255);
+    padding: 0 15px;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 60px;
+    display: inline-block;
+    background: url(../Images/Icon-Logo/line-nav.jpg) center left no-repeat;
+}
+
+.menu-top li:nth-of-type(1) {
+    float: right;
+}
+
+.menu-top li:nth-of-type(2){
+    float: right;
+}
+
+.menu-top li:nth-of-type(2) a {
+    background: none;
+}
+
+.head-content {
+    position: relative;
+    margin-top: 0px;
+    background-color: rgba(20, 19, 19, 0.4);
+}
+
+.content-body {
+    position: relative;
+    margin-top: 0px;
+    background-color: rgba(20, 19, 19, 0.4);
+}
+
+.tp-cr {
+    width: 100%;
+    min-width: 375px;
+}
+
+.sp-ct {
+    margin-top: 80px;
+}
+
+.para-inner {
+    text-align: left;
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+/* Guiding content css */
+.h-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 375px;
+    width: 100%;
+    max-width: 1600px;
+}
+.lane-content {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.content-details {
+    gap:10px;
+    grid-gap: 10px;
+}
+.text-ac {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+    border-bottom: 2px solid ;
+    filter: drop-shadow(0 0 10px rgb(0, 0, 0));
+}
+
+.filter {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 999;
+}
+
+.ft-inner {
+    width: 100%;
+    height: 28px;
+    padding: 5px 8px;
+    font-size: 13px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.empty-space {
+    width: 320px;
+    flex-shrink: 0;
+}
+
+.spct-st {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    width: 100%;
+    max-width: 1475px;
+    position: relative;
+}
+
+.tp-cr>* {
+    display: flex;
+    justify-content: center;
+}
+/* Description */
+.descript {
+    text-shadow: 0 0 20px #000;
+}
+
+.descript-pos {
+    margin-top: 8px;
+    border-top: 2px solid gray;
+}
+
+.descript-bg {
+    background-color: rgba(1,1,1,.6);
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.descript-text {
+    display: flex;
+    white-space: nowrap;
+}
+
+.tier-value {
+    color:rgb(0, 255, 0);
+}
+/* Body content guiding css */
+
+.spl-st {
+    flex-direction: row;
+}
+
+.bct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 375px;
+    width: 100%;
+    max-width: 1600px;
+}
+
+.ct-grid {
+    gap: 5px;
+    grid-gap: 5px;
+}
+
+.bct-inner {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.bct-paragraph {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.bct-bg {
+    background-color: rgb(75,75,75);
+}
+
+.bct-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+.bct-p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    flex-grow: 1;
+}
+.group-gap {
+    box-sizing: border-box;
+    border: 2px solid rgb(251 175 23);
+}
+
+.spell {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.spell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.bct-text {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    flex-grow: 1;
+    width: calc(50% - 2.5px);
+    min-width: 375px;
+    max-width: 100%;
+}
+
+.bct-text>* {
+    width: 100%;
+    flex-shrink: 1;
+
+}
+
+.rating {
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+}
+
+.win {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.pick {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.rating-inner:nth-child(odd) {
+    background-color: #252525;
+}
+
+.rating-inner:nth-child(even) {
+    background-color: #353535;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.other-spell {
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 4px;
+}
+/* Items */
+.items {
+    margin: 0;
+    height: auto;
+    vertical-align:top;
+    box-sizing: border-box;
+}
+
+.items-pos {
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 4px;
+}
+
+.items-st {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.itemsin-st {
+    box-sizing: border-box;
+    border: none;
+}
+
+.badge {
+    width:20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge-st {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.be {
+    width: 66px;
+}
+
+.tab-selected .perk-image {
+    filter: none;
+}
+
+.badge-2 {
+    position: relative;
+    top:-40px;
+    left:18px;
+    margin-bottom: -38px;
+}
+
+
+.ct-sd {
+    display: flex;
+    flex-direction: column;
+}
+
+/* SKill table */
+.skill-table {
+    display: inline-block;
+    float: none;
+    text-align: left;
+}
+
+.skills {
+    background-color: #252525;
+}
+
+.skill-inner {
+    padding-right: 3px;
+    padding-left: 3px;
+    text-align: center;
+    border-left: 1px solid #000;
+    border-right:1px solid #000;
+    font-size: 18px;
+    min-width: 20px;
+    font-weight: 700;
+}
+
+@media (max-width:965px) {
+    .skill-inner {
+        font-size: 10px;
+        padding-right: 2px;
+        padding-left: 2px;
+        min-width: 14px;
+    }
+}
+.skills-st {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+td, th {
+    padding: 0;
+}
+
+.spec-item {
+    box-sizing: border-box;
+    border:2px solid rgb(251 175 23);
+
+}

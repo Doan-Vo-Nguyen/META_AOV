@@ -1,0 +1,15 @@
+/* Path: Project_Web\1v1.css */
+
+body {
+    background: url(../Images/Map/1v1-map.png) center center fixed no-repeat;
+    font-family: monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
