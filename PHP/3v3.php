@@ -32,7 +32,8 @@
                             <div class="typeahead__query" style="font-size:12px;">
                                 <div class="bx-search">
                                     <form class="search search-first">
-                                        <input id="nav-search-input" class="input-bx1 typeahead" placeholder="Tìm kiếm...">
+                                        <input id="nav-search-input" class="input-bx1 typeahead"
+                                            placeholder="Tìm kiếm...">
                                     </form>
                                 </div>
                             </div>
@@ -43,7 +44,8 @@
             <div class="head-inner logo-team">
                 <div style="width:100%">
                     <a href="#" style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../Images/Icon-Logo/N5-removebg-preview.png" alt="logo" style="width:32px;height:32px;">
+                        <img src="../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                            style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
                     </a>
@@ -75,7 +77,8 @@
                         <div class="content-logo" style="margin-bottom:20px">
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <img class="img-pos" src="../Images/Icon-Logo/N5-removebg-preview.png" alt="logo" style="width:32px;height:32px;">
+                                    <img class="img-pos" src="../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                                        style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <b class="f-word word">META</b>
                                         <b class="s-word word">aov</b>
@@ -86,19 +89,21 @@
                         <div class="menu-item info-link">
                             <a id="1-dropdown" class="nav-dropdown item-logo nav-item" onclick="navDropdown('1');">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <b class="patch" style="display:flex;justify-content:center;font-size:17px;">5v5</b>
+                                    <b class="patch" style="display:flex;justify-content:center;font-size:17px;">3v3</b>
                                     <span class="text-logo logo-st" style="position:relative;left:-15px;">Chế độ
-                                        <b>5v5</b>
+                                        <b>3v3</b>
                                     </span>
                                 </div>
-                                <span id="1-arrow" class="fa fa-chevron-down transition" style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down" data-chevron-active="fa-chevron-up">
+                                <span id="1-arrow" class="fa fa-chevron-down transition"
+                                    style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down"
+                                    data-chevron-active="fa-chevron-up">
                                 </span>
                             </a>
                             <div id="1-content" class="otherCt-1 dropdown-content" style="display:none;">
                                 <div>
-                                    <a href="../PHP/3v3.php" class="item-logo nav-item">
+                                    <a href="../PHP/Home.php" class="item-logo nav-item">
                                         <div style="display:flex;justify-content:center;align-items:center;">
-                                            <b class="text-logo logo-st">3v3</b>
+                                            <b class="text-logo logo-st">5v5</b>
                                         </div>
                                     </a>
                                 </div>
@@ -114,12 +119,15 @@
                         <div class="menu-item info-link">
                             <a id="2-dropdown" class="nav-dropdown item-logo nav-item" onclick="navDropdown('2');">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <b class="patch" style="display:flex;justify-content:center;font-size:17px;text-align:center">13.07</b>
+                                    <b class="patch"
+                                        style="display:flex;justify-content:center;font-size:17px;text-align:center">13.07</b>
                                     <span class="text-logo logo-st" style="position:relative;left:-35px;">Patch
                                         <b>13.07</b>
                                     </span>
                                 </div>
-                                <span id="2-arrow" class="fa fa-chevron-down transition" style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down" data-chevron-active="fa-chevron-up">
+                                <span id="2-arrow" class="fa fa-chevron-down transition"
+                                    style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down"
+                                    data-chevron-active="fa-chevron-up">
                                 </span>
                             </a>
                             <div id="2-content" class="ct-2 dropdown-content" style="display:none;">
@@ -187,9 +195,11 @@
                     <div class="ct-wr ge-ct">
                         <div style="display:flex;flex-direction:column;align-items:center;width:100%" class="ge-ct">
                             <div class="tooltip-container para">
-                                <div style="display: flex;flex-direction: column;align-items: center;margin-top: 10vh;margin-bottom: 10vh;">
+                                <div
+                                    style="display: flex;flex-direction: column;align-items: center;margin-top: 10vh;margin-bottom: 10vh;">
                                     <div style="width: 100%;max-width: 500px;">
-                                        <h1 style="display:flex;flex-direction:column;text-align:center;margin-bottom:3px;">
+                                        <h1
+                                            style="display:flex;flex-direction:column;text-align:center;margin-bottom:3px;">
                                             <div class="text-details" style="margin-bottom:2px;">
                                                 <span style="display:none;">META AOV - Xây dựng lối chơi, thống
                                                     kê,
@@ -207,8 +217,10 @@
                                                         Xây dựng lối chơi, thống kê, cập nhật và xếp hạng Patch 13.07
                                                     </div>
                                                 </div>
-                                                <div style="display:flex;justify-content:center;align-items:center;font-weight:normal;padding-top:10px;" class="sub-title">
-                                                    <a style="color:inherit;margin:5px;" class="mode" href="../PHP/Home.php">
+                                                <div style="display:flex;justify-content:center;align-items:center;font-weight:normal;padding-top:10px;"
+                                                    class="sub-title">
+                                                    <a style="color:inherit;margin:5px;" class="mode"
+                                                        href="../PHP/Home.php">
                                                         <span class="text-underline">5v5</span>
                                                     </a>
                                                     <span>
@@ -220,7 +232,8 @@
                                                     <span>
                                                         <ion-icon name="remove"></ion-icon>
                                                     </span>
-                                                    <a style="color:inherit;margin:5px;" class="mode" href="../PHP/1v1.php">
+                                                    <a style="color:inherit;margin:5px;" class="mode"
+                                                        href="../PHP/1v1.php">
                                                         <span class="text-underline">1v1</span>
                                                     </a>
                                                 </div>
@@ -230,7 +243,8 @@
                                             <div id="home-search-inner" class="search-in" style="margin-bottom:20px;">
                                                 <div class="bx-search">
                                                     <form class="search search-second">
-                                                        <input type="text" class="input-bx2" id="filter-home-name" placeholder="Tìm kiếm...">
+                                                        <input type="text" class="input-bx2" id="filter-home-name"
+                                                            placeholder="Tìm kiếm...">
                                                     </form>
                                                 </div>
                                             </div>
@@ -311,10 +325,10 @@
                                 <a href="Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">5v5</span>
                                 </a>
-                                <a href="Champions.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">3v3</span>
                                 </a>
-                                <a href="Items.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">1v1</span>
                                 </a>
                             </div>
@@ -356,9 +370,14 @@
     <script type="text/javascript" src="../JS/navigation.js"></script>
     <script type="text/javascript" src="../JS/Home.js"></script>
     <?php
+    // Start the session
     $username = $_SESSION['username'];
-    echo
-    '<script>
+    // Check if the session variable username is set
+    if (isset($username)) {
+    ?>
+    <?php echo '
+    <script>
+    // using JS to change the login and register button to user name and logout button if session is set
     var show_log = document.getElementById("login");
     var show_reg = document.getElementById("signup");
     if(show_log != null || show_reg != null) {
@@ -366,12 +385,20 @@
         // Print the echo statement in the a tag have id login
         show_reg.innerHTML = "<a href=\"../PHP/User/logout.php\">Đăng xuất</a>";
     }
-    else
-    {
-        show_reg.innerHTML = "<a href=\"../PHP/User/register.php\">Đăng ký</a>";
-        show_log.innerHTML = "<a href=\"../PHP/User/login.php\">Đăng nhập</a>";
-    }
     </script>';
+        ?>
+    <?php
+    } else {
+    ?>
+    <?php echo '
+    <script>
+        // Print back the login and register button if session variable username is not set
+        <a href="../PHP/User/login.php">Đăng nhập</a>
+        <a href="../PHP/User/register.php">Đăng ký</a>\
+    </script>';
+        ?>
+    <?php
+    }
     ?>
 </body>
 

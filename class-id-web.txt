@@ -11,10 +11,15 @@ _bca1: body content a1
 hd-ct: header-content
 tab-link: tab-link(ben trong the mu-wr)
 
+/* Menu */
+mu-wr: menu-wrapper
+_bca1: body content a1(ap dung lai css)
+nav-menu: navigation cua menu(thanh dieu huong, id)
+tab-link: tuong tu cua nav-menu
 /* Content */
 ct-wr: content-wrapper
 ct-gap(chỉ grid nhỏ hơn)
-wr-tt: thuộc tính css của content-body
+wr-tt: thuộc tíngshklh css của content-body
 
 --Champion--
 ch-ct: content chung
@@ -59,3 +64,21 @@ be: badge( chinh position)
 skill-table: bảng skills
 sl-te: skill-table class
 skill-st: skill setting
+
+
+--Footer--
+ft-bg: footer-background
+ep-ct: menu nav content(empty)
+ft-content: content footer(noi dung footer)
+ct-gap: gap cua footer-content(chia vung)
+left-text: text ben trai 
+text-st: setting cua text(css cua text)
+left-grid: vung ben trai(hien thi theo thu tu tu trai sang phai)
+left-para: para ben trai
+para-title: tieu de cua para
+para-st: setting cua vung para(css cua para)
+
+right-text: text ben phai 
+right-para: para ben phai
+
+

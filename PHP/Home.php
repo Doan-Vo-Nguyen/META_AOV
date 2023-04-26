@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php
-setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
+// setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
 ?>
 <!DOCTYPE html>
 <html lang="vi" class="nav-collapsed">
@@ -16,6 +16,7 @@ setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
     <link rel="stylesheet" href="../Extension/font-awesome.css">
     <link rel="stylesheet" href="../CSS/jquery.typeahead.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.3/typeahead.jquery.min.js">
+
     <link rel="icon" href="../Images/Icon-Logo/unnamed.png" type="image/x-icon">
 </head>
 
@@ -24,20 +25,53 @@ setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
         <!--Header-->
         <div id="nav-wrapper" class="head info-tab">
             <div class="head-inner">
+                <!-- Search bar -->
                 <div id="nav-search" style="display:flex;align-items:center;font-size:10px;">
                     <div id="nav-search-inner" class="searching">
                         <div class="typeahead__container">
-                            <div class="typeahead__query" style="font-size:12px;">
-                                <div class="bx-search">
-                                    <form class="search search-first">
-                                        <input id="nav-search-input" class="input-bx1 typeahead" placeholder="Tìm kiếm...">
-                                    </form>
+                            <div class="typeahead__field">
+                                <div class="typeahead__query" style="font-size:12px;">
+                                    <div class="bx-search">
+                                        <form class="search search-first">
+                                            <input id="nav-search-input" class="input-bx1 typeahead" name="search" placeholder="Tìm kiếm...">
+                                        </form>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="typeahead__result">
+                                <ul class="typeahead__list">
+                                    <?php
+                                    require 'connect.php';
+                                    $sql = "SELECT * FROM `champions`";
+                                    $result = mysqli_query($conn, $sql);
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo '<li class="typeahead__item typeahead__group-item"
+                                            data-group="item">
+                                                <a href = "../PHP/Champion.php?champion=' . $row['champ_Name'] . '">
+                                                    <div class="champion-img">
+                                                        <span class = "chmp-img-inner">
+                                                            <img class="img-pos" src="../Images/Champion/' . $row['champ_Name'] . '.png" alt="logo"
+                                                                style="width:32px;height:32px;">
+                                                            <span class="text-logo logo-st">
+                                                                <b class="f-word word">' . $row['champ_Name'] . '</b>
+                                                            </span>
+                                                        </span>
+                                                        <div>
+                                                            <span class="text-logo logo-st">
+                                                                <b class="f-word word">' . $row['champ_Name'] . '</b>
+                                                            </span>
+                                                    </div>
+                                                </a>
+                                            </li>';
+                                    }
+                                    ?>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Logo and right menu content( Login, Register, ... ) -->
             <div class="head-inner logo-team">
                 <div style="width:100%">
                     <a href="#" style="display:flex;justify-content:center;align-items:center;font-size:20px;">
@@ -51,12 +85,6 @@ setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
                 <ul class="menu-top">
                     <li>
                         <a id="signup" href="../PHP/User/Register.php">Đăng ký</a>
-                        <?php
-                        // if (isset($_SESSION['username'])) {
-                        //     echo '<li><p>Xin chào, ' . $_SESSION['username'] . '</p></li>';
-                        // }
-                        // 
-                        ?>
                     </li>
                     <li>
                         <a id="login" href="../PHP/User/Login.php">Đăng nhập</a>
@@ -179,7 +207,9 @@ setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
         </div>
         <!--Content-->
         <div class="ct-02 ge-ct">
+            <!-- The div container for the left sidebar -->
             <div class="ep-ct"></div>
+            <!-- The div contain for the main content -->
             <div class="ge-ct" style="display:flex;flex-direction:column;width:100%;margin-top:90px;">
                 <div id="content-wrapper" class="ge-ct wr-tt">
                     <div class="ct-wr ge-ct">
@@ -265,7 +295,7 @@ setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
                                                         <span class="serial" tag="' . $id . '"
                                                             type="' . $id_role . '" style="display: none">' . $name . '</span>
                                                         <div class="champions">
-                                                            <a href="' . $name . '.php">
+                                                            <a class = "champion-items" href="' . $name . '.php" data-search-terms-like="' . $name . '|' . $name . '" data-search-terms-exact = "' . $role_name . '|' . $role_name . '">
                                                                 <img src="../Images/Champions/' . $image . '" alt="champion">
                                                             </a>
                                                             <p style="white-space: nowrap;" class="name">' . $name . '</p>
@@ -350,14 +380,15 @@ setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="../JS/metaaov.js"></script>
     <script type="text/javascript" src="../JS/navigation.js"></script>
     <script type="text/javascript" src="../JS/Home.js"></script>
+    <script type="text/javascript" src="../JS/metaaov.js"></script>
+
     <?php
     // Start the session
-    $username = $_SESSION['username'];
+    $username = $_SESSION['user'];
     // Check if the session variable username is set
-    if (isset($username)) {
+    if (isset($_SESSION['user'])) {
     ?>
         <?php echo '
     <script>
@@ -378,7 +409,7 @@ setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
     <script>
         // Print back the login and register button if session variable username is not set
         <a href="../PHP/User/login.php">Đăng nhập</a>
-        <a href="../PHP/User/register.php">Đăng ký</a>\
+        <a href="../PHP/User/register.php">Đăng ký</a>
     </script>';
         ?>
     <?php

@@ -37,7 +37,8 @@
             <div class="head-inner logo-team">
                 <div style="width:100%">
                     <a href="Home.php" style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../Images/Icon-Logo/N5-removebg-preview.png" alt="logo" style="width:32px;height:32px;">
+                        <img src="../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                            style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
                     </a>
@@ -47,12 +48,6 @@
                 <ul class="menu-top">
                     <li>
                         <a id="signup" href="../PHP/User/Register.php">Đăng ký</a>
-                        <?php
-                        // if (isset($_SESSION['username'])) {
-                        //     echo '<li><p>Xin chào, ' . $_SESSION['username'] . '</p></li>';
-                        // }
-                        // 
-                        ?>
                     </li>
                     <li>
                         <a id="login" href="../PHP/User/Login.php">Đăng nhập</a>
@@ -69,7 +64,8 @@
                         <div class="content-logo" style="margin-bottom:20px">
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <img class="img-pos" src="../Images/Icon-Logo/N5-removebg-preview.png" alt="logo" style="width:32px;height:32px;">
+                                    <img class="img-pos" src="../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                                        style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <b class="f-word word">META</b>
                                         <b class="s-word word">aov</b>
@@ -85,7 +81,9 @@
                                         <b>5v5</b>
                                     </span>
                                 </div>
-                                <span id="1-arrow" class="fa fa-chevron-down transition" style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down" data-chevron-active="fa-chevron-up">
+                                <span id="1-arrow" class="fa fa-chevron-down transition"
+                                    style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down"
+                                    data-chevron-active="fa-chevron-up">
                                 </span>
                             </a>
                             <div id="1-content" class="otherCt-1 dropdown-content" style="display:none;">
@@ -108,12 +106,15 @@
                         <div class="menu-item info-link">
                             <a id="2-dropdown" class="nav-dropdown item-logo nav-item" onclick="navDropdown('2');">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <b class="patch" style="display:flex;justify-content:center;font-size:17px;text-align:center">13.07</b>
+                                    <b class="patch"
+                                        style="display:flex;justify-content:center;font-size:17px;text-align:center">13.07</b>
                                     <span class="text-logo logo-st" style="position:relative;left:-35px;">Patch
                                         <b>13.07</b>
                                     </span>
                                 </div>
-                                <span id="2-arrow" class="fa fa-chevron-down transition" style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down" data-chevron-active="fa-chevron-up">
+                                <span id="2-arrow" class="fa fa-chevron-down transition"
+                                    style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down"
+                                    data-chevron-active="fa-chevron-up">
                                 </span>
                             </a>
                             <div id="2-content" class="ct-2 dropdown-content" style="display:none;">
@@ -180,31 +181,41 @@
             <div class="ge-ct" style="display: flex;flex-direction: column;width: 100%;margin-top: 90px;">
                 <div id="content-wrapper" class="wr-tt ge-ct">
                     <div class="content ge-ct">
-                        <div style="display: flex; flex-direction: column;align-items: center;width: 100%;" class="ge-ct">
+                        <div style="display: flex; flex-direction: column;align-items: center;width: 100%;"
+                            class="ge-ct">
                             <div class="tooltip-container tp-cr">
                                 <div style="display: flex; width: 100%;">
                                     <!-- make the width responsive when zoom in out the window-->
-                                    <div id="splash" class="sp-a1 spl-st" style="display:flex;opacity:1;width:1400px;height:310px;">
-                                        <div class="background color-bg" style="background-image: linear-gradient(45deg, rgb(17,17,17), transparent), url(../Images/Background/Illumia_bg.jpg);">
+                                    <div id="splash" class="sp-a1 spl-st"
+                                        style="display:flex;opacity:1;width:1400px;height:310px;">
+                                        <div class="background color-bg"
+                                            style="background-image: linear-gradient(45deg, rgb(17,17,17), transparent), url(../Images/Background/Illumia_bg.jpg);">
                                         </div>
                                     </div>
                                     <div id="splash-content" style="position: relative;" class="spct-st">
                                         <div class="spct-inner">
                                             <div class="text">
                                                 <div style="display: flex;">
-                                                    <div class="image-inner" style="min-width: 120px;min-height: 120px;max-width: 120px;max-height: 120px;">
+                                                    <div class="image-inner"
+                                                        style="min-width: 120px;min-height: 120px;max-width: 120px;max-height: 120px;">
                                                         <a class="champ-img champ-style">
                                                         </a>
                                                         <div style="top: 105px;left:49px;position: absolute;width: 30px;height: 30px;
                                                         background-size: cover;" class="champ-role">
-                                                            <img class="img-role champ-style tooltipped" src="../Images/Role/wizard_role.png" alt="Wizard" style="width: 30px; height: 30px; border-radius: 50%;">
+                                                            <img class="img-role champ-style tooltipped"
+                                                                src="../Images/Role/wizard_role.png" alt="Wizard"
+                                                                style="width: 30px; height: 30px; border-radius: 50%;">
                                                         </div>
-                                                        <div class="champ-lane" style="top: 23px; left: 101px;position: absolute; width: 30px;height: 30px;border-radius: 50%;background-size: cover;">
-                                                            <img class="img-role champ-style tooltipped" src="../Images/Lane/mid_icon.png" alt="Mid" style="width: 30px;height: 30px; border-radius: 50%;">
+                                                        <div class="champ-lane"
+                                                            style="top: 23px; left: 101px;position: absolute; width: 30px;height: 30px;border-radius: 50%;background-size: cover;">
+                                                            <img class="img-role champ-style tooltipped"
+                                                                src="../Images/Lane/mid_icon.png" alt="Mid"
+                                                                style="width: 30px;height: 30px; border-radius: 50%;">
                                                         </div>
                                                     </div>
                                                     <div class="title">
-                                                        <h1 class="title-inner1" style="margin-left: 20px; font-size: 2em;font-weight: bold;line-height: 0.9;">
+                                                        <h1 class="title-inner1"
+                                                            style="margin-left: 20px; font-size: 2em;font-weight: bold;line-height: 0.9;">
                                                             <span style="display: flex;font-size: 30px;">
                                                                 Illumia Build Guide
                                                             </span>
@@ -216,13 +227,16 @@
                                             </div>
                                         </div>
                                         <div class="map-mode ch-ct">
-                                            <a href="#" class="active home-page ge-st" style="border-bottom-color: #fff;">
+                                            <a href="#" class="active home-page ge-st"
+                                                style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">5v5</span>
                                             </a>
-                                            <a href="3v3.html" class="3v3-page ge-st" style="border-bottom-color: #fff;">
+                                            <a href="3v3.html" class="3v3-page ge-st"
+                                                style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">3v3</span>
                                             </a>
-                                            <a href="1v1.html" class="1v1-page ge-st" style="border-bottom-color: #fff;">
+                                            <a href="1v1.html" class="1v1-page ge-st"
+                                                style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">1v1</span>
                                             </a>
                                             <div style="flex-basis: 100%; justify-content: flex-end; display: flex;">
@@ -302,7 +316,8 @@
                                 <div class="lane-content ch-ct">
                                     <a href="#" class="text-ac bot-ac" style="border-bottom-color: #fff;">
                                         <span>
-                                            <img class="lane-icon" src="../Images/Lane/top_icon.png" style="width: 20px; height: 20px;background-color: rgb(170, 152, 33);">
+                                            <img class="lane-icon" src="../Images/Lane/top_icon.png"
+                                                style="width: 20px; height: 20px;background-color: rgb(170, 152, 33);">
                                         </span>
                                         <span class="text-hover name-map">
                                             <span class="mid">Top lane</span>
@@ -310,7 +325,8 @@
                                     </a>
                                     <a href="#" class="text-ac ge-st" style="border-bottom-color: #fff;">
                                         <span>
-                                            <img class="lane-icon" src="../Images/Lane/jungle_icon.png" style="width: 20px; height: 20px;background-color: rgb(2, 248, 2);">
+                                            <img class="lane-icon" src="../Images/Lane/jungle_icon.png"
+                                                style="width: 20px; height: 20px;background-color: rgb(2, 248, 2);">
                                         </span>
                                         <span class="text-hover name-map">
                                             <span class="mid">Jungle lane</span>
@@ -318,7 +334,8 @@
                                     </a>
                                     <a href="#" class="active text-ac ge-st" style="border-bottom-color: #fff;">
                                         <span>
-                                            <img class="lane-icon" src="../Images/Lane/mid_icon.png" style="width: 20px; height: 20px;background-color: rgb(251, 175, 23);">
+                                            <img class="lane-icon" src="../Images/Lane/mid_icon.png"
+                                                style="width: 20px; height: 20px;background-color: rgb(251, 175, 23);">
                                         </span>
                                         <span class="text-hover name-map">
                                             <span class="mid">Mid lane</span>
@@ -326,7 +343,8 @@
                                     </a>
                                     <a href="#" class="text-ac ge-st" style="border-bottom-color: #fff;">
                                         <span>
-                                            <img class="lane-icon" src="../Images/Lane/adc_icon.png" style="width: 20px; height: 20px;background-color: rgb(255, 0, 0);">
+                                            <img class="lane-icon" src="../Images/Lane/adc_icon.png"
+                                                style="width: 20px; height: 20px;background-color: rgb(255, 0, 0);">
                                         </span>
                                         <span class="text-hover name-map">
                                             <span class="mid">ADC</span>
@@ -334,7 +352,8 @@
                                     </a>
                                     <a href="#" class="text-ac ge-st" style="border-bottom-color: #fff;">
                                         <span>
-                                            <img class="lane-icon" src="../Images/Lane/support_icon.png" style="width: 20px; height: 20px;background-color: rgb(20, 104, 89);">
+                                            <img class="lane-icon" src="../Images/Lane/support_icon.png"
+                                                style="width: 20px; height: 20px;background-color: rgb(20, 104, 89);">
                                         </span>
                                         <span class="text-hover name-map">
                                             <span class="mid">Support</span>
@@ -353,11 +372,14 @@
                                                 Best Illumia Summoner Spells
                                             </h2>
                                             <div class="bct-p">
-                                                <div style="width:100%;display:flex;align-items:center;justify-content: space-around;">
+                                                <div
+                                                    style="width:100%;display:flex;align-items:center;justify-content: space-around;">
                                                     <div style="margin-left: 48px;">
-                                                        <div style="gap: 3px;display: flex;padding:3px;" class="group-gap">
+                                                        <div style="gap: 3px;display: flex;padding:3px;"
+                                                            class="group-gap">
                                                             <div class="spell">
-                                                                <img src="../Images/Spell/Flash.png" style="width:42px;height:42px">
+                                                                <img src="../Images/Spell/Flash.png"
+                                                                    style="width:42px;height:42px">
                                                             </div>
                                                         </div>
                                                         <div style="display:flex;margin-top:6px">
@@ -382,7 +404,8 @@
                                                     <div style="display: flex;margin-top:6px;">
                                                         <div>
                                                             <div class="spell">
-                                                                <img class="other-spell" src="../Images/Spell/Heal.png" style="width:42px;height:42px">
+                                                                <img class="other-spell" src="../Images/Spell/Heal.png"
+                                                                    style="width:42px;height:42px">
                                                             </div>
                                                             <div class="rating">
                                                                 <div class="rating-inner" style="text-align:left;">
@@ -395,7 +418,9 @@
                                                         </div>
                                                         <div>
                                                             <div class="spell">
-                                                                <img class="other-spell" src="../Images/Spell/NgatNgu.png" style="width:42px;height:42px">
+                                                                <img class="other-spell"
+                                                                    src="../Images/Spell/NgatNgu.png"
+                                                                    style="width:42px;height:42px">
                                                             </div>
                                                             <div class="rating">
                                                                 <div class="rating-inner" style="text-align:left;">
@@ -408,7 +433,8 @@
                                                         </div>
                                                         <div>
                                                             <div class="spell">
-                                                                <img class="other-spell" src="../Images/Spell/Speed.png" style="width:42px;height:42px">
+                                                                <img class="other-spell" src="../Images/Spell/Speed.png"
+                                                                    style="width:42px;height:42px">
                                                             </div>
                                                             <div class="rating">
                                                                 <div class="rating-inner" style="text-align:left;">
@@ -429,7 +455,8 @@
                                             <h2 class="bct-title">
                                                 Best Illumia Starting Items
                                             </h2>
-                                            <div class="bct-p bct-bg" style="justify-content:space-around;align-items: center;">
+                                            <div class="bct-p bct-bg"
+                                                style="justify-content:space-around;align-items: center;">
                                                 <div style="display:flex;margin-top:1px;">
                                                     <div>
                                                         <div style="width:42px;height:52px;">
@@ -446,9 +473,11 @@
                                                     <div>
                                                         <div class="items group-gap items-bg" style="padding:3px">
                                                             <div style="display:flex;">
-                                                                <div style="width:42px;display:flex;justify-content:center;align-items:center;">
+                                                                <div
+                                                                    style="width:42px;display:flex;justify-content:center;align-items:center;">
                                                                     <div class="items-inner">
-                                                                        <img src="../Images/Items/SachPhep.png" style="width:42px;height:42px;">
+                                                                        <img src="../Images/Items/SachPhep.png"
+                                                                            style="width:42px;height:42px;">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -466,10 +495,13 @@
                                                 <div style="margin-top:1px">
                                                     <div class="items items-bg">
                                                         <div style="display: flex;">
-                                                            <div style="width:42px;height:52px;display:flex;justify-content:center;align-items:center">
+                                                            <div
+                                                                style="width:42px;height:52px;display:flex;justify-content:center;align-items:center">
                                                                 <div>
                                                                     <div class="items-inner">
-                                                                        <img src="../Images/Items/GiayThep.png" style="width:42px;height:42px;" alt="Sach Phep">
+                                                                        <img src="../Images/Items/GiayThep.png"
+                                                                            style="width:42px;height:42px;"
+                                                                            alt="Sach Phep">
                                                                     </div>
                                                                     <div class="rating">
                                                                         <div class="rating-inner">
@@ -482,7 +514,8 @@
                                                                 </div>
                                                                 <div>
                                                                     <div class="items-inner">
-                                                                        <img src="../Images/Items/NhanLapis.png" style="width:42px;height:42px;">
+                                                                        <img src="../Images/Items/NhanLapis.png"
+                                                                            style="width:42px;height:42px;">
                                                                     </div>
                                                                     <div class="rating">
                                                                         <div class="rating-inner">
@@ -495,7 +528,8 @@
                                                                 </div>
                                                                 <div>
                                                                     <div class="items-inner">
-                                                                        <img src="../Images/Items/DayChuyenMT.png" style="width:42px;height:42px;">
+                                                                        <img src="../Images/Items/DayChuyenMT.png"
+                                                                            style="width:42px;height:42px;">
                                                                     </div>
                                                                     <div class="rating">
                                                                         <div class="rating-inner">
@@ -520,7 +554,8 @@
                                             <h2 class="bct-title">Best Illumia Runes</h2>
 
                                             <div id="active-runes" class="bct-p bct-bg">
-                                                <div style="margin-top: -10px;width:100%;display:flex;justify-content:center;">
+                                                <div
+                                                    style="margin-top: -10px;width:100%;display:flex;justify-content:center;">
                                                     <div>
                                                         <div style="width:42px;height:79px;"></div>
                                                         <div class="rating">
@@ -532,57 +567,79 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div id="10-19-tab" class="tab-selected badge" style="cursor:pointer" onclick="tab('perks','10-19')">
+                                                    <div id="10-19-tab" class="tab-selected badge"
+                                                        style="cursor:pointer" onclick="tab('perks','10-19')">
                                                         <div class="perk-image drop-hover badge-st be">
-                                                            <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                                            <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                width="72" height="72">
                                                                 <circle cx="36" cy="36"="20" fill="black"></circle>
-                                                                <circle cx="36" cy="36"="20" fill="transparent" stroke="rgb(239, 227, 24)" stroke-width="2">
+                                                                <circle cx="36" cy="36"="20" fill="transparent"
+                                                                    stroke="rgb(239, 227, 24)" stroke-width="2">
                                                                 </circle>
-                                                                <image class="badge-img" x="0" y="0" height="72" width="72" xlink:href="../Images/PhuHieu/ThapQuangMinh.png" />
+                                                                <image class="badge-img" x="0" y="0" height="72"
+                                                                    width="72"
+                                                                    xlink:href="../Images/PhuHieu/ThapQuangMinh.png" />
                                                             </svg>
                                                         </div>
                                                         <div class="perk-image drop-hover badge-st be badge-2">
-                                                            <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="54" height="45">
+                                                            <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                width="54" height="45">
                                                                 <circle cx="27" cy="27" r="15" fill="black">
                                                                 </circle>
-                                                                <image class="badge-img" x="17" y="17" height="20" width="20" xlink:href="../Images/PhuHieu/ThanhKhoiNguyen.png" />
-                                                                <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(10, 0, 148)" stroke-width="2">
+                                                                <image class="badge-img" x="17" y="17" height="20"
+                                                                    width="20"
+                                                                    xlink:href="../Images/PhuHieu/ThanhKhoiNguyen.png" />
+                                                                <circle cx="27" cy="27" r="15" fill="transparent"
+                                                                    stroke="rgb(10, 0, 148)" stroke-width="2">
                                                                 </circle>
                                                             </svg>
                                                         </div>
                                                         <div class="rating" style="width:100%">
-                                                            <div class="rating-inner text-hover" style="text-align:center">
+                                                            <div class="rating-inner text-hover"
+                                                                style="text-align:center">
                                                                 <span class="win">100%</span>
                                                             </div>
-                                                            <div class="rating-inner text-hover" style="text-align:center">
+                                                            <div class="rating-inner text-hover"
+                                                                style="text-align:center">
                                                                 <span class="pick">100%</span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div id="19-10-tab" class="tab-selected badge" style="cursor:pointer" onclick="tab('perks','10-19')">
+                                                    <div id="19-10-tab" class="tab-selected badge"
+                                                        style="cursor:pointer" onclick="tab('perks','10-19')">
                                                         <div class="perk-image drop-hover badge-st be">
-                                                            <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                                            <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                width="72" height="72">
                                                                 <circle cx="36" cy="36" r="20" fill="black">
                                                                 </circle>
-                                                                <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(239, 227, 24)" stroke-width="2">
+                                                                <circle cx="36" cy="36" r="20" fill="transparent"
+                                                                    stroke="rgb(239, 227, 24)" stroke-width="2">
                                                                 </circle>
-                                                                <image class="badge-img" x="0" y="0" height="72" width="80" xlink:href="../Images/PhuHieu/ThanhKhoiNguyen.png" />
+                                                                <image class="badge-img" x="0" y="0" height="72"
+                                                                    width="80"
+                                                                    xlink:href="../Images/PhuHieu/ThanhKhoiNguyen.png" />
                                                             </svg>
                                                         </div>
                                                         <div class="perk-image drop-hover badge-st be badge-2">
-                                                            <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="54" height="45">
+                                                            <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                width="54" height="45">
                                                                 <circle cx="27" cy="27" r="15" fill="black">
                                                                 </circle>
-                                                                <image class="badge-img" x="17" y="17" height="20" width="20" xlink:href="../Images/PhuHieu/ThapQuangMinh.png" />
-                                                                <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(239, 219, 33)" stroke-width="2">
+                                                                <image class="badge-img" x="17" y="17" height="20"
+                                                                    width="20"
+                                                                    xlink:href="../Images/PhuHieu/ThapQuangMinh.png" />
+                                                                <circle cx="27" cy="27" r="15" fill="transparent"
+                                                                    stroke="rgb(239, 219, 33)" stroke-width="2">
                                                                 </circle>
                                                             </svg>
                                                         </div>
                                                         <div class="rating" style="width:100%">
-                                                            <div class="rating-inner text-hover" style="text-align:center">
+                                                            <div class="rating-inner text-hover"
+                                                                style="text-align:center">
                                                                 <span class="win">100%</span>
                                                             </div>
-                                                            <div class="rating-inner text-hover" style="text-align:center">
+                                                            <div class="rating-inner text-hover"
+                                                                style="text-align:center">
                                                                 <span class="pick">100%</span>
                                                             </div>
                                                         </div>
@@ -592,104 +649,146 @@
                                                     <div id="10-19-content" class="content-selected ct-sd">
                                                         <div style="display:flex;margin-bottom:-10px;margin-top:-30px;">
                                                             <div class="be badge-st">
-                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                    width="72" height="72">
                                                                     <circle cx="26" cy="36" r="25" fill="black">
                                                                     </circle>
-                                                                    <line x1="50" y1="36" x2="72" y2="36" style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                                    <line x1="50" y1="36" x2="72" y2="36"
+                                                                        style="stroke:rgb(251, 175, 23);stroke-width:2">
                                                                     </line>
-                                                                    <image class="badge-img" x="5" y="15" height="40" width="40" xlink:href="../Images/PhuHieu/ThapQuangMinh.png">
+                                                                    <image class="badge-img" x="5" y="15" height="40"
+                                                                        width="40"
+                                                                        xlink:href="../Images/PhuHieu/ThapQuangMinh.png">
                                                                     </image>
-                                                                    <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)" stroke-width="2">
+                                                                    <circle cx="26" cy="36" r="25" fill="transparent"
+                                                                        stroke="rgb(251, 175, 23)" stroke-width="2">
                                                                     </circle>
                                                                 </svg>
                                                             </div>
                                                             <div class="be badge-st">
-                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                    width="72" height="72">
                                                                     <circle cx="36" cy="36" r="10" fill="black">
                                                                     </circle>
-                                                                    <line x1="56" y1="36" x2="72" y2="36" style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                                    <line x1="56" y1="36" x2="72" y2="36"
+                                                                        style="stroke:rgb(251, 175, 23);stroke-width:2">
                                                                     </line>
-                                                                    <line x1="0" y1="36" x2="26" y2="36" style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                                    <line x1="0" y1="36" x2="26" y2="36"
+                                                                        style="stroke:rgb(251, 175, 23);stroke-width:2">
                                                                     </line>
-                                                                    <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(251, 175, 23)" stroke-width="2">
+                                                                    <circle cx="36" cy="36" r="10" fill="transparent"
+                                                                        stroke="rgb(251, 175, 23)" stroke-width="2">
                                                                     </circle>
-                                                                    <image class="badge-img" x="0" y="0" height="72" width="72" xlink:href="../Images/PhuHieu/ThanQuang.png">
+                                                                    <image class="badge-img" x="0" y="0" height="72"
+                                                                        width="72"
+                                                                        xlink:href="../Images/PhuHieu/ThanQuang.png">
                                                                     </image>
                                                                 </svg>
                                                             </div>
                                                             <div class="be badge-st">
-                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                    width="72" height="72">
                                                                     <circle cx="36" cy="36" r="20" fill="black">
                                                                     </circle>
-                                                                    <line x1="56" y1="36" x2="72" y2="36" style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                                    <line x1="56" y1="36" x2="72" y2="36"
+                                                                        style="stroke:rgb(251, 175, 23);stroke-width:2">
                                                                     </line>
-                                                                    <line x1="0" y1="36" x2="26" y2="36" style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                                    <line x1="0" y1="36" x2="26" y2="36"
+                                                                        style="stroke:rgb(251, 175, 23);stroke-width:2">
                                                                     </line>
-                                                                    <image class="badge-img" x="16" y="16" height="40" width="40" xlink:href="../Images/PhuHieu/BiQuyet.png">
+                                                                    <image class="badge-img" x="16" y="16" height="40"
+                                                                        width="40"
+                                                                        xlink:href="../Images/PhuHieu/BiQuyet.png">
                                                                     </image>
-                                                                    <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)" stroke-width="2">
+                                                                    <circle cx="36" cy="36" r="20" fill="transparent"
+                                                                        stroke="rgb(251, 175, 23)" stroke-width="2">
                                                                     </circle>
                                                                 </svg>
                                                             </div>
                                                             <div class="be badge-st">
-                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                    width="72" height="72">
                                                                     <circle cx="36" cy="36" r="20" fill="black">
                                                                     </circle>
-                                                                    <line x1="0" y1="36" x2="26" y2="36" style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                                    <line x1="0" y1="36" x2="26" y2="36"
+                                                                        style="stroke:rgb(251, 175, 23);stroke-width:2">
                                                                     </line>
-                                                                    <image class="badge-img" x="16" y="16" height="40" width="40" xlink:href="../Images/PhuHieu/ThanhChau.png">
+                                                                    <image class="badge-img" x="16" y="16" height="40"
+                                                                        width="40"
+                                                                        xlink:href="../Images/PhuHieu/ThanhChau.png">
                                                                     </image>
-                                                                    <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)" stroke-width="2">
+                                                                    <circle cx="36" cy="36" r="20" fill="transparent"
+                                                                        stroke="rgb(251, 175, 23)" stroke-width="2">
                                                                     </circle>
                                                                 </svg>
                                                             </div>
                                                         </div>
                                                         <div style="display:flex;flex-wrap:wrap;margin-bottom:-10px;">
                                                             <div class="be badge-st">
-                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                    width="72" height="72">
                                                                     <circle cx="26" cy="36" r="25" fill="black">
                                                                     </circle>
-                                                                    <line x1="50" y1="36" x2="72" y2="36" style="stroke:rgb(10,0,148);stroke-width:2">
+                                                                    <line x1="50" y1="36" x2="72" y2="36"
+                                                                        style="stroke:rgb(10,0,148);stroke-width:2">
                                                                     </line>
-                                                                    <image class="badge-img" x="7" y="15" height="40" width="40" xlink:href="../Images/PhuHieu/ThanhKhoiNguyen.png">
+                                                                    <image class="badge-img" x="7" y="15" height="40"
+                                                                        width="40"
+                                                                        xlink:href="../Images/PhuHieu/ThanhKhoiNguyen.png">
                                                                     </image>
-                                                                    <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(10,0,148)" stroke-width="2">
+                                                                    <circle cx="26" cy="36" r="25" fill="transparent"
+                                                                        stroke="rgb(10,0,148)" stroke-width="2">
                                                                     </circle>
                                                                 </svg>
                                                             </div>
                                                             <div class="be badge-st">
-                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                    width="72" height="72">
                                                                     <circle cx="36" cy="36" r="20" fill="black">
                                                                     </circle>
-                                                                    <line x1="0" y1="36" x2="26" y2="36" style="stroke:rgb(10,0,148);stroke-width:2">
+                                                                    <line x1="0" y1="36" x2="26" y2="36"
+                                                                        style="stroke:rgb(10,0,148);stroke-width:2">
                                                                     </line>
-                                                                    <image class="badge-img" x="16" y="16" height="40" width="40" xlink:href="../Images/PhuHieu/MatNgu.png">
+                                                                    <image class="badge-img" x="16" y="16" height="40"
+                                                                        width="40"
+                                                                        xlink:href="../Images/PhuHieu/MatNgu.png">
                                                                     </image>
-                                                                    <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(10,0,148)" stroke-width="2">
+                                                                    <circle cx="36" cy="36" r="20" fill="transparent"
+                                                                        stroke="rgb(10,0,148)" stroke-width="2">
                                                                     </circle>
                                                                 </svg>
                                                             </div>
                                                             <div class="be badge-st">
-                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                    width="72" height="72">
                                                                     <circle cx="36" cy="36" r="25" fill="black">
                                                                     </circle>
-                                                                    <line x1="50" y1="36" x2="72" y2="36" style="stroke:rgb(10,0,148);stroke-width:2">
+                                                                    <line x1="50" y1="36" x2="72" y2="36"
+                                                                        style="stroke:rgb(10,0,148);stroke-width:2">
                                                                     </line>
-                                                                    <image class="badge-img" x="17" y="15" height="40" width="40" xlink:href="../Images/PhuHieu/ThanhKhoiNguyen.png">
+                                                                    <image class="badge-img" x="17" y="15" height="40"
+                                                                        width="40"
+                                                                        xlink:href="../Images/PhuHieu/ThanhKhoiNguyen.png">
                                                                     </image>
-                                                                    <circle cx="36" cy="36" r="25" fill="transparent" stroke="rgb(10,0,148)" stroke-width="2">
+                                                                    <circle cx="36" cy="36" r="25" fill="transparent"
+                                                                        stroke="rgb(10,0,148)" stroke-width="2">
                                                                     </circle>
                                                                 </svg>
                                                             </div>
                                                             <div class="be badge-st">
-                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1"
+                                                                    width="72" height="72">
                                                                     <circle cx="36" cy="36" r="20" fill="black">
                                                                     </circle>
-                                                                    <line x1="0" y1="36" x2="26" y2="36" style="stroke:rgb(10,0,148);stroke-width:2">
+                                                                    <line x1="0" y1="36" x2="26" y2="36"
+                                                                        style="stroke:rgb(10,0,148);stroke-width:2">
                                                                     </line>
-                                                                    <image class="badge-img" x="16" y="16" height="40" width="40" xlink:href="../Images/PhuHieu/QuaCauBS.png">
+                                                                    <image class="badge-img" x="16" y="16" height="40"
+                                                                        width="40"
+                                                                        xlink:href="../Images/PhuHieu/QuaCauBS.png">
                                                                     </image>
-                                                                    <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(10,0,148)" stroke-width="2">
+                                                                    <circle cx="36" cy="36" r="20" fill="transparent"
+                                                                        stroke="rgb(10,0,148)" stroke-width="2">
                                                                     </circle>
                                                                 </svg>
                                                             </div>
@@ -700,11 +799,14 @@
                                         </div>
                                     </div>
                                     <div class="bct-text ct-grid" style="flex-direction:column;">
-                                        <d class="bct-bg" style="display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:5px;">
+                                        <d class="bct-bg"
+                                            style="display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:5px;">
                                             <h2 class="bct-title">Best Illumia Item Build</h2>
                                             <div class="bct-p">
-                                                <div style="width:100%;display:flex;justify-content:space-around;flex-wrap:wrap" class="content-details">
-                                                    <div style="display:flex;align-items:center;justify-content:center;">
+                                                <div style="width:100%;display:flex;justify-content:space-around;flex-wrap:wrap"
+                                                    class="content-details">
+                                                    <div
+                                                        style="display:flex;align-items:center;justify-content:center;">
                                                         <?php
                                                         $itemNum = "46,53,58,60,61,62";
                                                         $row_array = explode(',', $itemNum);
@@ -729,15 +831,18 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="bct-bg" style="display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:5px;">
+                                            <div class="bct-bg"
+                                                style="display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:5px;">
                                                 <h2 class="bct-title">Best Illumia Skill Order</h2>
                                                 <div class="bct-p">
-                                                    <table class="skill-table sl-te" style="border-top:1px solid black;border-bottom:1px solid black;margin-bottom:5px;">
+                                                    <table class="skill-table sl-te"
+                                                        style="border-top:1px solid black;border-bottom:1px solid black;margin-bottom:5px;">
                                                         <tbody>
                                                             <tr class="skills">
                                                                 <th class="skill-inner">
                                                                     <div class="skills-st">
-                                                                        <img src="../Images/Skills/Illumia/NoiTai.png" style="width:20px;height:20px">
+                                                                        <img src="../Images/Skills/Illumia/NoiTai.png"
+                                                                            style="width:20px;height:20px">
                                                                     </div>
                                                                 </th>
                                                                 <th class="skill-inner">1</th>
@@ -759,7 +864,8 @@
                                                             <tr class="skills">
                                                                 <td class="skill-inner">
                                                                     <div class="skill-st">
-                                                                        <img src="../Images/Skills/Illumia/QuaCauAS_1.png" style="width:20px;height:20px">
+                                                                        <img src="../Images/Skills/Illumia/QuaCauAS_1.png"
+                                                                            style="width:20px;height:20px">
                                                                     </div>
                                                                 </td>
                                                                 <td class="skill-inner skill-active">X</td>
@@ -782,7 +888,8 @@
                                                             <tr class="skills">
                                                                 <td class="skill-inner">
                                                                     <div class="skill-st">
-                                                                        <img src="../Images/Skills/Illumia/TrucXuat_2.png" style="width:20px;height:20px">
+                                                                        <img src="../Images/Skills/Illumia/TrucXuat_2.png"
+                                                                            style="width:20px;height:20px">
                                                                     </div>
                                                                 </td>
                                                                 <td class="skill-inner"></td>
@@ -805,7 +912,8 @@
                                                             <tr class="skills">
                                                                 <td class="skill-inner">
                                                                     <div class="skill-st">
-                                                                        <img src="../Images/Skills/Illumia/ThanTran_3.png" style="width:20px;height:20px">
+                                                                        <img src="../Images/Skills/Illumia/ThanTran_3.png"
+                                                                            style="width:20px;height:20px">
                                                                     </div>
                                                                 </td>
                                                                 <td class="skill-inner"></td>
@@ -878,11 +986,11 @@
     <script type="text/javascript" src="../JS/Home.js"></script>
     <?php
     // Start the session
-    $username = $_SESSION['username'];
+    $username = $_SESSION['user'];
     // Check if the session variable username is set
-    if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['user'])) {
     ?>
-        <?php echo '
+    <?php echo '
     <script>
     // using JS to change the login and register button to user name and logout button if session is set
     var show_log = document.getElementById("login");
@@ -897,7 +1005,7 @@
     <?php
     } else {
     ?>
-        <?php echo '
+    <?php echo '
     <script>
         // Print back the login and register button if session variable username is not set
         <a href="../PHP/User/login.php">Đăng nhập</a>

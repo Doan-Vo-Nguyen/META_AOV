@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
     if ($username == $row['user_name'] && $password == $row['user_pass']) {
-        $_SESSION['username'] = $row['user_name'];
+        $_SESSION['user'] = $row['user_name'];
         echo "<script>alert('Login successfully')</script>";
         header("Location: ../Home.php");
         exit;

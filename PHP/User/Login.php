@@ -39,6 +39,9 @@
                         <a href="../User/Register.php" class="reg-link">Register</a>
                     </p>
                 </div>
+                <div class="home-back">
+                    <a href="../Home.php">Back to Home</a>
+                </div>
             </form>
         </div>
     </div>
