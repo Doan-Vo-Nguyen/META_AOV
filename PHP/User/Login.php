@@ -40,7 +40,7 @@
                     </p>
                 </div>
                 <div class="home-back">
-                    <a href="../Home.php">Back to Home</a>
+                    <a href="../5v5/Home.php">Back to Home</a>
                 </div>
             </form>
         </div>

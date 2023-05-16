@@ -12,12 +12,12 @@
     <meta name="description" content="Meta Liên Quân's Homepage">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>META Liên Quân</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/Home.css">
-    <link rel="stylesheet" href="../Extension/font-awesome.css">
-    <link rel="stylesheet" href="../CSS/jquery.typeahead.min.css">
+    <link rel="stylesheet" href="../../CSS/Home.css">
+    <link rel="stylesheet" href="../../Extension/font-awesome.css">
+    <link rel="stylesheet" href="../../CSS/jquery.typeahead.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.3/typeahead.jquery.min.js">
 
-    <link rel="icon" href="../Images/Icon-Logo/unnamed.png" type="image/x-icon">
+    <link rel="icon" href="../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
 </head>
 
 <body class="wrapper-page" style="background-position-y: 0px !important;">
@@ -33,7 +33,8 @@
                                 <div class="typeahead__query" style="font-size:12px;">
                                     <div class="bx-search">
                                         <form class="search search-first">
-                                            <input id="nav-search-input" class="input-bx1 typeahead" name="search" placeholder="Tìm kiếm...">
+                                            <input id="nav-search-input" class="input-bx1 typeahead" name="search"
+                                                placeholder="Tìm kiếm...">
                                         </form>
                                     </div>
                                 </div>
@@ -75,7 +76,8 @@
             <div class="head-inner logo-team">
                 <div style="width:100%">
                     <a href="#" style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../Images/Icon-Logo/N5-removebg-preview.png" alt="logo" style="width:32px;height:32px;">
+                        <img src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                            style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
                     </a>
@@ -84,10 +86,10 @@
             <div class="head-inner logo-team" style="width:450px;">
                 <ul class="menu-top">
                     <li>
-                        <a id="signup" href="../PHP/User/Register.php">Đăng ký</a>
+                        <a id="signup" href="../../PHP/User/Register.php">Đăng ký</a>
                     </li>
                     <li>
-                        <a id="login" href="../PHP/User/Login.php">Đăng nhập</a>
+                        <a id="login" href="../../PHP/User/Login.php">Đăng nhập</a>
                     </li>
 
                 </ul>
@@ -101,7 +103,8 @@
                         <div class="content-logo" style="margin-bottom:20px">
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <img class="img-pos" src="../Images/Icon-Logo/N5-removebg-preview.png" alt="logo" style="width:32px;height:32px;">
+                                    <img class="img-pos" src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                                        style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <b class="f-word word">META</b>
                                         <b class="s-word word">aov</b>
@@ -113,23 +116,25 @@
                             <a id="1-dropdown" class="nav-dropdown item-logo nav-item" onclick="navDropdown('1');">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <b class="patch" style="display:flex;justify-content:center;font-size:17px;">5v5</b>
-                                    <span class="text-logo logo-st" style="position:relative;left:-15px;">Chế độ
+                                    <span class="text-logo logo-st" style="position:relative;left:-10px;">Chế độ
                                         <b>5v5</b>
                                     </span>
                                 </div>
-                                <span id="1-arrow" class="fa fa-chevron-down transition" style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down" data-chevron-active="fa-chevron-up">
+                                <span id="1-arrow" class="fa fa-chevron-down transition"
+                                    style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down"
+                                    data-chevron-active="fa-chevron-up">
                                 </span>
                             </a>
                             <div id="1-content" class="otherCt-1 dropdown-content" style="display:none;">
                                 <div>
-                                    <a href="../PHP/3v3.php" class="item-logo nav-item">
+                                    <a href="../PHP/../3v3/3v3.php" class="item-logo nav-item">
                                         <div style="display:flex;justify-content:center;align-items:center;">
                                             <b class="text-logo logo-st">3v3</b>
                                         </div>
                                     </a>
                                 </div>
                                 <div>
-                                    <a href="../PHP/1v1.php" class="item-logo nav-item">
+                                    <a href="../PHP/../1v1/1v1.php" class="item-logo nav-item">
                                         <div style="display:flex;justify-content:center;align-items:center;">
                                             <b class="text-logo logo-st">1v1</b>
                                         </div>
@@ -140,26 +145,29 @@
                         <div class="menu-item info-link">
                             <a id="2-dropdown" class="nav-dropdown item-logo nav-item" onclick="navDropdown('2');">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <b class="patch" style="display:flex;justify-content:center;font-size:17px;text-align:center">13.07</b>
-                                    <span class="text-logo logo-st" style="position:relative;left:-35px;">Patch
-                                        <b>13.07</b>
+                                    <b class="patch"
+                                        style="display:flex;justify-content:center;font-size:17px;text-align:center;">24</b>
+                                    <span class="text-logo logo-st" style="position:relative;">Patch
+                                        <b>24</b>
                                     </span>
                                 </div>
-                                <span id="2-arrow" class="fa fa-chevron-down transition" style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down" data-chevron-active="fa-chevron-up">
+                                <span id="2-arrow" class="fa fa-chevron-down transition"
+                                    style="min-width:12px;margin-left:5px;" data-chevron-idle="fa-chevron-down"
+                                    data-chevron-active="fa-chevron-up">
                                 </span>
                             </a>
                             <div id="2-content" class="ct-2 dropdown-content" style="display:none;">
                                 <div>
                                     <div class="item-logo nav-item">
                                         <div style="display:flex;justify-content:center;align-items:center;">
-                                            <b class="text-logo logo-st">13.06</b>
+                                            <b class="text-logo logo-st">23</b>
                                         </div>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="item-logo nav-item">
                                         <div style="display:flex;justify-content:center;align-items:center;">
-                                            <b class="text-logo logo-st">13.05</b>
+                                            <b class="text-logo logo-st">22</b>
                                         </div>
                                     </div>
                                 </div>
@@ -176,7 +184,7 @@
                             </a>
                         </div>
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Home.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item" href="Stats.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="stats-chart"></ion-icon>
@@ -186,7 +194,7 @@
                             </a>
                         </div>
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Home.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item" href="Plot.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="book"></ion-icon>
@@ -195,12 +203,22 @@
                                 </div>
                             </a>
                         </div>
+                        <div class="menu-item no-button">
+                            <a class="item-logo nav-item" href="Update.php" style="padding-left: 14px;">
+                                <div style="display: flex;justify-content: center;align-items: center;">
+                                    <span style="width: 32px;height: 32px;" data-loaded="true">
+                                        <ion-icon name="cog"></ion-icon>
+                                    </span>
+                                    <div class="text-logo logo-st">Update</div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="empty-wrapper">
-                    <div>
-                        <a href="https://lienquan.garena.vn/" target="_blank">
-                        </a>
+                    <div class="empty-wrapper">
+                        <div>
+                            <a href="https://lienquan.garena.vn/" target="_blank">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -215,13 +233,15 @@
                     <div class="ct-wr ge-ct">
                         <div style="display:flex;flex-direction:column;align-items:center;width:100%" class="ge-ct">
                             <div class="tooltip-container para">
-                                <div style="display: flex;flex-direction: column;align-items: center;margin-top: 10vh;margin-bottom: 10vh;">
+                                <div
+                                    style="display: flex;flex-direction: column;align-items: center;margin-top: 10vh;margin-bottom: 10vh;">
                                     <div style="width: 100%;max-width: 500px;">
-                                        <h1 style="display:flex;flex-direction:column;text-align:center;margin-bottom:3px;">
+                                        <h1
+                                            style="display:flex;flex-direction:column;text-align:center;margin-bottom:3px;">
                                             <div class="text-details" style="margin-bottom:2px;">
                                                 <span style="display:none;">META AOV - Xây dựng lối chơi, thống
                                                     kê,
-                                                    cập nhật và xếp hạng Patch 13.07 </span>
+                                                    cập nhật và xếp hạng Patch 24 </span>
                                                 <div class="detail-title">
                                                     <div class="logo-text">
                                                         <a class="text" style="font-size:32px;" href="#">
@@ -232,23 +252,27 @@
                                                 </div>
                                                 <div class="sub-title" style="font-weight:normal;margin:15px;">
                                                     <div class="sub-title-text">
-                                                        Xây dựng lối chơi, thống kê, cập nhật và xếp hạng Patch 13.07
+                                                        Xây dựng lối chơi, thống kê, cập nhật và xếp hạng Patch
+                                                        24
                                                     </div>
                                                 </div>
-                                                <div style="display:flex;justify-content:center;align-items:center;font-weight:normal;padding-top:10px;" class="sub-title">
+                                                <div style="display:flex;justify-content:center;align-items:center;font-weight:normal;padding-top:10px;"
+                                                    class="sub-title">
                                                     <a style="color:#fbaf17;margin:5px;" class="mode" href="#">
                                                         <span class="text-underline">5v5</span>
                                                     </a>
                                                     <span>
                                                         <ion-icon name="remove"></ion-icon>
                                                     </span>
-                                                    <a style="color:inherit;margin:5px;" class="mode" href="../PHP/3v3.php">
+                                                    <a style="color:inherit;margin:5px;" class="mode"
+                                                        href="../PHP/../3v3/3v3.php">
                                                         <span class="text-underline">3v3</span>
                                                     </a>
                                                     <span>
                                                         <ion-icon name="remove"></ion-icon>
                                                     </span>
-                                                    <a style="color:inherit;margin:5px;" class="mode" href="../PHP/1v1.php">
+                                                    <a style="color:inherit;margin:5px;" class="mode"
+                                                        href="../PHP/../1v1/1v1.php">
                                                         <span class="text-underline">1v1</span>
                                                     </a>
                                                 </div>
@@ -258,7 +282,8 @@
                                             <div id="home-search-inner" class="search-in" style="margin-bottom:20px;">
                                                 <div class="bx-search">
                                                     <form class="search search-second">
-                                                        <input type="text" class="input-bx2" id="filter-home-name" placeholder="Tìm kiếm...">
+                                                        <input type="text" class="input-bx2" id="filter-home-name"
+                                                            placeholder="Tìm kiếm...">
                                                     </form>
                                                 </div>
                                             </div>
@@ -279,36 +304,36 @@
                                     <div class="table-st te-st" style="height: 100%;min-height: 645px;">
                                         <ul class="list-champ">
                                             <?php
-                                            require 'connect.php';
-                                            $sql_champ = "SELECT * FROM champions";
-                                            $sql_role = "SELECT * FROM role_champions, champions
-                                            WHERE role_champions.id_role = champions.id_role";
-                                            $result = mysqli_query($conn, $sql_role);
-                                            if (mysqli_num_rows($result) > 0) {
-                                                while ($row = mysqli_fetch_assoc($result)) {
-                                                    $id = $row['ID'];
-                                                    $name = $row['champ_Name'];
-                                                    $image = $row['image'];
-                                                    $role_name = $row['name_role'];
-                                                    $id_role = $row['id_role'];
-                                                    echo '<li id="champion-' . $id . '" class="list-champion">
-                                                        <span class="serial" tag="' . $id . '"
-                                                            type="' . $id_role . '" style="display: none">' . $name . '</span>
-                                                        <div class="champions">
-                                                            <a class = "champion-items" href="' . $name . '.php" data-search-terms-like="' . $name . '|' . $name . '" data-search-terms-exact = "' . $role_name . '|' . $role_name . '">
-                                                                <img src="../Images/Champions/' . $image . '" alt="champion">
-                                                            </a>
-                                                            <p style="white-space: nowrap;" class="name">' . $name . '</p>
-                                                        </div>
-                                                </li>';
-                                                }
-                                            }
+                                            require 'paging.php';
                                             ?>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="paging">
+                        <?php
+
+                                        //if current_page > 1 and $number_of_page > 1 show link to go back to previous page
+                                        if ($current_page > 1 && $number_of_page > 1) {
+                                            echo '<a href="Home.php?page=' . ($current_page - 1) . '" class="page">Prev</a>';
+                                        }
+
+                                        // Loop 
+                                        for ($i = 1;$i <= $number_of_page;$i++) {
+                                            if($i == $current_page) {
+                                                echo '<span>' . $i . '</span> | ';
+                                            }
+                                            else
+                                            {
+                                                echo '<a href="Home.php?page=' . $i . '" class="page">' . $i . '</a> | ';
+                                            }
+                                        }
+                                        if ($current_page < $number_of_page && $number_of_page > 1){
+                                            echo '<a href="Home.php?page='.($current_page+1).'">Next</a> | ';
+                                        }
+                                        ?>
                     </div>
                 </div>
             </div>
@@ -322,27 +347,30 @@
                         <div class="left-grid">
                             <div class="left-para">
                                 <div class="para-title">AOV 5v5 items</div>
-                                <a href="Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Home</span>
                                 </a>
-                                <a href="Champions.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Stats</span>
                                 </a>
-                                <a href="Items.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="Plot.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Plot</span>
+                                </a>
+                                <a href="Update.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Updates</span>
                                 </a>
                             </div>
                         </div>
                         <div class="left-grid">
                             <div class="left-para">
                                 <div class="para-title">AOV mode</div>
-                                <a href="Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">5v5</span>
                                 </a>
-                                <a href="Champions.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">3v3</span>
                                 </a>
-                                <a href="Items.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">1v1</span>
                                 </a>
                             </div>
@@ -370,7 +398,7 @@
                     </div>
                     <div class="right-text">
                         <div class="right-para">
-                            <img src="../Images/Icon-Logo/N5-removebg-preview.png" alt="Logo">
+                            <img src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="Logo">
                         </div>
                     </div>
                 </div>
@@ -380,17 +408,16 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../JS/navigation.js"></script>
-    <script type="text/javascript" src="../JS/Home.js"></script>
-    <script type="text/javascript" src="../JS/metaaov.js"></script>
-
+    <script type="text/javascript" src="../../JS/navigation.js"></script>
+    <script type="text/javascript" src="../../JS/Home.js"></script>
+    <script type="text/javascript" src="../../JS/metaaov.js"></script>
     <?php
     // Start the session
     $username = $_SESSION['user'];
     // Check if the session variable username is set
-    if (isset($_SESSION['user'])) {
+    if (isset($username)) {
     ?>
-        <?php echo '
+    <?php echo '
     <script>
     // using JS to change the login and register button to user name and logout button if session is set
     var show_log = document.getElementById("login");
@@ -405,7 +432,7 @@
     <?php
     } else {
     ?>
-        <?php echo '
+    <?php echo '
     <script>
         // Print back the login and register button if session variable username is not set
         <a href="../PHP/User/login.php">Đăng nhập</a>

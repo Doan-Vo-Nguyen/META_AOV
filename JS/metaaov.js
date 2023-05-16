@@ -73,10 +73,6 @@ function noInputSearch(e, t, a) {
     search(e, t, a)
 }
 
-function buildGlobalUrl(e) {
-    return buildUrl(window.defaults.region, mode(), version(), e, window.defaults.map, window.defaults.ranks)
-}
-
 function setupSearch(e) {
     getSearchItems().then(t=>{
         var a = $(e);
@@ -173,4 +169,25 @@ function setupSearch(e) {
         }
     }
     )
+}
+
+function tab(e, t) {
+    return "#" !== e[0] && (e = "#" + e),
+    "#" !== t[0] && (t = "#" + t),
+    $(e + " .tab-selected").removeClass("tab-selected"),
+    $(e + " .content-selected").removeClass("content-selected").addClass("hidden"),
+    $(e + " " + t + "-tab").addClass("tab-selected"),
+    $(e + " " + t + "-content").removeClass("hidden").addClass("content-selected"),
+    !1
+}
+
+function getCheckBoxFilters(e) {
+    for (var t = $(e + ":checked").get(), a = [], n = !1, i = 0; i < t.length; i++) {
+        var l = $(t[i]).val();
+        if (a.push(l),
+        n = "all" === l)
+            break
+    }
+    return n && (a = "all"),
+    a
 }

@@ -82,3 +82,7 @@ right-text: text ben phai
 right-para: para ben phai
 
 
+-------------------------STATS-----------------------------------
+rating-cell: cell cua bang rating
+rating-st: setting cua rating(hover)
+

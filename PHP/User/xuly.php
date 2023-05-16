@@ -1,5 +1,5 @@
 <?php
-require '../connect.php';
+require '../5v5/connect.php';
 session_start();
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     if ($username == $row['user_name'] && $password == $row['user_pass']) {
         $_SESSION['user'] = $row['user_name'];
         echo "<script>alert('Login successfully')</script>";
-        header("Location: ../Home.php");
+        header("Location: ../5v5/Home.php");
         exit;
     } else {
         echo "<script>alert('Invalid email or password')</script>";

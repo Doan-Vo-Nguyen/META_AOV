@@ -87,14 +87,3 @@ $(document).ready(function () {
         return champions;
     }
 });
-
-function disableScroll() {
-    let e = window.scrollY || document.documentElement.scrollTop
-      , t = window.scrollX || document.documentElement.scrollLeft;
-    window.onscroll = function() {
-        window.scrollTo(t, e)
-    }
-}
-function enableScroll() {
-    window.onscroll = function() {}
-}
