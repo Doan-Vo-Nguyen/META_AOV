@@ -26,7 +26,6 @@ else if ($current_page < 1)
     while ($row=mysqli_fetch_assoc($result_paging)) {
     $id=$row['ID'];
     $name=$row['champ_Name'];
-    $folder = $row['champ_Name'];
     $image=$row['image'];
     $role_name=$row['name_role'];
     $id_role=$row['id_role'];
@@ -34,7 +33,7 @@ else if ($current_page < 1)
                                                 <span class="serial" tag="' . $id . '"
                                                     type="' . $id_role . '" style="display: none">' . $name . '</span>
                                                 <div class="champions">
-                                                    <a class = "champion-items" href="../Champions/' . $folder . '/3v3.php" data-search-terms-like="' . $name . '|' . $name . '" data-search-terms-exact = "' . $role_name . '|' .$role_name . '">
+                                                    <a class = "champion-items" href="../3v3/Champion/' . $name . '" data-search-terms-like="' . $name . '|' . $name . '" data-search-terms-exact = "' . $role_name . '|' .$role_name . '">
                                                         <img src="../../Images/Champions/' . $image . '" alt="champion">
                                                     </a>
                                                     <p style="white-space: nowrap;" class="name">' . $name . '</p>

@@ -35,7 +35,7 @@ else if ($current_page < 1)
         <span class="serial" tag="' . $id . '"
             type="' . $id_role . '" style="display: none">' . $name . '</span>
         <div class="champions">
-            <a class = "champion-items" href="../Champions/' . $name . '/' . $lane . '.php?name=' . $name . '&lane='.$lane.'">
+            <a class = "champion-items" href="../5v5/Champions/' . $name . '/' . $lane . '.php?name=' . $name . '&lane='.$lane.'">
                 <img src="../../Images/Champions/' . $image . '" alt="champion">
             </a>
             <p style="white-space: nowrap;" class="name">' . $name . '</p>

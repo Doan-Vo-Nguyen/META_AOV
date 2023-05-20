@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php
-// setcookie('username', '$_SESSION['user'], time() + 60, '/');
+// setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
 ?>
 <!DOCTYPE html>
 <html lang="vi" class="nav-collapsed">
@@ -12,10 +12,10 @@
     <meta name="description" content="Meta Liên Quân's Homepage">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>META Liên Quân</title>
-    <link rel="stylesheet" type="text/css" href="../../CSS/Home.css">
-    <link rel="stylesheet" type="text/css" href="../../CSS/3v3.css">
+    <link rel="stylesheet" href="../../CSS/Home.css">
     <link rel="stylesheet" href="../../Extension/font-awesome.css">
     <link rel="stylesheet" href="../../CSS/jquery.typeahead.min.css">
+    <link rel="stylesheet" href="../../CSS/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.3/typeahead.jquery.min.js">
 
     <link rel="icon" href="../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
@@ -26,21 +26,8 @@
         <!--Header-->
         <div id="nav-wrapper" class="head info-tab">
             <div class="head-inner">
-                <div id="nav-search" style="display:flex;align-items:center;font-size:10px;">
-                    <div id="nav-search-inner" class="searching">
-                        <div class="typeahead__container">
-                            <div class="typeahead__query" style="font-size:12px;">
-                                <div class="bx-search">
-                                    <form class="search search-first">
-                                        <input id="nav-search-input" class="input-bx1 typeahead"
-                                            placeholder="Tìm kiếm...">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <!-- Logo and right menu content( Login, Register, ... ) -->
             <div class="head-inner logo-team">
                 <div style="width:100%">
                     <a href="../5v5/Home.php"
@@ -65,7 +52,7 @@
             </div>
         </div>
         <!--Menu-->
-        <div id="menu-wrapper" class="mu-wr _bca1">
+        <div id=" menu-wrapper" class="mu-wr _bca1">
             <div id="nav-menu" class="tab-link info-tab">
                 <div class="menu-inner">
                     <div class="info-tab">
@@ -84,9 +71,9 @@
                         <div class="menu-item info-link">
                             <a id="1-dropdown" class="nav-dropdown item-logo nav-item" onclick="navDropdown('1');">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <b class="patch" style="display:flex;justify-content:center;font-size:17px;">3v3</b>
+                                    <b class="patch" style="display:flex;justify-content:center;font-size:17px;">5v5</b>
                                     <span class="text-logo logo-st" style="position:relative;left:-10px;">Chế độ
-                                        <b>3v3</b>
+                                        <b>5v5</b>
                                     </span>
                                 </div>
                                 <span id="1-arrow" class="fa fa-chevron-down transition"
@@ -96,14 +83,14 @@
                             </a>
                             <div id="1-content" class="otherCt-1 dropdown-content" style="display:none;">
                                 <div>
-                                    <a href="../5v5/Home.php" class="item-logo nav-item">
+                                    <a href="../PHP/../3v3/3v3.php" class="item-logo nav-item">
                                         <div style="display:flex;justify-content:center;align-items:center;">
-                                            <b class="text-logo logo-st">5v5</b>
+                                            <b class="text-logo logo-st">3v3</b>
                                         </div>
                                     </a>
                                 </div>
                                 <div>
-                                    <a href="../1v1/1v1.php" class="item-logo nav-item">
+                                    <a href="../PHP/../1v1/1v1.php" class="item-logo nav-item">
                                         <div style="display:flex;justify-content:center;align-items:center;">
                                             <b class="text-logo logo-st">1v1</b>
                                         </div>
@@ -115,7 +102,7 @@
                             <a id="2-dropdown" class="nav-dropdown item-logo nav-item" onclick="navDropdown('2');">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <b class="patch"
-                                        style="display:flex;justify-content:center;font-size:17px;text-align:center">24</b>
+                                        style="display:flex;justify-content:center;font-size:17px;text-align:center;">24</b>
                                     <span class="text-logo logo-st" style="position:relative;">Patch
                                         <b>24</b>
                                     </span>
@@ -153,7 +140,7 @@
                             </a>
                         </div>
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Stats_3v3.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item" href="Stats.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="stats-chart"></ion-icon>
@@ -163,122 +150,70 @@
                             </a>
                         </div>
                     </div>
-                </div>
-                <div class="empty-wrapper">
-                    <div>
-                        <a href="https://lienquan.garena.vn/" target="_blank">
-                        </a>
+                    <div class="empty-wrapper">
+                        <div>
+                            <a href="https://lienquan.garena.vn/" target="_blank">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!--Content-->
         <div class="ct-02 ge-ct">
+            <!-- The div container for the left sidebar -->
             <div class="ep-ct"></div>
+            <!-- The div contain for the main content -->
             <div class="ge-ct" style="display:flex;flex-direction:column;width:100%;margin-top:90px;">
                 <div id="content-wrapper" class="ge-ct wr-tt">
                     <div class="ct-wr ge-ct">
                         <div style="display:flex;flex-direction:column;align-items:center;width:100%" class="ge-ct">
-                            <div class="tooltip-container para">
-                                <div
-                                    style="display: flex;flex-direction: column;align-items: center;margin-top: 10vh;margin-bottom: 10vh;">
-                                    <div style="width: 100%;max-width: 500px;">
-                                        <h1
-                                            style="display:flex;flex-direction:column;text-align:center;margin-bottom:3px;">
-                                            <div class="text-details" style="margin-bottom:2px;">
-                                                <span style="display:none;">META AOV - Xây dựng lối chơi, thống
-                                                    kê,
-                                                    cập nhật và xếp hạng Patch 24 </span>
-                                                <div class="detail-title">
-                                                    <div class="logo-text">
-                                                        <a class="text" style="font-size:32px;" href="#">
-                                                            <span class="f-color">META</span>
-                                                            <span>aov</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="sub-title" style="font-weight:normal;margin:15px;">
-                                                    <div class="sub-title-text">
-                                                        Xây dựng lối chơi, thống kê, cập nhật và xếp hạng Patch 24
-                                                    </div>
-                                                </div>
-                                                <div style="display:flex;justify-content:center;align-items:center;font-weight:normal;padding-top:10px;"
-                                                    class="sub-title">
-                                                    <a style="color:inherit;margin:5px;" class="mode"
-                                                        href="../5v5/Home.php">
-                                                        <span class="text-underline">5v5</span>
-                                                    </a>
-                                                    <span>
-                                                        <ion-icon name="remove"></ion-icon>
-                                                    </span>
-                                                    <a style="color:#fbaf17;margin:5px;" class="mode" href="#">
-                                                        <span class="text-underline">3v3</span>
-                                                    </a>
-                                                    <span>
-                                                        <ion-icon name="remove"></ion-icon>
-                                                    </span>
-                                                    <a style="color:inherit;margin:5px;" class="mode"
-                                                        href="../1v1/1v1.php">
-                                                        <span class="text-underline">1v1</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </h1>
-                                        <div id="home-search" style="display:flex;align-items:center;font-size:9px;">
-                                            <div id="home-search-inner" class="search-in" style="margin-bottom:20px;">
-                                                <div class="bx-search">
-                                                    <form class="search search-second">
-                                                        <input type="text" class="input-bx2" id="filter-home-name"
-                                                            placeholder="Tìm kiếm...">
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="ct-wr ct-gap" style="flex-direction: column;">
+                        <h2 class="title">Administrator</h2>
                         <div class="ge-ct" style="display: flex;justify-content: center;">
+                            <!-- show the table of users -->
+                            <div class="container">
+                                <h1>Update Information</h1>
+                                <form action="#" method="post">
+                                    <div class="form-group">
+                                        <label for="name">User Name:</label>
+                                        <input type="text" id="name" name="name" placeholder="Enter your name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="text" id="email" name="email" placeholder="Enter your email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dsname">Display name:</label>
+                                        <input type="text" id="dsname" name="dsname"
+                                            placeholder="Enter your display name">
+                                    </div>
+                                    <input type="submit" name="submit" value="Confirm">
+                                    <a href="Admin.php">Back</a>
+                                    <?php
+                                        // insert the user's information into the database
+                                        require_once'../account/connect.php';
+                                        if(isset($_POST['submit'])){
+                                            $name = $_POST['name'];
+                                            $email = $_POST['email'];
+                                            $display_name = $_POST['dsname'];
+                                            $sql = "INSERT INTO user (user_name, user_email, display_name) VALUES ('$name', '$email','$display_name')";
+                                            $result = mysqli_query($conn, $sql);
+                                            if($result){
+                                                echo '<script>alert("Insert successfully")</script>';
+                                                header("Location: admin.php");
+                                            }
+                                            else{
+                                                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                            }
+                                        }
+                                    ?>
+                                </form>
+                            </div>
                             <div class="empty-slide"></div>
                         </div>
-                        <div id="inner-content" style="display: flex;justify-content: center;" class="ge-ct">
-                            <div class="table-champ" style="position: relative;">
-                                <span id="above-content"></span>
-                                <div id="page-content" class="table-champ ct-gap tooltip-container">
-                                    <div class="table-st te-st" style="height: 100%;min-height: 645px;">
-                                        <ul class="list-champ">
-                                            <?php
-                                            require 'paging_3v3.php';
-                                            ?>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="paging">
-                        <?php
-                            //if current_page > 1 and $number_of_page > 1 show link to go back to previous page
-                            if ($current_page > 1 && $number_of_page > 1) {
-                                echo '<a href="3v3.php?page=' . ($current_page - 1) . '" class="page">Prev</a>';
-                            }
-                            
-                            // Loop 
-                            for ($i = 1;$i <= $number_of_page;$i++) {
-                                if($i == $current_page) {
-                                    echo '<span>' . $i . '</span> | ';
-                                }
-                                else
-                                {
-                                    echo '<a href="3v3.php?page=' . $i . '" class="page">' . $i . '</a> | ';
-                                }
-                            }
-                            if ($current_page < $number_of_page && $number_of_page > 1){
-                                echo '<a href="3v3.php?page='.($current_page+1).'">Next</a> | ';
-                            }
-                            ?>
                     </div>
                 </div>
             </div>
@@ -292,27 +227,30 @@
                         <div class="left-grid">
                             <div class="left-para">
                                 <div class="para-title">AOV 5v5 items</div>
-                                <a href="Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Home</span>
                                 </a>
-                                <a href="Champions.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Stats</span>
                                 </a>
-                                <a href="Items.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="Plot.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Plot</span>
+                                </a>
+                                <a href="Update.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Updates</span>
                                 </a>
                             </div>
                         </div>
                         <div class="left-grid">
                             <div class="left-para">
                                 <div class="para-title">AOV mode</div>
-                                <a href="Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">5v5</span>
                                 </a>
-                                <a href="3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">3v3</span>
                                 </a>
-                                <a href="1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">1v1</span>
                                 </a>
                             </div>
@@ -350,15 +288,15 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="../../JS/metaaov.js"></script>
     <script type="text/javascript" src="../../JS/navigation.js"></script>
     <script type="text/javascript" src="../../JS/Home.js"></script>
+    <script type="text/javascript" src="../../JS/metaaov.js"></script>
     <?php
     // Start the session
-    error_reporting(E_ERROR | E_PARSE);
-    $username = $_SESSION['username'];
+    $adminName= $_SESSION['admin'];
+    echo $adminName;
     // Check if the session variable username is set
-    if (isset($username)) {
+    if (isset($adminName)) {
     ?>
     <?php echo '
     <script>
@@ -366,9 +304,9 @@
     var show_log = document.getElementById("login");
     var show_reg = document.getElementById("signup");
     if(show_log != null || show_reg != null) {
-        show_log.innerHTML = "<p>Xin chào, ' . $username . '</p>";
+        show_log.innerHTML = "<p>Xin chào admin, ' . $adminName . '</p>";
         // Print the echo statement in the a tag have id login
-        show_reg.innerHTML = "<a href="../../PHP/User/logout.php\">Đăng xuất</a>";
+        show_reg.innerHTML = "<a href=\"../account/logout.php\">Đăng xuất</a>";
     }
     </script>';
         ?>
@@ -378,8 +316,8 @@
     <?php echo '
     <script>
         // Print back the login and register button if session variable username is not set
-        <a href="../../PHP/User/login.php">Đăng nhập</a>
-        <a href="../../PHP/User/register.php">Đăng ký</a>\
+        <a href="../account/Login/Login.php">Đăng nhập</a>
+        <a href="../account/Register/Register.php">Đăng ký</a>
     </script>';
         ?>
     <?php

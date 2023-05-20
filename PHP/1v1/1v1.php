@@ -162,26 +162,6 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Plot.php" style="padding-left: 14px;">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <span style="width: 32px;height: 32px;" data-loaded="true">
-                                        <ion-icon name="book"></ion-icon>
-                                    </span>
-                                    <div class="text-logo logo-st">Plot</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Update.php" style="padding-left: 14px;">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <span style="width: 32px;height: 32px;" data-loaded="true">
-                                        <ion-icon name="cog"></ion-icon>
-                                    </span>
-                                    <div class="text-logo logo-st">Update</div>
-                                </div>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <div class="empty-wrapper">
@@ -376,6 +356,7 @@
     <script type="text/javascript" src="../../JS/Home.js"></script>
     <?php
     // Start the session
+    error_reporting(E_ERROR | E_PARSE);
     $username = $_SESSION['username'];
     // Check if the session variable username is set
     if (isset($username)) {

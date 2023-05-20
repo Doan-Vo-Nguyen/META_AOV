@@ -97,6 +97,19 @@ function setTierColor($tier) {
     }
 }
 
+function setTrendColor($trend) {
+    // take the first character of the trend
+    $trend = substr($trend, 0, 1);
+    if($trend == '+') {
+        return 'trend-color1';
+    }
+    else
+    {
+        if($trend == '-') {
+            return 'trend-color2';
+        }
+    }
+}
 $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_champ JOIN lane WHERE stats.id_lane = lane.id";
 $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_assoc($result)) {
@@ -108,7 +121,6 @@ while($row = mysqli_fetch_assoc($result)) {
     $pick = $row['pick_rate'];
     $ban = $row['ban_rate'];
     $KDA = $row['KDA'];
-    $score = $row['Score'];
 // Function to get the tier text
     echo '<tr class = "rating-inner" role = "row">
      <td class = "rating-cell rating-st rt-hv">
@@ -124,13 +136,12 @@ while($row = mysqli_fetch_assoc($result)) {
         ' . $tier . ' \ ' .getTierText($tier) .'
     </td>
     <td class = "rating-cell">
-        <div class = "rate-colorv2"> ' . $trend . ' </div>
+        <div class = "'. setTrendColor($trend). '"> ' . $trend . ' </div>
     </td>
     <td class = "rating-cell"> ' . $win . '%
     </td>
     <td class = "rating-cell"> ' . $pick . '% </td>
     <td class = "rating-cell"> ' . $ban . '%  </td>
     <td class = "rating-cell"> ' . $KDA . '</td>
-    <td class = "rating-cell"> ' . $score . '</td>
     </tr>';
 }

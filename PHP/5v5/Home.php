@@ -86,17 +86,17 @@
             <div class="head-inner logo-team" style="width:450px;">
                 <ul class="menu-top">
                     <li>
-                        <a id="signup" href="../../PHP/User/Register.php">Đăng ký</a>
+                        <a id="signup" href="../account/Register/Register.php">Đăng ký</a>
                     </li>
                     <li>
-                        <a id="login" href="../../PHP/User/Login.php">Đăng nhập</a>
+                        <a id="login" href="../account/Login/Login.php">Đăng nhập</a>
                     </li>
 
                 </ul>
             </div>
         </div>
         <!--Menu-->
-        <div id="menu-wrapper" class="mu-wr _bca1">
+        <div id=" menu-wrapper" class="mu-wr _bca1">
             <div id="nav-menu" class="tab-link info-tab">
                 <div class="menu-inner">
                     <div class="info-tab">
@@ -190,26 +190,6 @@
                                         <ion-icon name="stats-chart"></ion-icon>
                                     </span>
                                     <div class="text-logo logo-st">Stats</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Plot.php" style="padding-left: 14px;">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <span style="width: 32px;height: 32px;" data-loaded="true">
-                                        <ion-icon name="book"></ion-icon>
-                                    </span>
-                                    <div class="text-logo logo-st">Plot</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Update.php" style="padding-left: 14px;">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <span style="width: 32px;height: 32px;" data-loaded="true">
-                                        <ion-icon name="cog"></ion-icon>
-                                    </span>
-                                    <div class="text-logo logo-st">Update</div>
                                 </div>
                             </a>
                         </div>
@@ -413,6 +393,7 @@
     <script type="text/javascript" src="../../JS/metaaov.js"></script>
     <?php
     // Start the session
+    error_reporting(E_ERROR | E_PARSE);
     $username = $_SESSION['user'];
     // Check if the session variable username is set
     if (isset($username)) {
@@ -425,7 +406,7 @@
     if(show_log != null || show_reg != null) {
         show_log.innerHTML = "<p>Xin chào, ' . $username . '</p>";
         // Print the echo statement in the a tag have id login
-        show_reg.innerHTML = "<a href=\"../PHP/User/logout.php\">Đăng xuất</a>";
+        show_reg.innerHTML = "<a href=\"../account/logout.php\">Đăng xuất</a>";
     }
     </script>';
         ?>
@@ -435,8 +416,8 @@
     <?php echo '
     <script>
         // Print back the login and register button if session variable username is not set
-        <a href="../PHP/User/login.php">Đăng nhập</a>
-        <a href="../PHP/User/register.php">Đăng ký</a>
+        <a href="../account/Login/Login.phpp">Đăng nhập</a>
+        <a href="../account/Register/Register.php">Đăng ký</a>
     </script>';
         ?>
     <?php

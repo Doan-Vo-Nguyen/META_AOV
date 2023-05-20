@@ -334,15 +334,7 @@
                                                                 unselectedtable="on" aria-sort="none"
                                                                 aria-label="Average KDA: Chua duoc xep, kich hoat de ap dung xep giam dan"
                                                                 style=user-select:none>
-                                                                <div class="tablesorter-header-inner">Average KDA</div>
-                                                            </th>
-                                                            <th class="th-st tablesorter-header tablesorter-headerUnSorted"
-                                                                data-colum="7" tabindex="0" scope="col"
-                                                                role="columnheader" aria-disabled="false"
-                                                                unselectedtable="on" aria-sort="none"
-                                                                aria-label="Score: Chua duoc xep, kich hoat de ap dung xep giam dan"
-                                                                style=user-select:none>
-                                                                <div class="tablesorter-header-inner">Score</div>
+                                                                <div class="tablesorter-header-inner">KDA</div>
                                                             </th>
                                                         </tr>
                                                     </thead>
@@ -370,6 +362,7 @@
 
         <?php
     // Start the session
+    error_reporting(E_ERROR | E_PARSE);
     $username = $_SESSION['user'];
     // Check if the session variable username is set
     if (isset($username)) {

@@ -1,5 +1,5 @@
-/* Common All */
-/* Thuoc tinh chung css */
+/* Champions */
+/* Css cho tuong */
 
 html {
     overflow-y: scroll;
@@ -95,7 +95,7 @@ img {
     border: 0 nobackground-colorne;
     max-width: 100%;
 }
-
+/* the div contains all the page */
 .wrapper-page {
     min-width: 805px;
 }
@@ -103,11 +103,6 @@ img {
 .content {
     display: flex;
     width: 100%;
-}
-
-.hd-wr {
-    width: 1600px;
-    float: left;
 }
 
 ._bca1{
@@ -245,6 +240,29 @@ img {
     width: 320px;
     flex-shrink: 0;
 }
+
+/* Adjust the circle lane and role */
+.image-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1.0/1.0;
+}
+
+.champ-role {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.champ-lane {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+/* Adjust the circle lane and role */
 
 .spct-st {
     padding-left: 8px;
@@ -466,10 +484,6 @@ img {
     width: 66px;
 }
 
-.tab-selected .perk-image {
-    filter: none;
-}
-
 .badge-2 {
     position: relative;
     top:-40px;
@@ -535,17 +549,17 @@ td, th {
 }
 
 .badge .activerunes-image {
+    -webkit-filter: grayscale(.9);
     filter: grayscale(.9);
 }
 
 .tab-selected .activerunes-image {
+    -webkit-filter: none;
     filter: none;
 }
 
 .b-hover .drop-hover {
     -webkit-filter: drop-shadow(1px 1px 0 #FBAF17) drop-shadow(-1px 1px 0 #FBAF17) drop-shadow(1px -1px 0 #FBAF17) drop-shadow(-1px -1px 0 #FBAF17) drop-shadow(black 0px 0px 5px)
-    !important;
-    -o-filter: drop-shadow(1px 1px 0 #FBAF17) drop-shadow(-1px 1px 0 #FBAF17) drop-shadow(1px -1px 0 #FBAF17) drop-shadow(-1px -1px 0 #FBAF17) drop-shadow(black 0px 0px 5px)
     !important;
     filter: drop-shadow(1px 1px 0 #FBAF17) drop-shadow(-1px 1px 0 #FBAF17) drop-shadow(1px -1px 0 #FBAF17) drop-shadow(-1px -1px 0 #FBAF17) drop-shadow(black 0px 0px 5px)
     !important
@@ -557,7 +571,8 @@ td, th {
     -o-filter: drop-shadow(1px 1px 0 #FBAF17) drop-shadow(-1px 1px 0 #FBAF17) drop-shadow(1px -1px 0 #FBAF17) drop-shadow(-1px -1px 0 #FBAF17)
     !important;
     filter: drop-shadow(1px 1px 0 #FBAF17) drop-shadow(-1px 1px 0 #FBAF17) drop-shadow(1px -1px 0 #FBAF17) drop-shadow(-1px -1px 0 #FBAF17)
-    !important}
+    !important
+}
 
 .b-hover:hover .svg-hover {
     background-color: #000!important
@@ -711,5 +726,112 @@ td, th {
     white-space: nowrap;
     justify-content: center;
     align-items: center;
+}
+
+.background {
+    width: 100%;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+}
+
+/* Content wrapper */
+.ch-ct {
+    gap: 40px;
+    grid-gap:40px;
+}
+
+.content-wrapper {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.color-bg {
+    background-color: rgb(55, 55, 55);
+}
+.sp-a1 {
+    position: absolute;
+    padding-right: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    justify-content: center;
+    overflow: hidden;
+}
+.champ-style {
+    border-style: solid;
+    border-width: 4px;
+    border-color: rgb(102, 136, 243);
+    background-color: rgb(102, 136, 243);
+}
+
+.img-role {
+    filter: drop-shadow(0 0 1px black);
+    margin: 3px;
+}
+
+.title {
+    text-shadow: 0 0 10px #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title-inner2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.spct-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.map-mode {
+    width: 100%;
+    margin-top:2.6%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.ge-st {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+    border-bottom: 2px solid;
+    filter: drop-shadow(0 0 10px black);
+}
+
+.ge-st.active {
+    border-bottom-color: rgb(251, 175, 23)!important;
+}
+
+.ge-st.active .text-hover {
+    color: rgb(251, 175, 23)!important;
+}
+.name-map {
+    white-space: nowrap;
+    color: #fff;
+    font-size: 15px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    grid-gap: 5px;
+}
+
+/* champ lane and role */
+.champ-border {
+    box-shadow: inset 0 0 1px 1px #000;
 }
 

@@ -1,5 +1,5 @@
 <?php
-require 'connect_3v3.php';
+require 'connect_1v1.php';
 $query = "SELECT * FROM champions, role_champions WHERE champions.id_role = role_champions.id_role";
 $result = mysqli_query($conn, $query);
 $number_of_result = mysqli_num_rows($result);
@@ -26,18 +26,17 @@ else if ($current_page < 1)
     while ($row=mysqli_fetch_assoc($result_paging)) {
     $id=$row['ID'];
     $name=$row['champ_Name'];
-    $folder = $row['champ_Name'];
     $image=$row['image'];
     $role_name=$row['name_role'];
     $id_role=$row['id_role'];
     echo '<li id="champion-' . $id . '" class="list-champion">
-                                                <span class="serial" tag="' . $id . '"
-                                                    type="' . $id_role . '" style="display: none">' . $name . '</span>
-                                                <div class="champions">
-                                                    <a class = "champion-items" href="../PHP/Champions/' . $folder . '/mid.php" data-search-terms-like="' . $name . '|' . $name . '" data-search-terms-exact = "' . $role_name . '|' .$role_name . '">
-                                                        <img src="../../Images/Champions/' . $image . '" alt="champion">
-                                                    </a>
-                                                    <p style="white-space: nowrap;" class="name">' . $name . '</p>
-                                                </div>
-                                                </li>' ; 
-                                            }
+        <span class="serial" tag="' . $id . '"
+            type="' . $id_role . '" style="display: none">' . $name . '</span>
+        <div class="champions">
+            <a class = "champion-items" href="../1v1/Champion/' . $name . '" data-search-terms-like="' . $name . '|' . $name . '" data-search-terms-exact = "' . $role_name . '|' .$role_name . '">
+                <img src="../../Images/Champions/' . $image . '" alt="champion">
+            </a>
+            <p style="white-space: nowrap;" class="name">' . $name . '</p>
+        </div>
+        </li>'; 
+    }

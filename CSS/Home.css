@@ -13,7 +13,7 @@ html {
 
 body {
     background: url(../Images/Map/AWC-2019-e1654434844451.jpg) center center fixed no-repeat;
-    font-family: monospace;
+    font-family: Averta, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
@@ -23,6 +23,8 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+
 
 body,
 div,
@@ -74,18 +76,11 @@ ul {
     margin: 0;
     padding: 0;
 }
-
+/* The div that contains the whole page */
 .content-body {
     background-color: rgba(37, 37, 37, .85);
 }
 /* Head wrapper */
-.wr-tt {
-    display: flex;
-    flex-direction: column;
-    max-width: 1815px;
-    width: 100%;
-    margin: 0 auto;
-}
 .head {
     position: fixed;
     top:0;
@@ -99,6 +94,7 @@ ul {
     z-index: 999;
 }
 
+/* the div that contains the logo and the search bar */
 .head-inner {
     display: flex;
     justify-content: flex-start;
@@ -113,7 +109,7 @@ ul {
     max-width: 350px;
     color: #000;
 }
-/* Menu */
+/* MENU SECTION */
 
 .mu-wr {
     position: fixed;
@@ -132,33 +128,32 @@ ul {
     width: 288px;
     user-select: none;
 }
+
+/* When not hover , the width will be set at 70px */
 .tab-link:not(:hover) {
     width: 70px;
 }
-
+/* When not hover , the width of menu will be set at 70px */
 .tab-link:not(:hover) .menu-inner {
     width: 70px;
 }
-
+/* When not hover, the content will be hidden until hover*/
 .tab-link:not(:hover) .logo-st {
     visibility: hidden;
 }
-
+/* When not hover, the content */
 .tab-link:not(:hover) .patch {
     visibility: visible;
 }
-
+/* set transition with ease .2s */
 .logo-st {
     transition: visibility 0s ease .2s;
 }
 
+/* set transition with ease .2s and when hover successful , it will disappear */
 .patch {
     transition: visibility 0s ease .2s;
     visibility: hidden;
-}
-
-._bca1 {
-    overflow: auto;
 }
 
 @media only screen and (min-device-width:1024px) {
@@ -168,28 +163,17 @@ ul {
     }
 }
 
-
+/* set background color for the head and menu */
 .info-tab {
     background-color: rgb(22, 14, 30);
 }
 
+/* set background color for the box in the menu */
 .info-link {
     background-color: rgb(68, 68, 93);
 }
-@media only screen and(min-device-width:1024px) {
-    .nav-cl::-webkit-scrollbar {
-        width: 5px;
-        height: 5px;
-    }
-}
 
-@media only screen and(min-device-width: 1024px) {
-    .nav-cl::-webkit-scrollbar-thumb {
-        background-color: dimgray;
-        border-radius: 3px;
-    }
-}
-
+/* this css set the content of the menu */
 .menu-inner {
     transition: width .4s ease .1s;
     display: flex;
@@ -201,6 +185,7 @@ ul {
     display: flex;
 }
 
+/* set the css for the items in the menu */
 .item-logo {
     padding:3px;
     display: flex;
@@ -238,7 +223,7 @@ ul {
 .transition {
     transition: visibility 0s ease .2s;
 }
-
+/* hightlight the word META */
 .f-word {
     color: #fbaf17;
 }
@@ -247,6 +232,10 @@ ul {
     display:none;
 }
 
+
+/*ct-gap sets the gap between grid items to 10
+pixels using both the "gap" and "grid-gap" properties. This class can be applied to a container
+element to create a grid layout with evenly spaced gaps between the grid items. */
 .ct-gap {
     gap:10px;
     grid-gap:10px;
@@ -256,6 +245,7 @@ ul {
     background-color: rgb(93, 68, 93);
 }
 
+/* set aov word to white */
 .s-word {
     color: #fff;
 }
@@ -268,6 +258,7 @@ ul {
     float: left;
 }
 
+/* CSS of the login and register button */
 .menu-top li a {
     color: rgb(255,255,255);
     padding: 0 15px;
@@ -278,11 +269,10 @@ ul {
     background: url(../Images/Icon-Logo/line-nav.jpg) center left no-repeat;
 }
 
+/* The above code is selecting the first list item element inside an HTML element with the class
+"menu-top" and applying a CSS rule to it. The CSS rule is floating the element to the right side of
+its container. */
 .menu-top li:nth-of-type(1) {
-    float: right;
-}
-
-.menu-top li:nth-of-type(2){
     float: right;
 }
 
@@ -292,24 +282,33 @@ ul {
 
 /* Menu wrapper */
 
-
 .menu-wrapper {
     visibility: hidden;
 }
 
+/* the empty space between the logo and the search bar */
 .empty-slide {
     width: 320px;
     flex-shrink: 0;
 }
+
+/* hightlight the box when hover */
 .item-logo:hover {
     background-color: #fbaf17;
     color: #000 !important;
 }
-
+/* hightlight the word META when hover */
 .item-logo:hover .word {
     color: #000 !important;
 }
 /* main content */
+.wr-tt {
+    display: flex;
+    flex-direction: column;
+    max-width: 1815px;
+    width: 100%;
+    margin: 0 auto;
+}
 
 .ct-wr {
     display: flex;
@@ -336,7 +335,6 @@ ul {
 .ep-ct {
     width:80px;
 }
-
 
 .search {
     width: 100%;
@@ -376,10 +374,6 @@ ul {
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.text {
-    color: #fff!important;
 }
 
 .f-color {
@@ -459,6 +453,14 @@ ul {
     flex-grow: 1;
     min-width: 375px;
     max-width: 100%;
+}
+
+.roles {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 /* Footer */
@@ -726,24 +728,30 @@ ul {
 /* Champ background */
 .champ-bg-mage {
     background-color: rgb(102,136,243);
+    
 }
 
 .champ-bg-assassin {
     background-color: rgb(126, 22, 29);
+    
 }
 
 .champ-bg-fighter {
     background-color: rgb(162, 124, 49);
+    
 }
 
 .champ-bg-tank {
     background-color: rgb(54, 60 ,120);
+    
 }
 
 .champ-bg-marksman {
     background-color: rgb(80, 99 , 69);
+    
 }
 
 .champ-bg-support {
     background-color: rgb(20, 104, 89);
+   
 }

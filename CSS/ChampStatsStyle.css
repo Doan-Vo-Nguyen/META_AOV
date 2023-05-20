@@ -65,3 +65,11 @@
     filter: brightness(0)
 }
 
+.trend-color1 {
+    color: rgb(2, 248, 2);
+}
+
+.trend-color2 {
+    color: rgb(255, 0, 0);
+}
+

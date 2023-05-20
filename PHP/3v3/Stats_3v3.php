@@ -156,26 +156,6 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Plot.php" style="padding-left: 14px;">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <span style="width: 32px;height: 32px;" data-loaded="true">
-                                        <ion-icon name="book"></ion-icon>
-                                    </span>
-                                    <div class="text-logo logo-st">Plot</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Update.php" style="padding-left: 14px;">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <span style="width: 32px;height: 32px;" data-loaded="true">
-                                        <ion-icon name="cog"></ion-icon>
-                                    </span>
-                                    <div class="text-logo logo-st">Update</div>
-                                </div>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <div class="empty-wrapper">
@@ -318,15 +298,7 @@
                                                                 unselectedtable="on" aria-sort="none"
                                                                 aria-label="Average KDA: Chua duoc xep, kich hoat de ap dung xep giam dan"
                                                                 style=user-select:none>
-                                                                <div class="tablesorter-header-inner">Average KDA</div>
-                                                            </th>
-                                                            <th class="th-st tablesorter-header tablesorter-headerUnSorted"
-                                                                data-colum="7" tabindex="0" scope="col"
-                                                                role="columnheader" aria-disabled="false"
-                                                                unselectedtable="on" aria-sort="none"
-                                                                aria-label="Score: Chua duoc xep, kich hoat de ap dung xep giam dan"
-                                                                style=user-select:none>
-                                                                <div class="tablesorter-header-inner">Score</div>
+                                                                <div class="tablesorter-header-inner">KDA</div>
                                                             </th>
                                                         </tr>
                                                     </thead>
@@ -354,6 +326,7 @@
 
         <?php
     // Start the session
+    error_reporting(E_ERROR | E_PARSE);
     $username = $_SESSION['user'];
     // Check if the session variable username is set
     if (isset($username)) {
