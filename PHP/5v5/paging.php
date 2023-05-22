@@ -26,11 +26,11 @@ else if ($current_page < 1)
     while ($row=mysqli_fetch_assoc($result_paging)) {
     $id=$row['ID'];
     $name=$row['champ_Name'];
-    $folder = $row['champ_Name'];
     $image=$row['image'];
     $role_name=$row['name_role'];
     $id_role=$row['id_role'];
     $lane = $row['lane_name'];
+    $id_lane = $row['id'];
     echo '<li id="champion-' . $id . '" class="list-champion">
         <span class="serial" tag="' . $id . '"
             type="' . $id_role . '" style="display: none">' . $name . '</span>

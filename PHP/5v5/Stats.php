@@ -9,9 +9,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>META liên quân</title>
+    <title>AOV Stats Champions Patch 24 - METAaov</title>
     <link rel="icon" href="../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../CSS/Illumia.css">
     <link rel="stylesheet" href="../../CSS/Champion.css">
     <link rel="stylesheet" href="../../CSS/Home.css">
     <link rel="stylesheet" href="../../Extension/font-awesome.css">
@@ -155,26 +154,6 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Plot.php" style="padding-left: 14px;">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <span style="width: 32px;height: 32px;" data-loaded="true">
-                                        <ion-icon name="book"></ion-icon>
-                                    </span>
-                                    <div class="text-logo logo-st">Plot</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Update.php" style="padding-left: 14px;">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <span style="width: 32px;height: 32px;" data-loaded="true">
-                                        <ion-icon name="cog"></ion-icon>
-                                    </span>
-                                    <div class="text-logo logo-st">Update</div>
-                                </div>
-                            </a>
-                        </div>
                     </div>
                 </div>
                 <div class="empty-wrapper">
@@ -266,7 +245,7 @@
                                             <div id="top-scroll"></div>
                                             <div id="table-scroll" class="_bca1">
                                                 <table class="stats-table tb-st tablesorter tablesorter-default"
-                                                    style="min-width:1200px;" role="grid">
+                                                    style="min-width:775px;" role="grid">
                                                     <thead>
                                                         <tr class="info-tab tablesorter-headerRow odd" role="row">
                                                             <th class="th-st tablesorter-header tablesorter-headerUnSorted"
@@ -332,7 +311,7 @@
                                                                 data-colum="6" tabindex="0" scope="col"
                                                                 role="columnheader" aria-disabled="false"
                                                                 unselectedtable="on" aria-sort="none"
-                                                                aria-label="Average KDA: Chua duoc xep, kich hoat de ap dung xep giam dan"
+                                                                aria-label="KDA: Chua duoc xep, kich hoat de ap dung xep giam dan"
                                                                 style=user-select:none>
                                                                 <div class="tablesorter-header-inner">KDA</div>
                                                             </th>
@@ -350,6 +329,76 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer-->
+        <div class="footer ge-ct ft-bg">
+            <div class="ft ge-ct">
+                <div class="ep-ct"></div>
+                <div class="ft-content ct-gap">
+                    <div class="left-text text-st">
+                        <div class="left-grid">
+                            <div class="left-para">
+                                <div class="para-title">AOV 5v5 items</div>
+                                <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Home</span>
+                                </a>
+                                <a href="../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Stats</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="left-grid">
+                            <div class="left-para">
+                                <div class="para-title">AOV mode</div>
+                                <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">5v5</span>
+                                </a>
+                                <a href="../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">3v3</span>
+                                </a>
+                                <a href="../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">1v1</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="left-grid">
+                            <div class="left-para">
+                                <div class="para-title">Team members</div>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Trịnh Huỳnh Bảo Ngân</span>
+                                </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Huỳnh Ngọc Trang</span>
+                                </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Nguyễn Nhật Huy</span>
+                                </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Nguyễn Đình Vỹ</span>
+                                </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Đoàn Võ Nguyên</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Feedback-->
+                    <div class="feedback-form fb-form">
+                        <form action="" method="post">
+                            <div class="feedback-title">Feedback</div>
+                            <div class="feedback-input">
+                                <input type="text" class="feedback-form name" placeholder="Name">
+                                <input type="text" class="feedback-form email" placeholder="Email">
+                                <textarea name="" id="" cols="30" rows="10" class="feedback-form message"
+                                    placeholder="Message"></textarea>
+                                <div class="feedback-form buttons">
+                                    <button class="feedback-button">SEND</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

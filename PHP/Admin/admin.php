@@ -229,6 +229,9 @@
                                 }
                             }
                             </script>
+                            <div class="backup">
+                                <a href="backup.php" class="btn btn-success">Backup</a>
+                            </div>
                             <div class="empty-slide"></div>
                         </div>
                     </div>

@@ -1,39 +1,39 @@
 <?php
 require 'connect.php';
-function getTierText($tier)
+function getTierText($win)
 {
-    switch ($tier) {
-        case 'S+':
-            return 'God';
-        case 'S':
-            return 'Strong';
-        case 'S-':
-            return 'Quite strong';
-        case 'A+':
-            return 'Good';
-        case 'A':
-            return 'Quite good';
-        case 'A-':
-            return 'A bit good';
-        case 'B+':
-            return 'Fair';
-        case 'B':
-            return 'Quite fair';
-        case 'B-':
-            return 'A bit fair';
-        case 'C+':
-            return 'Quite Weak';
-        case 'C':
-            return 'Weak';
-        case 'C-':
-            return 'Very weak';
-        case 'D':
-            return 'Bad';
-        default:
-            return 'Unknown';
+    if($win >= 55) {
+        return 'S+ / God';
+    }
+    else
+    {
+        if($win >= 50 && $win < 55) {
+            return 'S / Strong';
+        }
+        else
+        {
+            if($win >= 45 && $win < 50) {
+                return 'A / Good';
+            }
+            else
+            {
+                if($win >= 40 && $win < 45) {
+                    return 'B / Fair';
+                }
+                else
+                {
+                    if($win >= 35 && $win < 40) {
+                        return 'C / Weak';
+                    }
+                    else
+                        {
+                            return 'D / Bad';
+                        }
+                }
+            }
+        }
     }
 }
-
 function setColorLane($lane) {
     if($lane == "Mid") {
         return "colorv-3";
@@ -64,36 +64,40 @@ function setColorLane($lane) {
     }
 }
 
-function setTierColor($tier) {
-    switch($tier) {
-        case 'S+':
-            return 'rate-colorv1';
-        case 'S':
-            return 'rate-colorv2';
-        case 'S-':
-            return 'rate-colorv3';
-        case 'A+':
-            return 'rate-colorv4';
-        case 'A':
-            return 'rate-colorv5';
-        case 'A-':
-            return 'rate-colorv6';
-        case 'B+':
-            return 'rate-colorv7';
-        case 'B':
-            return 'rate-colorv8';
-        case 'B-':
-            return 'rate-colorv9';
-        case 'C+':
-            return 'rate-colorv10';
-        case 'C':
-            return 'rate-colorv11';
-        case 'C-':
-            return 'rate-colorv12';
-        case 'D':
-            return 'rate-colorv13';
-        default:
-            return 'rate-colorv14';
+function setTierColor($win) {
+    if(getTierText($win) == "S+ / God") {
+        return "rate-colorv1";
+    }
+    else
+    {
+        if(getTierText($win) == "S / Strong") {
+            return "rate-colorv2";
+        }
+        else
+        {
+            if(getTierText($win) == "A / Good") {
+                return "rate-colorv3";
+            }
+            else
+            {
+                 if(getTierText($win) == "B / Fair") {
+                     return "rate-colorv4";
+                 }
+                 else
+                 {
+                     if(getTierText($win) == "C / Weak") {
+                         return "rate-colorv5";
+                     }
+                     else
+                     {
+                         if(getTierText($win) == "D / Bad")
+                         {
+                             return "rate-colorv6";
+                         }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -115,7 +119,6 @@ $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_assoc($result)) {
     $name = $row['champ_Name'];
     $lane = $row['lane_name'];
-    $tier = $row['tier'];
     $trend = $row['trend'];
     $win = $row['win_rate'];
     $pick = $row['pick_rate'];
@@ -125,15 +128,15 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '<tr class = "rating-inner" role = "row">
      <td class = "rating-cell rating-st rt-hv">
         <span hidden = "hidden"> ' . $name . '</span>
-        <a href = "champion.php?champ_name=' . $name . '" style = "color:inherit;display:block">
+        <a href="../5v5/Champions/' . $name . '/' . $lane . '.php?name=' . $name . '&lane='.$lane.'" style = "color:inherit;display:block">
             <img id = "name_c" src = "../../Images/Champions/' . $name . '.jpg" alt = "' . $name . '" width = "24" height = "24"> ' . $name . '
         </a>
      </td>
     <td class = "rating-txt">
         <div class = "lane-st ' . setColorLane($lane) . '"> ' . $lane . '</div>
     </td>
-    <td class = "rating-cell '.setTierColor($tier).'">
-        ' . $tier . ' \ ' .getTierText($tier) .'
+    <td class = "rating-cell '.setTierColor($win).'">
+    ' .getTierText($win) .'
     </td>
     <td class = "rating-cell">
         <div class = "'. setTrendColor($trend). '"> ' . $trend . ' </div>
