@@ -37,8 +37,7 @@
             <div class="head-inner logo-team">
                 <div style="width:100%">
                     <a href="Home.php" style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
-                            style="width:32px;height:32px;">
+                        <img src="../../Images/Icon-Logo/Logo-team.png" alt="logo" style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
                     </a>
@@ -64,7 +63,7 @@
                         <div class="content-logo" style="margin-bottom:20px">
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <img class="img-pos" src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                                    <img class="img-pos" src="../../Images/Icon-Logo/Logo-team.png" alt="logo"
                                         style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <b class="f-word word">META</b>
@@ -385,17 +384,31 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Logo team -->
+                    <div class="right-text">
+                        <div class="right-para">
+                            <a href="../5v5/Home.php">
+                                <img src="../../Images/Icon-Logo/Logo-team.png" alt="Logo"
+                                    style="width:100%;height:100%;">
+                            </a>
+                        </div>
+                    </div>
                     <!--Feedback-->
                     <div class="feedback-form fb-form">
                         <form action="" method="post">
                             <div class="feedback-title">Feedback</div>
                             <div class="feedback-input">
-                                <input type="text" class="feedback-form name" placeholder="Name">
-                                <input type="text" class="feedback-form email" placeholder="Email">
-                                <textarea name="" id="" cols="30" rows="10" class="feedback-form message"
-                                    placeholder="Message"></textarea>
+                                <input type="text" name="user_name" class="feedback-form-ct name" placeholder="Name">
+                                <input type="text" name="user_email" class="feedback-form-ct email" placeholder="Email">
+                                <input type="text" name="subject" class="feedback-form-ct subject"
+                                    placeholder="Subject">
+                                <textarea name="feedback-text" id="feedback-ct" cols="30" rows="10"
+                                    class="feedback-form-ct message" placeholder="Message"></textarea>
                                 <div class="feedback-form buttons">
-                                    <button class="feedback-button">SEND</button>
+                                    <button name="submit-feedback" class="feedback-button">SEND</button>
+                                    <?php
+                                        include '../account/send_mail.php';
+                                    ?>
                                 </div>
                             </div>
                         </form>

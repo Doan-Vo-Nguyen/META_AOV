@@ -180,7 +180,6 @@ $GLOBALS['id_lane'] = $row['id'];
                                 </div>
                             </a>
                         </div>
-                        <!-- div show the Plot of game(đây là phần hiển thị cốt truyện của game) -->
                     </div>
                 </div>
                 <!-- empty div -->
@@ -1372,6 +1371,88 @@ $GLOBALS['id_lane'] = $row['id'];
     </div>
     </div>
     </div>
+    </div>
+    <!--Footer-->
+    <div class="footer ge-ct ft-bg">
+        <div class="ft ge-ct">
+            <div class="ep-ct"></div>
+            <div class="ft-content ct-gap">
+                <div class="left-text text-st">
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">AOV 5v5 items</div>
+                            <a href="../../../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Home</span>
+                            </a>
+                            <a href="../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Stats</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">AOV mode</div>
+                            <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">5v5</span>
+                            </a>
+                            <a href="../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">3v3</span>
+                            </a>
+                            <a href="../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">1v1</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">Team members</div>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Trịnh Huỳnh Bảo Ngân</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Huỳnh Ngọc Trang</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Nhật Huy</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Đình Vỹ</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Đoàn Võ Nguyên</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-text">
+                    <div class="right-para">
+                        <a href="../5v5/Home.php">
+                            <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="Logo"
+                                style="width:100%;height:100%;">
+                        </a>
+                    </div>
+                </div>
+                <!--Feedback-->
+                <div class="feedback-form fb-form">
+                    <form action="" method="post">
+                        <div class="feedback-title">Feedback</div>
+                        <div class="feedback-input">
+                            <input type="text" name="user_name" class="feedback-form-ct name" placeholder="Name">
+                            <input type="text" name="user_email" class="feedback-form-ct email" placeholder="Email">
+                            <input type="text" name="subject" class="feedback-form-ct subject" placeholder="Subject">
+                            <textarea name="feedback-text" id="feedback-ct" cols="30" rows="10"
+                                class="feedback-form-ct message" placeholder="Message"></textarea>
+                            <div class="feedback-form buttons">
+                                <button name="submit-feedback" class="feedback-button">SEND</button>
+                                <?php
+                                        include '../../../account/send_mail.php';
+                                    ?>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     </div>
     </div>

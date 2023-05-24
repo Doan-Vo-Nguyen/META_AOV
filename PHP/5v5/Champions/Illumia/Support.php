@@ -1,6 +1,20 @@
 <?php session_start(); ?>
 <!-- <?php setcookie('username', $_SESSION['username'], time() + 60, "/");
 ?> -->
+<?php
+require '../../../5v5/connect.php';
+// sql 3 table champions, role_champions, stats
+$sql = "SELECT * from champions JOIN stats_champions ON champions.ID = stats_champions.id_champ JOIN lane ON lane.id = stats_champions.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.ID = 1 AND lane.id = 5 AND role_champions.id_role = 1";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$name = $row['champ_Name'];
+$lane = $row['lane_name'];
+$role = $row['name_role'];
+$GLOBALS['name'] = $name;
+$GLOBALS['lane'] = $lane;
+$GLOBALS['id'] = $row['ID'];
+$GLOBALS['id_lane'] = $row['id'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +23,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>METAaov</title>
+    <title><?php echo $GLOBALS['name'] ?> Build Guide, <?php echo $GLOBALS['lane'] ?> Runes, Items Patch 24</title>
     <link rel="icon" href="../../../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
     <link rel="stylesheet" href="../../../../CSS/">
     <link rel="stylesheet" href="../../../../CSS/Champion.css">
@@ -41,7 +55,7 @@
                 <div style="width:100%">
                     <a href="../../../5v5/Home.php"
                         style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../../../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                        <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
                             style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
@@ -69,8 +83,8 @@
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <!-- Logo(logo trang web) -->
-                                    <img class="img-pos" src="../../../../Images/Icon-Logo/N5-removebg-preview.png"
-                                        alt="logo" style="width:32px;height:32px;">
+                                    <img class="img-pos" src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
+                                        style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <!-- Name(tên trang web) -->
                                         <b class="f-word word">META</b>
@@ -157,23 +171,12 @@
                         </div>
                         <!-- div show the Stats page of game(đây là phần hiển thị trang thống kê của game) -->
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="../../5v5/Stats.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item" href="../../../5v5/Stats.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="stats-chart"></ion-icon>
                                     </span>
                                     <div class="text-logo logo-st">Stats</div>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- div show the Plot of game(đây là phần hiển thị cốt truyện của game) -->
-                        <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Home.php" style="padding-left: 14px;">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <span style="width: 32px;height: 32px;" data-loaded="true">
-                                        <ion-icon name="book"></ion-icon>
-                                    </span>
-                                    <div class="text-logo logo-st">Plot</div>
                                 </div>
                             </a>
                         </div>
@@ -208,18 +211,6 @@
                                                     <div class="image-inner"
                                                         style="min-width: 120px;min-height: 120px;max-width: 120px;max-height: 120px;">
                                                         <?php
-                                                        require '../../../5v5/connect.php';
-                                                        // sql 3 table champions, role_champions, stats
-                                                        $sql = "SELECT * from champions JOIN stats_champions ON champions.ID = stats_champions.id_champ JOIN lane ON lane.id = stats_champions.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.ID = 1 AND lane.id = 5 AND role_champions.id_role = 1";
-                                                        $result = mysqli_query($conn, $sql);
-                                                        $row = mysqli_fetch_assoc($result);
-                                                        $name = $row['champ_Name'];
-                                                        $lane = $row['lane_name'];
-                                                        $role = $row['name_role'];
-                                                        $GLOBALS['name'] = $name;
-                                                        $GLOBALS['lane'] = $lane;
-                                                        $GLOBALS['id'] = $row['ID'];
-                                                        $GLOBALS['id_lane'] = $row['id'];
                                                         // function setLaneBorder($lane) to set border color for champion's image(đây là hàm để set màu viền cho ảnh tướng)
                                                         function setLaneBorder($lane) {
                                                             if($lane == "Mid") {
@@ -703,10 +694,7 @@
                                 <div style="width:42px;height:79px;"></div>
                                 <div class="rating">
                                     <div class="rating-inner" style="text-align:left;">
-                                        <span class="win">Win%</span>
-                                    </div>
-                                    <div class="rating-inner" style="text-align:left;">
-                                        <span class="pick">Pick%</span>
+                                        <span class="options">Options</span>
                                     </div>
                                 </div>
                             </div>
@@ -737,10 +725,7 @@
                                 </div>
                                 <div class="rating" style="width:100%">
                                     <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="win">100%</span>
-                                    </div>
-                                    <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="pick">100%</span>
+                                        <span class="options">Option 1</span>
                                     </div>
                                 </div>
                             </div>
@@ -771,10 +756,7 @@
                                 </div>
                                 <div class="rating" style="width:100%">
                                     <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="win">100%</span>
-                                    </div>
-                                    <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="pick">100%</span>
+                                        <span class="options">Option 2</span>
                                     </div>
                                 </div>
                             </div>
@@ -1384,6 +1366,88 @@
     </div>
     </div>
     </div>
+    </div>
+    <!--Footer-->
+    <div class="footer ge-ct ft-bg">
+        <div class="ft ge-ct">
+            <div class="ep-ct"></div>
+            <div class="ft-content ct-gap">
+                <div class="left-text text-st">
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">AOV 5v5 items</div>
+                            <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Home</span>
+                            </a>
+                            <a href="../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Stats</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">AOV mode</div>
+                            <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">5v5</span>
+                            </a>
+                            <a href="../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">3v3</span>
+                            </a>
+                            <a href="../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">1v1</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">Team members</div>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Trịnh Huỳnh Bảo Ngân</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Huỳnh Ngọc Trang</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Nhật Huy</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Đình Vỹ</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Đoàn Võ Nguyên</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-text">
+                    <div class="right-para">
+                        <a href="../5v5/Home.php">
+                            <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="Logo"
+                                style="width:100%;height:100%;">
+                        </a>
+                    </div>
+                </div>
+                <!--Feedback-->
+                <div class="feedback-form fb-form">
+                    <form action="" method="post">
+                        <div class="feedback-title">Feedback</div>
+                        <div class="feedback-input">
+                            <input type="text" name="user_name" class="feedback-form-ct name" placeholder="Name">
+                            <input type="text" name="user_email" class="feedback-form-ct email" placeholder="Email">
+                            <input type="text" name="subject" class="feedback-form-ct subject" placeholder="Subject">
+                            <textarea name="feedback-text" id="feedback-ct" cols="30" rows="10"
+                                class="feedback-form-ct message" placeholder="Message"></textarea>
+                            <div class="feedback-form buttons">
+                                <button name="submit-feedback" class="feedback-button">SEND</button>
+                                <?php
+                                        include '../../../account/send_mail.php';
+                                    ?>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     </div>
     </div>

@@ -692,7 +692,7 @@
                             <div>
                                 <div style="width:42px;height:79px;"></div>
                                 <div class="rating">
-                                   <div class="rating-inner" style="text-align:left;">
+                                    <div class="rating-inner" style="text-align:left;">
                                         <span class="opt">Options</span>
                                     </div>
                                 </div>
@@ -1044,7 +1044,7 @@
                             class="content-details">
                             <div style="display:flex;align-items:center;justify-content:center;">
                                 <?php
-                                  $itemNum = "81,46,82,68,83,84";
+                                  $itemNum = "81,46,82,68,83,67";
                                   $row_array = explode(',', $itemNum);
                                   for ($i = 0; $i < count($row_array); $i++) {
                                    $sql = "SELECT * FROM items WHERE id = '$row_array[$i]'";
@@ -1163,11 +1163,10 @@
                 <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Items Build Order</h2>
                 <div class="bct-p">
                     <?php
-                     
-                     $sql = "SELECT * FROM `items`";
-                     $result = mysqli_query($conn, $sql);
-                     $row = mysqli_fetch_assoc($result);
-                     ?>
+                    $sql = "SELECT * FROM `items`";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    ?>
                     <span style="margin-left:4px;"></span>
                     <?php
                      // $itemNum to store the item id, $row_array to store the item id in array
@@ -1178,7 +1177,7 @@
                      // sử dụng explode để chia chuỗi thành mảng, sau đó lặp để lấy từng id item
                      // sau đó sử dụng sql để lấy chi tiết item
                      // cuối cùng là echo chi tiết item
-                    $itemNum = "16,44,81,17,46,1,1,1,22,35,82,1,2,20,68,1,19,3,83,1,19,1,19,84";
+                    $itemNum = "16,44,81,17,46,1,1,1,22,35,82,1,2,20,68,1,19,3,83,1,19,1,19,67";
                     $row_array = explode(',', $itemNum);
                     for ($i = 0; $i < count($row_array); $i++) {
                         $sql = "SELECT * FROM `items` WHERE `id` = $row_array[$i]";

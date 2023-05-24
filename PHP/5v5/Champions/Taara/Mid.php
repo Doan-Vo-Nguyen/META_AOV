@@ -219,6 +219,7 @@
                                                         $GLOBALS['name'] = $name;
                                                         $GLOBALS['lane'] = $lane;
                                                         $GLOBALS['id'] = $row['ID'];
+                                                        $GLOBALS['id_lane'] = $row['id'];
                                                         // function setLaneBorder($lane) to set border color for champion's image(đây là hàm để set màu viền cho ảnh tướng)
                                                         function setLaneBorder($lane) {
                                                                 if($lane == "Mid") {
@@ -431,8 +432,7 @@
                             <div class="h-content content-details">
                                 <!-- div show the champions' lane(đây là phần hiển thị lane của tướng) -->
                                 <div class="lane-content ch-ct">
-                                    <a href="../Taara/Top.php" class="text-ac ge-st"
-                                        style="border-bottom-color: #fff;">
+                                    <a href="../Taara/Top.php" class="text-ac ge-st" style="border-bottom-color: #fff;">
                                         <span>
                                             <img class="b-hover" src="../../../../Images/Lane/top_icon.png"
                                                 style="width: 20px; height: 20px;background-color: rgb(170, 152, 33);">
@@ -460,8 +460,7 @@
                                             <span class="mid">Mid lane</span>
                                         </span>
                                     </a>
-                                    <a href="../Taara/ADC.php" class="text-ac ge-st"
-                                        style="border-bottom-color: #fff;">
+                                    <a href="../Taara/ADC.php" class="text-ac ge-st" style="border-bottom-color: #fff;">
                                         <span>
                                             <img class="b-hover" src="../../../../Images/Lane/adc_icon.png"
                                                 style="width: 20px; height: 20px;background-color: rgb(255, 0, 0);">
@@ -1390,9 +1389,9 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../../../JS/navigation.js"></script>
-    <script type="text/javascript" src="../../../JS/Home.js"></script>
-    <script type="text/javascript" src="../../../JS/metaaov.js"></script>
+    <script type="text/javascript" src="../../../../JS/navigation.js"></script>
+    <script type="text/javascript" src="../../../../JS/Home.js"></script>
+    <script type="text/javascript" src="../../../../JS/metaaov.js"></script>
     <?php
         include '../../../account/Check_Session.php'
     ?>

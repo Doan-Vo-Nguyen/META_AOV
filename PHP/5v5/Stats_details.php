@@ -22,10 +22,10 @@ function getTierText($win)
                 }
                 else
                 {
-                    if($win >= 35 && $win < 40) {
+                    if($win >= 30 && $win < 40) {
                         return 'C / Weak';
                     }
-                    else
+                    else if($win < 30)
                         {
                             return 'D / Bad';
                         }
@@ -34,37 +34,9 @@ function getTierText($win)
         }
     }
 }
-function setColorLane($lane) {
-    if($lane == "Mid") {
-        return "colorv-3";
-    }
-    else
-    {
-        if($lane == "Top") {
-            return "colorv-1";
-        }
-        else
-        {
-            if($lane == "Jungle") {
-                return "colorv-2";
-            }
-            else
-            {
-                if($lane == "ADC") {
-                    return "colorv-4";
-                }
-                else
-                {
-                    if($lane == "Support") {
-                        return "colorv-5";
-                    }
-                }
-            }
-        }
-    }
-}
 
-function setTierColor($win) {
+function setTierColor($win) 
+{
     if(getTierText($win) == "S+ / God") {
         return "rate-colorv1";
     }
@@ -101,7 +73,39 @@ function setTierColor($win) {
     }
 }
 
-function setTrendColor($trend) {
+function setColorLane($lane) 
+{
+    if($lane == "Mid") {
+        return "colorv-3";
+    }
+    else
+    {
+        if($lane == "Top") {
+            return "colorv-1";
+        }
+        else
+        {
+            if($lane == "Jungle") {
+                return "colorv-2";
+            }
+            else
+            {
+                if($lane == "ADC") {
+                    return "colorv-4";
+                }
+                else
+                {
+                    if($lane == "Support") {
+                        return "colorv-5";
+                    }
+                }
+            }
+        }
+    }
+}
+
+function setTrendColor($trend) 
+{
     // take the first character of the trend
     $trend = substr($trend, 0, 1);
     if($trend == '+') {

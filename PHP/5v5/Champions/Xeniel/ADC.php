@@ -1,6 +1,20 @@
 <?php session_start(); ?>
 <!-- <?php setcookie('username', $_SESSION['username'], time() + 60, "/");
 ?> -->
+<?php
+require '../../../5v5/connect.php';
+// sql 3 table champions, role_champions, stats
+$sql = "SELECT * from champions JOIN stats_champions ON champions.ID = stats_champions.id_champ JOIN lane ON lane.id = stats_champions.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.ID = 21 AND lane.id = 3 AND role_champions.id_role = 5";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$name = $row['champ_Name'];
+$lane = $row['lane_name'];
+$role = $row['name_role'];
+$GLOBALS['name'] = $name;
+$GLOBALS['lane'] = $lane;
+$GLOBALS['id'] = $row['ID'];
+$GLOBALS['id_lane'] = $row['id'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +23,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>METAaov</title>
+    <title><?php echo $GLOBALS['name'] ?> Build Guide, <?php echo $GLOBALS['lane'] ?> Runes, Items Patch 24</title>
     <link rel="icon" href="../../../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
     <link rel="stylesheet" href="../../../../CSS/Champion.css">
     <link rel="stylesheet" href="../../../../CSS/Home.css">
@@ -197,18 +211,7 @@
                                                     <div class="image-inner"
                                                         style="min-width: 120px;min-height: 120px;max-width: 120px;max-height: 120px;">
                                                         <?php
-                                                        require '../../../5v5/connect.php';
-                                                        // sql 3 table champions, role_champions, stats
-                                                        $sql = "SELECT * from champions JOIN stats_champions ON champions.ID = stats_champions.id_champ JOIN lane ON lane.id = stats_champions.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.ID = 21 AND lane.id = 3 AND role_champions.id_role = 5";
-                                                        $result = mysqli_query($conn, $sql);
-                                                        $row = mysqli_fetch_assoc($result);
-                                                        $name = $row['champ_Name'];
-                                                        $lane = $row['lane_name'];
-                                                        $role = $row['name_role'];
-                                                        $GLOBALS['name'] = $name;
-                                                        $GLOBALS['lane'] = $lane;
-                                                        $GLOBALS['id'] = $row['ID'];
-                                                        $GLOBALS['id_lane'] = $row['id'];
+                                                        
                                                         // function setLaneBorder($lane) to set border color for champion's image(đây là hàm để set màu viền cho ảnh tướng)
                                                         function setLaneBorder($lane) {
                                                             if($lane == "Mid") {

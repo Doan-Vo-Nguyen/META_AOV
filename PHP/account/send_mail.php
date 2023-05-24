@@ -10,10 +10,19 @@ if(isset($_POST['submit-feedback'])) {
     if(!$result) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
-    $to = "wwwdoanvonguyen@gmail.com";
+    $to = "$email";
     $subject = "Feedback";
     $message = "Thanks for your feedback, $name. We will contact you soon.";
-    $from = $name;
+    $from = "wwwdoanvonguyen@gmail.com";
     $header = "From:" . $from;
     mail($to, $subject, $message, $header);
+    // scrip show alert and redirect to the last page
+    echo "<script>alert('Thanks for your feedback, $name. We will contact you soon.')</script>";
+    echo "<script>window.history.go(-1);</script>";
+    // clear all fields
+    $name = "";
+    $email = "";
+    $subject = "";
+    $message = "";
+    mysqli_close($conn);
 }
