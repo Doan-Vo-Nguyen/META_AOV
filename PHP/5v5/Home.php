@@ -1,9 +1,6 @@
 <?php session_start(); ?>
-<?php
-// setcookie('username', $_SESSION['username'], time() + 60, "/"); // 86400 = 1 day
-?>
 <!DOCTYPE html>
-<html lang="vi" class="nav-collapsed">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
@@ -11,13 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta name="description" content="Meta Liên Quân's Homepage">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>META Liên Quân</title>
+    <title>METAaov AOV Build & Guides Patch 24</title>
     <link rel="stylesheet" href="../../CSS/Home.css">
     <link rel="stylesheet" href="../../Extension/font-awesome.css">
     <link rel="stylesheet" href="../../CSS/jquery.typeahead.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.3/typeahead.jquery.min.js">
+    <link rel="application/javascript"
+        href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.3/typeahead.jquery.min.js">
 
-    <link rel="icon" href="../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
+    <link rel="icon" href="../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
 </head>
 
 <body class="wrapper-page" style="background-position-y: 0px !important;">
@@ -326,30 +324,29 @@
                         <div class="left-grid">
                             <div class="left-para">
                                 <div class="para-title">AOV 5v5 items</div>
-                                <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../../../5v5/Home.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Home</span>
                                 </a>
-                                <a href="../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../../../5v5/Stats.php" class=" para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Stats</span>
-                                </a>
-                                <a href="Plot.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
-                                    <span class="text-underline" style="font-size:14px;">Plot</span>
-                                </a>
-                                <a href="Update.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
-                                    <span class="text-underline" style="font-size:14px;">Updates</span>
                                 </a>
                             </div>
                         </div>
                         <div class="left-grid">
                             <div class="left-para">
                                 <div class="para-title">AOV mode</div>
-                                <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../../../5v5/Home.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">5v5</span>
                                 </a>
-                                <a href="../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../../../3v3/3v3.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">3v3</span>
                                 </a>
-                                <a href="../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../../../1v1/1v1.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">1v1</span>
                                 </a>
                             </div>
@@ -372,13 +369,16 @@
                                 <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Đoàn Võ Nguyên</span>
                                 </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Nguyễn Trương Thái Khang</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="right-text">
                         <div class="right-para">
-                            <a href="../5v5/Home.php">
-                                <img src="../../Images/Icon-Logo/Logo-team.png" alt="Logo"
+                            <a href="../../../5v5/Home.php">
+                                <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="Logo"
                                     style="width:100%;height:100%;">
                             </a>
                         </div>

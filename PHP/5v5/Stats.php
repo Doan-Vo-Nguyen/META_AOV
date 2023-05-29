@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AOV Stats Champions Patch 24 - METAaov</title>
-    <link rel="icon" href="../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
+    <link rel="icon" href="../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
     <link rel="stylesheet" href="../../CSS/Champion.css">
     <link rel="stylesheet" href="../../CSS/Home.css">
     <link rel="stylesheet" href="../../Extension/font-awesome.css">
@@ -134,7 +134,7 @@
                             </div>
                         </div>
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item btn-cl" href="Home.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item " href="../5v5/Home.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="home"></ion-icon>
@@ -144,7 +144,7 @@
                             </a>
                         </div>
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Stats.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item btn-cl" href="#" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="stats-chart"></ion-icon>
@@ -213,10 +213,7 @@
                                                     Cơ sở dữ liệu của chúng tôi chứa dữ liệu từ hàng triệu trò chơi được
                                                     lấy từ mỗi bản vá.
                                                     Chúng tôi sử dụng dữ liệu đó để tính toán xu hướng, tỷ lệ thắng, tỷ
-                                                    lệ chọn, v.v.
-                                                    Sau đó, dữ liệu này sẽ được thuật toán độc quyền của chúng tôi sử
-                                                    dụng để xác định điểm số và xếp
-                                                    các nhà vô địch vào các bậc. Sử dụng bảng bên dưới để phân tích số
+                                                    lệ chọn, v.v. Sử dụng bảng bên dưới để phân tích số
                                                     liệu thống kê cho bất kỳ tướng
                                                     nào ở bất kỳ độ khó nào và tạo lợi thế cho mình bằng cách chọn tướng
                                                     tốt nhất để chơi tiếp theo.
@@ -437,7 +434,7 @@
     if(show_log != null || show_reg != null) {
         show_log.innerHTML = "<p>Xin chào, ' . $username . '</p>";
         // Print the echo statement in the a tag have id login
-        show_reg.innerHTML = "<a href=\"../../PHP/User/logout.php\">Đăng xuất</a>";
+        show_reg.innerHTML = "<a href=\"../account/logout.php\">Đăng xuất</a>";
     }
     </script>';
         ?>

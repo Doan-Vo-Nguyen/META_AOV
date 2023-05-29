@@ -38,12 +38,6 @@
     justify-content: center;
     overflow: hidden;
 }
-.champ-style {
-    border-style: solid;
-    border-width: 4px;
-    border-color: rgb(102, 136, 243);
-    background-color: rgb(102, 136, 243);
-}
 
 .img-role {
     filter: drop-shadow(0 0 1px black);

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../../CSS/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.3/typeahead.jquery.min.js">
 
-    <link rel="icon" href="../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
+    <link rel="icon" href="../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
 </head>
 
 <body class="wrapper-page" style="background-position-y: 0px !important;">
@@ -32,8 +32,7 @@
                 <div style="width:100%">
                     <a href="../5v5/Home.php"
                         style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
-                            style="width:32px;height:32px;">
+                        <img src="../../Images/Icon-Logo/Logo-team.png" alt="logo" style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
                     </a>
@@ -59,7 +58,7 @@
                         <div class="content-logo" style="margin-bottom:20px">
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <img class="img-pos" src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                                    <img class="img-pos" src="../../Images/Icon-Logo/Logo-team.png" alt="logo"
                                         style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <b class="f-word word">META</b>
@@ -174,6 +173,9 @@
                         <h2 class="title">Administrator</h2>
                         <!-- button to add new user -->
                         <p style="font-size: 20px;"><a href="add.php" class="btn btn-success">Add New User</a></p>
+                        <div class="backup">
+                            <a href="backup.php" class="btn btn-success">Backup</a>
+                        </div>
                         <div class="ge-ct" style="display: flex;justify-content: center;">
                             <!-- show the table of users -->
                             <?php
@@ -187,7 +189,6 @@
                                 echo "<thead>";
                                 echo "<tr>";
                                 echo "<th scope='col'>ID</th>";
-                                echo "<th scope='col'>Name</th>";
                                 echo "<th scope='col'>Username</th>";
                                 echo "<th scope='col'>Email</th>";
                                 echo "<th scope='col'>Action</th>";
@@ -197,7 +198,6 @@
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<tr>";
                                     echo "<td>" . $row['id'] . "</td>";
-                                    echo "<td>" . $row['display_name'] . " </td>";
                                     echo "<td>" . $row['user_name'] . "</td>";
                                     echo "<td>" . $row['user_email'] . "</td>";
                                     echo "<td>";
@@ -229,9 +229,6 @@
                                 }
                             }
                             </script>
-                            <div class="backup">
-                                <a href="backup.php" class="btn btn-success">Backup</a>
-                            </div>
                             <div class="empty-slide"></div>
                         </div>
                     </div>
@@ -295,7 +292,7 @@
                     </div>
                     <div class="right-text">
                         <div class="right-para">
-                            <img src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="Logo">
+                            <img src="../../Images/Icon-Logo/Logo-team.png" alt="Logo">
                         </div>
                     </div>
                 </div>

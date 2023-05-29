@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3307
--- Thời gian đã tạo: Th5 16, 2023 lúc 05:07 AM
+-- Thời gian đã tạo: Th5 28, 2023 lúc 03:38 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.2.0
 
@@ -235,28 +235,6 @@ INSERT INTO `lane` (`id`, `lane_name`, `id_role`, `lane_img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `map`
---
-
-CREATE TABLE `map` (
-  `id` int(3) NOT NULL,
-  `map_name` varchar(40) NOT NULL,
-  `map_img` varchar(50) NOT NULL,
-  `map_description` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `map`
---
-
-INSERT INTO `map` (`id`, `map_name`, `map_img`, `map_description`) VALUES
-(1, '5v5', '5v5-map.png', 'Bình nguyên vô tận'),
-(2, '3v3', '3v3-map.png', 'Cao nguyên xanh'),
-(3, '1v1', '1v1-map.png', 'Độc cô cầu bại');
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `role_champions`
 --
 
@@ -334,29 +312,6 @@ INSERT INTO `stats` (`id`, `id_lane`, `id_Champ`, `tier`, `trend`, `win_rate`, `
 (1, 1, 1, 'S', '+++', 55.7, 34, 1.43, 75.873),
 (2, 1, 2, 'S-', '++', 54.3, 30, 1.23, 73.792),
 (3, 3, 9, 'A+', '-', 53.2, 29.4, 1.21, 68.643);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `stats_badge`
---
-
-CREATE TABLE `stats_badge` (
-  `id` int(3) NOT NULL,
-  `id_champ` int(3) NOT NULL,
-  `id_firstBadge` int(3) NOT NULL,
-  `id_secondBadge` int(3) NOT NULL,
-  `win_rate` float NOT NULL,
-  `pick_rate` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `stats_badge`
---
-
-INSERT INTO `stats_badge` (`id`, `id_champ`, `id_firstBadge`, `id_secondBadge`, `win_rate`, `pick_rate`) VALUES
-(1, 1, 10, 19, 92, 98),
-(2, 1, 19, 10, 85, 89.5);
 
 -- --------------------------------------------------------
 
@@ -468,27 +423,6 @@ INSERT INTO `stats_start_items` (`id`, `id_items`, `id_champ`, `win_rate`, `pick
 (3, 11, 1, 41, 65),
 (4, 8, 1, 36, 42);
 
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `user`
---
-
-CREATE TABLE `user` (
-  `id` int(5) NOT NULL,
-  `user_name` varchar(50) NOT NULL,
-  `user_email` varchar(30) NOT NULL,
-  `user_pass` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `user`
---
-
-INSERT INTO `user` (`id`, `user_name`, `user_email`, `user_pass`) VALUES
-(1, 'Vonguyen123', 'doanvonguyen@gmail.com', '123'),
-(2, 'thieuthang123', 'thangkhongngu123@gmail.com', '123');
-
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -518,12 +452,6 @@ ALTER TABLE `lane`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `map`
---
-ALTER TABLE `map`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `role_champions`
 --
 ALTER TABLE `role_champions`
@@ -539,12 +467,6 @@ ALTER TABLE `spells`
 -- Chỉ mục cho bảng `stats`
 --
 ALTER TABLE `stats`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `stats_badge`
---
-ALTER TABLE `stats_badge`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -569,12 +491,6 @@ ALTER TABLE `stats_spell`
 -- Chỉ mục cho bảng `stats_start_items`
 --
 ALTER TABLE `stats_start_items`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `user`
---
-ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -606,12 +522,6 @@ ALTER TABLE `lane`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `map`
---
-ALTER TABLE `map`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT cho bảng `role_champions`
 --
 ALTER TABLE `role_champions`
@@ -628,12 +538,6 @@ ALTER TABLE `spells`
 --
 ALTER TABLE `stats`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `stats_badge`
---
-ALTER TABLE `stats_badge`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `stats_champions`
@@ -658,12 +562,6 @@ ALTER TABLE `stats_spell`
 --
 ALTER TABLE `stats_start_items`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT cho bảng `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

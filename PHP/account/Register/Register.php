@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="icon" href="../../../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
     <link rel="stylesheet" href="Reg.css">
 
 <body>
@@ -19,7 +20,6 @@
                     </span>
                     <input class="username" type="text" name="username">
                     <label for="username">Username</label>
-                    <p class="valid username-valid">Username already exists</p>
                 </div>
                 <div class="input-box">
                     <span class="icon">
@@ -27,7 +27,6 @@
                     </span>
                     <input class="email" type="email" name="email">
                     <label for="email">Email</label>
-                    <p class="valid email-valid">Email already exists</p>
                 </div>
                 <div class="input-box">
                     <span class="icon">
@@ -35,10 +34,9 @@
                     </span>
                     <input class="password" type="password" name="password">
                     <label for="password">Password</label>
-                    <p class="valid password-valid">Invalid password</p>
                 </div>
                 <div class="agree-description">
-                    <label>By register, you are accept with META Liên quân about the <a href="#">term</a> & <a
+                    <label>By register, you are accept with METAaov about the <a href="#">term</a> & <a
                             href="#">condition</a></label>
                 </div>
                 <button type="submit" name="submit" class="btn-submit" onclick="validate()">Register</button>
@@ -61,17 +59,17 @@
             $email = $_POST['email'];
             $password = $_POST['password'];
             if (!empty($username) && !empty($email) && !empty($password)) {
-                $query = "SELECT `user_name` FROM `user` WHERE `user_name` = '$username'";
+                $query = "SELECT user_name FROM user WHERE user_name = '$username'";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
                     echo '<script type="text/javascript">alert("Username already exists")</script>';
                 } else {
-                    $query = "SELECT `user_email` FROM `user` WHERE `user_email` = '$email'";
+                    $query = "SELECT user_email FROM user WHERE user_email = '$email'";
                     $query_run = mysqli_query($conn, $query);
                     if (mysqli_num_rows($query_run) > 0) {
                         echo '<script type="text/javascript">alert("Email already exists")</script>';
                     } else {
-                        $query = "INSERT INTO `user` (`user_name`, `user_email`, `user_pass`) VALUES ('$username', '$email', '$password')";
+                        $query = "INSERT INTO user (user_name, user_email, user_pass) VALUES ('$username', '$email', '$password')";
                         $query_run = mysqli_query($conn, $query);
                         if ($query_run) {
                             echo '<script type="text/javascript">alert("User Registered")</script>';

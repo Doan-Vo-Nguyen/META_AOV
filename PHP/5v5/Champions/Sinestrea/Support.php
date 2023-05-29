@@ -2,20 +2,19 @@
 <!-- <?php setcookie('username', $_SESSION['username'], time() + 60, "/");
 ?> -->
 <?php
-require '../../../5v5/connect.php';
-// sql 3 table champions, role_champions, stats
-$sql = "SELECT * from champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane ON lane.id_lane = stats.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.id_champ = 1 AND lane.id_lane = 2 AND role_champions.id_role = 1";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
-$name = $row['champ_Name'];
-$lane = $row['lane_name'];
-$role = $row['name_role'];
-$GLOBALS['name'] = $name;
-$GLOBALS['lane'] = $lane;
-$GLOBALS['id'] = $row['id_champ'];
-$GLOBALS['id_lane'] = $row['id_lane'];
-?>
-
+    require '../../../5v5/connect.php';
+    // sql 3 table champions, role_champions, stats
+    $sql = "SELECT * from champions JOIN stats ON champions.ID = stats.id_champ JOIN lane ON lane.id = stats.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.ID = 17 AND lane.id = 5 AND role_champions.id_role = 6";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $name = $row['champ_Name'];
+    $lane = $row['lane_name'];
+    $role = $row['name_role'];
+    $GLOBALS['name'] = $name;
+    $GLOBALS['lane'] = $lane;
+    $GLOBALS['id'] = $row['ID'];
+    $GLOBALS['id_lane'] = $row['id'];
+            ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +23,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $GLOBALS['name'] ?> Build Guide, <?php echo $GLOBALS['lane'] ?> Runes, Items Patch 24</title>
-    <link rel="icon" href="../../../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
+    <link rel="icon" href="../../../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
     <link rel="stylesheet" href="../../../../CSS/Champion.css">
     <link rel="stylesheet" href="../../../../CSS/Home.css">
     <!-- a library of icons(1 thư viện icon) -->
@@ -54,7 +53,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                 <div style="width:100%">
                     <a href="../../../5v5/Home.php"
                         style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
+                        <img src="../../../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
                             style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
@@ -83,8 +82,8 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <!-- Logo(logo trang web) -->
-                                    <img class="img-pos" src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
-                                        style="width:32px;height:32px;">
+                                    <img class="img-pos" src="../../../../Images/Icon-Logo/N5-removebg-preview.png"
+                                        alt="logo" style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <!-- Name(tên trang web) -->
                                         <b class="f-word word">META</b>
@@ -96,7 +95,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                         <!-- div show menu(đây là phần hiển thị menu) -->
                         <div class="menu-item info-link">
                             <!-- div show the mode of game using dropdown(đây là phần hiển thị chế độ chơi bằng dropdown) -->
-                            <a id="1-dropdown" class="nav-dropdown item-logo nav-item" onclick=" navDropdown('1');">
+                            <a id="1-dropdown" class="nav-dropdown item-logo nav-item" onclick="navDropdown('1');">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <b class="patch" style="display:flex;justify-content:center;font-size:17px;">5v5</b>
                                     <span class="text-logo logo-st" style="position:relative;left:-10px;">Chế độ
@@ -111,22 +110,18 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                             </a>
                             <div id="1-content" class="otherCt-1 dropdown-content" style="display:none;">
                                 <div>
-                                    <a href="../../../3v3/3v3.php">
-                                        <div class="item-logo nav-item">
-                                            <div style="display:flex;justify-content:center;align-items:center;">
-                                                <b class="text-logo logo-st">3v3</b>
-                                            </div>
+                                    <div class="item-logo nav-item">
+                                        <div style="display:flex;justify-content:center;align-items:center;">
+                                            <b class="text-logo logo-st">3v3</b>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                                 <div>
-                                    <a href="../../../1v1/1v1.php">
-                                        <div class="item-logo nav-item">
-                                            <div style="display:flex;justify-content:center;align-items:center;">
-                                                <b class="text-logo logo-st">1v1</b>
-                                            </div>
+                                    <div class="item-logo nav-item">
+                                        <div style="display:flex;justify-content:center;align-items:center;">
+                                            <b class="text-logo logo-st">1v1</b>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -164,8 +159,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                         </div>
                         <!-- div show the Home page of game(đây là phần hiển thị trang chủ của game) -->
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item btn-cl" href="../../../5v5/Home.php"
-                                style="padding-left: 14px;">
+                            <a class="item-logo nav-item btn-cl" href="Home.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="home"></ion-icon>
@@ -185,6 +179,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                 </div>
                             </a>
                         </div>
+                        <!-- div show the Plot of game(đây là phần hiển thị cốt truyện của game) -->
                     </div>
                 </div>
                 <!-- empty div -->
@@ -218,108 +213,108 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                         <?php
                                                         // function setLaneBorder($lane) to set border color for champion's image(đây là hàm để set màu viền cho ảnh tướng)
                                                         function setLaneBorder($lane) {
-                                                            if($lane == "Mid") {
-                                                                return "champ-style-mid";
-                                                            }
-                                                            else
-                                                            {
-                                                                if($lane == "Top") {
-                                                                    return "champ-style-top";
-                                                                }
-                                                                else
-                                                                {
-                                                                    if($lane == "Jungle") {
-                                                                        return "champ-style-jungle";
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        if($lane == "ADC") {
-                                                                            return "champ-style-adc";
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            if($lane == "Support") {
-                                                                                return "champ-style-support";
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                        function setColorRole($role) {
-                                                            if($role == "Pháp sư") {
-                                                                return "champ-bg-mage";
-                                                            }
-                                                            else
-                                                            {
-                                                                if($role == "Xạ thủ") {
-                                                                    return "champ-bg-marksman";
-                                                                }
-                                                                else
-                                                                {
-                                                                    if($role == "Đấu sĩ") {
-                                                                        return "champ-bg-fighter";
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        if($role == "Trợ thủ") {
-                                                                            return "champ-bg-support";
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            if($role == "Đỡ đòn") {
-                                                                                return "champ-bg-tank";
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                return "champ-bg-assassin";
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                        function setBgLane($lane) {
-                                                            if($lane == "Mid") {
-                                                                return "colorv-3";
-                                                            }
-                                                            else
-                                                            {
-                                                                if($lane == "ADC") {
-                                                                    return "colorv-4";
+                                                                if($lane == "Mid") {
+                                                                    return "champ-style-mid";
                                                                 }
                                                                 else
                                                                 {
                                                                     if($lane == "Top") {
-                                                                        return "colorv-1";
+                                                                        return "champ-style-top";
                                                                     }
                                                                     else
                                                                     {
-                                                                        if($lane == "Support") {
-                                                                            return "colorv-5";
+                                                                        if($lane == "Jungle") {
+                                                                            return "champ-style-jungle";
                                                                         }
                                                                         else
                                                                         {
-                                                                            return "colorv-2";
+                                                                            if($lane == "ADC") {
+                                                                                return "champ-style-adc";
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                if($lane == "Support") {
+                                                                                    return "champ-style-support";
+                                                                                }
+                                                                            }
                                                                         }
                                                                     }
                                                                 }
                                                             }
-                                                        }
-                                                    echo
-                                                    '<a class="champ-img ' . setLaneBorder($lane) . '"
-                                                        style="position: relative;width: 100%;min-height: 120px;min-width: 120px;max-width: 120px;max-height: 120px;border-radius: 50%;display: flex;box-shadow: black 0px 0px 10px;background-size: 120px;background-position: center center;background-repeat: no-repeat;background-image: url(../../../../../Images/Champions/' . $name. '.jpg);">
-                                                    </a>
-                                                    <div style="top: 105px;left:49px;position: absolute;width: 30px;height: 30px;border-radius: 50%;background-size: cover;" class="champ-role ' . setColorRole($role) . ' champ-border">
-                                                        <img class="img-role roles"
-                                                            src="../../../../../Images/Role/'.$row['role_img'].'" alt="' . $row['name_role'] . '" style="width: 20px; height: 20px;">
-                                                    </div>
-                                                    <div class="champ-lane ' . setBgLane($lane) . ' champ-border"
-                                                        style="top: 23px; left: 101px;position: absolute; width: 30px;height: 30px;border-radius: 50%;background-size: cover;">
-                                                        <img class="img-role  roles"
-                                                            src="../../../../../Images/Lane/'.$row['lane_img'].'" alt="' . $row['lane_name'] . '"
-                                                            style="width: 20px;height: 20px; border-radius: 50%;">
-                                                    </div>';
+                                                        function setColorRole($role) {
+                                                                if($role == "Pháp sư") {
+                                                                    return "champ-bg-mage";
+                                                                }
+                                                                else
+                                                                {
+                                                                    if($role == "Xạ thủ") {
+                                                                        return "champ-bg-marksman";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if($role == "Đấu sĩ") {
+                                                                            return "champ-bg-fighter";
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            if($role == "Trợ thủ") {
+                                                                                return "champ-bg-support";
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                if($role == "Đỡ đòn") {
+                                                                                    return "champ-bg-tank";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    return "champ-bg-assassin";
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        function setBgLane($lane) {
+                                                                if($lane == "Mid") {
+                                                                    return "colorv-3";
+                                                                }
+                                                                else
+                                                                {
+                                                                    if($lane == "ADC") {
+                                                                        return "colorv-4";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if($lane == "Top") {
+                                                                            return "colorv-1";
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            if($lane == "Support") {
+                                                                                return "colorv-5";
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                return "colorv-2";
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        echo
+                                                        '<a class="champ-img ' . setLaneBorder($lane) . '"
+                                                            style="position: relative;width: 100%;min-height: 120px;min-width: 120px;max-width: 120px;max-height: 120px;border-radius: 50%;display: flex;box-shadow: black 0px 0px 10px;background-size: 120px;background-position: center center;background-repeat: no-repeat;background-image: url(../../../../Images/Champions/' . $name. '.jpg);">
+                                                        </a>
+                                                        <div style="top: 105px;left:49px;position: absolute;width: 30px;height: 30px;border-radius: 50%;background-size: cover;" class="champ-role ' . setColorRole($role) . ' champ-border">
+                                                            <img class="img-role roles"
+                                                                src="../../../../Images/Role/'.$row['role_img'].'" alt="' . $row['name_role'] . '" style="width: 20px; height: 20px;">
+                                                        </div>
+                                                        <div class="champ-lane ' . setBgLane($lane) . ' champ-border"
+                                                            style="top: 23px; left: 101px;position: absolute; width: 30px;height: 30px;border-radius: 50%;background-size: cover;">
+                                                            <img class="img-role  roles"
+                                                                src="../../../../Images/Lane/'.$row['lane_img'].'" alt="' . $row['lane_name'] . '"
+                                                                style="width: 20px;height: 20px; border-radius: 50%;">
+                                                        </div>';
                                                         ?>
                                                     </div>
                                                     <div class="title">
@@ -343,12 +338,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">5v5</span>
                                             </a>
-                                            <a href="../../../3v3/Champion/<?php echo $GLOBALS['name'] ?>.php"
-                                                class="3v3-page ge-st" style="border-bottom-color: #fff;">
+                                            <a href="../?php echo $GLOBALS['name'] ?>/3v3.php" class="3v3-page ge-st"
+                                                style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">3v3</span>
                                             </a>
-                                            <a href="../../../1v1/Champion/<?php echo $GLOBALS['name'] ?>.php"
-                                                class="1v1-page ge-st" style="border-bottom-color: #fff;">
+                                            <a href="../?php echo $GLOBALS['name'] ?>/1v1.php" class="1v1-page ge-st"
+                                                style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">1v1</span>
                                             </a>
                                             <div style="flex-basis: 100%; justify-content: flex-end; display: flex;">
@@ -360,7 +355,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                         <div class="descript descript-bg descript-pos">
                                             <?php
                                             require '../../style.php';
-                                            $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE champions.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane]";
+                                            $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE champions.id_lane = lane.id AND stats.id_lane = $GLOBALS[id_lane] AND champions.ID = $GLOBALS[id]";
                                             $result = mysqli_query($conn, $sql);
                                             $count = mysqli_num_rows($result);
                                             $row = mysqli_fetch_assoc($result);
@@ -400,17 +395,14 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 <span>
                                                     <p class="para-inner">
                                                         Chào mừng đến với hướng dẫn build đồ
-                                                        <?php echo $GLOBALS['name'] ?> theo thống kê
-                                                        của
+                                                        <?php echo $GLOBALS['name'] ?> theo thống kê của
                                                         METAaov <?php echo $GLOBALS['lane'] ?> patch 24.
                                                         Chúng tôi đã tính toán và phân tích kỹ lưỡng các trận đấu của
                                                         <?php echo $GLOBALS['name'] ?> trong các trận đấu và có tỷ lệ
                                                         thắng cao.
                                                         Ngọc bổ trợ tốt nhất, trang bị và phép bổ trợ cho
-                                                        <?php echo $GLOBALS['name'] ?>
-                                                        trong
-                                                        patch 24.
-                                                    </p>
+                                                        <?php echo $GLOBALS['name'] ?> trong
+                                                        patch 24.</p>
                                                 </span>
                                             </div>
                                         </div>
@@ -421,6 +413,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             style="background-image: linear-gradient(45deg, rgb(17,17,17), transparent), url(../../../../Images/Background/<?php echo $GLOBALS['name'] ?>_bg.jpg);">
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -431,7 +424,8 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                             <div class="h-content content-details">
                                 <!-- div show the champions' lane(đây là phần hiển thị lane của tướng) -->
                                 <div class="lane-content ch-ct">
-                                    <a href="#" class="active text-ac ge-st" style="border-bottom-color: #fff;">
+                                    <a href="../<?php echo $GLOBALS['name'] ?>/Top.php" class="text-ac ge-st"
+                                        style="border-bottom-color: #fff;">
                                         <span>
                                             <img class="b-hover" src="../../../../Images/Lane/top_icon.png"
                                                 style="width: 20px; height: 20px;background-color: rgb(170, 152, 33);">
@@ -440,7 +434,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <span class="mid">Top lane</span>
                                         </span>
                                     </a>
-                                    <a href="../Illumia/Jungle.php" class="text-ac ge-st"
+                                    <a href="../<?php echo $GLOBALS['name'] ?>/Jungle.php" class="text-ac ge-st"
                                         style="border-bottom-color: #fff;">
                                         <span>
                                             <img class="b-hover" src="../../../../Images/Lane/jungle_icon.png"
@@ -450,7 +444,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <span class="mid">Jungle lane</span>
                                         </span>
                                     </a>
-                                    <a href="../Illumia/Mid.php" class=" text-ac ge-st"
+                                    <a href="../<?php echo $GLOBALS['name'] ?>/Mid.php" class="text-ac ge-st"
                                         style="border-bottom-color: #fff;">
                                         <span>
                                             <img class="b-hover" src="../../../../Images/Lane/mid_icon.png"
@@ -460,7 +454,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <span class="mid">Mid lane</span>
                                         </span>
                                     </a>
-                                    <a href="../Illumia/ADC.php" class="text-ac ge-st"
+                                    <a href="../<?php echo $GLOBALS['name'] ?>/ADC.php" class="text-ac ge-st"
                                         style="border-bottom-color: #fff;">
                                         <span>
                                             <img class="b-hover" src="../../../../Images/Lane/adc_icon.png"
@@ -470,8 +464,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <span class="mid">ADC</span>
                                         </span>
                                     </a>
-                                    <a href="../Illumia/Support.php" class="text-ac ge-st"
-                                        style="border-bottom-color: #fff;">
+                                    <a href="#" class="active text-ac ge-st" style="border-bottom-color: #fff;">
                                         <span>
                                             <img class="b-hover" src="../../../../Images/Lane/support_icon.png"
                                                 style="width: 20px; height: 20px;background-color: rgb(20, 104, 89);">
@@ -504,7 +497,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                     style="width:100%;display:flex;align-items:center;justify-content: space-around;">
                                                     <?php
                                                                 
-                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND stats_spell.id_Champ = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane]";
+                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.ID = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id AND stats_spell.id_Champ = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane]";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);
@@ -548,10 +541,10 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                                         <div style="margin-top:1px">
                                                                             <div class="items items-bg">
                                                                             <div style="display: flex;">';
-                                                                                $spellNum = "2,4,3";
+                                                                                $spellNum = "1,2,3";
                                                                                 $row_array = explode(',', $spellNum);
                                                                                 for ($i = 0; $i < count($row_array); $i++) {
-                                                                                    $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND champions.id_champ = $GLOBALS[id] AND stats_spell.id_spell = $row_array[$i]";
+                                                                                    $sql = "SELECT * FROM champions JOIN stats_spell ON champions.ID = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id AND champions.ID = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane] AND stats_spell.id_spell = $row_array[$i]";
                                                                                     $result = mysqli_query($conn, $sql);
                                                                                     $row = mysqli_fetch_assoc($result);
                                                                                     if ($i <= count($row_array)) {
@@ -600,9 +593,9 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                     <div
                                         style="width:100%;display:flex;align-items:center;justify-content: space-around;">
                                         <!-- this command show the starting items of the champion(đây là phần hiển 
-                                                    thị vật phẩm bắt đầu của tướng)-->
+                                                    thị vật phẩm khởi đầu của tướng)-->
                                         <?php
-                                                                $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items WHERE stats_start_items.id_items = items.id_items AND stats_start_items.id_lane = 2 AND champions.id_champ = $GLOBALS[id]";
+                                                                $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.ID = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id JOIN lane WHERE stats_start_items.id_lane = lane.id AND stats_start_items.id_items = items.id AND stats_start_items.id_lane = $GLOBALS[id_lane] AND champions.ID = $GLOBALS[id]";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);
@@ -646,11 +639,11 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                             <div style="margin-top:1px">
                                                                 <div class="items items-bg">
                                                                     <div style="display: flex;">';
-                                                                    $itemNum = "7,8,11";
+                                                                    $itemNum = "1,2,3";
                                                                     $row_array = explode(',', $itemNum);
                                                                     for ($i = 0; $i < count($row_array); $i++) {
-                                                                        $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id_items JOIN lane WHERE stats_start_items.id_lane = lane.id_lane AND stats_start_items.id_items = items.id_items
-                                                                        AND stats_start_items.id_lane = 2 AND champions.id_champ = $GLOBALS[id] AND stats_start_items.id_items = $row_array[$i]";
+                                                                        $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.ID = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id JOIN lane WHERE stats_start_items.id_lane = lane.id AND stats_start_items.id_items = items.id
+                                                                        AND stats_start_items.id_lane = $GLOBALS[id_lane] AND champions.ID = $GLOBALS[id] AND stats_start_items.id_items = $row_array[$i]";
                                                                         $result = mysqli_query($conn, $sql);
                                                                         $row = mysqli_fetch_assoc($result);
                                                                         if ($i <= count($row_array)) {
@@ -702,7 +695,10 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                 <div style="width:42px;height:79px;"></div>
                                 <div class="rating">
                                     <div class="rating-inner" style="text-align:left;">
-                                        <span class="options">Options</span>
+                                        <span class="win">Win%</span>
+                                    </div>
+                                    <div class="rating-inner" style="text-align:left;">
+                                        <span class="pick">Pick%</span>
                                     </div>
                                 </div>
                             </div>
@@ -717,7 +713,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             stroke-width="2">
                                         </circle>
                                         <image class="badge-img" x="0" y="0" height="72" width="72"
-                                            xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png" />
+                                            xlink:href="../../../../Images/PhuHieu/VucHonMang.png" />
                                     </svg>
                                 </div>
                                 <div class="activerunes-image drop-hover badge-st be badge-2">
@@ -725,7 +721,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                         <circle cx="27" cy="27" r="15" fill="black">
                                         </circle>
                                         <image class="badge-img" x="17" y="17" height="20" width="20"
-                                            xlink:href="../../../../Images/PhuHieu/VucHonMang.png" />
+                                            xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png" />
                                         <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(217, 40, 16)"
                                             stroke-width="2">
                                         </circle>
@@ -733,7 +729,10 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                 </div>
                                 <div class="rating" style="width:100%">
                                     <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="options">Option 1</span>
+                                        <span class="win">49%</span>
+                                    </div>
+                                    <div class="rating-inner text-hover" style="text-align:center">
+                                        <span class="pick">42%</span>
                                     </div>
                                 </div>
                             </div>
@@ -748,7 +747,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             stroke-width="2">
                                         </circle>
                                         <image class="badge-img" x="0" y="0" height="72" width="80"
-                                            xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png" />
+                                            xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png" />
                                     </svg>
                                 </div>
                                 <div class="activerunes-image drop-hover badge-st be badge-2">
@@ -764,7 +763,10 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                 </div>
                                 <div class="rating" style="width:100%">
                                     <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="options">Option 2</span>
+                                        <span class="win">41%</span>
+                                    </div>
+                                    <div class="rating-inner text-hover" style="text-align:center">
+                                        <span class="pick">32%</span>
                                     </div>
                                 </div>
                             </div>
@@ -782,7 +784,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(251, 175, 23);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="5" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png">
+                                                xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
                                             </image>
                                             <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
                                                 stroke-width="2">
@@ -803,7 +805,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 stroke-width="2">
                                             </circle>
                                             <image class="badge-img" x="0" y="0" height="72" width="72"
-                                                xlink:href="../../../../Images/PhuHieu/ThanQuang.png">
+                                                xlink:href="../../../../Images/PhuHieu/MaTinh.png">
                                             </image>
                                         </svg>
                                     </div>
@@ -818,7 +820,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(251, 175, 23);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/XuyenTam.png">
+                                                xlink:href="../../../../Images/PhuHieu/CuongCong.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
                                                 stroke-width="2">
@@ -833,7 +835,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(251, 175, 23);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThanhChau.png">
+                                                xlink:href="../../../../Images/PhuHieu/CoThu.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
                                                 stroke-width="2">
@@ -851,7 +853,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="7" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
+                                                xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png">
                                             </image>
                                             <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
@@ -866,7 +868,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/MaHoa.png">
+                                                xlink:href="../../../../Images/PhuHieu/SinhTon.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
@@ -881,7 +883,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="17" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
+                                                xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png">
                                             </image>
                                             <circle cx="36" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
@@ -896,7 +898,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/CuongCong.png">
+                                                xlink:href="../../../../Images/PhuHieu/NhayBen.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
@@ -916,7 +918,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(251, 175, 23);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="5" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThanhKhoiNguyen.png">
+                                                xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png">
                                             </image>
                                             <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
                                                 stroke-width="2">
@@ -937,7 +939,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 stroke-width="2">
                                             </circle>
                                             <image class="badge-img" x="0" y="0" height="72" width="72"
-                                                xlink:href="../../../../Images/PhuHieu/ThanQuang.png">
+                                                xlink:href="../../../../Images/PhuHieu/DuHiep.png">
                                             </image>
                                         </svg>
                                     </div>
@@ -952,7 +954,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(251, 175, 23);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/BiQuyet.png">
+                                                xlink:href="../../../../Images/PhuHieu/SinhTon.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
                                                 stroke-width="2">
@@ -967,7 +969,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(251, 175, 23);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThanhChau.png">
+                                                xlink:href="../../../../Images/PhuHieu/NhayBen.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
                                                 stroke-width="2">
@@ -999,7 +1001,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(10,0,148);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/MatNgu.png">
+                                                xlink:href="../../../../Images/PhuHieu/SieuHoiMau.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(10,0,148)"
                                                 stroke-width="2">
@@ -1052,24 +1054,23 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                             class="content-details">
                             <div style="display:flex;align-items:center;justify-content:center;">
                                 <?php
-                                            // 46: giay kien cuong, 53: sach truy hon, 58:vuong mien hecate, 60: truong bung no, 61: xuyen tam lenh, 62: sach thanh
-                                               $itemNum = "47,60,63,58,32,62";
-                                               $row_array = explode(',', $itemNum);
-                                               for ($i = 0; $i < count($row_array); $i++) {
-                                                   $sql = "SELECT * FROM items WHERE id_items = '$row_array[$i]'";
-                                                   $result = mysqli_query($conn, $sql);
-                                                   $row = mysqli_fetch_assoc($result);
-                                                   if ($i <= count($row_array)) {
-                                                       echo '<div>
-                                                           <div class="badge-st">
-                                                           <div class="items items-pos">
-                                                               <img src="../../../../Images/Items/' . $row['item_img'] . '" style="width:42px;height:42px">
-                                                           </div>
-                                                       </div>
-                                                   </div>';
-                                                   }
-                                               }
-                                               ?>
+                                  $itemNum = "85,46,82,68,83,84";
+                                  $row_array = explode(',', $itemNum);
+                                  for ($i = 0; $i < count($row_array); $i++) {
+                                   $sql = "SELECT * FROM items WHERE id = '$row_array[$i]'";
+                                      $result = mysqli_query($conn, $sql);
+                                      $row = mysqli_fetch_assoc($result);
+                                      if ($i <= count($row_array)) {
+                                          echo '<div>
+                                              <div class="badge-st">
+                                              <div class="items items-pos">
+                                                  <img src="../../../../Images/Items/' . $row['item_img'] . '" style="width:42px;height:42px">
+                                              </div>
+                                          </div>
+                                      </div>';
+                                      }
+                                  }
+                                  ?>
                             </div>
                         </div>
                     </div>
@@ -1082,84 +1083,84 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                 style="border-top:1px solid black;border-bottom:1px solid black;margin-bottom:5px;">
                                 <tbody>
                                     <?php
-                                                $sql = "SELECT * FROM champions, skills WHERE champions.id_champ = skills.id_champ AND champions.id_champ = $GLOBALS[id]";
-                                                $result = mysqli_query($conn, $sql);
-                                                $row = mysqli_fetch_assoc($result);
-                                                $passive = $row['passive'];
-                                                $skill1 = $row['first_skill'];
-                                                $skill2 = $row['second_skill'];
-                                                $skill3 = $row['third_skill'];
-                                                echo
-                                                '<tr class="skills">
-                                                    <th class="skill-inner">
-                                                        <div class="skills-st">
-                                                           <!-- the passive(nội tại) -->
-                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'.$passive.'"
-                                                                style="width:20px;height:20px">
-                                                        </div>
-                                                    </th>
-                                                     <!-- each champions have 15 level to up skill -->';
-                                                    for ($i = 1;$i <= 15;$i++) {
-                                                        echo '<th class="skill-inner">'.$i.'</th>';
-                                                    }
-                                                echo
-                                                '</tr>
-                                                <!-- skill 1(kỹ năng 1) -->
-                                                <tr class="skills">
-                                                    <td class="skill-inner">
-                                                        <div class="skill-st">
-                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill1.'"style="width:20px;height:20px">
-                                                        </div>
-                                                    </td>';
-                                                    for ($i = 1; $i <= 15;$i++) {
-                                                        if($i == 2 || $i == 6 || $i == 10 || $i == 13 || $i == 14 || $i == 15){
-                                                            echo '<td class="skill-inner active-skill">X</td>';
-                                                        }
-                                                        else 
-                                                        {
-                                                            echo '<td class="skill-inner"></td>';
-                                                        }
-                                                    }
-                                                    echo 
-                                                '</tr>
-                                                <!-- skill 2(kỹ năng 2) -->
-                                                <tr class="skills">
-                                                    <td class="skill-inner">
-                                                        <div class="skill-st">
-                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill2.'"
-                                                                style="width:20px;height:20px">
-                                                        </div>
-                                                    </td>';
-                                                    for ($i = 1;$i <= 15;$i++) {
-                                                        if($i == 1 || $i == 3 || $i == 5 || $i == 7 || $i == 9 || $i == 11){
-                                                            echo '<td class="skill-inner active-skill">X</td>';
-                                                        }
-                                                        else 
-                                                        {
-                                                            echo '<td class="skill-inner"></td>';
-                                                        }
-                                                    }
-                                                    echo
-                                                '</tr>
-                                                <!-- skill 3(kỹ năng 3) -->
-                                                <tr class="skills">
-                                                    <td class="skill-inner">
-                                                        <div class="skill-st">
-                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill3.'"
-                                                                style="width:20px;height:20px">
-                                                        </div>
-                                                    </td>';
-                                                    for ($i = 1;$i <= 15;$i++) {
-                                                        if($i == 4 || $i == 8 || $i == 12){
-                                                            echo '<td class="skill-inner active-skill">X</td>';
-                                                        }
-                                                        else 
-                                                        {
-                                                            echo '<td class="skill-inner"></td>';
-                                                        }
-                                                    }
-                                                '</tr>';
-                                                ?>
+                                       $sql = "SELECT * FROM champions, skills WHERE champions.ID = skills.id_champ AND champions.ID = $GLOBALS[id]";
+                                       $result = mysqli_query($conn, $sql);
+                                       $row = mysqli_fetch_assoc($result);
+                                       $passive = $row['passive'];
+                                       $skill1 = $row['first_skill'];
+                                       $skill2 = $row['second_skill'];
+                                       $skill3 = $row['third_skill'];
+                                       echo
+                                       '<tr class="skills">
+                                           <th class="skill-inner">
+                                               <div class="skills-st">
+                                                  <!-- the passive(nội tại) -->
+                                                   <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'.$passive.'"
+                                                       style="width:20px;height:20px">
+                                               </div>
+                                           </th>
+                                            <!-- each champions have 15 level to up skill -->';
+                                           for ($i = 1;$i <= 15;$i++) {
+                                               echo '<th class="skill-inner">'.$i.'</th>';
+                                           }
+                                       echo
+                                       '</tr>
+                                       <!-- skill 1(kỹ năng 1) -->
+                                       <tr class="skills">
+                                           <td class="skill-inner">
+                                               <div class="skill-st">
+                                                   <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill1.'"style="width:20px;height:20px">
+                                               </div>
+                                           </td>';
+                                           for ($i = 1; $i <= 15;$i++) {
+                                               if($i == 1 || $i == 3 || $i == 6 || $i == 9 || $i == 10 || $i == 13){
+                                                   echo '<td class="skill-inner active-skill">X</td>';
+                                               }
+                                               else 
+                                               {
+                                                   echo '<td class="skill-inner"></td>';
+                                               }
+                                           }
+                                           echo 
+                                       '</tr>
+                                       <!-- skill 2(kỹ năng 2) -->
+                                       <tr class="skills">
+                                           <td class="skill-inner">
+                                               <div class="skill-st">
+                                                   <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill2.'"
+                                                       style="width:20px;height:20px">
+                                               </div>
+                                           </td>';
+                                           for ($i = 1;$i <= 15;$i++) {
+                                               if($i == 2 || $i == 5 || $i == 7 || $i == 11 || $i == 14 || $i == 15){
+                                                   echo '<td class="skill-inner active-skill">X</td>';
+                                               }
+                                               else 
+                                               {
+                                                   echo '<td class="skill-inner"></td>';
+                                               }
+                                           }
+                                           echo
+                                       '</tr>
+                                       <!-- skill 3(kỹ năng 3) -->
+                                       <tr class="skills">
+                                           <td class="skill-inner">
+                                               <div class="skill-st">
+                                                   <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill3.'"
+                                                       style="width:20px;height:20px">
+                                               </div>
+                                           </td>';
+                                           for ($i = 1;$i <= 15;$i++) {
+                                               if($i == 4 || $i == 8 || $i == 12){
+                                                   echo '<td class="skill-inner active-skill">X</td>';
+                                               }
+                                               else 
+                                               {
+                                                   echo '<td class="skill-inner"></td>';
+                                               }
+                                           }
+                                       '</tr>';
+                                       ?>
                                 </tbody>
                             </table>
                         </div>
@@ -1172,38 +1173,38 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                 <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Items Build Order</h2>
                 <div class="bct-p">
                     <?php
-                                    
-                                    $sql = "SELECT * FROM items";
-                                    $result = mysqli_query($conn, $sql);
-                                    $row = mysqli_fetch_assoc($result);
-                                    ?>
+                     
+                     $sql = "SELECT * FROM `items`";
+                     $result = mysqli_query($conn, $sql);
+                     $row = mysqli_fetch_assoc($result);
+                     ?>
                     <span style="margin-left:4px;"></span>
                     <?php
-                                    // $itemNum to store the item id, $row_array to store the item id in array
-                                    // using explode to split the string into array, then loopto get each id item
-                                    // then using sql to get the item details
-                                    // finally echo the item details
-                                    // $itemNum dùng để lưu id của item, $row_array dùng để lưu id của item vào mảng
-                                    // sử dụng explode để chia chuỗi thành mảng, sau đó lặp để lấy từng id item
-                                    // sau đó sử dụng sql để lấy chi tiết item
-                                    // cuối cùng là echo chi tiết item
-                                   $itemNum = "17,47,6,59,60,6,59,63,6,25,58,6,11,27,32,6,25,62";
-                                   $row_array = explode(',', $itemNum);
-                                   for ($i = 0; $i < count($row_array); $i++) {
-                                       $sql = "SELECT * FROM items WHERE id_items = $row_array[$i]";
-                                       $result = mysqli_query($conn, $sql);
-                                       $row = mysqli_fetch_assoc($result);
-                                       $level_item = $row['level_item'];
-                                       if ($i <= count($row_array)) {
-                                           echo '<span class="fa fa-arrow-right" style="margin:4px;"></span>
-                                           <div class="items-st>
-                                           <div class="itemsin-st spec-item">
-                                       <img src="../../../../Images/Items/' . $row['item_img'] . '"
-                                           style="width:42px;height:42px">
-                                   </div>';
-                                       }
-                                   }
-                                   ?>
+                     // $itemNum to store the item id, $row_array to store the item id in array
+                     // using explode to split the string into array, then loopto get each id item
+                     // then using sql to get the item details
+                     // finally echo the item details
+                     // $itemNum dùng để lưu id của item, $row_array dùng để lưu id của item vào mảng
+                     // sử dụng explode để chia chuỗi thành mảng, sau đó lặp để lấy từng id item
+                     // sau đó sử dụng sql để lấy chi tiết item
+                     // cuối cùng là echo chi tiết item
+                    $itemNum = "18,1,19,85,17,46,1,1,1,19,35,82,1,2,20,68,1,3,19,83,1,19,84";
+                    $row_array = explode(',', $itemNum);
+                    for ($i = 0; $i < count($row_array); $i++) {
+                        $sql = "SELECT * FROM `items` WHERE `id` = $row_array[$i]";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        $level_item = $row['level_item'];
+                        if ($i <= count($row_array)) {
+                            echo '<span class="fa fa-arrow-right" style="margin:4px;"></span>
+                            <div class="items-st>
+                            <div class="itemsin-st spec-item">
+                        <img src="../../../../Images/Items/' . $row['item_img'] . '"
+                            style="width:42px;height:42px">
+                    </div>';
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -1306,32 +1307,32 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                 <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> counters</h2>
                 <div style="padding-top: 10px;" class="counters-grid">
                     <?php
-                                        $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
-                                        $result = mysqli_query($conn, $sql);
-                                        $row = mysqli_num_rows($result);
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                              $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE lane.id_lane = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
-                                                $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
-                                                $row_one = mysqli_fetch_assoc($result_oneChamp);
-                                                $champ_name = $row['champ_Name'];
-                                                $champ_id = $row['id_champ'];
-                                                $champ_image = $row['image'];
-                                                $winrate = $row['win_rate'];
-                                                $winrate_one = $row_one['win_rate'];
-                                                if ($winrate < $winrate_one) {
-                                                echo
-                                                '<a href = "../../../5v5/Champions/'.$champ_name.'/Top.php">
-                                                    <div class="champct-item counters-st champct-st ' .setBgLane($lane).'">
-                                                            <img src="../../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 50px;height: 50px;">
-                                                        <div class="champct-name">
-                                                            <span>'.$champ_name.'</span>
-                                                        </div>
-                                                    </div>
-                                                </a>';
-                                            }
-                                        }
-
-                                   ?>
+                      $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                      $result = mysqli_query($conn, $sql);
+                      $row = mysqli_num_rows($result);
+                          while ($row = mysqli_fetch_assoc($result)) {
+                              $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE lane.id = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                              $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
+                              $row_one = mysqli_fetch_assoc($result_oneChamp);
+                              $champ_name = $row['champ_Name'];
+                              $champ_id = $row['ID'];
+                              $champ_image = $row['image'];
+                              $winrate = $row['win_rate'];
+                              $winrate_one = $row_one['win_rate'];
+                              if ($winrate < $winrate_one) {
+                              echo
+                              '<a href = "../../../5v5/Champions/'.$champ_name.'/Support.php">
+                                  <div class="champct-item counters-st champct-st ' .setBgLane($lane).'">
+                                          <img src="../../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 50px;height: 50px;">
+                                      <div class="champct-name">
+                                          <span>'.$champ_name.'</span>
+                                      </div>
+                                  </div>
+                              </a>';
+                          }
+                        }
+            
+                 ?>
                 </div>
             </div>
         </div>
@@ -1342,31 +1343,31 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                 </h2>
                 <div style="padding-top: 10px;" class="counters-grid">
                     <?php
-                                        $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
-                                        $result = mysqli_query($conn, $sql);
-                                        $row = mysqli_num_rows($result);
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                              $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE lane.id_lane = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
-                                                $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
-                                                $row_one = mysqli_fetch_assoc($result_oneChamp);
-                                                $champ_name = $row['champ_Name'];
-                                                $champ_id = $row['id_champ'];
-                                                $champ_image = $row['image'];
-                                                $winrate = $row['win_rate'];
-                                                $winrate_one = $row_one['win_rate'];
-                                                if ($winrate > $winrate_one) {
-                                                echo
-                                                '<a href = "../../../5v5/Champions/'.$champ_name.'/Top.php">
-                                                    <div class="champct-item counters-st champct-st ' .setBgLane($lane).'">
-                                                            <img src="../../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 60px;height: 50px;">
-                                                        <div class="champct-name">
-                                                            <span>'.$champ_name.'</span>
-                                                        </div>
-                                                    </div>
-                                                </a>';
-                                                }
-                                            }
-                                   ?>
+                        $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_num_rows($result);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE lane.id = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                                $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
+                                $row_one = mysqli_fetch_assoc($result_oneChamp);
+                                $champ_name = $row['champ_Name'];
+                                $champ_id = $row['ID'];
+                                $champ_image = $row['image'];
+                                $winrate = $row['win_rate'];
+                                $winrate_one = $row_one['win_rate'];
+                                if ($winrate > $winrate_one) {
+                                echo
+                                '<a href = "../../../5v5/Champions/'.$champ_name.'/Support.php">
+                                    <div class="champct-item counters-st champct-st ' .setBgLane($lane).'">
+                                            <img src="../../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 60px;height: 50px;">
+                                        <div class="champct-name">
+                                            <span>'.$champ_name.'</span>
+                                        </div>
+                                    </div>
+                                </a>';
+                                }
+                            }
+                   ?>
                 </div>
             </div>
         </div>
@@ -1388,7 +1389,8 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                             <a href="../../../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                 <span class="text-underline" style="font-size:14px;">Home</span>
                             </a>
-                            <a href="../../../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                            <a href="../../../5v5/Stats.php" class=" para-st"
+                                style="margin-left: 5px;padding: 3px 0px;">
                                 <span class="text-underline" style="font-size:14px;">Stats</span>
                             </a>
                         </div>

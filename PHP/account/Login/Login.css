@@ -131,7 +131,7 @@ body {
     position: relative;
 }
 
-.remember-pass {
+.remember {
     font-size: .9em;
     color: #fff;
     font-weight: 500;
@@ -140,21 +140,21 @@ body {
     justify-content: space-between;
 }
 
-.remember-pass label input {
+.remember label input {
     accent-color: #fff;
     margin-right: 3px;
 }
 
-.remember-pass a {
+.remember a {
     color: red;
     text-decoration: none;
 }
 
-.remember-pass a:hover {
+.remember a:hover {
     text-decoration: underline;
 }
 
-.remember-pass label {
+.remember label {
     text-align: center;
 }
 

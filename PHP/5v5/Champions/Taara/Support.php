@@ -1,6 +1,20 @@
 <?php session_start(); ?>
 <!-- <?php setcookie('username', $_SESSION['username'], time() + 60, "/");
 ?> -->
+<?php
+require '../../../5v5/connect.php';
+// sql 3 table champions, role_champions, stats
+$sql = "SELECT * from champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane ON lane.id_lane = stats.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.id_champ = 25 AND lane.id_lane = 5 AND role_champions.id_role = 4";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$name = $row['champ_Name'];
+$lane = $row['lane_name'];
+$role = $row['name_role'];
+$GLOBALS['name'] = $name;
+$GLOBALS['lane'] = $lane;
+$GLOBALS['id'] = $row['id_champ'];
+$GLOBALS['id_lane'] = $row['id_lane'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +23,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>METAaov</title>
-    <link rel="icon" href="../../../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
+    <title><?php echo $GLOBALS['name'] ?> Build Guide, <?php echo $GLOBALS['lane'] ?> Runes, Items Patch 24</title>
+    <link rel="icon" href="../../../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
     <link rel="stylesheet" href="../../../../CSS/">
     <link rel="stylesheet" href="../../../../CSS/Champion.css">
     <link rel="stylesheet" href="../../../../CSS/Home.css">
@@ -41,7 +55,7 @@
                 <div style="width:100%">
                     <a href="../../../5v5/Home.php"
                         style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../../../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                        <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
                             style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
@@ -69,8 +83,8 @@
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <!-- Logo(logo trang web) -->
-                                    <img class="img-pos" src="../../../../Images/Icon-Logo/N5-removebg-preview.png"
-                                        alt="logo" style="width:32px;height:32px;">
+                                    <img class="img-pos" src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
+                                        style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <!-- Name(tên trang web) -->
                                         <b class="f-word word">META</b>
@@ -146,7 +160,8 @@
                         </div>
                         <!-- div show the Home page of game(đây là phần hiển thị trang chủ của game) -->
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item btn-cl" href="Home.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item btn-cl" href="../../../5v5/Home.php"
+                                style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="home"></ion-icon>
@@ -157,23 +172,12 @@
                         </div>
                         <!-- div show the Stats page of game(đây là phần hiển thị trang thống kê của game) -->
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="../../5v5/Stats.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item" href="../../../5v5/Stats.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="stats-chart"></ion-icon>
                                     </span>
                                     <div class="text-logo logo-st">Stats</div>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- div show the Plot of game(đây là phần hiển thị cốt truyện của game) -->
-                        <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="Home.php" style="padding-left: 14px;">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <span style="width: 32px;height: 32px;" data-loaded="true">
-                                        <ion-icon name="book"></ion-icon>
-                                    </span>
-                                    <div class="text-logo logo-st">Plot</div>
                                 </div>
                             </a>
                         </div>
@@ -208,18 +212,6 @@
                                                     <div class="image-inner"
                                                         style="min-width: 120px;min-height: 120px;max-width: 120px;max-height: 120px;">
                                                         <?php
-                                                        require '../../../5v5/connect.php';
-                                                        // sql 3 table champions, role_champions, stats
-                                                        $sql = "SELECT * from champions JOIN stats_champions ON champions.ID = stats_champions.id_champ JOIN lane ON lane.id = stats_champions.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.ID = 25 AND lane.id = 5 AND role_champions.id_role = 4";
-                                                        $result = mysqli_query($conn, $sql);
-                                                        $row = mysqli_fetch_assoc($result);
-                                                        $name = $row['champ_Name'];
-                                                        $lane = $row['lane_name'];
-                                                        $role = $row['name_role'];
-                                                        $GLOBALS['name'] = $name;
-                                                        $GLOBALS['lane'] = $lane;
-                                                        $GLOBALS['id'] = $row['ID'];
-                                                        $GLOBALS['id_lane'] = $row['id'];
                                                         // function setLaneBorder($lane) to set border color for champion's image(đây là hàm để set màu viền cho ảnh tướng)
                                                         function setLaneBorder($lane) {
                                                             if($lane == "Mid") {
@@ -363,12 +355,13 @@
                                         tier, tỉ lệ thắng, tỉ lệ chọn, tỉ lệ cấm, KDA và điểm số) -->
                                         <div class="descript descript-bg descript-pos">
                                             <?php
-                                            $sql = "SELECT * FROM champions JOIN stats_champions ON champions.ID = stats_champions.id_champ JOIN lane WHERE champions.id_lane = lane.id AND stats_champions.id_lane = 4";
+                                            require '../../style.php';
+                                            $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE champions.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] AND champions.id_champ = $GLOBALS[id]";
                                             $result = mysqli_query($conn, $sql);
                                             $count = mysqli_num_rows($result);
                                             $row = mysqli_fetch_assoc($result);
-                                            if ($count > 0) {
-                                                $tier = $row['tier'];
+                                                if ($count > 0) {
+                                                $status = $row['status'];
                                                 $winrate = $row['win_rate'];
                                                 $pickrate = $row['pick_rate'];
                                                 $banrate = $row['ban_rate'];
@@ -377,7 +370,7 @@
                                                 '<div style="display: flex; justify-content: space-between; padding: 9px;">
                                                 <span class="descript-text">
                                                 <strong>Tier: </strong>
-                                                <span class="tier-value">' . $tier . '</span>
+                                                <span class="tier-value '.setTier($winrate, $status).'">' . getTier($winrate, $status) . '</span>
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>Win rate: </strong>
@@ -463,8 +456,7 @@
                                             <span class="mid">Mid lane</span>
                                         </span>
                                     </a>
-                                    <a href="../Taara/ADC.php" class="text-ac ge-st"
-                                        style="border-bottom-color: #fff;">
+                                    <a href="../Taara/ADC.php" class="text-ac ge-st" style="border-bottom-color: #fff;">
                                         <span>
                                             <img class="b-hover" src="../../../../Images/Lane/adc_icon.png"
                                                 style="width: 20px; height: 20px;background-color: rgb(255, 0, 0);">
@@ -505,7 +497,7 @@
                                                 <div
                                                     style="width:100%;display:flex;align-items:center;justify-content: space-around;">
                                                     <?php
-                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.ID = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id AND champions.champ_Name = '$name'";
+                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND champions.champ_Name = '$name'";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);
@@ -549,10 +541,10 @@
                                                                         <div style="margin-top:1px">
                                                                             <div class="items items-bg">
                                                                             <div style="display: flex;">';
-                                                                                $spellNum = "2,1,4";
+                                                                                $spellNum = "3,2,1";
                                                                                 $row_array = explode(',', $spellNum);
                                                                                 for ($i = 0; $i < count($row_array); $i++) {
-                                                                                    $sql = "SELECT * FROM champions JOIN stats_spell ON champions.ID = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id AND champions.champ_Name = '$name' AND stats_spell.id_spell = $row_array[$i]";
+                                                                                    $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND champions.id_champ = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane] AND stats_spell.id_spell = $row_array[$i]";
                                                                                     $result = mysqli_query($conn, $sql);
                                                                                     $row = mysqli_fetch_assoc($result);
                                                                                     if ($i <= count($row_array)) {
@@ -603,7 +595,7 @@
                                         <!-- this command show the main items of the champion(đây là phần hiển 
                                                     thị vật phẩm chính của tướng)-->
                                         <?php
-                                                                $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.ID = stats_start_items.id_champ JOIN items WHERE stats_start_items.id_items = items.id AND stats_start_items.id_lane = 5 AND champions.ID = $GLOBALS[id]";
+                                                                $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items WHERE stats_start_items.id_items = items.id_items AND stats_start_items.id_lane = $GLOBALS[id_lane] AND champions.id_champ = $GLOBALS[id]";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);
@@ -650,8 +642,8 @@
                                                                     $itemNum = "12,1,7";
                                                                     $row_array = explode(',', $itemNum);
                                                                     for ($i = 0; $i < count($row_array); $i++) {
-                                                                        $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.ID = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id JOIN lane WHERE stats_start_items.id_lane = lane.id AND stats_start_items.id_items = items.id
-                                                                        AND stats_start_items.id_lane = 5 AND champions.ID = $GLOBALS[id] AND stats_start_items.id_items = $row_array[$i]";
+                                                                        $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id_items JOIN lane WHERE stats_start_items.id_lane = lane.id_lane AND stats_start_items.id_items = items.id_items
+                                                                        AND stats_start_items.id_lane = $GLOBALS[id_lane] AND champions.id_champ = $GLOBALS[id] AND stats_start_items.id_items = $row_array[$i]";
                                                                         $result = mysqli_query($conn, $sql);
                                                                         $row = mysqli_fetch_assoc($result);
                                                                         if ($i <= count($row_array)) {
@@ -703,10 +695,7 @@
                                 <div style="width:42px;height:79px;"></div>
                                 <div class="rating">
                                     <div class="rating-inner" style="text-align:left;">
-                                        <span class="win">Win%</span>
-                                    </div>
-                                    <div class="rating-inner" style="text-align:left;">
-                                        <span class="pick">Pick%</span>
+                                        <span class="win">Options</span>
                                     </div>
                                 </div>
                             </div>
@@ -717,11 +706,11 @@
                                     <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
                                         <circle cx="36" cy="36"="20" fill="black">
                                         </circle>
-                                        <circle cx="36" cy="36"="20" fill="transparent" stroke="rgb(239, 227, 24)"
+                                        <circle cx="36" cy="36"="20" fill="transparent" stroke="rgb(91, 208, 82)"
                                             stroke-width="2">
                                         </circle>
                                         <image class="badge-img" x="0" y="0" height="72" width="72"
-                                            xlink:href="../../../../Images/PhuHieu/MocGiap.png" />
+                                            xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png" />
                                     </svg>
                                 </div>
                                 <div class="activerunes-image drop-hover badge-st be badge-2">
@@ -729,7 +718,7 @@
                                         <circle cx="27" cy="27" r="15" fill="black">
                                         </circle>
                                         <image class="badge-img" x="17" y="17" height="20" width="20"
-                                            xlink:href="../../../../Images/PhuHieu/MaChu.png" />
+                                            xlink:href="../../../../Images/PhuHieu/VucHonMang.png" />
                                         <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(217, 40, 16)"
                                             stroke-width="2">
                                         </circle>
@@ -737,10 +726,7 @@
                                 </div>
                                 <div class="rating" style="width:100%">
                                     <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="win">100%</span>
-                                    </div>
-                                    <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="pick">100%</span>
+                                        <span class="win">Option 1</span>
                                     </div>
                                 </div>
                             </div>
@@ -755,7 +741,7 @@
                                             stroke-width="2">
                                         </circle>
                                         <image class="badge-img" x="0" y="0" height="72" width="80"
-                                            xlink:href="../../../../Images/PhuHieu/MaTinh.png" />
+                                            xlink:href="../../../../Images/PhuHieu/VucHonMang.png" />
                                     </svg>
                                 </div>
                                 <div class="activerunes-image drop-hover badge-st be badge-2">
@@ -763,18 +749,15 @@
                                         <circle cx="27" cy="27" r="15" fill="black">
                                         </circle>
                                         <image class="badge-img" x="17" y="17" height="20" width="20"
-                                            xlink:href="../../../../Images/PhuHieu/DuHiep.png" />
-                                        <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(239, 219, 33)"
+                                            xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png" />
+                                        <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(91, 208, 82)"
                                             stroke-width="2">
                                         </circle>
                                     </svg>
                                 </div>
                                 <div class="rating" style="width:100%">
                                     <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="win">100%</span>
-                                    </div>
-                                    <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="pick">100%</span>
+                                        <span class="win">Option 2</span>
                                     </div>
                                 </div>
                             </div>
@@ -789,12 +772,12 @@
                                             <circle cx="26" cy="36" r="25" fill="black">
                                             </circle>
                                             <line x1="50" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="5" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/MocGiap.png">
+                                                xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png">
                                             </image>
-                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -804,16 +787,16 @@
                                             <circle cx="36" cy="36" r="10" fill="black">
                                             </circle>
                                             <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
-                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                             <image class="badge-img" x="0" y="0" height="72" width="72"
-                                                xlink:href="../../../../Images/PhuHieu/BomMau.png">
+                                                xlink:href="../../../../Images/PhuHieu/MocGiap.png">
                                             </image>
                                         </svg>
                                     </div>
@@ -822,15 +805,15 @@
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/NhayBen.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -840,12 +823,12 @@
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/BomMau.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -861,7 +844,7 @@
                                                 style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="7" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/Matinh.png">
+                                                xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
                                             </image>
                                             <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
@@ -891,7 +874,7 @@
                                                 style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="17" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/MaChu.png">
+                                                xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
                                             </image>
                                             <circle cx="36" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
@@ -906,7 +889,7 @@
                                                 style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/CoThu.png">
+                                                xlink:href="../../../../Images/PhuHieu/CuongCong.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
@@ -923,12 +906,12 @@
                                             <circle cx="26" cy="36" r="25" fill="black">
                                             </circle>
                                             <line x1="50" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="5" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/MaHoa.png">
+                                                xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
                                             </image>
-                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -938,16 +921,16 @@
                                             <circle cx="36" cy="36" r="10" fill="black">
                                             </circle>
                                             <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
-                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                             <image class="badge-img" x="0" y="0" height="72" width="72"
-                                                xlink:href="../../../../Images/PhuHieu/ThanQuang.png">
+                                                xlink:href="../../../../Images/PhuHieu/MaTinh.png">
                                             </image>
                                         </svg>
                                     </div>
@@ -956,15 +939,15 @@
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/BiQuyet.png">
+                                                xlink:href="../../../../Images/PhuHieu/CuongCong.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -974,12 +957,12 @@
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThanhChau.png">
+                                                xlink:href="../../../../Images/PhuHieu/CoThu.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -1039,7 +1022,7 @@
                                                 style="stroke:rgb(10,0,148);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThoSan.png">
+                                                xlink:href="../../../../Images/PhuHieu/UyAp.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(10,0,148)"
                                                 stroke-width="2">
@@ -1063,10 +1046,10 @@
                             <div style="display:flex;align-items:center;justify-content:center;">
                                 <?php
                             
-                                   $itemNum = "71,46,81,82,80,69";
+                                   $itemNum = "71,46,87,38,80,69";
                                    $row_array = explode(',', $itemNum);
                                    for ($i = 0; $i < count($row_array); $i++) {
-                                    $sql = "SELECT * FROM items WHERE id = '$row_array[$i]'";
+                                    $sql = "SELECT * FROM items WHERE id_items = '$row_array[$i]'";
                                        $result = mysqli_query($conn, $sql);
                                        $row = mysqli_fetch_assoc($result);
                                        if ($i <= count($row_array)) {
@@ -1092,7 +1075,7 @@
                                 style="border-top:1px solid black;border-bottom:1px solid black;margin-bottom:5px;">
                                 <tbody>
                                     <?php
-                                   $sql = "SELECT * FROM champions, skills WHERE champions.ID = skills.id_champ AND champions.ID = $GLOBALS[id]";
+                                   $sql = "SELECT * FROM champions, skills WHERE champions.id_champ = skills.id_champ AND champions.id_champ = $GLOBALS[id]";
                                    $result = mysqli_query($conn, $sql);
                                    $row = mysqli_fetch_assoc($result);
                                    $passive = $row['passive'];
@@ -1182,7 +1165,7 @@
                 <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Items Build Order</h2>
                 <div class="bct-p">
                     <?php
-                                    $sql = "SELECT * FROM `items`";
+                                    $sql = "SELECT * FROM items";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
                                     ?>
@@ -1196,10 +1179,10 @@
                                     // sử dụng explode để chia chuỗi thành mảng, sau đó lặp để lấy từng id item
                                     // sau đó sử dụng sql để lấy chi tiết item
                                     // cuối cùng là echo chi tiết item
-                                   $itemNum = "17,46,2,7,9,12,13,14,19,29,31";
+                                   $itemNum = "18,37,70,17,13,46,12,33,14,15,87,9,9,31,12,12,38,12,12,36,9,9,31,80,9,13,34,13,9,78,1,19,9,69";
                                    $row_array = explode(',', $itemNum);
                                    for ($i = 0; $i < count($row_array); $i++) {
-                                       $sql = "SELECT * FROM `items` WHERE `id` = $row_array[$i]";
+                                       $sql = "SELECT * FROM items WHERE id_items = $row_array[$i]";
                                        $result = mysqli_query($conn, $sql);
                                        $row = mysqli_fetch_assoc($result);
                                        $level_item = $row['level_item'];
@@ -1312,24 +1295,24 @@
         <!-- div show the champions's counters(để hiện thị các tướng đối kháng) -->
         <div class="bct-inner te-st">
             <div class="bct-bg counter-content">
-                <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> counters(over 52% win rate)</h2>
+                <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> counters</h2>
                 <div style="padding-top: 10px;" class="counters-grid">
                     <?php
-                      $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                      $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                       $result = mysqli_query($conn, $sql);
                       $row = mysqli_num_rows($result);
                           while ($row = mysqli_fetch_assoc($result)) {
-                              $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE lane.id = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                              $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE lane.id_lane = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                               $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
                               $row_one = mysqli_fetch_assoc($result_oneChamp);
                               $champ_name = $row['champ_Name'];
-                              $champ_id = $row['ID'];
+                              $champ_id = $row['id_champ'];
                               $champ_image = $row['image'];
                               $winrate = $row['win_rate'];
                               $winrate_one = $row_one['win_rate'];
-                              if ($winrate < $winrate_one && $winrate_one > 52) {
+                              if ($winrate < $winrate_one) {
                               echo
-                              '<a href = "../../Champions/Champion.php?name='.$champ_name.'/Mid.php">
+                              '<a href = "../../../5v5/Champions/'.$champ_name.'/Support.php">
                                   <div class="champct-item counters-st champct-st ' .setBgLane($lane).'">
                                           <img src="../../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 50px;height: 50px;">
                                       <div class="champct-name">
@@ -1347,25 +1330,25 @@
         <!-- div show the champions is countered(để hiện thị các tướng bi đối kháng) -->
         <div class="bct-inner te-st">
             <div class="bct-bg counter-content">
-                <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> is countered(under 49% win rate)
+                <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> is countered
                 </h2>
                 <div style="padding-top: 10px;" class="counters-grid">
                     <?php
-                          $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                          $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                           $result = mysqli_query($conn, $sql);
                           $row = mysqli_num_rows($result);
                               while ($row = mysqli_fetch_assoc($result)) {
-                                $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE lane.id = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                                $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE lane.id_lane = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                                   $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
                                   $row_one = mysqli_fetch_assoc($result_oneChamp);
                                   $champ_name = $row['champ_Name'];
-                                  $champ_id = $row['ID'];
+                                  $champ_id = $row['id_champ'];
                                   $champ_image = $row['image'];
                                   $winrate = $row['win_rate'];
                                   $winrate_one = $row_one['win_rate'];
-                                  if ($winrate > $winrate_one || $winrate_one < 49) {
+                                  if ($winrate > $winrate_one) {
                                   echo
-                                  '<a href = "../../Champions/Champion.php?name='.$champ_name.'/Mid.php">
+                                  '<a href = "../../../5v5/Champions/'.$champ_name.'/Support.php">
                                       <div class="champct-item counters-st champct-st ' .setBgLane($lane).'">
                                               <img src="../../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 60px;height: 50px;">
                                           <div class="champct-name">
@@ -1385,6 +1368,91 @@
     </div>
     </div>
     </div>
+    <!--Footer-->
+    <div class="footer ge-ct ft-bg">
+        <div class="ft ge-ct">
+            <div class="ep-ct"></div>
+            <div class="ft-content ct-gap">
+                <div class="left-text text-st">
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">AOV 5v5 items</div>
+                            <a href="../../../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Home</span>
+                            </a>
+                            <a href="../../../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Stats</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">AOV mode</div>
+                            <a href="../../../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">5v5</span>
+                            </a>
+                            <a href="../../../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">3v3</span>
+                            </a>
+                            <a href="../../../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">1v1</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">Team members</div>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Trịnh Huỳnh Bảo Ngân</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Huỳnh Ngọc Trang</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Nhật Huy</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Đình Vỹ</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Đoàn Võ Nguyên</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Trương Thái Khang</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-text">
+                    <div class="right-para">
+                        <a href="../../../5v5/Home.php">
+                            <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="Logo"
+                                style="width:100%;height:100%;">
+                        </a>
+                    </div>
+                </div>
+                <!--Feedback-->
+                <div class="feedback-form fb-form">
+                    <form action="" method="post">
+                        <div class="feedback-title">Feedback</div>
+                        <div class="feedback-input">
+                            <input type="text" name="user_name" class="feedback-form-ct name" placeholder="Name">
+                            <input type="text" name="user_email" class="feedback-form-ct email" placeholder="Email">
+                            <input type="text" name="subject" class="feedback-form-ct subject" placeholder="Subject">
+                            <textarea name="feedback-text" id="feedback-ct" cols="30" rows="10"
+                                class="feedback-form-ct message" placeholder="Message"></textarea>
+                            <div class="feedback-form buttons">
+                                <button name="submit-feedback" class="feedback-button">SEND</button>
+                                <?php
+                                        include '../../../account/send_mail.php';
+                                    ?>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     </div>
     </div>
@@ -1392,9 +1460,9 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../../../JS/navigation.js"></script>
-    <script type="text/javascript" src="../../../JS/Home.js"></script>
-    <script type="text/javascript" src="../../../JS/metaaov.js"></script>
+    <script type="text/javascript" src="../../../../JS/navigation.js"></script>
+    <script type="text/javascript" src="../../../../JS/Home.js"></script>
+    <script type="text/javascript" src="../../../../JS/metaaov.js"></script>
     <?php
         include '../../../account/Check_Session.php'
     ?>

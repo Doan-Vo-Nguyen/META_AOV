@@ -1,33 +1,53 @@
 <?php
-session_start();
 require 'connect.php';
 if (isset($_POST['submit'])) {
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     // check user
-    $query_user = "SELECT user_name, user_pass FROM user WHERE user_name = '$username'";
+    $query_user = "SELECT * FROM user WHERE user_email = '$email'";
     $result = mysqli_query($conn, $query_user);
     $row = mysqli_fetch_assoc($result);
-    error_reporting(E_ERROR | E_PARSE);
-    if ($username == $row['user_name'] && $password == $row['user_pass']) {
+    if ($email == $row['user_email'] && $password == $row['user_pass']) {
         $_SESSION['user'] = $row['user_name'];
+        //check the checkbox
+        // if(!empty($_POST['remember-checkbox'])) {
+        //     $remember = $_POST['remember-checkbox'];
+        //     //set cookie
+        //     setcookie('email', $email, time() + (86400 * 30));
+        //     setcookie('password', $password, time() + (86400 * 30));
+        //     setcookie('remember', $remember, time() + (86400 * 30));
+        // }
+        // else
+        // {
+        //     // cookie expire
+        //     setcookie('email', $email, time() - (86400 * 30));
+        //     setcookie('password', $password, time() - (86400 * 30));
+        // }
         echo "<script>alert('Login successfully')</script>";
-        header("Location: ../../5v5/Home.php");
+        // back to the last page using history
+        header('location: ../5v5/Home.php');
         exit;
     } else {
         echo "<script>alert('Invalid email or password')</script>";
     }
 
     // check admin
-    $query_admin = "SELECT admin_name, admin_pass FROM admin WHERE admin_name = '$username'";
+    $query_admin = "SELECT * FROM admin WHERE admin_email = '$email'";
     $result = mysqli_query($conn, $query_admin);
     $row = mysqli_fetch_assoc($result);
     error_reporting(E_ERROR | E_PARSE);
-    if ($username == $row['admin_name'] && $password == $row['admin_pass']) {
+    if ($email == $row['admin_email'] && $password == $row['admin_pass']) {
         $_SESSION['admin'] = $row['admin_name'];
+        // if(!empty($_POST['remember-checkbox'])) {
+        //     $remember = $_POST['remember-checkbox'];
+
+        //     set cookie
+        //     setcookie('email', $email, time() + (86400 * 30));
+        //     setcookie('password', $password, time() + (86400 * 30));
+        //     setcookie('remember', $remember, time() + (86400 * 30));
+        // }
         echo "<script>alert('Login successfully')</script>";
-        header("Location: ../../Admin/admin.php");
-        exit;
+        header('location: ../admin/admin.php');
     } else {
         echo "<script>alert('Invalid email or password')</script>";
     }

@@ -2,38 +2,38 @@
 require 'connect.php';
 function getTierText($win)
 {
-    if($win >= 55) {
-        return 'S+ / God';
-    }
-    else
-    {
-        if($win >= 50 && $win < 55) {
-            return 'S / Strong';
+        if($win >= 55) {
+            return 'S+ / God';
         }
         else
         {
-            if($win >= 45 && $win < 50) {
-                return 'A / Good';
+            if($win >= 50 && $win < 55) {
+                return 'S / Strong';
             }
             else
             {
-                if($win >= 40 && $win < 45) {
-                    return 'B / Fair';
+                if($win >= 45 && $win < 50) {
+                    return 'A / Good';
                 }
                 else
                 {
-                    if($win >= 30 && $win < 40) {
-                        return 'C / Weak';
+                    if($win >= 40 && $win < 45) {
+                        return 'B / Fair';
                     }
-                    else if($win < 30)
-                        {
-                            return 'D / Bad';
+                    else
+                    {
+                        if($win >= 30 && $win < 40) {
+                            return 'C / Weak';
                         }
+                        else if($win < 30)
+                            {
+                                return 'D / Bad';
+                            }
+                    }
                 }
             }
         }
     }
-}
 
 function setTierColor($win) 
 {
@@ -118,7 +118,9 @@ function setTrendColor($trend)
         }
     }
 }
-$sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_champ JOIN lane WHERE stats.id_lane = lane.id";
+require 'style.php';
+// get the data from the database champions, stats and lane, remove the champions with status = 0(off meta) and order by champions name
+$sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane WHERE stats.id_lane = lane.id_lane AND stats.status <> 0 ORDER BY champions.champ_Name ASC";
 $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_assoc($result)) {
     $name = $row['champ_Name'];

@@ -4,7 +4,7 @@
 <?php
 require '../../../5v5/connect.php';
 // sql 3 table champions, role_champions, stats
-$sql = "SELECT * from champions JOIN stats_champions ON champions.ID = stats_champions.id_champ JOIN lane ON lane.id = stats_champions.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.ID = 1 AND lane.id = 3 AND role_champions.id_role = 1";
+$sql = "SELECT * from champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane ON lane.id_lane = stats.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.id_champ = 1 AND lane.id_lane = 3 AND role_champions.id_role = 1";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $name = $row['champ_Name'];
@@ -12,8 +12,8 @@ $lane = $row['lane_name'];
 $role = $row['name_role'];
 $GLOBALS['name'] = $name;
 $GLOBALS['lane'] = $lane;
-$GLOBALS['id'] = $row['ID'];
-$GLOBALS['id_lane'] = $row['id'];
+$GLOBALS['id'] = $row['id_champ'];
+$GLOBALS['id_lane'] = $row['id_lane'];
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ $GLOBALS['id_lane'] = $row['id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $GLOBALS['name'] ?> Build Guide, <?php echo $GLOBALS['lane'] ?> Runes, Items Patch 24</title>
-    <link rel="icon" href="../../../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
+    <link rel="icon" href="../../../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
     <link rel="stylesheet" href="../../../../CSS/Champion.css">
     <link rel="stylesheet" href="../../../../CSS/Home.css">
     <!-- a library of icons(1 thư viện icon) -->
@@ -96,7 +96,7 @@ $GLOBALS['id_lane'] = $row['id'];
                         <!-- div show menu(đây là phần hiển thị menu) -->
                         <div class="menu-item info-link">
                             <!-- div show the mode of game using dropdown(đây là phần hiển thị chế độ chơi bằng dropdown) -->
-                            <a id="1-dropdown" class="nav-dropdown item-logo nav-item" onclick="navDropdown('1');">
+                            <a id="1-dropdown" class="nav-dropdown item-logo nav-item" onclick=" navDropdown('1');">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <b class="patch" style="display:flex;justify-content:center;font-size:17px;">5v5</b>
                                     <span class="text-logo logo-st" style="position:relative;left:-10px;">Chế độ
@@ -111,18 +111,22 @@ $GLOBALS['id_lane'] = $row['id'];
                             </a>
                             <div id="1-content" class="otherCt-1 dropdown-content" style="display:none;">
                                 <div>
-                                    <div class="item-logo nav-item">
-                                        <div style="display:flex;justify-content:center;align-items:center;">
-                                            <b class="text-logo logo-st">3v3</b>
+                                    <a href="../../../3v3/3v3.php">
+                                        <div class="item-logo nav-item">
+                                            <div style="display:flex;justify-content:center;align-items:center;">
+                                                <b class="text-logo logo-st">3v3</b>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div>
-                                    <div class="item-logo nav-item">
-                                        <div style="display:flex;justify-content:center;align-items:center;">
-                                            <b class="text-logo logo-st">1v1</b>
+                                    <a href="../../../1v1/1v1.php">
+                                        <div class="item-logo nav-item">
+                                            <div style="display:flex;justify-content:center;align-items:center;">
+                                                <b class="text-logo logo-st">1v1</b>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +164,8 @@ $GLOBALS['id_lane'] = $row['id'];
                         </div>
                         <!-- div show the Home page of game(đây là phần hiển thị trang chủ của game) -->
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item btn-cl" href="Home.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item btn-cl" href="../../../5v5/Home.php"
+                                style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="home"></ion-icon>
@@ -171,7 +176,7 @@ $GLOBALS['id_lane'] = $row['id'];
                         </div>
                         <!-- div show the Stats page of game(đây là phần hiển thị trang thống kê của game) -->
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="../../5v5/Stats.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item" href="../../../5v5/Stats.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="stats-chart"></ion-icon>
@@ -354,12 +359,13 @@ $GLOBALS['id_lane'] = $row['id'];
                                         tier, tỉ lệ thắng, tỉ lệ chọn, tỉ lệ cấm, KDA và điểm số) -->
                                         <div class="descript descript-bg descript-pos">
                                             <?php
-                                            $sql = "SELECT * FROM champions JOIN stats_champions ON champions.ID = stats_champions.id_champ JOIN lane WHERE champions.id_lane = lane.id AND stats_champions.id_lane = 3";
+                                            require '../../style.php';
+                                            $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane WHERE champions.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] AND champions.id_champ = $GLOBALS[id]";
                                             $result = mysqli_query($conn, $sql);
                                             $count = mysqli_num_rows($result);
                                             $row = mysqli_fetch_assoc($result);
                                             if ($count > 0) {
-                                                $tier = $row['tier'];
+                                                $status = $row['status'];
                                                 $winrate = $row['win_rate'];
                                                 $pickrate = $row['pick_rate'];
                                                 $banrate = $row['ban_rate'];
@@ -368,7 +374,7 @@ $GLOBALS['id_lane'] = $row['id'];
                                                 '<div style="display: flex; justify-content: space-between; padding: 9px;">
                                                 <span class="descript-text">
                                                 <strong>Tier: </strong>
-                                                <span class="tier-value">' . $tier . '</span>
+                                                <span class="tier-value '.setTier($winrate, $status).'">' . getTier($winrate, $status) . '</span>
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>Win rate: </strong>
@@ -497,7 +503,7 @@ $GLOBALS['id_lane'] = $row['id'];
                                                 <div
                                                     style="width:100%;display:flex;align-items:center;justify-content: space-around;">
                                                     <?php
-                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.ID = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id AND stats_spell.id_Champ = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane]";
+                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND stats_spell.id_champ = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane]";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);
@@ -544,7 +550,7 @@ $GLOBALS['id_lane'] = $row['id'];
                                                                                 $spellNum = "2,4,3";
                                                                                 $row_array = explode(',', $spellNum);
                                                                                 for ($i = 0; $i < count($row_array); $i++) {
-                                                                                    $sql = "SELECT * FROM champions JOIN stats_spell ON champions.ID = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id AND champions.ID = $GLOBALS[id] AND stats_spell.id_spell = $row_array[$i]";
+                                                                                    $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND champions.id_champ = $GLOBALS[id] AND stats_spell.id_spell = $row_array[$i]";
                                                                                     $result = mysqli_query($conn, $sql);
                                                                                     $row = mysqli_fetch_assoc($result);
                                                                                     if ($i <= count($row_array)) {
@@ -595,7 +601,7 @@ $GLOBALS['id_lane'] = $row['id'];
                                         <!-- this command show the starting of the champion(đây là phần hiển 
                                                     thị vật phẩm khởi đầu của tướng)-->
                                         <?php
-                                                                $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.ID = stats_start_items.id_champ JOIN items WHERE stats_start_items.id_items = items.id AND stats_start_items.id_lane = 3 AND champions.ID = $GLOBALS[id]";
+                                                                $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id_items JOIN lane WHERE stats_start_items.id_lane = lane.id_lane AND stats_start_items.id_items = items.id_items AND stats_start_items.id_lane = $GLOBALS[id_lane] AND champions.id_champ = $GLOBALS[id]";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);
@@ -642,9 +648,10 @@ $GLOBALS['id_lane'] = $row['id'];
                                                                     $itemNum = "11,1,12";
                                                                     $row_array = explode(',', $itemNum);
                                                                     for ($i = 0; $i < count($row_array); $i++) {
-                                                                        $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.ID = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id JOIN lane WHERE stats_start_items.id_lane = lane.id AND stats_start_items.id_items = items.id
-                                                                        AND stats_start_items.id_lane = 3 AND champions.ID = $GLOBALS[id] AND stats_start_items.id_items = $row_array[$i]";
+                                                                        $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id_items JOIN lane WHERE stats_start_items.id_lane = lane.id_lane AND stats_start_items.id_items = items.id_items
+                                                                        AND stats_start_items.id_lane = 3 AND champions.id_champ = $GLOBALS[id] AND stats_start_items.id_items = $row_array[$i]";
                                                                         $result = mysqli_query($conn, $sql);
+
                                                                         $row = mysqli_fetch_assoc($result);
                                                                         if ($i <= count($row_array)) {
                                                                             $item_name = $row['item_name'];
@@ -697,9 +704,6 @@ $GLOBALS['id_lane'] = $row['id'];
                                     <div class="rating-inner" style="text-align:left;">
                                         <span class="options">Options</span>
                                     </div>
-                                    <div class="rating-inner" style="text-align:left;">
-                                        <span class="pick">Pick%</span>
-                                    </div>
                                 </div>
                             </div>
                             <!-- div show the first primary badge(show phu hieu chinh thu 1) -->
@@ -731,9 +735,6 @@ $GLOBALS['id_lane'] = $row['id'];
                                     <div class="rating-inner text-hover" style="text-align:center">
                                         <span class="options">Option 1</span>
                                     </div>
-                                    <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="pick">100%</span>
-                                    </div>
                                 </div>
                             </div>
                             <!-- div show the second primary badge(show phu hieu chinh thu 2) -->
@@ -764,9 +765,6 @@ $GLOBALS['id_lane'] = $row['id'];
                                 <div class="rating" style="width:100%">
                                     <div class="rating-inner text-hover" style="text-align:center">
                                         <span class="option">Option 2</span>
-                                    </div>
-                                    <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="pick">100%</span>
                                     </div>
                                 </div>
                             </div>
@@ -1054,11 +1052,10 @@ $GLOBALS['id_lane'] = $row['id'];
                             class="content-details">
                             <div style="display:flex;align-items:center;justify-content:center;">
                                 <?php
-                                            // 46: giay kien cuong, 53: sach truy hon, 58:vuong mien hecate, 60: truong bung no, 61: xuyen tam lenh, 62: sach thanh
                                                $itemNum = "46,53,58,60,61,62";
                                                $row_array = explode(',', $itemNum);
                                                for ($i = 0; $i < count($row_array); $i++) {
-                                                   $sql = "SELECT * FROM champions JOIN stats_items ON champions.ID = stats_items.id_Champ JOIN items WHERE stats_items.id_items = items.id AND champions.champ_Name = '$name' AND stats_items.id_items = '$row_array[$i]'";
+                                                   $sql = "SELECT * FROM items WHERE id_items = '$row_array[$i]'";
                                                    $result = mysqli_query($conn, $sql);
                                                    $row = mysqli_fetch_assoc($result);
                                                    if ($i <= count($row_array)) {
@@ -1084,7 +1081,7 @@ $GLOBALS['id_lane'] = $row['id'];
                                 style="border-top:1px solid black;border-bottom:1px solid black;margin-bottom:5px;">
                                 <tbody>
                                     <?php
-                                                $sql = "SELECT * FROM champions, skills WHERE champions.ID = skills.id_champ AND champions.ID = $GLOBALS[id]";
+                                                $sql = "SELECT * FROM champions, skills WHERE champions.id_champ = skills.id_champ AND champions.id_champ = $GLOBALS[id]";
                                                 $result = mysqli_query($conn, $sql);
                                                 $row = mysqli_fetch_assoc($result);
                                                 $passive = $row['passive'];
@@ -1174,7 +1171,7 @@ $GLOBALS['id_lane'] = $row['id'];
                 <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Items Build Order</h2>
                 <div class="bct-p">
                     <?php
-                                    $sql = "SELECT * FROM `items`";
+                                    $sql = "SELECT * FROM items";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
                                     ?>
@@ -1191,7 +1188,7 @@ $GLOBALS['id_lane'] = $row['id'];
                                    $itemNum = "17,46,6,25,11,53,6,25,58,6,59,60,6,27,11,61,6,25,62";
                                    $row_array = explode(',', $itemNum);
                                    for ($i = 0; $i < count($row_array); $i++) {
-                                       $sql = "SELECT * FROM `items` WHERE `id` = $row_array[$i]";
+                                       $sql = "SELECT * FROM items WHERE id_items = $row_array[$i]";
                                        $result = mysqli_query($conn, $sql);
                                        $row = mysqli_fetch_assoc($result);
                                        $level_item = $row['level_item'];
@@ -1304,24 +1301,24 @@ $GLOBALS['id_lane'] = $row['id'];
         <!-- div show the champions's counters(để hiện thị các tướng đối kháng) -->
         <div class="bct-inner te-st">
             <div class="bct-bg counter-content">
-                <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> counters(over 52% win rate)</h2>
+                <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> counters</h2>
                 <div style="padding-top: 10px;" class="counters-grid">
                     <?php
-                        $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = 3 EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_Champ = 1 AND stats.id_lane = 3";
+                        $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane WHERE stats.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane WHERE stats.id_champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                         $result = mysqli_query($conn, $sql);
                         $row = mysqli_num_rows($result);
                         while ($row = mysqli_fetch_assoc($result)) {
-                        $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE lane.id = stats.id_lane AND stats.id_Champ = 1 AND stats.id_lane = 3";
+                            $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane WHERE lane.id_lane = stats.id_lane AND stats.id_champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                             $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
                             $row_one = mysqli_fetch_assoc($result_oneChamp);
                             $champ_name = $row['champ_Name'];
-                            $champ_id = $row['ID'];
+                            $champ_id = $row['id_champ'];
                             $champ_image = $row['image'];
                             $winrate = $row['win_rate'];
                             $winrate_one = $row_one['win_rate'];
-                            if ($winrate < $winrate_one && $winrate_one > 52) {
+                            if ($winrate < $winrate_one) {
                             echo
-                            '<a href = "../../Champions/Champion.php?name='.$champ_name.'/Mid.php">
+                            '<a href = "../../../5v5/Champions/'.$champ_name.'/ADC.php">
                                 <div class="champct-item counters-st champct-st colorv-4">
                                         <img src="../../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 50px;height: 50px;">
                                     <div class="champct-name">
@@ -1339,25 +1336,25 @@ $GLOBALS['id_lane'] = $row['id'];
         <!-- div show the champions is countered(để hiện thị các tướng bi đối kháng) -->
         <div class="bct-inner te-st">
             <div class="bct-bg counter-content">
-                <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> is countered(under 49% win rate)
+                <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> is countered
                 </h2>
                 <div style="padding-top: 10px;" class="counters-grid">
                     <?php
-                                        $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = 3 EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_Champ = 1 AND stats.id_lane = 3";
+                                        $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane WHERE stats.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane WHERE stats.id_champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                                         $result = mysqli_query($conn, $sql);
                                         $row = mysqli_num_rows($result);
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE lane.id = stats.id_lane AND stats.id_Champ = 1 AND stats.id_lane = 3";
+                                                $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane WHERE lane.id_lane = stats.id_lane AND stats.id_champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                                                 $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
                                                 $row_one = mysqli_fetch_assoc($result_oneChamp);
                                                 $champ_name = $row['champ_Name'];
-                                                $champ_id = $row['ID'];
+                                                $champ_id = $row['id_champ'];
                                                 $champ_image = $row['image'];
                                                 $winrate = $row['win_rate'];
                                                 $winrate_one = $row_one['win_rate'];
-                                                if ($winrate > $winrate_one || $winrate_one < 49) {
+                                                if ($winrate > $winrate_one) {
                                                 echo
-                                                '<a href = "../../Champions/Champion.php?name='.$champ_name.'/Mid.php">
+                                                '<a href = "../../../5v5/Champions/'.$champ_name.'/ADC.php">
                                                     <div class="champct-item counters-st champct-st colorv-4">
                                                             <img src="../../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 60px;height: 50px;">
                                                         <div class="champct-name">
@@ -1386,10 +1383,10 @@ $GLOBALS['id_lane'] = $row['id'];
                     <div class="left-grid">
                         <div class="left-para">
                             <div class="para-title">AOV 5v5 items</div>
-                            <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                            <a href="../../../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                 <span class="text-underline" style="font-size:14px;">Home</span>
                             </a>
-                            <a href="../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                            <a href="../../../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                 <span class="text-underline" style="font-size:14px;">Stats</span>
                             </a>
                         </div>
@@ -1397,13 +1394,13 @@ $GLOBALS['id_lane'] = $row['id'];
                     <div class="left-grid">
                         <div class="left-para">
                             <div class="para-title">AOV mode</div>
-                            <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                            <a href="../../../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                 <span class="text-underline" style="font-size:14px;">5v5</span>
                             </a>
-                            <a href="../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                            <a href="../../../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                 <span class="text-underline" style="font-size:14px;">3v3</span>
                             </a>
-                            <a href="../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                            <a href="../../../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                 <span class="text-underline" style="font-size:14px;">1v1</span>
                             </a>
                         </div>
@@ -1426,12 +1423,15 @@ $GLOBALS['id_lane'] = $row['id'];
                             <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                 <span class="text-underline" style="font-size:14px;">Đoàn Võ Nguyên</span>
                             </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Trương Thái Khang</span>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="right-text">
                     <div class="right-para">
-                        <a href="../5v5/Home.php">
+                        <a href="../../../5v5/Home.php">
                             <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="Logo"
                                 style="width:100%;height:100%;">
                         </a>
@@ -1466,9 +1466,9 @@ $GLOBALS['id_lane'] = $row['id'];
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../../../JS/navigation.js"></script>
-    <script type="text/javascript" src="../../../JS/Home.js"></script>
-    <script type="text/javascript" src="../../../JS/metaaov.js"></script>
+    <script type="text/javascript" src="../../../../JS/navigation.js"></script>
+    <script type="text/javascript" src="../../../../JS/Home.js"></script>
+    <script type="text/javascript" src="../../../../JS/metaaov.js"></script>
     <?php
         include '../../../account/Check_Session.php'
     ?>
