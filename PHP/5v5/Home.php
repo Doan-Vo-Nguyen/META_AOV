@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta name="description" content="Meta Liên Quân's Homepage">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>METAaov AOV Build & Guides Patch 24</title>
+    <title>METAaov AOV 5v5 Build & Guides Patch 24</title>
     <link rel="stylesheet" href="../../CSS/Home.css">
     <link rel="stylesheet" href="../../Extension/font-awesome.css">
     <link rel="stylesheet" href="../../CSS/jquery.typeahead.min.css">
@@ -328,8 +328,7 @@
                                     style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Home</span>
                                 </a>
-                                <a href="../../../5v5/Stats.php" class=" para-st"
-                                    style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../5v5/Stats.php" class=" para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Stats</span>
                                 </a>
                             </div>
@@ -417,6 +416,7 @@
     // Start the session
     error_reporting(E_ERROR | E_PARSE);
     $username = $_SESSION['user'];
+    echo $username;
     // Check if the session variable username is set
     if (isset($username)) {
     ?>
@@ -438,7 +438,7 @@
     <?php echo '
     <script>
         // Print back the login and register button if session variable username is not set
-        <a href="../account/Login/Login.phpp">Đăng nhập</a>
+        <a href="../account/Login/Login.php">Đăng nhập</a>
         <a href="../account/Register/Register.php">Đăng ký</a>
     </script>';
         ?>

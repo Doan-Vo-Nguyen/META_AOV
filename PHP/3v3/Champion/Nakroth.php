@@ -4,7 +4,7 @@
 <?php
 require '../connect_3v3.php';
 // sql 3 table champions, role_champions, stats
-$sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN role_champions ON role_champions.id_role = stats.id_role WHERE champions.id_champ = 1";
+$sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN role_champions ON role_champions.id_role = stats.id_role WHERE champions.id_champ = 15";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $name = $row['champ_Name'];
@@ -457,7 +457,7 @@ $GLOBALS['id'] = $row['id_champ'];
                                                                         <div style="margin-top:1px">
                                                                             <div class="items items-bg">
                                                                             <div style="display: flex;">';
-                                                                                $spellNum = "4,8,2";
+                                                                                $spellNum = "1,2,3";
                                                                                 $row_array = explode(',', $spellNum);
                                                                                 for ($i = 0; $i < count($row_array); $i++) {
                                                                                     $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND champions.id_champ = $GLOBALS[id]  AND stats_spell.id_spell = $row_array[$i]";
@@ -555,7 +555,7 @@ $GLOBALS['id'] = $row['id_champ'];
                                                             <div style="margin-top:1px">
                                                                 <div class="items items-bg">
                                                                     <div style="display: flex;">';
-                                                                    $itemNum = "17,11,8";
+                                                                    $itemNum = "1,2,3";
                                                                     $row_array = explode(',', $itemNum);
                                                                     for ($i = 0; $i < count($row_array); $i++) {
                                                                         $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id_items WHERE stats_start_items.id_items = items.id_items
@@ -611,8 +611,9 @@ $GLOBALS['id'] = $row['id_champ'];
                                 <div style="width:42px;height:79px;"></div>
                                 <div class="rating">
                                     <div class="rating-inner" style="text-align:left;">
-                                        <span class="options">Options </span>
+                                        <span class="opt">Options</span>
                                     </div>
+
                                 </div>
                             </div>
                             <!-- div show the first primary badge(show phu hieu chinh thu 1) -->
@@ -639,10 +640,11 @@ $GLOBALS['id'] = $row['id_champ'];
                                             stroke-width="2">
                                         </circle>
                                     </svg>
+
                                 </div>
                                 <div class="rating" style="width:100%">
                                     <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="options">Option 1</span>
+                                        <span class="opt-1">Option 1</span>
                                     </div>
                                 </div>
                             </div>
@@ -670,10 +672,11 @@ $GLOBALS['id'] = $row['id_champ'];
                                             stroke-width="2">
                                         </circle>
                                     </svg>
+
                                 </div>
                                 <div class="rating" style="width:100%">
                                     <div class="rating-inner text-hover" style="text-align:center">
-                                        <span class="options">Option 2</span>
+                                        <span class="opt-2">Option 2</span>
                                     </div>
                                 </div>
                             </div>
@@ -961,24 +964,23 @@ $GLOBALS['id'] = $row['id_champ'];
                             class="content-details">
                             <div style="display:flex;align-items:center;justify-content:center;">
                                 <?php
-                                            // 46: giay kien cuong, 53: sach truy hon, 58:vuong mien hecate, 60: truong bung no, 61: xuyen tam lenh, 62: sach thanh
-                                               $itemNum = "46,53,58,60,61,62";
-                                               $row_array = explode(',', $itemNum);
-                                               for ($i = 0; $i < count($row_array); $i++) {
-                                                $sql = "SELECT * FROM items WHERE id_items = '$row_array[$i]'";
-                                                   $result = mysqli_query($conn, $sql);
-                                                   $row = mysqli_fetch_assoc($result);
-                                                   if ($i <= count($row_array)) {
-                                                       echo '<div>
-                                                           <div class="badge-st">
-                                                           <div class="items items-pos">
-                                                               <img src="../../../../Images/Items/' . $row['item_img'] . '" style="width:42px;height:42px">
-                                                           </div>
-                                                       </div>
-                                                   </div>';
-                                                   }
-                                               }
-                                               ?>
+                                  $itemNum = "81,46,82,68,83,67";
+                                  $row_array = explode(',', $itemNum);
+                                  for ($i = 0; $i < count($row_array); $i++) {
+                                   $sql = "SELECT * FROM items WHERE id_items = '$row_array[$i]'";
+                                      $result = mysqli_query($conn, $sql);
+                                      $row = mysqli_fetch_assoc($result);
+                                      if ($i <= count($row_array)) {
+                                          echo '<div>
+                                              <div class="badge-st">
+                                              <div class="items items-pos">
+                                                  <img src="../../../../Images/Items/' . $row['item_img'] . '" style="width:42px;height:42px">
+                                              </div>
+                                          </div>
+                                      </div>';
+                                      }
+                                  }
+                                  ?>
                             </div>
                         </div>
                     </div>
@@ -991,84 +993,84 @@ $GLOBALS['id'] = $row['id_champ'];
                                 style="border-top:1px solid black;border-bottom:1px solid black;margin-bottom:5px;">
                                 <tbody>
                                     <?php
-                                                $sql = "SELECT * FROM champions, skills WHERE champions.id_champ = skills.id_champ AND champions.id_champ = $GLOBALS[id]";
-                                                $result = mysqli_query($conn, $sql);
-                                                $row = mysqli_fetch_assoc($result);
-                                                $passive = $row['passive'];
-                                                $skill1 = $row['first_skill'];
-                                                $skill2 = $row['second_skill'];
-                                                $skill3 = $row['third_skill'];
-                                                echo
-                                                '<tr class="skills">
-                                                    <th class="skill-inner">
-                                                        <div class="skills-st">
-                                                           <!-- the passive(nội tại) -->
-                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'.$passive.'"
-                                                                style="width:20px;height:20px">
-                                                        </div>
-                                                    </th>
-                                                     <!-- each champions have 15 level to up skill -->';
-                                                    for ($i = 1;$i <= 15;$i++) {
-                                                        echo '<th class="skill-inner">'.$i.'</th>';
-                                                    }
-                                                echo
-                                                '</tr>
-                                                <!-- skill 1(kỹ năng 1) -->
-                                                <tr class="skills">
-                                                    <td class="skill-inner">
-                                                        <div class="skill-st">
-                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill1.'"style="width:20px;height:20px">
-                                                        </div>
-                                                    </td>';
-                                                    for ($i = 1; $i <= 15;$i++) {
-                                                        if($i == 1 || $i == 3 || $i == 6 || $i == 9 || $i == 10 || $i == 13){
-                                                            echo '<td class="skill-inner active-skill">X</td>';
-                                                        }
-                                                        else 
-                                                        {
-                                                            echo '<td class="skill-inner"></td>';
-                                                        }
-                                                    }
-                                                    echo 
-                                                '</tr>
-                                                <!-- skill 2(kỹ năng 2) -->
-                                                <tr class="skills">
-                                                    <td class="skill-inner">
-                                                        <div class="skill-st">
-                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill2.'"
-                                                                style="width:20px;height:20px">
-                                                        </div>
-                                                    </td>';
-                                                    for ($i = 1;$i <= 15;$i++) {
-                                                        if($i == 2 || $i == 5 || $i == 7 || $i == 11 || $i == 14 || $i == 15){
-                                                            echo '<td class="skill-inner active-skill">X</td>';
-                                                        }
-                                                        else 
-                                                        {
-                                                            echo '<td class="skill-inner"></td>';
-                                                        }
-                                                    }
-                                                    echo
-                                                '</tr>
-                                                <!-- skill 3(kỹ năng 3) -->
-                                                <tr class="skills">
-                                                    <td class="skill-inner">
-                                                        <div class="skill-st">
-                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill3.'"
-                                                                style="width:20px;height:20px">
-                                                        </div>
-                                                    </td>';
-                                                    for ($i = 1;$i <= 15;$i++) {
-                                                        if($i == 4 || $i == 8 || $i == 12){
-                                                            echo '<td class="skill-inner active-skill">X</td>';
-                                                        }
-                                                        else 
-                                                        {
-                                                            echo '<td class="skill-inner"></td>';
-                                                        }
-                                                    }
-                                                '</tr>';
-                                                ?>
+                                       $sql = "SELECT * FROM champions, skills WHERE champions.id_champ = skills.id_champ AND champions.id_champ = $GLOBALS[id]";
+                                       $result = mysqli_query($conn, $sql);
+                                       $row = mysqli_fetch_assoc($result);
+                                       $passive = $row['passive'];
+                                       $skill1 = $row['first_skill'];
+                                       $skill2 = $row['second_skill'];
+                                       $skill3 = $row['third_skill'];
+                                       echo
+                                       '<tr class="skills">
+                                           <th class="skill-inner">
+                                               <div class="skills-st">
+                                                  <!-- the passive(nội tại) -->
+                                                   <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'.$passive.'"
+                                                       style="width:20px;height:20px">
+                                               </div>
+                                           </th>
+                                            <!-- each champions have 15 level to up skill -->';
+                                           for ($i = 1;$i <= 15;$i++) {
+                                               echo '<th class="skill-inner">'.$i.'</th>';
+                                           }
+                                       echo
+                                       '</tr>
+                                       <!-- skill 1(kỹ năng 1) -->
+                                       <tr class="skills">
+                                           <td class="skill-inner">
+                                               <div class="skill-st">
+                                                   <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill1.'"style="width:20px;height:20px">
+                                               </div>
+                                           </td>';
+                                           for ($i = 1; $i <= 15;$i++) {
+                                               if($i == 1 || $i == 3 || $i == 6 || $i == 9 || $i == 10 || $i == 13){
+                                                   echo '<td class="skill-inner active-skill">X</td>';
+                                               }
+                                               else 
+                                               {
+                                                   echo '<td class="skill-inner"></td>';
+                                               }
+                                           }
+                                           echo 
+                                       '</tr>
+                                       <!-- skill 2(kỹ năng 2) -->
+                                       <tr class="skills">
+                                           <td class="skill-inner">
+                                               <div class="skill-st">
+                                                   <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill2.'"
+                                                       style="width:20px;height:20px">
+                                               </div>
+                                           </td>';
+                                           for ($i = 1;$i <= 15;$i++) {
+                                               if($i == 2 || $i == 5 || $i == 7 || $i == 11 || $i == 14 || $i == 15){
+                                                   echo '<td class="skill-inner active-skill">X</td>';
+                                               }
+                                               else 
+                                               {
+                                                   echo '<td class="skill-inner"></td>';
+                                               }
+                                           }
+                                           echo
+                                       '</tr>
+                                       <!-- skill 3(kỹ năng 3) -->
+                                       <tr class="skills">
+                                           <td class="skill-inner">
+                                               <div class="skill-st">
+                                                   <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill3.'"
+                                                       style="width:20px;height:20px">
+                                               </div>
+                                           </td>';
+                                           for ($i = 1;$i <= 15;$i++) {
+                                               if($i == 4 || $i == 8 || $i == 12){
+                                                   echo '<td class="skill-inner active-skill">X</td>';
+                                               }
+                                               else 
+                                               {
+                                                   echo '<td class="skill-inner"></td>';
+                                               }
+                                           }
+                                       '</tr>';
+                                       ?>
                                 </tbody>
                             </table>
                         </div>
@@ -1081,37 +1083,38 @@ $GLOBALS['id'] = $row['id_champ'];
                 <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Items Build Order</h2>
                 <div class="bct-p">
                     <?php
-                                    $sql = "SELECT * FROM items";
-                                    $result = mysqli_query($conn, $sql);
-                                    $row = mysqli_fetch_assoc($result);
-                                    ?>
+                     
+                     $sql = "SELECT * FROM items";
+                     $result = mysqli_query($conn, $sql);
+                     $row = mysqli_fetch_assoc($result);
+                     ?>
                     <span style="margin-left:4px;"></span>
                     <?php
-                                    // $itemNum to store the item id, $row_array to store the item id in array
-                                    // using explode to split the string into array, then loopto get each id item
-                                    // then using sql to get the item details
-                                    // finally echo the item details
-                                    // $itemNum dùng để lưu id của item, $row_array dùng để lưu id của item vào mảng
-                                    // sử dụng explode để chia chuỗi thành mảng, sau đó lặp để lấy từng id item
-                                    // sau đó sử dụng sql để lấy chi tiết item
-                                    // cuối cùng là echo chi tiết item
-                                   $itemNum = "17,46,6,25,11,53,6,25,58,6,59,60,6,27,11,61,6,25,62";
-                                   $row_array = explode(',', $itemNum);
-                                   for ($i = 0; $i < count($row_array); $i++) {
-                                       $sql = "SELECT * FROM items WHERE id_items = $row_array[$i]";
-                                       $result = mysqli_query($conn, $sql);
-                                       $row = mysqli_fetch_assoc($result);
-                                       $level_item = $row['level_item'];
-                                       if ($i <= count($row_array)) {
-                                           echo '<span class="fa fa-arrow-right" style="margin:4px;"></span>
-                                           <div class="items-st>
-                                           <div class="itemsin-st spec-item">
-                                       <img src="../../../../Images/Items/' . $row['item_img'] . '"
-                                           style="width:42px;height:42px">
-                                   </div>';
-                                       }
-                                   }
-                                   ?>
+                     // $itemNum to store the item id, $row_array to store the item id in array
+                     // using explode to split the string into array, then loopto get each id item
+                     // then using sql to get the item details
+                     // finally echo the item details
+                     // $itemNum dùng để lưu id của item, $row_array dùng để lưu id của item vào mảng
+                     // sử dụng explode để chia chuỗi thành mảng, sau đó lặp để lấy từng id item
+                     // sau đó sử dụng sql để lấy chi tiết item
+                     // cuối cùng là echo chi tiết item
+                    $itemNum = "16,44,81,17,46,1,1,1,22,35,82,1,2,20,68,1,19,3,83,1,19,1,19,67";
+                    $row_array = explode(',', $itemNum);
+                    for ($i = 0; $i < count($row_array); $i++) {
+                        $sql = "SELECT * FROM items WHERE id_items = $row_array[$i]";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        $level_item = $row['level_item'];
+                        if ($i <= count($row_array)) {
+                            echo '<span class="fa fa-arrow-right" style="margin:4px;"></span>
+                            <div class="items-st>
+                            <div class="itemsin-st spec-item">
+                        <img src="../../../../Images/Items/' . $row['item_img'] . '"
+                            style="width:42px;height:42px">
+                    </div>';
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>

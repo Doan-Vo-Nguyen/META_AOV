@@ -9,9 +9,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>META liên quân</title>
-    <link rel="icon" href="../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../CSS/Illumia.css">
+    <title>METAaov 3v3 Stats Patch 24 </title>
+    <link rel="icon" href="../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
     <link rel="stylesheet" href="../../CSS/Champion.css">
     <link rel="stylesheet" href="../../CSS/Home.css">
     <link rel="stylesheet" href="../../Extension/font-awesome.css">
@@ -39,8 +38,7 @@
                 <div style="width:100%">
                     <a href="../5v5/Home.php"
                         style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
-                            style="width:32px;height:32px;">
+                        <img src="../../Images/Icon-Logo/Logo-team.png" alt="logo" style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
                     </a>
@@ -66,7 +64,7 @@
                         <div class="content-logo" style="margin-bottom:20px">
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <img class="img-pos" src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                                    <img class="img-pos" src="../../Images/Icon-Logo/Logo-team.png" alt="logo"
                                         style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <b class="f-word word">META</b>
@@ -137,7 +135,7 @@
                             </div>
                         </div>
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item btn-cl" href="Home.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item " href="Home.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="home"></ion-icon>
@@ -147,7 +145,7 @@
                             </a>
                         </div>
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="#" style="padding-left: 14px;">
+                            <a class="item-logo nav-item btn-cl" href="#" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="stats-chart"></ion-icon>
@@ -216,10 +214,7 @@
                                                     Cơ sở dữ liệu của chúng tôi chứa dữ liệu từ hàng triệu trò chơi được
                                                     lấy từ mỗi bản vá.
                                                     Chúng tôi sử dụng dữ liệu đó để tính toán xu hướng, tỷ lệ thắng, tỷ
-                                                    lệ chọn, v.v.
-                                                    Sau đó, dữ liệu này sẽ được thuật toán độc quyền của chúng tôi sử
-                                                    dụng để xác định điểm số và xếp
-                                                    các nhà vô địch vào các bậc. Sử dụng bảng bên dưới để phân tích số
+                                                    lệ chọn, v.v.Sử dụng bảng bên dưới để phân tích số
                                                     liệu thống kê cho bất kỳ tướng
                                                     nào ở bất kỳ độ khó nào và tạo lợi thế cho mình bằng cách chọn tướng
                                                     tốt nhất để chơi tiếp theo.
@@ -248,7 +243,7 @@
                                             <div id="table-scroll" class="_bca1">
                                                 <table
                                                     class="stats-table tb-st tablesorter tablesorter-default tablesorterb92ab849207fd"
-                                                    style="min-width:1200px;" role="grid">
+                                                    role="grid">
                                                     <thead>
                                                         <tr class="info-tab tablesorter-headerRow odd" role="row">
                                                             <th class="th-st tablesorter-header tablesorter-headerUnSorted"
@@ -259,7 +254,14 @@
                                                                 style=user-select:none data-sortedby="user">
                                                                 <div class="tablesorter-header-inner">Name</div>
                                                             </th>
-
+                                                            <th class="th-st tablesorter-header tablesorter-headerUnSorted"
+                                                                data-colum="0" tabindex="0" scope="col"
+                                                                role="columnheader" aria-disabled="false"
+                                                                unselectedtable="on" aria-sort="none"
+                                                                aria-label="Role: Chua duoc xep, kich hoat de ap dung xep giam dan"
+                                                                style=user-select:none data-sortedby="user">
+                                                                <div class="tablesorter-header-inner">Role</div>
+                                                            </th>
                                                             <th class="th-st tablesorter-header tablesorter-headerUnSorted"
                                                                 data-colum="2" tabindex="0" scope="col"
                                                                 role="columnheader" aria-disabled="false"
@@ -318,6 +320,96 @@
                 </div>
             </div>
         </div>
+        <!--Footer-->
+        <div class="footer ge-ct ft-bg">
+            <div class="ft ge-ct">
+                <div class="ep-ct"></div>
+                <div class="ft-content ct-gap">
+                    <div class="left-text text-st">
+                        <div class="left-grid">
+                            <div class="left-para">
+                                <div class="para-title">AOV 5v5 items</div>
+                                <a href="../../../5v5/Home.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Home</span>
+                                </a>
+                                <a href="../5v5/Stats.php" class=" para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Stats</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="left-grid">
+                            <div class="left-para">
+                                <div class="para-title">AOV mode</div>
+                                <a href="../../../5v5/Home.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">5v5</span>
+                                </a>
+                                <a href="../../../3v3/3v3.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">3v3</span>
+                                </a>
+                                <a href="../../../1v1/1v1.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">1v1</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="left-grid">
+                            <div class="left-para">
+                                <div class="para-title">Team members</div>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Trịnh Huỳnh Bảo Ngân</span>
+                                </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Huỳnh Ngọc Trang</span>
+                                </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Nguyễn Nhật Huy</span>
+                                </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Nguyễn Đình Vỹ</span>
+                                </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Đoàn Võ Nguyên</span>
+                                </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Nguyễn Trương Thái Khang</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-text">
+                        <div class="right-para">
+                            <a href="../../../5v5/Home.php">
+                                <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="Logo"
+                                    style="width:100%;height:100%;">
+                            </a>
+                        </div>
+                    </div>
+                    <!--Feedback-->
+                    <div class="feedback-form fb-form">
+                        <form action="" method="post">
+                            <div class="feedback-title">Feedback</div>
+                            <div class="feedback-input">
+                                <input type="text" name="user_name" class="feedback-form-ct name" placeholder="Name">
+                                <input type="text" name="user_email" class="feedback-form-ct email" placeholder="Email">
+                                <input type="text" name="subject" class="feedback-form-ct subject"
+                                    placeholder="Subject">
+                                <textarea name="feedback-text" id="feedback-ct" cols="30" rows="10"
+                                    class="feedback-form-ct message" placeholder="Message"></textarea>
+                                <div class="feedback-form buttons">
+                                    <button name="submit-feedback" class="feedback-button">SEND</button>
+                                    <?php
+                                        include '../account/send_mail.php';
+                                    ?>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -325,37 +417,8 @@
         <script type="text/javascript" src="../../JS/navigation.js"></script>
 
         <?php
-    // Start the session
-    error_reporting(E_ERROR | E_PARSE);
-    $username = $_SESSION['user'];
-    // Check if the session variable username is set
-    if (isset($username)) {
-    ?>
-        <?php echo '
-    <script>
-    // using JS to change the login and register button to user name and logout button if session is set
-    var show_log = document.getElementById("login");
-    var show_reg = document.getElementById("signup");
-    if(show_log != null || show_reg != null) {
-        show_log.innerHTML = "<p>Xin chào, ' . $username . '</p>";
-        // Print the echo statement in the a tag have id login
-        show_reg.innerHTML = "<a href=\"../../PHP/User/logout.php\">Đăng xuất</a>";
-    }
-    </script>';
+            include '../account/Check_Session.php'
         ?>
-        <?php
-    } else {
-    ?>
-        <?php echo '
-    <script>
-        // Print back the login and register button if session variable username is not set
-        <a href="../../PHP/User/login.php">Đăng nhập</a>
-        <a href="../../PHP/User/register.php">Đăng ký</a>\
-    </script>';
-        ?>
-        <?php
-    }
-    ?>
 </body>
 
 </html>

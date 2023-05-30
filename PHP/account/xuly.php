@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'connect.php';
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
@@ -9,23 +10,9 @@ if (isset($_POST['submit'])) {
     $row = mysqli_fetch_assoc($result);
     if ($email == $row['user_email'] && $password == $row['user_pass']) {
         $_SESSION['user'] = $row['user_name'];
-        //check the checkbox
-        // if(!empty($_POST['remember-checkbox'])) {
-        //     $remember = $_POST['remember-checkbox'];
-        //     //set cookie
-        //     setcookie('email', $email, time() + (86400 * 30));
-        //     setcookie('password', $password, time() + (86400 * 30));
-        //     setcookie('remember', $remember, time() + (86400 * 30));
-        // }
-        // else
-        // {
-        //     // cookie expire
-        //     setcookie('email', $email, time() - (86400 * 30));
-        //     setcookie('password', $password, time() - (86400 * 30));
-        // }
         echo "<script>alert('Login successfully')</script>";
         // back to the last page using history
-        header('location: ../5v5/Home.php');
+        header('location: ../../5v5/Home.php');
         exit;
     } else {
         echo "<script>alert('Invalid email or password')</script>";
@@ -47,7 +34,7 @@ if (isset($_POST['submit'])) {
         //     setcookie('remember', $remember, time() + (86400 * 30));
         // }
         echo "<script>alert('Login successfully')</script>";
-        header('location: ../admin/admin.php');
+        header('location: ../../Admin/admin.php');
     } else {
         echo "<script>alert('Invalid email or password')</script>";
     }

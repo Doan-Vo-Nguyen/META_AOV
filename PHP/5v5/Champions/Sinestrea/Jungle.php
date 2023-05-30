@@ -5,26 +5,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-      require '../../../5v5/connect.php';
-            // sql 3 table champions, role_champions, stats
-        $sql = "SELECT * from champions JOIN stats ON champions.ID = stats.id_champ JOIN lane ON lane.id = stats.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.ID = 17 AND lane.id = 4 AND role_champions.id_role = 6";
-        $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
-        $name = $row['champ_Name'];
-        $lane = $row['lane_name'];
-        $role = $row['name_role'];
-        $GLOBALS['name'] = $name;
-        $GLOBALS['lane'] = $lane;
-        $GLOBALS['id'] = $row['ID'];
-        $GLOBALS['id_lane'] = $row['id'];
-        ?>
+require '../../../5v5/connect.php';
+      // sql 3 table champions, role_champions, stats
+  $sql = "SELECT * from champions JOIN stats ON champions.id_champ = stats.id_champ JOIN lane ON lane.id_lane = stats.id_lane JOIN role_champions ON role_champions.id_role = champions.id_role WHERE champions.id_champ = 17 AND lane.id_lane = 4 AND role_champions.id_role = 6";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
+  $name = $row['champ_Name'];
+  $lane = $row['lane_name'];
+  $role = $row['name_role'];
+  $GLOBALS['name'] = $name;
+  $GLOBALS['lane'] = $lane;
+  $GLOBALS['id'] = $row['id_champ'];
+  $GLOBALS['id_lane'] = $row['id_lane'];
+?>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $GLOBALS['name'] ?> Build Guide, <?php echo $GLOBALS['lane'] ?> Runes, Items Patch 24</title>
-    <link rel="icon" href="../../../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
+    <link rel="icon" href="../../../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
     <link rel="stylesheet" href="../../../../CSS/Champion.css">
     <link rel="stylesheet" href="../../../../CSS/Home.css">
     <!-- a library of icons(1 thư viện icon) -->
@@ -55,7 +55,7 @@
                 <div style="width:100%">
                     <a href="../../../5v5/Home.php"
                         style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../../../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                        <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
                             style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
@@ -84,8 +84,8 @@
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <!-- Logo(logo trang web) -->
-                                    <img class="img-pos" src="../../../../Images/Icon-Logo/N5-removebg-preview.png"
-                                        alt="logo" style="width:32px;height:32px;">
+                                    <img class="img-pos" src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
+                                        style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <!-- Name(tên trang web) -->
                                         <b class="f-word word">META</b>
@@ -358,7 +358,7 @@
                                         <div class="descript descript-bg descript-pos">
                                             <?php
                                             require '../../style.php';
-                                            $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE champions.id_lane = lane.id AND stats.id_lane = $GLOBALS[id_lane] AND champions.ID = $GLOBALS[id]";
+                                            $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE champions.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] AND champions.id_champ = $GLOBALS[id]";
                                             $result = mysqli_query($conn, $sql);
                                             $count = mysqli_num_rows($result);
                                             $row = mysqli_fetch_assoc($result);
@@ -388,7 +388,7 @@
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>KDA: </strong>
-                                                <span class="kda-value">' . $KDA . '%</span>
+                                                <span class="kda-value">' . $KDA . '</span>
                                                 </span>
                                                 </div>';
                                             }
@@ -500,7 +500,7 @@
                                                     style="width:100%;display:flex;align-items:center;justify-content: space-around;">
                                                     <?php
                                                                 
-                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.ID = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id AND stats_spell.id_Champ = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane]";
+                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND stats_spell.id_Champ = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane]";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);
@@ -547,7 +547,7 @@
                                                                                 $spellNum = "1,2,3";
                                                                                 $row_array = explode(',', $spellNum);
                                                                                 for ($i = 0; $i < count($row_array); $i++) {
-                                                                                    $sql = "SELECT * FROM champions JOIN stats_spell ON champions.ID = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id AND champions.ID = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane] AND stats_spell.id_spell = $row_array[$i]";
+                                                                                    $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND champions.id_champ = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane] AND stats_spell.id_spell = $row_array[$i]";
                                                                                     $result = mysqli_query($conn, $sql);
                                                                                     $row = mysqli_fetch_assoc($result);
                                                                                     if ($i <= count($row_array)) {
@@ -598,7 +598,7 @@
                                         <!-- this command show the starting items of the champion(đây là phần hiển 
                                                     thị vật phẩm khởi đầu của tướng)-->
                                         <?php
-                                                                $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.ID = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id JOIN lane WHERE stats_start_items.id_lane = lane.id AND stats_start_items.id_items = items.id AND stats_start_items.id_lane = $GLOBALS[id_lane] AND champions.ID = $GLOBALS[id]";
+                                                                $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id_items JOIN lane WHERE stats_start_items.id_lane = lane.id_lane AND stats_start_items.id_items = items.id_items AND stats_start_items.id_lane = $GLOBALS[id_lane] AND champions.id_champ = $GLOBALS[id]";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);
@@ -645,8 +645,8 @@
                                                                     $itemNum = "1,2,3";
                                                                     $row_array = explode(',', $itemNum);
                                                                     for ($i = 0; $i < count($row_array); $i++) {
-                                                                        $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.ID = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id JOIN lane WHERE stats_start_items.id_lane = lane.id AND stats_start_items.id_items = items.id
-                                                                        AND stats_start_items.id_lane = $GLOBALS[id_lane] AND champions.ID = $GLOBALS[id] AND stats_start_items.id_items = $row_array[$i]";
+                                                                        $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id_items JOIN lane WHERE stats_start_items.id_lane = lane.id_lane AND stats_start_items.id_items = items.id_items
+                                                                        AND stats_start_items.id_lane = $GLOBALS[id_lane] AND champions.id_champ = $GLOBALS[id] AND stats_start_items.id_items = $row_array[$i]";
                                                                         $result = mysqli_query($conn, $sql);
                                                                         $row = mysqli_fetch_assoc($result);
                                                                             if ($i <= count($row_array)) {
@@ -1048,10 +1048,10 @@
                             class="content-details">
                             <div style="display:flex;align-items:center;justify-content:center;">
                                 <?php
-                                  $itemNum = "81,46,82,68,83,84";
+                                  $itemNum = "81,46,82,68,83,67";
                                   $row_array = explode(',', $itemNum);
                                   for ($i = 0; $i < count($row_array); $i++) {
-                                   $sql = "SELECT * FROM items WHERE id = '$row_array[$i]'";
+                                   $sql = "SELECT * FROM items WHERE id_items = '$row_array[$i]'";
                                       $result = mysqli_query($conn, $sql);
                                       $row = mysqli_fetch_assoc($result);
                                       if ($i <= count($row_array)) {
@@ -1077,7 +1077,7 @@
                                 style="border-top:1px solid black;border-bottom:1px solid black;margin-bottom:5px;">
                                 <tbody>
                                     <?php
-                                       $sql = "SELECT * FROM champions, skills WHERE champions.ID = skills.id_champ AND champions.ID = $GLOBALS[id]";
+                                       $sql = "SELECT * FROM champions, skills WHERE champions.id_champ = skills.id_champ AND champions.id_champ = $GLOBALS[id]";
                                        $result = mysqli_query($conn, $sql);
                                        $row = mysqli_fetch_assoc($result);
                                        $passive = $row['passive'];
@@ -1168,7 +1168,7 @@
                 <div class="bct-p">
                     <?php
                      
-                     $sql = "SELECT * FROM `items`";
+                     $sql = "SELECT * FROM items";
                      $result = mysqli_query($conn, $sql);
                      $row = mysqli_fetch_assoc($result);
                      ?>
@@ -1182,10 +1182,10 @@
                      // sử dụng explode để chia chuỗi thành mảng, sau đó lặp để lấy từng id item
                      // sau đó sử dụng sql để lấy chi tiết item
                      // cuối cùng là echo chi tiết item
-                    $itemNum = "16,44,81,17,46,1,1,1,22,35,82,1,2,20,68,1,19,3,83,1,19,1,19,84";
+                    $itemNum = "16,44,81,17,46,1,1,1,22,35,82,1,2,20,68,1,19,3,83,1,19,1,19,67";
                     $row_array = explode(',', $itemNum);
                     for ($i = 0; $i < count($row_array); $i++) {
-                        $sql = "SELECT * FROM `items` WHERE `id` = $row_array[$i]";
+                        $sql = "SELECT * FROM items WHERE id_items = $row_array[$i]";
                         $result = mysqli_query($conn, $sql);
                         $row = mysqli_fetch_assoc($result);
                         $level_item = $row['level_item'];
@@ -1301,15 +1301,15 @@
                 <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> counters</h2>
                 <div style="padding-top: 10px;" class="counters-grid">
                     <?php
-                      $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                      $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                       $result = mysqli_query($conn, $sql);
                       $row = mysqli_num_rows($result);
                           while ($row = mysqli_fetch_assoc($result)) {
-                              $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE lane.id = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                              $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE lane.id_lane = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                               $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
                               $row_one = mysqli_fetch_assoc($result_oneChamp);
                               $champ_name = $row['champ_Name'];
-                              $champ_id = $row['ID'];
+                              $champ_id = $row['id_champ'];
                               $champ_image = $row['image'];
                               $winrate = $row['win_rate'];
                               $winrate_one = $row_one['win_rate'];
@@ -1337,15 +1337,15 @@
                 </h2>
                 <div style="padding-top: 10px;" class="counters-grid">
                     <?php
-                        $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                        $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id_lane AND stats.id_lane = $GLOBALS[id_lane] EXCEPT SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                         $result = mysqli_query($conn, $sql);
                         $row = mysqli_num_rows($result);
                             while ($row = mysqli_fetch_assoc($result)) {
-                                $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE lane.id = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
+                                $sql_oneChamp = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_Champ JOIN lane WHERE lane.id_lane = stats.id_lane AND stats.id_Champ = $GLOBALS[id] AND stats.id_lane = $GLOBALS[id_lane]";
                                 $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
                                 $row_one = mysqli_fetch_assoc($result_oneChamp);
                                 $champ_name = $row['champ_Name'];
-                                $champ_id = $row['ID'];
+                                $champ_id = $row['id_champ'];
                                 $champ_image = $row['image'];
                                 $winrate = $row['win_rate'];
                                 $winrate_one = $row_one['win_rate'];

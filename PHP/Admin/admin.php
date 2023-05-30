@@ -38,7 +38,7 @@
                     </a>
                 </div>
             </div>
-            <div class="head-inner logo-team" style="width:450px;">
+            <div class="head-inner logo-team" style="width:550px;">
                 <ul class="menu-top">
                     <li>
                         <a id="signup" href="../account/Register/Register.php">Đăng ký</a>

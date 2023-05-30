@@ -386,7 +386,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>KDA: </strong>
-                                                <span class="kda-value">' . $KDA . '%</span>
+                                                <span class="kda-value">' . $KDA . '</span>
                                                 </span>
                                                 </div>';
                                             }
@@ -497,7 +497,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 <div
                                                     style="width:100%;display:flex;align-items:center;justify-content: space-around;">
                                                     <?php
-                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND champions.champ_Name = '$name'";
+                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND stats_spell.id_Champ = $GLOBALS[id] AND stats_spell.id_lane = $GLOBALS[id_lane]";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);

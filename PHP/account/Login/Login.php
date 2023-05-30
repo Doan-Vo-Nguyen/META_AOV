@@ -7,32 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
     <title>Login</title>
-    <link rel="stylesheet" href="../Login/Login.css">
+    <link rel="stylesheet" href="Login.css">
 
 <body>
     <div class="wrapper">
         <div class="form-box login">
-            <h2>Login</h2>
-            <form action="../xuly.php" method="post">
+            <h4>Hello! let's get started</h4>
+            <h5>Login to continue</h5>
+            <form action="#" method="post">
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="person-circle"></ion-icon>
                     </span>
-                    <input class="email" type="email" name="email" required value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['
-                    email'];};?>">
+                    <input class="email" type="email" name="email" required>
                     <label for="email">Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon" id="lock">
                         <ion-icon name="lock-closed"></ion-icon>
                     </span>
-                    <input class="password" type="password" name="password" required value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['
-                    password'];};?>">
+                    <input class="password" type="password" name="password" required>
                     <label for="password">Password</label>
                 </div>
                 <div class="remember">
-                    <label><input type="checkbox" name="remember-checkbox" value="<?php if(isset($_COOKIE['remember'])) { echo
-                    "checked";}?>">Remember me</label>
+                    <label><input type="checkbox" name="remember-checkbox">Remember me</label>
                     <a href="reset-pass-main.php">Forgot Password</a>
                 </div>
                 <button type="submit" name="submit" class="btn-submit">Login</button>
@@ -50,6 +48,9 @@
     <script src="Login.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <?php
+        include '../xuly.php';
+        ?>
 </body>
 
 </html>

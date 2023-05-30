@@ -21,22 +21,22 @@ else if ($current_page < 1)
 // find starting page's result
     $start=($current_page - 1) * $limit;
     // SQL query to get data of a range
-    $sql_paging="SELECT * FROM role_champions JOIN champions ON role_champions.id_role = champions.id_role JOIN lane WHERE champions.id_lane = lane.id LIMIT $start, $limit";
+    $sql_paging="SELECT * FROM role_champions , champions WHERE role_champions.id_role = champions.id_role LIMIT $start, $limit";
     $result_paging = mysqli_query($conn, $sql_paging);
     while ($row=mysqli_fetch_assoc($result_paging)) {
-    $id=$row['ID'];
+    $id=$row['id_champ'];
     $name=$row['champ_Name'];
     $image=$row['image'];
     $role_name=$row['name_role'];
     $id_role=$row['id_role'];
     echo '<li id="champion-' . $id . '" class="list-champion">
-                                                <span class="serial" tag="' . $id . '"
-                                                    type="' . $id_role . '" style="display: none">' . $name . '</span>
-                                                <div class="champions">
-                                                    <a class = "champion-items" href="../3v3/Champion/' . $name . '" data-search-terms-like="' . $name . '|' . $name . '" data-search-terms-exact = "' . $role_name . '|' .$role_name . '">
-                                                        <img src="../../Images/Champions/' . $image . '" alt="champion">
-                                                    </a>
-                                                    <p style="white-space: nowrap;" class="name">' . $name . '</p>
-                                                </div>
-                                                </li>' ; 
-                                            }
+               <span class="serial" tag="' . $id . '"
+                   type="' . $id_role . '" style="display: none">' . $name . '</span>
+               <div class="champions">
+                   <a class = "champion-items" href="../3v3/Champion/' . $name . '.php" data-search-terms-like="' . $name . '|' . $name . '" data-search-terms-exact = "' . $role_name . '|' .$role_name . '">
+                       <img src="../../Images/Champions/' . $image . '" alt="champion">
+                   </a>
+                   <p style="white-space: nowrap;" class="name">' . $name . '</p>
+               </div>
+            </li>' ; 
+           }

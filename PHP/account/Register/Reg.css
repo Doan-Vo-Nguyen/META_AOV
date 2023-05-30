@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Tahoma', sans-serif;
 }
 
 body {
@@ -70,9 +70,9 @@ body {
 }
 
 .form-box h2 {
-    font-size: 2em;
+    font-size: 1.7em;
     color: #fff;
-    text-align: center;
+    text-align: left;
 }
 
 .input-box {
@@ -85,9 +85,8 @@ body {
 
 .input-box label {
     position: absolute;
-    top:50%;
+    top: -5px;
     left:5px;
-    transform: translateY(-50%);
     font-size: 1em;
     color: #fff;
     font-weight: 500;
@@ -95,10 +94,6 @@ body {
     transition: .5s;
 }
 
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
-    top: -5px;
-}
 
 .input-box input {
     width: 100%;

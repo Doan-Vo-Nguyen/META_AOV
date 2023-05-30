@@ -9,19 +9,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="description" content="Meta Liên Quân's Homepage">
+    <meta name="description" content="Metaaov's Homepage">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>META Liên Quân</title>
+    <title>METAaov AOV 3v3 Build & Guides Patch 24</title>
     <link rel="stylesheet" type="text/css" href="../../CSS/Home.css">
-    <link rel="stylesheet" type="text/css" href="../../CSS/3v3.css">
     <link rel="stylesheet" href="../../Extension/font-awesome.css">
     <link rel="stylesheet" href="../../CSS/jquery.typeahead.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.3/typeahead.jquery.min.js">
 
-    <link rel="icon" href="../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
+    <link rel="icon" href="../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
 </head>
 
-<body class="wrapper-page" style="background-position-y: 0px !important;">
+<body class="wrapper-page"
+    style="background-position-y: 0px !important;background: url(../../Images/Map/3v3-map.png) center center fixed no-repeat;">
     <div class="content-body">
         <!--Header-->
         <div id="nav-wrapper" class="head info-tab">
@@ -45,8 +45,7 @@
                 <div style="width:100%">
                     <a href="../5v5/Home.php"
                         style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
-                            style="width:32px;height:32px;">
+                        <img src="../../Images/Icon-Logo/Logo-team.png" alt="logo" style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
                     </a>
@@ -72,7 +71,7 @@
                         <div class="content-logo" style="margin-bottom:20px">
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
-                                    <img class="img-pos" src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                                    <img class="img-pos" src="../../Images/Icon-Logo/Logo-team.png" alt="logo"
                                         style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <b class="f-word word">META</b>
@@ -186,7 +185,7 @@
                                         <h1
                                             style="display:flex;flex-direction:column;text-align:center;margin-bottom:3px;">
                                             <div class="text-details" style="margin-bottom:2px;">
-                                                <span style="display:none;">META AOV - Xây dựng lối chơi, thống
+                                                <span style="display:none;">METAaov - Xây dựng lối chơi, thống
                                                     kê,
                                                     cập nhật và xếp hạng Patch 24 </span>
                                                 <div class="detail-title">
@@ -292,27 +291,28 @@
                         <div class="left-grid">
                             <div class="left-para">
                                 <div class="para-title">AOV 5v5 items</div>
-                                <a href="Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../../../5v5/Home.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Home</span>
                                 </a>
-                                <a href="Champions.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../5v5/Stats.php" class=" para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Stats</span>
-                                </a>
-                                <a href="Items.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
-                                    <span class="text-underline" style="font-size:14px;">Plot</span>
                                 </a>
                             </div>
                         </div>
                         <div class="left-grid">
                             <div class="left-para">
                                 <div class="para-title">AOV mode</div>
-                                <a href="Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../../../5v5/Home.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">5v5</span>
                                 </a>
-                                <a href="3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../../../3v3/3v3.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">3v3</span>
                                 </a>
-                                <a href="1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../../../1v1/1v1.php" class="para-st"
+                                    style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">1v1</span>
                                 </a>
                             </div>
@@ -335,13 +335,39 @@
                                 <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Đoàn Võ Nguyên</span>
                                 </a>
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                    <span class="text-underline" style="font-size:14px;">Nguyễn Trương Thái Khang</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="right-text">
                         <div class="right-para">
-                            <img src="../../Images/Icon-Logo/N5-removebg-preview.png" alt="Logo">
+                            <a href="../../../5v5/Home.php">
+                                <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="Logo"
+                                    style="width:100%;height:100%;">
+                            </a>
                         </div>
+                    </div>
+                    <!--Feedback-->
+                    <div class="feedback-form fb-form">
+                        <form action="" method="post">
+                            <div class="feedback-title">Feedback</div>
+                            <div class="feedback-input">
+                                <input type="text" name="user_name" class="feedback-form-ct name" placeholder="Name">
+                                <input type="text" name="user_email" class="feedback-form-ct email" placeholder="Email">
+                                <input type="text" name="subject" class="feedback-form-ct subject"
+                                    placeholder="Subject">
+                                <textarea name="feedback-text" id="feedback-ct" cols="30" rows="10"
+                                    class="feedback-form-ct message" placeholder="Message"></textarea>
+                                <div class="feedback-form buttons">
+                                    <button name="submit-feedback" class="feedback-button">SEND</button>
+                                    <?php
+                                        include '../account/send_mail.php';
+                                    ?>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -354,36 +380,7 @@
     <script type="text/javascript" src="../../JS/navigation.js"></script>
     <script type="text/javascript" src="../../JS/Home.js"></script>
     <?php
-    // Start the session
-    error_reporting(E_ERROR | E_PARSE);
-    $username = $_SESSION['username'];
-    // Check if the session variable username is set
-    if (isset($username)) {
-    ?>
-    <?php echo '
-    <script>
-    // using JS to change the login and register button to user name and logout button if session is set
-    var show_log = document.getElementById("login");
-    var show_reg = document.getElementById("signup");
-    if(show_log != null || show_reg != null) {
-        show_log.innerHTML = "<p>Xin chào, ' . $username . '</p>";
-        // Print the echo statement in the a tag have id login
-        show_reg.innerHTML = "<a href="../../PHP/User/logout.php\">Đăng xuất</a>";
-    }
-    </script>';
-        ?>
-    <?php
-    } else {
-    ?>
-    <?php echo '
-    <script>
-        // Print back the login and register button if session variable username is not set
-        <a href="../../PHP/User/login.php">Đăng nhập</a>
-        <a href="../../PHP/User/register.php">Đăng ký</a>\
-    </script>';
-        ?>
-    <?php
-    }
+       include'../account/Check_Session.php'
     ?>
 </body>
 

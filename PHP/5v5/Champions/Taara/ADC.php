@@ -386,7 +386,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>KDA: </strong>
-                                                <span class="kda-value">' . $KDA . '%</span>
+                                                <span class="kda-value">' . $KDA . '</span>
                                                 </span>
                                                 </div>';
                                             }
