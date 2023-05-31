@@ -390,7 +390,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>KDA: </strong>
-                                                <span class="kda-value">' . $KDA . '%</span>
+                                                <span class="kda-value">' . $KDA . '</span>
                                                 </span>
                                                 </div>';
                                             }
@@ -1468,7 +1468,36 @@ $GLOBALS['id_lane'] = $row['id_lane'];
     <script type="text/javascript" src="../../../../JS/Home.js"></script>
     <script type="text/javascript" src="../../../../JS/metaaov.js"></script>
     <?php
-        include '../../../account/Check_Session.php'
+        // Start the session
+    error_reporting(E_ERROR | E_PARSE);
+    $username = $_SESSION['user'];
+    // Check if the session variable username is set
+    if (!empty($username)) {
+    ?>
+    <?php echo '
+    <script>
+    // using JS to change the login and register button to user name and logout button if session is set
+    var show_log = document.getElementById("login");
+    var show_reg = document.getElementById("signup");
+    if(show_log != null || show_reg != null) {
+        show_log.innerHTML = "<p>Xin chào, ' . $username . '</p>";
+        // Print the echo statement in the a tag have id login
+        show_reg.innerHTML = "<a href=\"../../../account/logout.php\">Đăng xuất</a>";
+    }
+    </script>';
+        ?>
+    <?php
+    } else {
+    ?>
+    <?php echo '
+    <script>
+        // Print back the login and register button if session variable username is not set
+        <a href="../account/Login/Login.php">Đăng nhập</a>
+        <a href="../account/Register/Register.php">Đăng ký</a>
+    </script>';
+        ?>
+    <?php
+    }
     ?>
 </body>
 

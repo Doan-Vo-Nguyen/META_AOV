@@ -342,6 +342,10 @@ at the center of their parent element using the "justify-content" property. */
     display: flex;
     white-space: nowrap;
 }
+
+.tier-value {
+    color: rgb(5, 109, 255)
+}
 /* background của phần đầu tiên của body guilding*/
 .background {
     width: 100%;

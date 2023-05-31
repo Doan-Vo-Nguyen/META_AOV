@@ -3,7 +3,7 @@
 // setcookie('username', '$_SESSION['user'], time() + 60, '/');
 ?>
 <!DOCTYPE html>
-<html lang="vi" class="nav-collapsed">
+<html lang="en" class="nav-collapsed">
 
 <head>
     <meta charset="UTF-8">

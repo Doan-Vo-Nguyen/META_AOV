@@ -307,7 +307,7 @@ $GLOBALS['id'] = $row['id_champ'];
                                         <!-- div show the mode of champion include: 5v5, 3v3, 1v1 (đây là phần hiển thị 
                                         chế độ của tướng bao gồm: 5v5, 3v3, 1v1) -->
                                         <div class="map-mode ch-ct">
-                                            <a href="../../5v5/Champions/<?php echo $GLOBALS['name'] ?>/ADC.php"
+                                            <a href="../../5v5/Champions/<?php echo $GLOBALS['name'] ?>/Mid.php"
                                                 class=" home-page ge-st" style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">5v5</span>
                                             </a>
@@ -315,7 +315,7 @@ $GLOBALS['id'] = $row['id_champ'];
                                                 style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">3v3</span>
                                             </a>
-                                            <a href="../../../1v1/Champion/<?php echo $GLOBALS['name'] ?>.php"
+                                            <a href="../../1v1/Champion/<?php echo $GLOBALS['name'] ?>.php"
                                                 class="1v1-page ge-st" style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">1v1</span>
                                             </a>
@@ -1427,7 +1427,36 @@ $GLOBALS['id'] = $row['id_champ'];
     <script type="text/javascript" src="../../../../JS/Home.js"></script>
     <script type="text/javascript" src="../../../../JS/metaaov.js"></script>
     <?php
-        include '../../account/Check_Session.php'
+        // Start the session
+    error_reporting(E_ERROR | E_PARSE);
+    $username = $_SESSION['user'];
+    // Check if the session variable username is set
+    if (!empty($username)) {
+    ?>
+    <?php echo '
+    <script>
+    // using JS to change the login and register button to user name and logout button if session is set
+    var show_log = document.getElementById("login");
+    var show_reg = document.getElementById("signup");
+    if(show_log != null || show_reg != null) {
+        show_log.innerHTML = "<p>Xin chào, ' . $username . '</p>";
+        // Print the echo statement in the a tag have id login
+        show_reg.innerHTML = "<a href=\"../../../account/logout.php\">Đăng xuất</a>";
+    }
+    </script>';
+        ?>
+    <?php
+    } else {
+    ?>
+    <?php echo '
+    <script>
+        // Print back the login and register button if session variable username is not set
+        <a href="../account/Login/Login.php">Đăng nhập</a>
+        <a href="../account/Register/Register.php">Đăng ký</a>
+    </script>';
+        ?>
+    <?php
+    }
     ?>
 </body>
 

@@ -390,7 +390,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>KDA: </strong>
-                                                <span class="kda-value">' . $KDA . '%</span>
+                                                <span class="kda-value">' . $KDA . '</span>
                                                 </span>
                                                 </div>';
                                             }
@@ -818,7 +818,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(251, 175, 23);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/XuyenTam.png">
+                                                xlink:href="../../../../Images/PhuHieu/SungMan.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
                                                 stroke-width="2">
@@ -833,7 +833,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(251, 175, 23);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThanhChau.png">
+                                                xlink:href="../../../../Images/PhuHieu/BiQuyet.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
                                                 stroke-width="2">
@@ -916,7 +916,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(251, 175, 23);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="5" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThanhKhoiNguyen.png">
+                                                xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png">
                                             </image>
                                             <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
                                                 stroke-width="2">

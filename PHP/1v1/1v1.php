@@ -3,7 +3,7 @@
 // setcookie('username', '$_SESSION['user'], time() + 60, '/');
 ?>
 <!DOCTYPE html>
-<html lang="vi" class="nav-collapsed">
+<html lang="en" class="nav-collapsed">
 
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta name="description" content="Meta Liên Quân's Homepage">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>META Liên Quân</title>
+    <title>METAaov AOV 1v1 Build & Guides Patch 24</title>
     <link rel="stylesheet" type="text/css" href="../../CSS/Home.css">
-    <link rel="stylesheet" type="text/css" href="../../CSS/1v1.css">
     <link rel="stylesheet" href="../../Extension/font-awesome.css">
     <link rel="stylesheet" href="../../CSS/jquery.typeahead.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.3/typeahead.jquery.min.js">
@@ -21,7 +20,8 @@
     <link rel="icon" href="../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
 </head>
 
-<body class="wrapper-page" style="background-position-y: 0px !important;">
+<body class="wrapper-page"
+    style="background-position-y: 0px !important;background: url(../../Images/Map/1v1-map.png) center center fixed no-repeat;">
     <div class="content-body">
         <!--Header-->
         <div id="nav-wrapper" class="head info-tab">

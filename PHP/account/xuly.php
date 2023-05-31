@@ -5,7 +5,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     // check user
-    $query_user = "SELECT * FROM user WHERE user_email = '$email'";
+    $query_user = "SELECT * FROM user WHERE user_email = '$email' AND user_pass = '$password'";
     $result = mysqli_query($conn, $query_user);
     $row = mysqli_fetch_assoc($result);
     if ($email == $row['user_email'] && $password == $row['user_pass']) {
@@ -25,14 +25,7 @@ if (isset($_POST['submit'])) {
     error_reporting(E_ERROR | E_PARSE);
     if ($email == $row['admin_email'] && $password == $row['admin_pass']) {
         $_SESSION['admin'] = $row['admin_name'];
-        // if(!empty($_POST['remember-checkbox'])) {
-        //     $remember = $_POST['remember-checkbox'];
 
-        //     set cookie
-        //     setcookie('email', $email, time() + (86400 * 30));
-        //     setcookie('password', $password, time() + (86400 * 30));
-        //     setcookie('remember', $remember, time() + (86400 * 30));
-        // }
         echo "<script>alert('Login successfully')</script>";
         header('location: ../../Admin/admin.php');
     } else {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3307
--- Thời gian đã tạo: Th5 22, 2023 lúc 05:22 PM
+-- Thời gian đã tạo: Th5 31, 2023 lúc 06:02 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.2.0
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `admin_name`, `admin_email`, `admin_pass`, `display_name`, `admin_status`) VALUES
-(1, 'Vonguyenvippro123', 'wwwnguyendoan123@gmail.com', '123456', 'Nguyên admin', 1),
+(1, 'Vonguyenvippro123', 'wwwdoanvonguyen@gmail.com', '123456', 'Nguyên admin', 1),
 (2, 'Nhathuy2', 'nhathuy2443@gmail.com', '123456', 'Huy FE', 1),
 (3, 'Vyz123', 'dinhvy215@gmail.com', '123456', 'Vỹ handsome', 0);
 
@@ -109,7 +109,7 @@ INSERT INTO `badge` (`id`, `badge_name`, `badge_img`, `description`) VALUES
 --
 
 CREATE TABLE `champions` (
-  `ID` int(5) NOT NULL,
+  `id_champ` int(3) NOT NULL,
   `champ_Name` varchar(20) NOT NULL,
   `image` varchar(13) DEFAULT NULL,
   `atk_Damage` int(4) NOT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE `champions` (
 -- Đang đổ dữ liệu cho bảng `champions`
 --
 
-INSERT INTO `champions` (`ID`, `champ_Name`, `image`, `atk_Damage`, `id_role`, `id_lane`) VALUES
+INSERT INTO `champions` (`id_champ`, `champ_Name`, `image`, `atk_Damage`, `id_role`, `id_lane`) VALUES
 (1, 'Illumia', 'Illumia.jpg', 173, 1, 1),
 (2, 'Krixi', 'Krixi.jpg', 153, 1, 1),
 (3, 'Lauriel', 'Lauriel.jpg', 167, 1, 1),
@@ -185,7 +185,7 @@ INSERT INTO `feedback` (`id_feedback`, `user_name`, `user_email`, `subject`, `me
 --
 
 CREATE TABLE `items` (
-  `id` int(4) NOT NULL,
+  `id_items` int(3) NOT NULL,
   `item_name` varchar(100) NOT NULL,
   `item_img` varchar(50) NOT NULL,
   `level_item` int(2) NOT NULL
@@ -195,7 +195,7 @@ CREATE TABLE `items` (
 -- Đang đổ dữ liệu cho bảng `items`
 --
 
-INSERT INTO `items` (`id`, `item_name`, `item_img`, `level_item`) VALUES
+INSERT INTO `items` (`id_items`, `item_name`, `item_img`, `level_item`) VALUES
 (1, 'Kiếm ngắn', 'KiemNgan.png', 1),
 (2, 'Dao găm', 'DaoGam.png', 1),
 (3, 'Găng tay', 'GangTay.png', 1),
@@ -279,7 +279,11 @@ INSERT INTO `items` (`id`, `item_name`, `item_img`, `level_item`) VALUES
 (81, 'Kiếm Truy Hồn', 'KiemTruyHon.png', 3),
 (82, 'Thương Longinus', 'ThuongLonginus.png', 3),
 (83, 'Thánh Kiếm', 'ThanhKiem.png', 3),
-(84, 'Liệt Hỏa Mở Trói', 'LietHoaMoTroi.png', 3);
+(84, 'Liệt Hỏa Mở Trói', 'LietHoaMoTroi.png', 3),
+(85, 'Rìu Leviathan', 'RiuLeviathan.png', 3),
+(86, 'Áo choàng băng giá', 'AoChoangBangGia.png', 3),
+(87, 'Áo choàng thần Ra', 'AoChoangThanRa.png', 3),
+(88, 'Phù chú trường sinh', 'PhuChuTruongSinh.png', 3);
 
 -- --------------------------------------------------------
 
@@ -288,7 +292,7 @@ INSERT INTO `items` (`id`, `item_name`, `item_img`, `level_item`) VALUES
 --
 
 CREATE TABLE `lane` (
-  `id` int(11) NOT NULL,
+  `id_lane` int(3) NOT NULL,
   `lane_name` varchar(15) NOT NULL,
   `id_role` int(11) NOT NULL,
   `lane_img` varchar(20) NOT NULL
@@ -298,12 +302,33 @@ CREATE TABLE `lane` (
 -- Đang đổ dữ liệu cho bảng `lane`
 --
 
-INSERT INTO `lane` (`id`, `lane_name`, `id_role`, `lane_img`) VALUES
+INSERT INTO `lane` (`id_lane`, `lane_name`, `id_role`, `lane_img`) VALUES
 (1, 'Mid', 1, 'mid_icon.png'),
 (2, 'Top', 3, 'top_icon.png'),
 (3, 'ADC', 2, 'adc_icon.png'),
 (4, 'Jungle', 4, 'jungle_icon.png'),
 (5, 'Support', 5, 'support_icon.png');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `reset`
+--
+
+CREATE TABLE `reset` (
+  `id` int(3) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `code` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `reset`
+--
+
+INSERT INTO `reset` (`id`, `email`, `code`) VALUES
+(1, 'wwwnguyendoan123@gmail.com', 428644),
+(2, 'huynhngoctrang39@gmail.com', 568400),
+(3, 'thbn18102003@gmail.com', 754903);
 
 -- --------------------------------------------------------
 
@@ -354,7 +379,8 @@ INSERT INTO `skills` (`id`, `id_champ`, `passive`, `first_skill`, `second_skill`
 (3, 21, 'NoiTai.png', 'THT_1.png', 'CTL_2.png', 'SMCT_3.png'),
 (4, 15, 'Noitai.png', 'BTD_1.png', 'NCRR_2.png', 'GHQ_3.png'),
 (5, 14, 'NoiTai.png', 'TAD_1.png', 'VAC_2.png', 'AAT_3.png'),
-(6, 25, 'NoiTai.png', 'TT_1.png', 'DT_2.png', 'TTT_3.png');
+(6, 25, 'NoiTai.png', 'TT_1.png', 'DT_2.png', 'TTT_3.png'),
+(7, 17, 'NoiTai.png', 'ND_1.png', 'MQ_2.png', 'TM_3.png');
 
 -- --------------------------------------------------------
 
@@ -363,7 +389,7 @@ INSERT INTO `skills` (`id`, `id_champ`, `passive`, `first_skill`, `second_skill`
 --
 
 CREATE TABLE `spells` (
-  `id` int(3) NOT NULL,
+  `id_spell` int(3) NOT NULL,
   `spell_name` varchar(30) NOT NULL,
   `spell_image` varchar(70) NOT NULL,
   `description_spell` varchar(150) NOT NULL
@@ -373,7 +399,7 @@ CREATE TABLE `spells` (
 -- Đang đổ dữ liệu cho bảng `spells`
 --
 
-INSERT INTO `spells` (`id`, `spell_name`, `spell_image`, `description_spell`) VALUES
+INSERT INTO `spells` (`id_spell`, `spell_name`, `spell_image`, `description_spell`) VALUES
 (1, 'Tốc biến', 'Flash.png', 'Dịch chuyển trong 1 khoảng cách nhất định theo 1 hướng cụ thể'),
 (2, 'Tốc Hành', 'Speed.png', 'Tăng 30% tốc chạy trong 10 giây'),
 (3, 'Bộc phá', 'BocPha.png', 'Gây sát thương chuẩn tương đương 16% máu đã mất của kẻ địch'),
@@ -393,8 +419,9 @@ INSERT INTO `spells` (`id`, `spell_name`, `spell_image`, `description_spell`) VA
 CREATE TABLE `stats` (
   `id` int(3) NOT NULL,
   `id_lane` int(3) NOT NULL,
-  `id_Champ` int(11) NOT NULL,
+  `id_champ` int(3) DEFAULT NULL,
   `trend` varchar(10) NOT NULL,
+  `status` int(2) NOT NULL,
   `win_rate` float NOT NULL,
   `pick_rate` float NOT NULL,
   `ban_rate` float NOT NULL,
@@ -405,125 +432,50 @@ CREATE TABLE `stats` (
 -- Đang đổ dữ liệu cho bảng `stats`
 --
 
-INSERT INTO `stats` (`id`, `id_lane`, `id_Champ`, `trend`, `win_rate`, `pick_rate`, `ban_rate`, `KDA`) VALUES
-(1, 1, 1, '++', 55.7, 34, 1.5, 1.43),
-(2, 1, 2, '+', 54.3, 30, 1.34, 1.23),
-(3, 1, 9, '+', 53.2, 29.4, 1.3, 1.21),
-(4, 3, 9, '+', 54.7, 31, 1.36, 1.38),
-(5, 2, 1, '-', 40.2, 37.8, 0.92, 0.62),
-(6, 3, 1, '-', 40.3, 29.1, 0.23, 0.32),
-(7, 4, 1, '-', 42.2, 31.8, 0.52, 0.55),
-(8, 5, 1, '-', 38.6, 35.7, 0.63, 0.59),
-(9, 1, 4, '++', 56, 44, 1.76, 1.82),
-(10, 1, 5, '-', 48.3, 38, 0.82, 0.94),
-(11, 1, 12, '--', 34.5, 27.9, 0.42, 0.52),
-(12, 1, 26, '-', 43.8, 38.3, 0.82, 0.81),
-(13, 3, 6, '-', 43.2, 24.2, 0.41, 0.73),
-(14, 3, 8, '--', 30.6, 13.4, 0.28, 0.28),
-(15, 3, 10, '+', 40.1, 27.2, 0.34, 0.46),
-(16, 4, 9, '---', 23.6, 10.3, 0.51, 0.32),
-(17, 2, 9, '-', 48.6, 41.7, 0.62, 1.02),
-(18, 5, 9, '--', 34.1, 29.4, 0.52, 0.51),
-(19, 5, 21, '++', 54.6, 51.8, 1.12, 1.52),
-(20, 3, 21, '---', 28.5, 12.7, 0.21, 0.36),
-(21, 4, 15, '++', 57.3, 61.3, 1.72, 1.84),
-(22, 2, 15, '+', 48.2, 50.4, 1.12, 1.04),
-(23, 1, 15, '-', 34.3, 23.6, 0.31, 0.32),
-(24, 3, 15, '--', 43.5, 33.6, 0.72, 0.98),
-(25, 5, 15, '-', 39.4, 38.1, 0.92, 0.84),
-(26, 4, 14, '+', 51.2, 52.4, 1.42, 1.44),
-(27, 2, 14, '+', 48.7, 49.3, 1.22, 1.21),
-(28, 1, 14, '-', 50.2, 45.7, 1.17, 1.1),
-(29, 3, 14, '-', 43.5, 32.6, 0.61, 0.91),
-(30, 5, 14, '-', 39.9, 37.4, 0.62, 0.74),
-(31, 2, 25, '-', 43.2, 38.6, 0.81, 0.87),
-(32, 4, 25, '-', 44.2, 39.5, 0.95, 1),
-(33, 3, 25, '-', 32.4, 26.8, 0.41, 0.47),
-(34, 5, 25, '-', 48.2, 42.6, 0.62, 0.87);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `stats_champions`
---
-
-CREATE TABLE `stats_champions` (
-  `id` int(3) NOT NULL,
-  `id_champ` int(3) NOT NULL,
-  `id_lane` int(11) NOT NULL,
-  `tier` char(8) NOT NULL,
-  `win_rate` float NOT NULL,
-  `pick_rate` float NOT NULL,
-  `ban_rate` float NOT NULL,
-  `KDA` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `stats_champions`
---
-
-INSERT INTO `stats_champions` (`id`, `id_champ`, `id_lane`, `tier`, `win_rate`, `pick_rate`, `ban_rate`, `KDA`) VALUES
-(1, 1, 1, 'S', 53.6, 34, 1.31, 1.23),
-(2, 1, 2, 'B-', 40.2, 21, 0.72, 0.42),
-(3, 1, 4, 'D', 21.5, 12, 0.21, 0.12),
-(4, 1, 3, 'D', 29.2, 14.7, 0.34, 0.36),
-(5, 1, 5, 'C-', 37.2, 16.4, 0.57, 0.62),
-(6, 9, 3, 'S-', 54.8, 30, 1.34, 1.36),
-(7, 9, 1, 'C+', 48.2, 24.3, 0.74, 0.56),
-(8, 9, 2, 'D', 24.1, 21.5, 0.21, 0.32),
-(9, 21, 5, 'S', 54.3, 45.9, 0.74, 1.21),
-(10, 9, 4, 'D', 28.5, 12.6, 0.23, 0.26),
-(11, 9, 5, 'D', 11.3, 8.3, 0.1, 0.15),
-(13, 21, 1, 'B-', 36.3, 31.5, 0.72, 1.21),
-(14, 21, 2, 'C-', 25.6, 24.8, 0.42, 0.95),
-(15, 21, 3, 'D', 10.4, 0.63, 0.24, 0.21),
-(16, 21, 4, 'D', 14.2, 1.01, 0.14, 0.29),
-(17, 15, 4, 'S', 56.4, 51.3, 1.42, 1.62),
-(18, 15, 1, 'D', 21.3, 10.2, 0.52, 0.12),
-(19, 15, 2, 'B', 39.2, 33.5, 0.48, 0.92),
-(20, 15, 5, 'C', 28.4, 27.9, 0.32, 0.51),
-(21, 15, 3, 'C-', 20.1, 24.8, 0.37, 0.35),
-(22, 14, 4, 'S', 54.7, 57.1, 1.25, 1.32),
-(23, 14, 1, 'B+', 43.6, 49.1, 0.71, 1.04),
-(24, 14, 2, 'B-', 39.7, 36.5, 0.43, 0.62),
-(25, 14, 3, 'C+', 35.7, 35.9, 0.47, 0.61),
-(26, 14, 5, 'S', 55.7, 51.2, 1.11, 1.44),
-(27, 25, 2, 'A', 67.1, 6.43, 1.4, 3.3),
-(28, 25, 3, 'Off meta', 12.1, 0.12, 3.1, 0.43),
-(29, 25, 4, 'B', 56.2, 4.2, 6.1, 2.42),
-(30, 25, 5, ' S', 78.7, 5.45, 67.6, 7.7),
-(31, 25, 1, 'B+', 54.1, 23.2, 2.2, 8.2);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `stats_items`
---
-
-CREATE TABLE `stats_items` (
-  `id` int(3) NOT NULL,
-  `id_items` int(3) NOT NULL,
-  `id_Champ` int(3) NOT NULL,
-  `id_lane` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `stats_items`
---
-
-INSERT INTO `stats_items` (`id`, `id_items`, `id_Champ`, `id_lane`) VALUES
-(1, 46, 1, 1),
-(2, 53, 1, 1),
-(3, 58, 1, 1),
-(4, 60, 1, 1),
-(5, 61, 1, 1),
-(6, 62, 1, 1),
-(7, 49, 9, 3),
-(8, 65, 9, 3),
-(9, 66, 9, 3),
-(10, 67, 9, 3),
-(11, 68, 9, 3),
-(12, 69, 9, 3);
+INSERT INTO `stats` (`id`, `id_lane`, `id_champ`, `trend`, `status`, `win_rate`, `pick_rate`, `ban_rate`, `KDA`) VALUES
+(1, 1, 1, '++', 1, 55.7, 34, 1.5, 1.43),
+(2, 1, 2, '+', 1, 54.3, 30, 1.34, 1.23),
+(3, 1, 9, '+', 1, 53.2, 29.4, 1.3, 1.21),
+(4, 3, 9, '+', 1, 54.7, 31, 1.36, 1.38),
+(5, 2, 1, '-', 1, 40.2, 37.8, 0.92, 0.62),
+(6, 3, 1, '-', 1, 40.3, 29.1, 0.23, 0.32),
+(7, 4, 1, '-', 0, 42.2, 31.8, 0.52, 0.55),
+(8, 5, 1, '-', 0, 38.6, 35.7, 0.63, 0.59),
+(9, 1, 4, '++', 1, 56, 44, 1.76, 1.82),
+(10, 1, 5, '-', 1, 48.3, 38, 0.82, 0.94),
+(11, 1, 12, '--', 1, 34.5, 27.9, 0.42, 0.52),
+(12, 1, 26, '-', 1, 43.8, 38.3, 0.82, 0.81),
+(13, 3, 6, '-', 1, 43.2, 24.2, 0.41, 0.73),
+(14, 3, 8, '--', 1, 30.6, 13.4, 0.28, 0.28),
+(15, 3, 10, '+', 1, 40.1, 27.2, 0.34, 0.46),
+(16, 4, 9, '---', 0, 23.6, 10.3, 0.51, 0.32),
+(17, 2, 9, '-', 1, 48.6, 41.7, 0.62, 1.02),
+(18, 5, 9, '--', 1, 34.1, 29.4, 0.52, 0.51),
+(19, 5, 21, '++', 1, 54.6, 51.8, 1.12, 1.52),
+(20, 3, 21, '---', 0, 28.5, 12.7, 0.21, 0.36),
+(21, 4, 15, '++', 1, 57.3, 61.3, 1.72, 1.84),
+(22, 2, 15, '+', 1, 48.2, 50.4, 1.12, 1.04),
+(23, 1, 15, '-', 1, 34.3, 23.6, 0.31, 0.32),
+(24, 3, 15, '--', 1, 43.5, 33.6, 0.72, 0.98),
+(25, 5, 15, '-', 0, 39.4, 38.1, 0.92, 0.84),
+(26, 4, 14, '+', 1, 51.2, 52.4, 1.42, 1.44),
+(27, 2, 14, '+', 1, 48.7, 49.3, 1.22, 1.21),
+(28, 1, 14, '-', 1, 50.2, 45.7, 1.17, 1.1),
+(29, 3, 14, '-', 1, 43.5, 32.6, 0.61, 0.91),
+(30, 5, 14, '-', 0, 39.9, 37.4, 0.62, 0.74),
+(31, 2, 25, '-', 1, 43.2, 38.6, 0.81, 0.81),
+(32, 4, 25, '-', 1, 44.2, 39.5, 0.95, 1),
+(33, 3, 25, '-', 0, 32.4, 26.8, 0.41, 0.47),
+(34, 5, 25, '-', 1, 48.2, 42.6, 0.62, 0.87),
+(35, 1, 21, '+', 1, 49.6, 46.1, 0.45, 0.62),
+(36, 2, 21, '-', 0, 27.9, 31.6, 0.24, 0.31),
+(37, 4, 21, '---', 0, 14.8, 25.7, 0.17, 0.1),
+(38, 1, 25, '--', 0, 41.5, 26.8, 0.43, 0.41),
+(39, 1, 17, '-', 1, 33.2, 11.2, 9.2, 0.54),
+(40, 2, 17, '-', 0, 31.2, 12.2, 8.2, 0.44),
+(41, 3, 17, '-', 0, 33.2, 11.2, 9.2, 0.54),
+(42, 4, 17, '++', 1, 53.2, 41.2, 9.2, 0.98),
+(43, 5, 17, '-', 0, 33.2, 11.2, 9.2, 0.54);
 
 -- --------------------------------------------------------
 
@@ -534,7 +486,7 @@ INSERT INTO `stats_items` (`id`, `id_items`, `id_Champ`, `id_lane`) VALUES
 CREATE TABLE `stats_spell` (
   `id` int(3) NOT NULL,
   `id_spell` int(3) NOT NULL,
-  `id_Champ` int(3) NOT NULL,
+  `id_champ` int(3) DEFAULT NULL,
   `id_lane` int(3) NOT NULL,
   `win_rate` float NOT NULL,
   `pick_rate` float NOT NULL
@@ -544,12 +496,12 @@ CREATE TABLE `stats_spell` (
 -- Đang đổ dữ liệu cho bảng `stats_spell`
 --
 
-INSERT INTO `stats_spell` (`id`, `id_spell`, `id_Champ`, `id_lane`, `win_rate`, `pick_rate`) VALUES
-(1, 1, 1, 1, 59, 100),
+INSERT INTO `stats_spell` (`id`, `id_spell`, `id_champ`, `id_lane`, `win_rate`, `pick_rate`) VALUES
+(1, 1, 1, 1, 59, 96),
 (2, 4, 1, 1, 41, 38),
 (3, 8, 1, 1, 37, 23),
 (4, 2, 1, 1, 28, 22),
-(5, 1, 9, 3, 51, 100),
+(5, 1, 9, 3, 51, 92.5),
 (6, 2, 9, 3, 47, 65),
 (7, 6, 9, 3, 38.5, 50),
 (8, 8, 9, 3, 28, 37),
@@ -581,10 +533,10 @@ INSERT INTO `stats_spell` (`id`, `id_spell`, `id_Champ`, `id_lane`, `win_rate`, 
 (34, 2, 15, 1, 30.3, 27.6),
 (35, 1, 15, 1, 24.3, 32.6),
 (36, 7, 15, 1, 32.3, 23.6),
-(37, 2, 15, 2, 22.3, 23.6),
-(38, 1, 15, 2, 13.3, 23.7),
+(37, 2, 15, 2, 46.2, 51.2),
+(38, 1, 15, 2, 41.7, 47.8),
 (39, 7, 15, 2, 35.3, 33.3),
-(40, 3, 15, 2, 23.3, 33.6),
+(40, 3, 15, 2, 23.3, 25.1),
 (41, 3, 15, 3, 22.3, 33.1),
 (42, 1, 15, 3, 12.3, 23.1),
 (43, 2, 15, 3, 32.6, 43.1),
@@ -621,26 +573,66 @@ INSERT INTO `stats_spell` (`id`, `id_spell`, `id_Champ`, `id_lane`, `win_rate`, 
 (74, 2, 1, 3, 45.1, 51.7),
 (75, 4, 1, 3, 38.7, 46.8),
 (76, 3, 1, 3, 29.6, 36.9),
-(77, 4, 25, 5, 34.3, 34.1),
-(78, 3, 25, 5, 2.2, 34.3),
-(79, 2, 25, 5, 23.5, 43.1),
-(80, 1, 25, 5, 34.1, 12.1),
+(77, 4, 25, 5, 51.3, 49.2),
+(78, 3, 25, 5, 46.2, 43.5),
+(79, 2, 25, 5, 35.7, 35.8),
+(80, 1, 25, 5, 34.2, 45.2),
 (81, 3, 25, 2, 34.2, 23.2),
 (82, 2, 25, 2, 43.1, 23.5),
 (83, 1, 25, 2, 23.3, 33.1),
 (84, 4, 25, 2, 24.2, 24.1),
-(85, 2, 25, 1, 11.1, 5.2),
-(86, 3, 25, 1, 32.1, 23.2),
-(87, 8, 25, 1, 3.1, 23.1),
-(88, 1, 25, 1, 4.2, 3.2),
-(89, 5, 25, 4, 34.1, 43.8),
-(90, 3, 25, 4, 35.7, 34.3),
-(91, 4, 25, 4, 35.2, 65.2),
-(92, 2, 25, 4, 45.2, 2.3),
-(93, 1, 25, 3, 23.9, 2.3),
-(94, 3, 25, 3, 1.9, 1.2),
-(95, 2, 25, 3, 1.5, 1.8),
-(96, 4, 25, 3, 2.2, 1.4);
+(85, 1, 25, 1, 56.3, 84.3),
+(86, 3, 25, 1, 52.6, 72.4),
+(87, 8, 25, 1, 46.2, 43.8),
+(88, 4, 25, 1, 37.8, 41.4),
+(89, 5, 25, 4, 57.2, 83.1),
+(90, 3, 25, 4, 43.1, 62.8),
+(91, 4, 25, 4, 35.2, 51.6),
+(92, 2, 25, 4, 25.6, 41.7),
+(93, 1, 25, 3, 50.6, 68.2),
+(94, 3, 25, 3, 46.1, 51.8),
+(95, 2, 25, 3, 35.7, 41.5),
+(96, 4, 25, 3, 28.9, 36.1),
+(97, 5, 1, 4, 58.4, 89.5),
+(98, 1, 1, 4, 46.8, 62.8),
+(99, 2, 1, 4, 35.9, 41.7),
+(100, 4, 1, 4, 21.3, 29.5),
+(101, 1, 21, 3, 42.6, 68.3),
+(102, 2, 21, 3, 38.5, 53.2),
+(103, 4, 21, 3, 30.4, 42.7),
+(104, 3, 21, 3, 26.1, 36.1),
+(105, 5, 21, 4, 51.6, 89.2),
+(106, 1, 21, 4, 49.7, 72.6),
+(107, 2, 21, 4, 36.1, 53.1),
+(108, 4, 21, 4, 30.5, 41.5),
+(109, 1, 21, 1, 51.6, 89.2),
+(110, 4, 21, 1, 49.7, 72.6),
+(111, 3, 21, 1, 36.1, 53.1),
+(112, 2, 21, 1, 30.5, 41.5),
+(113, 1, 21, 2, 53.6, 69.2),
+(114, 3, 21, 2, 45.7, 52.6),
+(115, 2, 21, 2, 33.1, 43.1),
+(116, 4, 21, 2, 20.5, 31.5),
+(117, 5, 17, 4, 55.4, 44.5),
+(118, 1, 17, 4, 55.4, 44.5),
+(119, 2, 17, 4, 55.4, 44.5),
+(120, 3, 17, 4, 55.4, 44.5),
+(121, 3, 17, 2, 44.2, 31.1),
+(122, 1, 17, 2, 44.2, 31.1),
+(123, 2, 17, 2, 44.2, 31.1),
+(124, 4, 17, 2, 44.2, 31.1),
+(125, 3, 17, 1, 33.2, 23.6),
+(126, 1, 17, 1, 33.2, 23.6),
+(127, 2, 17, 1, 33.2, 23.6),
+(128, 4, 17, 1, 33.2, 23.6),
+(129, 4, 17, 3, 44.3, 10.3),
+(130, 1, 17, 3, 41.3, 11.2),
+(131, 2, 17, 3, 34.1, 9.7),
+(132, 3, 17, 3, 37.3, 10.6),
+(133, 3, 17, 5, 45.4, 34.4),
+(134, 1, 17, 5, 42.4, 33.5),
+(135, 2, 17, 5, 42.1, 32.1),
+(136, 4, 17, 5, 40.2, 30.1);
 
 -- --------------------------------------------------------
 
@@ -670,7 +662,7 @@ INSERT INTO `stats_start_items` (`id`, `id_items`, `id_champ`, `id_lane`, `win_r
 (6, 11, 1, 3, 43, 40),
 (7, 1, 1, 3, 32, 25),
 (8, 12, 1, 3, 20, 11),
-(9, 16, 1, 4, 52, 100),
+(9, 16, 1, 4, 52, 90.3),
 (10, 6, 1, 4, 41, 52),
 (11, 17, 1, 4, 36.2, 41),
 (12, 8, 1, 4, 28.9, 30.3),
@@ -766,18 +758,54 @@ INSERT INTO `stats_start_items` (`id`, `id_items`, `id_champ`, `id_lane`, `win_r
 (102, 1, 25, 2, 23.1, 35.4),
 (103, 12, 25, 2, 45.2, 22.7),
 (104, 7, 25, 2, 34.2, 24.7),
-(105, 1, 25, 1, 2.1, 3.2),
-(106, 12, 25, 1, 2.8, 7.1),
-(107, 13, 25, 1, 4.2, 6.1),
-(108, 17, 25, 1, 6.1, 2.1),
-(109, 16, 25, 4, 24.2, 43.2),
-(110, 7, 25, 4, 34.2, 24.1),
-(111, 12, 25, 4, 43.2, 52.7),
+(105, 12, 25, 1, 51.5, 67.2),
+(106, 1, 25, 1, 41.6, 50.6),
+(107, 13, 25, 1, 35.1, 41.8),
+(108, 17, 25, 1, 24.9, 36.1),
+(109, 16, 25, 4, 56.1, 82.3),
+(110, 12, 25, 4, 43.2, 62.6),
+(111, 7, 25, 4, 40.6, 52.7),
 (112, 3, 25, 4, 34.1, 23.2),
-(113, 1, 25, 3, 3.1, 2.2),
-(114, 3, 25, 3, 3.6, 2.4),
-(115, 12, 25, 3, 3.9, 1.9),
-(116, 13, 25, 3, 2.8, 1.9);
+(113, 12, 25, 3, 53.6, 64),
+(114, 1, 25, 3, 47.8, 51.7),
+(115, 3, 25, 3, 38.1, 46.1),
+(116, 13, 25, 3, 30.1, 43.8),
+(117, 6, 21, 3, 50.3, 56.2),
+(118, 1, 21, 3, 32.6, 45.2),
+(119, 2, 21, 3, 25.1, 20.7),
+(120, 3, 21, 3, 12.8, 10.3),
+(121, 16, 21, 4, 48.3, 86.2),
+(122, 6, 21, 4, 31.6, 42.2),
+(123, 7, 21, 4, 27.1, 24.7),
+(124, 9, 21, 4, 25.8, 20.3),
+(125, 6, 21, 1, 48.3, 86.2),
+(126, 17, 21, 1, 31.6, 42.2),
+(127, 8, 21, 1, 27.1, 24.7),
+(128, 9, 21, 1, 25.8, 20.3),
+(129, 6, 21, 2, 48.8, 66.2),
+(130, 8, 21, 2, 36.6, 52.5),
+(131, 17, 21, 2, 24.1, 34.7),
+(132, 1, 21, 2, 15.8, 28.3),
+(133, 16, 17, 4, 54.4, 44.5),
+(134, 1, 17, 4, 54.4, 44.5),
+(135, 2, 17, 4, 54.4, 44.5),
+(136, 3, 17, 4, 54.4, 44.5),
+(137, 1, 17, 2, 34.3, 22.3),
+(138, 2, 17, 2, 34.3, 22.3),
+(139, 3, 17, 2, 34.3, 22.3),
+(140, 4, 17, 2, 34.3, 22.3),
+(141, 1, 17, 1, 34.2, 11.2),
+(142, 2, 17, 1, 34.2, 11.2),
+(143, 3, 17, 1, 34.2, 11.2),
+(144, 4, 17, 1, 34.2, 11.2),
+(145, 1, 17, 3, 54.3, 55.7),
+(146, 2, 17, 3, 49.3, 52.7),
+(147, 3, 17, 3, 50.3, 54.1),
+(148, 4, 17, 3, 47.2, 42.7),
+(149, 18, 17, 5, 35.7, 44.1),
+(150, 1, 17, 5, 36.8, 41.2),
+(151, 2, 17, 5, 35.7, 39.1),
+(152, 3, 17, 5, 32.1, 35.6);
 
 -- --------------------------------------------------------
 
@@ -789,17 +817,18 @@ CREATE TABLE `user` (
   `id` int(5) NOT NULL,
   `user_name` varchar(50) NOT NULL,
   `user_email` varchar(30) NOT NULL,
-  `user_pass` text NOT NULL,
-  `display_name` varchar(30) NOT NULL
+  `user_pass` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`id`, `user_name`, `user_email`, `user_pass`, `display_name`) VALUES
-(2, 'thangngu123', 'thangkhongngu123@gmail.com', '123', 'Thiều Thắng'),
-(4, 'Vonguyen123', 'wwwnguyendoan123@gmail.com', '', 'Võ Nguyên');
+INSERT INTO `user` (`id`, `user_name`, `user_email`, `user_pass`) VALUES
+(2, 'thangngu123', 'thangkhongngu123@gmail.com', '123'),
+(4, 'Vonguyen123', 'wwwnguyendoan123@gmail.com', '1234567'),
+(8, 'Trang', 'huynhngoctrang39@gmail.com', '123'),
+(9, 'Ngantbn', 'thbn18102003@gmail.com', '123456');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -821,7 +850,9 @@ ALTER TABLE `badge`
 -- Chỉ mục cho bảng `champions`
 --
 ALTER TABLE `champions`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id_champ`),
+  ADD KEY `id_role` (`id_role`,`id_lane`),
+  ADD KEY `id_lane` (`id_lane`);
 
 --
 -- Chỉ mục cho bảng `feedback`
@@ -833,12 +864,19 @@ ALTER TABLE `feedback`
 -- Chỉ mục cho bảng `items`
 --
 ALTER TABLE `items`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_items`);
 
 --
 -- Chỉ mục cho bảng `lane`
 --
 ALTER TABLE `lane`
+  ADD PRIMARY KEY (`id_lane`),
+  ADD KEY `id_role` (`id_role`);
+
+--
+-- Chỉ mục cho bảng `reset`
+--
+ALTER TABLE `reset`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -851,43 +889,41 @@ ALTER TABLE `role_champions`
 -- Chỉ mục cho bảng `skills`
 --
 ALTER TABLE `skills`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_champ` (`id_champ`),
+  ADD KEY `id_champ_2` (`id_champ`);
 
 --
 -- Chỉ mục cho bảng `spells`
 --
 ALTER TABLE `spells`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_spell`);
 
 --
 -- Chỉ mục cho bảng `stats`
 --
 ALTER TABLE `stats`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `stats_champions`
---
-ALTER TABLE `stats_champions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `stats_items`
---
-ALTER TABLE `stats_items`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_lane` (`id_lane`,`id_champ`),
+  ADD KEY `id_champ` (`id_champ`);
 
 --
 -- Chỉ mục cho bảng `stats_spell`
 --
 ALTER TABLE `stats_spell`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_spell` (`id_spell`,`id_champ`,`id_lane`),
+  ADD KEY `id_lane` (`id_lane`),
+  ADD KEY `id_champ` (`id_champ`);
 
 --
 -- Chỉ mục cho bảng `stats_start_items`
 --
 ALTER TABLE `stats_start_items`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_items` (`id_items`,`id_champ`,`id_lane`),
+  ADD KEY `id_champ` (`id_champ`),
+  ADD KEY `id_lane` (`id_lane`);
 
 --
 -- Chỉ mục cho bảng `user`
@@ -912,28 +948,16 @@ ALTER TABLE `badge`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT cho bảng `champions`
---
-ALTER TABLE `champions`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
 -- AUTO_INCREMENT cho bảng `feedback`
 --
 ALTER TABLE `feedback`
   MODIFY `id_feedback` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `items`
+-- AUTO_INCREMENT cho bảng `reset`
 --
-ALTER TABLE `items`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
-
---
--- AUTO_INCREMENT cho bảng `lane`
---
-ALTER TABLE `lane`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `reset`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `role_champions`
@@ -945,49 +969,82 @@ ALTER TABLE `role_champions`
 -- AUTO_INCREMENT cho bảng `skills`
 --
 ALTER TABLE `skills`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT cho bảng `spells`
---
-ALTER TABLE `spells`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `stats`
 --
 ALTER TABLE `stats`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- AUTO_INCREMENT cho bảng `stats_champions`
---
-ALTER TABLE `stats_champions`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT cho bảng `stats_items`
---
-ALTER TABLE `stats_items`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT cho bảng `stats_spell`
 --
 ALTER TABLE `stats_spell`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
 -- AUTO_INCREMENT cho bảng `stats_start_items`
 --
 ALTER TABLE `stats_start_items`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `champions`
+--
+ALTER TABLE `champions`
+  ADD CONSTRAINT `champions_ibfk_1` FOREIGN KEY (`id_lane`) REFERENCES `lane` (`id_lane`);
+
+--
+-- Các ràng buộc cho bảng `lane`
+--
+ALTER TABLE `lane`
+  ADD CONSTRAINT `lane_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `role_champions` (`id_role`);
+
+--
+-- Các ràng buộc cho bảng `role_champions`
+--
+ALTER TABLE `role_champions`
+  ADD CONSTRAINT `role_champions_ibfk_1` FOREIGN KEY (`id_role`) REFERENCES `champions` (`id_role`);
+
+--
+-- Các ràng buộc cho bảng `skills`
+--
+ALTER TABLE `skills`
+  ADD CONSTRAINT `skills_ibfk_1` FOREIGN KEY (`id_champ`) REFERENCES `champions` (`id_champ`);
+
+--
+-- Các ràng buộc cho bảng `stats`
+--
+ALTER TABLE `stats`
+  ADD CONSTRAINT `stats_ibfk_1` FOREIGN KEY (`id_champ`) REFERENCES `champions` (`id_champ`),
+  ADD CONSTRAINT `stats_ibfk_2` FOREIGN KEY (`id_lane`) REFERENCES `lane` (`id_lane`);
+
+--
+-- Các ràng buộc cho bảng `stats_spell`
+--
+ALTER TABLE `stats_spell`
+  ADD CONSTRAINT `stats_spell_ibfk_1` FOREIGN KEY (`id_spell`) REFERENCES `spells` (`id_spell`),
+  ADD CONSTRAINT `stats_spell_ibfk_2` FOREIGN KEY (`id_lane`) REFERENCES `lane` (`id_lane`),
+  ADD CONSTRAINT `stats_spell_ibfk_3` FOREIGN KEY (`id_champ`) REFERENCES `champions` (`id_champ`);
+
+--
+-- Các ràng buộc cho bảng `stats_start_items`
+--
+ALTER TABLE `stats_start_items`
+  ADD CONSTRAINT `stats_start_items_ibfk_1` FOREIGN KEY (`id_items`) REFERENCES `items` (`id_items`),
+  ADD CONSTRAINT `stats_start_items_ibfk_2` FOREIGN KEY (`id_champ`) REFERENCES `champions` (`id_champ`),
+  ADD CONSTRAINT `stats_start_items_ibfk_3` FOREIGN KEY (`id_lane`) REFERENCES `lane` (`id_lane`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

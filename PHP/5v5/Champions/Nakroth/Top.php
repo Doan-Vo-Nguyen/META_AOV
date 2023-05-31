@@ -24,7 +24,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $GLOBALS['name'] ?> Build Guide, <?php echo $GLOBALS['lane'] ?> Runes, Items Patch 24</title>
-    <link rel="icon" href="../../../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
+    <link rel="icon" href="../../../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
     <link rel="stylesheet" href="../../../../CSS/Champion.css">
     <link rel="stylesheet" href="../../../../CSS/Home.css">
     <!-- a library of icons(1 thư viện icon) -->
@@ -54,7 +54,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                 <div style="width:100%">
                     <a href="../../../5v5/Home.php"
                         style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../../../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                        <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
                             style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
@@ -83,8 +83,8 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <!-- Logo(logo trang web) -->
-                                    <img class="img-pos" src="../../../../Images/Icon-Logo/N5-removebg-preview.png"
-                                        alt="logo" style="width:32px;height:32px;">
+                                    <img class="img-pos" src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
+                                        style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <!-- Name(tên trang web) -->
                                         <b class="f-word word">META</b>

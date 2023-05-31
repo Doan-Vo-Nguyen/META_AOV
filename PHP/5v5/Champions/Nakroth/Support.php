@@ -724,7 +724,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                         </circle>
                                         <image class="badge-img" x="17" y="17" height="20" width="20"
                                             xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png" />
-                                        <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(217, 40, 16)"
+                                        <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(91, 208, 82)"
                                             stroke-width="2">
                                         </circle>
                                     </svg>
@@ -777,12 +777,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="26" cy="36" r="25" fill="black">
                                             </circle>
                                             <line x1="50" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="5" y="15" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
                                             </image>
-                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -792,12 +792,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="10" fill="black">
                                             </circle>
                                             <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
-                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                             <image class="badge-img" x="0" y="0" height="72" width="72"
@@ -810,15 +810,15 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/CuongCong.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -828,12 +828,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/CoThu.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -846,12 +846,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="26" cy="36" r="25" fill="black">
                                             </circle>
                                             <line x1="50" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="7" y="15" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png">
                                             </image>
-                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -861,12 +861,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/SinhTon.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -876,12 +876,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="25" fill="black">
                                             </circle>
                                             <line x1="50" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="17" y="15" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
+                                            <circle cx="36" cy="36" r="25" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -891,12 +891,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/NhayBen.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -911,12 +911,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="26" cy="36" r="25" fill="black">
                                             </circle>
                                             <line x1="50" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="5" y="15" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/RungNguyenSinh.png">
                                             </image>
-                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -926,16 +926,16 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="10" fill="black">
                                             </circle>
                                             <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
-                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                             <image class="badge-img" x="0" y="0" height="72" width="72"
-                                                xlink:href="../../../../Images/PhuHieu/DuHiep.png">
+                                                xlink:href="../../../../Images/PhuHieu/MocGiap.png">
                                             </image>
                                         </svg>
                                     </div>
@@ -944,15 +944,15 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/SinhTon.png">
+                                                xlink:href="../../../../Images/PhuHieu/AmKich.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -962,12 +962,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(91, 208, 82);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/NhayBen.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(91, 208, 82)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>

@@ -24,7 +24,7 @@ else if ($current_page < 1)
     $sql_paging="SELECT * FROM champions, role_champions WHERE champions.id_role = role_champions.id_role LIMIT $start, $limit";
     $result_paging = mysqli_query($conn, $sql_paging);
     while ($row=mysqli_fetch_assoc($result_paging)) {
-    $id=$row['ID'];
+    $id=$row['id_champ'];
     $name=$row['champ_Name'];
     $image=$row['image'];
     $role_name=$row['name_role'];
@@ -33,7 +33,7 @@ else if ($current_page < 1)
         <span class="serial" tag="' . $id . '"
             type="' . $id_role . '" style="display: none">' . $name . '</span>
         <div class="champions">
-            <a class = "champion-items" href="../1v1/Champion/' . $name . '" data-search-terms-like="' . $name . '|' . $name . '" data-search-terms-exact = "' . $role_name . '|' .$role_name . '">
+            <a class = "champion-items" href="../1v1/Champion/' . $name . '.php" data-search-terms-like="' . $name . '|' . $name . '" data-search-terms-exact = "' . $role_name . '|' .$role_name . '">
                 <img src="../../Images/Champions/' . $image . '" alt="champion">
             </a>
             <p style="white-space: nowrap;" class="name">' . $name . '</p>

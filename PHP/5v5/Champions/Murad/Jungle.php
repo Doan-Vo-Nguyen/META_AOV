@@ -713,7 +713,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                     <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
                                         <circle cx="36" cy="36"="20" fill="black">
                                         </circle>
-                                        <circle cx="36" cy="36"="20" fill="transparent" stroke="rgb(239, 227, 24)"
+                                        <circle cx="36" cy="36"="20" fill="transparent" stroke="rgb(217, 40, 16)"
                                             stroke-width="2">
                                         </circle>
                                         <image class="badge-img" x="0" y="0" height="72" width="72"
@@ -726,7 +726,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                         </circle>
                                         <image class="badge-img" x="17" y="17" height="20" width="20"
                                             xlink:href="../../../../Images/PhuHieu/ThanhKhoiNguyen.png" />
-                                        <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(217, 40, 16)"
+                                        <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(239, 227, 24)"
                                             stroke-width="2">
                                         </circle>
                                     </svg>
@@ -744,7 +744,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                     <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
                                         <circle cx="36" cy="36" fill="black">
                                         </circle>
-                                        <circle cx="36" cy="36" fill="transparent" stroke="rgb(239, 227, 24)"
+                                        <circle cx="36" cy="36" fill="transparent" stroke="rgb(217, 40, 16)"
                                             stroke-width="2">
                                         </circle>
                                         <image class="badge-img" x="0" y="0" height="72" width="80"
@@ -780,12 +780,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="26" cy="36" r="25" fill="black">
                                             </circle>
                                             <line x1="50" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="5" y="15" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
                                             </image>
-                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -795,12 +795,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="10" fill="black">
                                             </circle>
                                             <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
-                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                             <image class="badge-img" x="0" y="0" height="72" width="72"
@@ -813,15 +813,15 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/Duanh.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -831,12 +831,12 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="36" cy="36" r="20" fill="black">
                                             </circle>
                                             <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
                                                 xlink:href="../../../../Images/PhuHieu/CuongCong.png">
                                             </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>
@@ -849,143 +849,10 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                             <circle cx="26" cy="36" r="25" fill="black">
                                             </circle>
                                             <line x1="50" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
-                                            </line>
-                                            <image class="badge-img" x="7" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThanhKhoiNguyen.png">
-                                            </image>
-                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
-                                                stroke-width="2">
-                                            </circle>
-                                        </svg>
-                                    </div>
-                                    <div class="be badge-st">
-                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
-                                            <circle cx="36" cy="36" r="20" fill="black">
-                                            </circle>
-                                            <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
-                                            </line>
-                                            <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/QuaCauBS.png">
-                                            </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
-                                                stroke-width="2">
-                                            </circle>
-                                        </svg>
-                                    </div>
-                                    <div class="be badge-st">
-                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
-                                            <circle cx="36" cy="36" r="25" fill="black">
-                                            </circle>
-                                            <line x1="50" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
-                                            </line>
-                                            <image class="badge-img" x="17" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThanhKhoiNguyen.png">
-                                            </image>
-                                            <circle cx="36" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
-                                                stroke-width="2">
-                                            </circle>
-                                        </svg>
-                                    </div>
-                                    <div class="be badge-st">
-                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
-                                            <circle cx="36" cy="36" r="20" fill="black">
-                                            </circle>
-                                            <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
-                                            </line>
-                                            <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThoSan.png">
-                                            </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
-                                                stroke-width="2">
-                                            </circle>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- div show the details of the second badge( show chi tiet phu hieu thu2)-->
-                            <div id="10-19-content" class="ct-sd hidden">
-                                <div style="display:flex;margin-bottom:-10px;margin-top:-30px;">
-                                    <div class="be badge-st">
-                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
-                                            <circle cx="26" cy="36" r="25" fill="black">
-                                            </circle>
-                                            <line x1="50" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                            </line>
-                                            <image class="badge-img" x="5" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
-                                            </image>
-                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
-                                                stroke-width="2">
-                                            </circle>
-                                        </svg>
-                                    </div>
-                                    <div class="be badge-st">
-                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
-                                            <circle cx="36" cy="36" r="10" fill="black">
-                                            </circle>
-                                            <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                            </line>
-                                            <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                            </line>
-                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(251, 175, 23)"
-                                                stroke-width="2">
-                                            </circle>
-                                            <image class="badge-img" x="0" y="0" height="72" width="72"
-                                                xlink:href="../../../../Images/PhuHieu/MaTinh.png">
-                                            </image>
-                                        </svg>
-                                    </div>
-                                    <div class="be badge-st">
-                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
-                                            <circle cx="36" cy="36" r="20" fill="black">
-                                            </circle>
-                                            <line x1="56" y1="36" x2="72" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                            </line>
-                                            <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                            </line>
-                                            <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/CuongCong.png">
-                                            </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
-                                                stroke-width="2">
-                                            </circle>
-                                        </svg>
-                                    </div>
-                                    <div class="be badge-st">
-                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
-                                            <circle cx="36" cy="36" r="20" fill="black">
-                                            </circle>
-                                            <line x1="0" y1="36" x2="26" y2="36"
-                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                            </line>
-                                            <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/CoThu.png">
-                                            </image>
-                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
-                                                stroke-width="2">
-                                            </circle>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div style="display:flex;flex-wrap:wrap;margin-bottom:-10px;">
-                                    <div class="be badge-st">
-                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
-                                            <circle cx="26" cy="36" r="25" fill="black">
-                                            </circle>
-                                            <line x1="50" y1="36" x2="72" y2="36"
                                                 style="stroke:rgb(10,0,148);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="7" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png">
+                                                xlink:href="../../../../Images/PhuHieu/ThanhKhoiNguyen.png">
                                             </image>
                                             <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(10,0,148)"
                                                 stroke-width="2">
@@ -1000,7 +867,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(10,0,148);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/XuyenTam.png">
+                                                xlink:href="../../../../Images/PhuHieu/QuaCauBS.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(10,0,148)"
                                                 stroke-width="2">
@@ -1015,7 +882,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(10,0,148);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="17" y="15" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png">
+                                                xlink:href="../../../../Images/PhuHieu/ThanhKhoiNguyen.png">
                                             </image>
                                             <circle cx="36" cy="36" r="25" fill="transparent" stroke="rgb(10,0,148)"
                                                 stroke-width="2">
@@ -1030,9 +897,142 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 style="stroke:rgb(10,0,148);stroke-width:2">
                                             </line>
                                             <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                xlink:href="../../../../Images/PhuHieu/TuongPhan.png">
+                                                xlink:href="../../../../Images/PhuHieu/ThoSan.png">
                                             </image>
                                             <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(10,0,148)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- div show the details of the second badge( show chi tiet phu hieu thu2)-->
+                            <div id="10-19-content" class="ct-sd hidden">
+                                <div style="display:flex;margin-bottom:-10px;margin-top:-30px;">
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="26" cy="36" r="25" fill="black">
+                                            </circle>
+                                            <line x1="50" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="5" y="15" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
+                                            </image>
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="10" fill="black">
+                                            </circle>
+                                            <line x1="56" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                            </line>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                            </line>
+                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(217, 40, 16)"
+                                                stroke-width="2">
+                                            </circle>
+                                            <image class="badge-img" x="0" y="0" height="72" width="72"
+                                                xlink:href="../../../../Images/PhuHieu/MaTinh.png">
+                                            </image>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="56" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                            </line>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/CuongCong.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/CoThu.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div style="display:flex;flex-wrap:wrap;margin-bottom:-10px;">
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="26" cy="36" r="25" fill="black">
+                                            </circle>
+                                            <line x1="50" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(239, 227, 24);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="7" y="15" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png">
+                                            </image>
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(239, 227, 24)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(239, 227, 24);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/XuyenTam.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(239, 227, 24)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="25" fill="black">
+                                            </circle>
+                                            <line x1="50" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(239, 227, 24);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="17" y="15" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="25" fill="transparent" stroke="rgb(239, 227, 24)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(239, 227, 24);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/TuongPhan.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(239, 227, 24)"
                                                 stroke-width="2">
                                             </circle>
                                         </svg>

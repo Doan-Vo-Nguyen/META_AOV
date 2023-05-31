@@ -10,15 +10,6 @@ function tab(e, t) {
     !1
 }
 
-function getCheckBoxFilters(e) {
-    for (var t = $(e + ":checked").get(), a = [], n = !1, i = 0; i < t.length; i++) {
-        var l = $(t[i]).val();
-        if (a.push(l),
-        n = "all" === l)
-            break
-    }
-    return n && (a = "all"),a
-}
 
 
 

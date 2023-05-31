@@ -802,7 +802,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                                                 stroke-width="2">
                                             </circle>
                                             <image class="badge-img" x="0" y="0" height="72" width="72"
-                                                xlink:href="../../../../Images/PhuHieu/ThanQuang.png">
+                                                xlink:href="../../../../Images/PhuHieu/TinhLinh.png">
                                             </image>
                                         </svg>
                                     </div>

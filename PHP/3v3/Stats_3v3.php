@@ -241,65 +241,45 @@
                                         <div>
                                             <div id="top-scroll"></div>
                                             <div id="table-scroll" class="_bca1">
-                                                <table
-                                                    class="stats-table tb-st tablesorter tablesorter-default tablesorterb92ab849207fd"
+                                                <table class="stats-table tb-st tablesorter tablesorter-default"
                                                     role="grid">
                                                     <thead>
-                                                        <tr class="info-tab tablesorter-headerRow odd" role="row">
+                                                        <tr class="info-tab tablesorter-headerRow" role="row">
                                                             <th class="th-st tablesorter-header tablesorter-headerUnSorted"
                                                                 data-colum="0" tabindex="0" scope="col"
-                                                                role="columnheader" aria-disabled="false"
-                                                                unselectedtable="on" aria-sort="none"
-                                                                aria-label="Name: Chua duoc xep, kich hoat de ap dung xep giam dan"
-                                                                style=user-select:none data-sortedby="user">
+                                                                role="columnheader" style=user-select:none
+                                                                data-sortedby="user">
                                                                 <div class="tablesorter-header-inner">Name</div>
                                                             </th>
                                                             <th class="th-st tablesorter-header tablesorter-headerUnSorted"
                                                                 data-colum="0" tabindex="0" scope="col"
-                                                                role="columnheader" aria-disabled="false"
-                                                                unselectedtable="on" aria-sort="none"
-                                                                aria-label="Role: Chua duoc xep, kich hoat de ap dung xep giam dan"
-                                                                style=user-select:none data-sortedby="user">
+                                                                role="columnheader" style=user-select:none
+                                                                data-sortedby="user">
                                                                 <div class="tablesorter-header-inner">Role</div>
                                                             </th>
                                                             <th class="th-st tablesorter-header tablesorter-headerUnSorted"
                                                                 data-colum="2" tabindex="0" scope="col"
-                                                                role="columnheader" aria-disabled="false"
-                                                                unselectedtable="on" aria-sort="none"
-                                                                aria-label="Tier: Chua duoc xep, kich hoat de ap dung xep giam dan"
-                                                                style=user-select:none>
+                                                                role="columnheader" style=user-select:none>
                                                                 <div class="tablesorter-header-inner">Tier</div>
                                                             </th>
                                                             <th class="th-st tablesorter-header tablesorter-headerUnSorted"
                                                                 data-colum="3" tabindex="0" scope="col"
-                                                                role="columnheader" aria-disabled="false"
-                                                                unselectedtable="on" aria-sort="none"
-                                                                aria-label="Trend: Chua duoc xep, kich hoat de ap dung xep giam dan"
-                                                                style=user-select:none>
+                                                                role="columnheader" style=user-select:none>
                                                                 <div class="tablesorter-header-inner">Trend</div>
                                                             </th>
                                                             <th class="th-st tablesorter-header tablesorter-headerUnSorted"
                                                                 data-colum="3" tabindex="0" scope="col"
-                                                                role="columnheader" aria-disabled="false"
-                                                                unselectedtable="on" aria-sort="none"
-                                                                aria-label="Win rate: Chua duoc xep, kich hoat de ap dung xep giam dan"
-                                                                style=user-select:none>
+                                                                role="columnheader" style=user-select:none>
                                                                 <div class="tablesorter-header-inner">Win Rate</div>
                                                             </th>
                                                             <th class="th-st tablesorter-header tablesorter-headerUnSorted"
                                                                 data-colum="4" tabindex="0" scope="col"
-                                                                role="columnheader" aria-disabled="false"
-                                                                unselectedtable="on" aria-sort="none"
-                                                                aria-label="Pick rate: Chua duoc xep, kich hoat de ap dung xep giam dan"
-                                                                style=user-select:none>
+                                                                role="columnheader" style=user-select:none>
                                                                 <div class="tablesorter-header-inner">Pick Rate</div>
                                                             </th>
                                                             <th class="th-st tablesorter-header tablesorter-headerUnSorted"
                                                                 data-colum="6" tabindex="0" scope="col"
-                                                                role="columnheader" aria-disabled="false"
-                                                                unselectedtable="on" aria-sort="none"
-                                                                aria-label="Average KDA: Chua duoc xep, kich hoat de ap dung xep giam dan"
-                                                                style=user-select:none>
+                                                                role="columnheader" style=user-select:none>
                                                                 <div class="tablesorter-header-inner">KDA</div>
                                                             </th>
                                                         </tr>

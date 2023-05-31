@@ -409,12 +409,11 @@
     <script type="text/javascript" src="../../JS/Home.js"></script>
     <script type="text/javascript" src="../../JS/metaaov.js"></script>
     <?php
-    // Start the session
+        // Start the session
     error_reporting(E_ERROR | E_PARSE);
     $username = $_SESSION['user'];
-    echo $username;
     // Check if the session variable username is set
-    if (isset($username)) {
+    if (!empty($username)) {
     ?>
     <?php echo '
     <script>
@@ -424,7 +423,7 @@
     if(show_log != null || show_reg != null) {
         show_log.innerHTML = "<p>Xin chào, ' . $username . '</p>";
         // Print the echo statement in the a tag have id login
-        show_reg.innerHTML = "<a href=\"../account/logout.php\">Đăng xuất</a>";
+        show_reg.innerHTML = "<a href=\"../../../account/logout.php\">Đăng xuất</a>";
     }
     </script>';
         ?>

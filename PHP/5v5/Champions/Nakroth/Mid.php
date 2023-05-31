@@ -1189,7 +1189,7 @@ $GLOBALS['id_lane'] = $row['id_lane'];
                      // sử dụng explode để chia chuỗi thành mảng, sau đó lặp để lấy từng id item
                      // sau đó sử dụng sql để lấy chi tiết item
                      // cuối cùng là echo chi tiết item
-                    $itemNum = "17,2,49,1,1,22,2,11,2,2,23,4,5,1,19,1,19,67,1,2,20,5,9,1,19,12,69";
+                    $itemNum = "1,17,2,49,1,1,22,2,11,2,2,23,4,5,1,19,1,19,67,1,2,20,5,9,1,19,12,69";
                     $row_array = explode(',', $itemNum);
                     for ($i = 0; $i < count($row_array); $i++) {
                         $sql = "SELECT * FROM items WHERE id_items = $row_array[$i]";

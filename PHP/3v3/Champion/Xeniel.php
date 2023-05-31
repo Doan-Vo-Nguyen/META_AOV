@@ -353,7 +353,7 @@ $GLOBALS['id'] = $row['id_champ'];
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>KDA: </strong>
-                                                <span class="kda-value">' . $KDA . '%</span>
+                                                <span class="kda-value">' . $KDA . '</span>
                                                 </span>
                                                 </div>';
                                             }
@@ -961,7 +961,6 @@ $GLOBALS['id'] = $row['id_champ'];
                             class="content-details">
                             <div style="display:flex;align-items:center;justify-content:center;">
                                 <?php
-                                            // 46: giay kien cuong, 53: sach truy hon, 58:vuong mien hecate, 60: truong bung no, 61: xuyen tam lenh, 62: sach thanh
                                                $itemNum = "46,53,58,60,61,62";
                                                $row_array = explode(',', $itemNum);
                                                for ($i = 0; $i < count($row_array); $i++) {

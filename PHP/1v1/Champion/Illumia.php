@@ -1,6 +1,17 @@
 <?php session_start(); ?>
 <!-- <?php setcookie('username', $_SESSION['username'], time() + 60, "/");
 ?> -->
+<?php
+require '../connect_1v1.php';
+// sql 3 table champions, role_champions, stats
+$sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN role_champions ON role_champions.id_role = stats.id_role WHERE champions.id_champ = 1";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$name = $row['champ_Name'];
+$role = $row['name_role'];
+$GLOBALS['name'] = $name;
+$GLOBALS['id'] = $row['id_champ'];
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,13 +20,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>META liên quân</title>
-    <link rel="icon" href="../../../Images/Icon-Logo/unnamed.png" type="image/x-icon">
-    <link rel="stylesheet" href="../../../CSS/Champion.css">
-    <link rel="stylesheet" href="../../../CSS/Illumia.css">
-    <link rel="stylesheet" href="../../../CSS/Home.css">
+    <title><?php echo $GLOBALS['name'] ?> Build Guide, 1v1 Runes, Items Patch 24</title>
+    <link rel="icon" href="../../../../Images/Icon-Logo/Logo-team.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../../../CSS/Champion.css">
+    <link rel="stylesheet" href="../../../../CSS/Home.css">
     <!-- a library of icons(1 thư viện icon) -->
-    <link rel="stylesheet" href="../../../Extension/font-awesome.css">
+    <link rel="stylesheet" href="../../../../Extension/font-awesome.css">
 </head>
 
 <body class="wrapper-page" style="background-position-y: 0px !important;">
@@ -39,9 +49,8 @@
             <!-- Logo(logo trang web) -->
             <div class="head-inner logo-team">
                 <div style="width:100%">
-                    <a href="../../5v5/Home.php"
-                        style="display:flex;justify-content:center;align-items:center;font-size:20px;">
-                        <img src="../../../Images/Icon-Logo/N5-removebg-preview.png" alt="logo"
+                    <a href="../1v1.php" style="display:flex;justify-content:center;align-items:center;font-size:20px;">
+                        <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
                             style="width:32px;height:32px;">
                         <b class="f-word">META</b>
                         <b class="s-word">aov</b>
@@ -52,10 +61,10 @@
             <div class="head-inner logo-team" style="width:450px;">
                 <ul class="menu-top">
                     <li>
-                        <a id="signup" href="../../../PHP/User/Register.php">Đăng ký</a>
+                        <a id="signup" href="../../../account/Register/Register.php">Đăng ký</a>
                     </li>
                     <li>
-                        <a id="login" href="../../../PHP/User/Login.php">Đăng nhập</a>
+                        <a id="login" href="../../../account/Login/Login.php">Đăng nhập</a>
                     </li>
 
                 </ul>
@@ -70,8 +79,8 @@
                             <div class="item-logo" style="padding-left:14px">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <!-- Logo(logo trang web) -->
-                                    <img class="img-pos" src="../../../Images/Icon-Logo/N5-removebg-preview.png"
-                                        alt="logo" style="width:32px;height:32px;">
+                                    <img class="img-pos" src="../../../../Images/Icon-Logo/Logo-team.png" alt="logo"
+                                        style="width:32px;height:32px;">
                                     <span class="text-logo logo-st">
                                         <!-- Name(tên trang web) -->
                                         <b class="f-word word">META</b>
@@ -83,7 +92,7 @@
                         <!-- div show menu(đây là phần hiển thị menu) -->
                         <div class="menu-item info-link">
                             <!-- div show the mode of game using dropdown(đây là phần hiển thị chế độ chơi bằng dropdown) -->
-                            <a id="1-dropdown" class="nav-dropdown item-logo nav-item" onclick="navDropdown('1');">
+                            <a id="1-dropdown" class="nav-dropdown item-logo nav-item" onclick=" navDropdown('1');">
                                 <div style="display:flex;justify-content:center;align-items:center;">
                                     <b class="patch" style="display:flex;justify-content:center;font-size:17px;">5v5</b>
                                     <span class="text-logo logo-st" style="position:relative;left:-10px;">Chế độ
@@ -98,18 +107,22 @@
                             </a>
                             <div id="1-content" class="otherCt-1 dropdown-content" style="display:none;">
                                 <div>
-                                    <div class="item-logo nav-item">
-                                        <div style="display:flex;justify-content:center;align-items:center;">
-                                            <b class="text-logo logo-st">3v3</b>
+                                    <a href="../../../3v3/3v3.php">
+                                        <div class="item-logo nav-item">
+                                            <div style="display:flex;justify-content:center;align-items:center;">
+                                                <b class="text-logo logo-st">3v3</b>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <div>
-                                    <div class="item-logo nav-item">
-                                        <div style="display:flex;justify-content:center;align-items:center;">
-                                            <b class="text-logo logo-st">1v1</b>
+                                    <a href="../../../1v1/1v1.php">
+                                        <div class="item-logo nav-item">
+                                            <div style="display:flex;justify-content:center;align-items:center;">
+                                                <b class="text-logo logo-st">1v1</b>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +160,7 @@
                         </div>
                         <!-- div show the Home page of game(đây là phần hiển thị trang chủ của game) -->
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item btn-cl" href="Home.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item btn-cl" href="../1v1.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="home"></ion-icon>
@@ -158,7 +171,7 @@
                         </div>
                         <!-- div show the Stats page of game(đây là phần hiển thị trang thống kê của game) -->
                         <div class="menu-item no-button">
-                            <a class="item-logo nav-item" href="../../Stats.php" style="padding-left: 14px;">
+                            <a class="item-logo nav-item" href="../Stats_1v1.php" style="padding-left: 14px;">
                                 <div style="display: flex;justify-content: center;align-items: center;">
                                     <span style="width: 32px;height: 32px;" data-loaded="true">
                                         <ion-icon name="stats-chart"></ion-icon>
@@ -172,7 +185,7 @@
                 <!-- empty div -->
                 <div class="empty-wrapper">
                     <div>
-                        <a href="https:lienquan.garena.vn/" target="_blank">
+                        <a href="https://lienquan.garena.vn/" target="_blank">
                         </a>
                     </div>
                 </div>
@@ -194,61 +207,86 @@
                                             <div class="text">
                                                 <div style="display: flex;">
                                                     <!-- div show the champion's image, role(đây là phần hiển thị
-                                                    ảnh, vai trò của tướng) -->
+                                                    ảnh, vai trò và đường của tướng) -->
                                                     <div class="image-inner"
                                                         style="min-width: 120px;min-height: 120px;max-width: 120px;max-height: 120px;">
                                                         <?php
-                                                        require '../../5v5/connect.php';
-                                                        //  sql 3 table champions, role_champions, stats
-                                                        $sql = "SELECT * FROM role_champions JOIN champions ON champions.id_role = role_champions.id_role JOIN lane WHERE champions.id_lane = lane.id AND champions.ID = 1";
-                                                        $result = mysqli_query($conn, $sql);
-                                                        $row = mysqli_fetch_assoc($result);
-                                                        $name = $row['champ_Name'];
-                                                        $role = $row['name_role'];
-                                                        $GLOBALS['name'] = $name;
-                                                        //  function setRoleBorder($role) to set the border color for each role(đặt màu viền cho từng vai trò vì 3v3 không có lane)
-                                                        function setRoleBorder($role) {
-                                                            if($role == "Pháp sư") {
-                                                                return "champ-role-mage";
-                                                            }
-                                                            else
-                                                            {
-                                                                if($role == "Đấu sĩ") {
-                                                                    return "champ-role-fighter";
+                                                        
+                                                        // function setColorRole($role) to set border color for champion's image(đây là hàm để set màu viền cho ảnh tướng)
+                                                        function setColorRole($role) {
+                                                                if($role == "Pháp sư") {
+                                                                    return "champ-bg-mage";
                                                                 }
                                                                 else
                                                                 {
-                                                                    if($role== "Xạ thủ") {
+                                                                    if($role == "Xạ thủ") {
+                                                                        return "champ-bg-marksman";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        if($role == "Đấu sĩ") {
+                                                                            return "champ-bg-fighter";
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            if($role == "Trợ thủ") {
+                                                                                return "champ-bg-support";
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                if($role == "Đỡ đòn") {
+                                                                                    return "champ-bg-tank";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    return "champ-bg-assassin";
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                            // function setBorderRole($role) to set border color for champion's role(đây là hàm để set màu viền cho vai trò tướng)
+                                                            function setBorderRole($role) {
+                                                                if($role == "Pháp sư") {
+                                                                    return "champ-role-mage";
+                                                                }
+                                                                else
+                                                                {
+                                                                    if($role == "Xạ thủ") {
                                                                         return "champ-role-marksman";
                                                                     }
                                                                     else
                                                                     {
-                                                                        if($role == "Trợ thủ") {
-                                                                            return "champ-role-support";
+                                                                        if($role == "Đấu sĩ") {
+                                                                            return "champ-role-fighter";
                                                                         }
                                                                         else
                                                                         {
-                                                                            if($role == "Đỡ đòn") {
-                                                                                return "champ-role-tank";
+                                                                            if($role == "Trợ thủ") {
+                                                                                return "champ-role-support";
                                                                             }
                                                                             else
                                                                             {
-                                                                                return "champ-role-assassin";
+                                                                                if($role == "Đỡ đòn") {
+                                                                                    return "champ-role-tank";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    return "champ-role-assassin";
+                                                                                }
                                                                             }
                                                                         }
                                                                     }
                                                                 }
                                                             }
-                                                        }
                                                         echo
-                                                        '<a class="champ-img ' . setRoleBorder($role) . '"
-                                                        style="position: relative;width: 100%;min-height: 120px;min-width: 120px;max-width: 120px;max-height: 120px;border-radius: 50%;display: flex;box-shadow: black 0px 0px 10px;background-size: 120px;background-position: center center;background-repeat: no-repeat;background-image: url(../../../Images/Champions/' . $name. '.jpg);">
+                                                        '<a class="champ-img ' . setBorderRole($role) . '"
+                                                            style="position: relative;width: 100%;min-height: 120px;min-width: 120px;max-width: 120px;max-height: 120px;border-radius: 50%;display: flex;box-shadow: black 0px 0px 10px;background-size: 120px;background-position: center center;background-repeat: no-repeat;background-image: url(../../../../Images/Champions/' . $name. '.jpg);">
                                                         </a>
-                                                        <div style="top: 105px;left:49px;position: absolute;width: 30px;height: 30px;
-                                                        background-size: cover;" class="champ-role">
-                                                            <img class="img-role ' . setRoleBorder($role) . '"
-                                                                src="../../../Images/Role/'.$row['role_img'].'" alt="' . $row['name_role'] . '"
-                                                                style="width: 30px; height: 30px; border-radius: 50%;">
+                                                        <div style="top: 105px;left:49px;position: absolute;width: 30px;height: 30px;border-radius: 50%;background-size: cover;" class="champ-role ' . setColorRole($role) . ' champ-border">
+                                                            <img class="img-role roles"
+                                                                src="../../../../Images/Role/'.$row['role_img'].'" alt="' . $row['name_role'] . '" style="width: 20px; height: 20px;">
                                                         </div>';
                                                         ?>
                                                     </div>
@@ -258,25 +296,26 @@
                                                             <span style="display: flex;font-size: 30px;">
                                                                 <?php echo $GLOBALS['name'] ?> Build Guide
                                                             </span>
-                                                            <span class="title-inner2">1v1 Patch
+                                                            <span class="title-inner2">1v1
+                                                                Lane Patch
                                                                 24</span>
                                                         </h1>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- div show the mode of champion include: 5v5, 3v3, 1v1 (đây là phần hiển thị
+                                        <!-- div show the mode of champion include: 5v5, 3v3, 1v1 (đây là phần hiển thị 
                                         chế độ của tướng bao gồm: 5v5, 3v3, 1v1) -->
                                         <div class="map-mode ch-ct">
-                                            <a href="../Illumia/Mid.php" class=" home-page ge-st"
-                                                style="border-bottom-color: #fff;">
+                                            <a href="../../5v5/Champions/<?php echo $GLOBALS['name'] ?>/Mid.php"
+                                                class=" home-page ge-st" style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">5v5</span>
                                             </a>
-                                            <a href="../Illumia/3v3.php" class="3v3-page ge-st"
-                                                style="border-bottom-color: #fff;">
+                                            <a href="../../3v3/Champion/<?php echo $GLOBALS['name'] ?>.php"
+                                                class="3v3-page ge-st" style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">3v3</span>
                                             </a>
-                                            <a href=".#" class="active 1v1-page ge-st"
+                                            <a href="#" class="active 1v1-page ge-st"
                                                 style="border-bottom-color: #fff;">
                                                 <span class="name-map text-hover">1v1</span>
                                             </a>
@@ -288,21 +327,21 @@
                                         tier, tỉ lệ thắng, tỉ lệ chọn, tỉ lệ cấm, KDA và điểm số) -->
                                         <div class="descript descript-bg descript-pos">
                                             <?php
-                                            require '../../1v1/connect_1v1.php';
-                                            $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE champions.id_lane = lane.id";
-                                            $result = mysqli_query($conn, $sql);
-                                            $count = mysqli_num_rows($result);
-                                            $row = mysqli_fetch_assoc($result);
-                                            if ($count > 0) {
-                                                $tier = $row['tier'];
-                                                $winrate = $row['win_rate'];
-                                                $pickrate = $row['pick_rate'];
-                                                $KDA = $row['KDA'];
-                                                echo
-                                                '<div style="display: flex; justify-content: space-between; padding: 9px;">
-                                                <span class="descript-text">
-                                                <strong>Tier: </strong>
-                                                <span class="tier-value">' . $tier . '</span>
+                                             require '../../5v5/style.php';
+                                             $sql = "SELECT * FROM champions, stats WHERE champions.id_champ = stats.id_champ AND champions.id_champ = '$GLOBALS[id]'";
+                                             $result = mysqli_query($conn, $sql);
+                                             $count = mysqli_num_rows($result);
+                                             $row = mysqli_fetch_assoc($result);
+                                             if ($count > 0) {
+                                                 $status = $row['status'];
+                                                 $winrate = $row['win_rate'];
+                                                 $pickrate = $row['pick_rate'];
+                                                 $KDA = $row['KDA'];
+                                                 echo
+                                                 '<div style="display: flex; justify-content: space-between; padding: 9px;">
+                                                 <span class="descript-text">
+                                                 <strong>Tier: </strong>
+                                                 <span class="tier-value '.setTier($winrate, $status).'">' . getTier($winrate, $status) . '</span>
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>Win rate: </strong>
@@ -314,7 +353,7 @@
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>KDA: </strong>
-                                                <span class="kda-value">' . $KDA . '%</span>
+                                                <span class="kda-value">' . $KDA . '</span>
                                                 </span>
                                                 </div>';
                                             }
@@ -322,63 +361,59 @@
                                             <!-- div show the champion's description(đây là phần hiển thị mô tả của tướng) -->
                                             <div class="descript-para" style="display: flex;">
                                                 <span>
-                                                    <?php
-                                                    $sql = "SELECT * FROM champions WHERE champ_Name = 'Illumia'";
-                                                    $result = mysqli_query($conn, $sql);
-                                                    $count = mysqli_num_rows($result);
-                                                    $row = mysqli_fetch_assoc($result);
-                                                    $name = $row['champ_Name'];
-                                                    echo '<p class="para-inner">';
-                                                    echo 'Chào mừng đến với hướng dẫn build đồ ' . $name . ' theo thống kê của
-                                                        META liên quân 1v1 patch 24.
+                                                    <p class="para-inner">
+                                                        Chào mừng đến với hướng dẫn build đồ
+                                                        <?php echo $GLOBALS['name'] ?> theo thống kê của
+                                                        METAaov 1v1 patch 24.
                                                         Chúng tôi đã tính toán và phân tích kỹ lưỡng các trận đấu của
-                                                        ' . $name . '  trong các trận đấu và có tỷ lệ thắng cao.
-                                                        Ngọc bổ trợ tốt nhất, trang bị và phép bổ trợ cho ' . $name . '  trong
-                                                       patch 24.';
-                                                    echo '</p>
+                                                        <?php echo $GLOBALS['name'] ?> trong các trận đấu và có tỷ lệ
+                                                        thắng cao.
+                                                        Ngọc bổ trợ tốt nhất, trang bị và phép bổ trợ cho
+                                                        <?php echo $GLOBALS['name'] ?> trong
+                                                        patch 24.</p>
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
-                                    <! -- div show the champion splash art(đây là phần hiển thị ảnh nền của tướng) -->
+                                    <!-- div show the champion splash art(đây là phần hiển thị ảnh nền của tướng)-->
                                     <div id="splash" class="sp-a1 spl-st">
                                         <div class="background color-bg"
-                                            style="background-image: linear-gradient(45deg, rgb(17,17,17), transparent), url(../../../Images/Background/'. $name .'_bg.jpg);">
-                                        </div>
-                                    </div>';
-                                    ?>
-                                            </div>
+                                            style="background-image: linear-gradient(45deg, rgb(17,17,17), transparent), url(../../../../Images/Background/<?php echo $GLOBALS['name'] ?>_bg.jpg);">
                                         </div>
                                     </div>
+
                                 </div>
-                                <!--Guiding user part -->
-                                <div class="content content-details" style="flex-direction: column;">
-                                    <div style="display: flex;justify-content: center;" class="ch-ct">
-                                        <div class="h-content content-details">
-                                            <!-- empty space -->
-                                            <div class="empty-space slidebar-spacer"></div>
-                                        </div>
-                                    </div>
-                                    <div id="b-content" class="ch-ct" style="display:flex;justify-content:center;">
-                                        <div class="bct ct-grid" style="position: relative">
-                                            <div class="bct-inner ct-grid">
-                                                <!-- div show the champion's spells(đây là phần hiển thị các phép
+                            </div>
+                        </div>
+                    </div>
+                    <!--Guiding user part -->
+                    <div class="content content-details" style="flex-direction: column;">
+                        <div style="display: flex;justify-content: center;" class="ch-ct">
+                            <div class="h-content content-details">
+                                <!-- empty space -->
+                                <div class="empty-space slidebar-spacer"></div>
+                            </div>
+                        </div>
+                        <div id="b-content" class="ch-ct" style="display:flex;justify-content:center;">
+                            <div class="bct ct-grid" style="position: relative">
+                                <!-- div show the champion's spells(đây là phần hiển thị các phép
                                                 bổ trợ của tướng) -->
-                                                <div class="bct-text">
-                                                    <div class="bct-paragraph bct-bg">
-                                                        <!-- div show the title of the champion's spells(đây là phần hiển
+                                <div class="bct-inner ct-grid">
+                                    <div class="bct-text">
+                                        <div class="bct-paragraph bct-bg">
+                                            <!-- div show the title of the champion's spells(đây là phần hiển
                                                         thị tiêu đề của các phép bổ trợ của tướng) -->
-                                                        <h2 class="bct-title">
-                                                            Best <?php echo $GLOBALS['name'] ?> Summoner Spells
-                                                        </h2>
-                                                        <!-- div show the champion's spells(đây là phần hiển thị các phép
-                                                        bổ trợ của tướng) -->
-                                                        <div class="bct-p">
-                                                            <div
-                                                                style="width:100%;display:flex;align-items:center;justify-content: space-around;">
-                                                                <?php
-                                                                require '../../5v5/connect.php';
-                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.ID = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id AND champions.champ_Name = '$name'";
+                                            <h2 class="bct-title">
+                                                Best <?php echo $GLOBALS['name'] ?> Summoner Spells
+                                            </h2>
+                                            <!-- div show the champion's spells(đây là phần hiển thị các phép 
+                                                        bổ trợ của tướng)-->
+                                            <div class="bct-p">
+                                                <div
+                                                    style="width:100%;display:flex;align-items:center;justify-content: space-around;">
+                                                    <?php
+                                                                
+                                                                $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND stats_spell.id_champ = $GLOBALS[id]";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);
@@ -392,11 +427,11 @@
                                                                             <div style="gap: 3px;display: flex;padding:3px;"
                                                                                 class="group-gap">
                                                                                 <div class="spell">
-                                                                                    <img src="../../../Images/Spell/' . $spell_img . '"
+                                                                                    <img src="../../../../Images/Spell/' . $spell_img . '"
                                                                                         style="width:42px;height:42px">
                                                                                 </div>
                                                                             </div>
-                                                                            <div style="display:flex;">
+                                                                            <div style="display:flex;margin-top:6px">
                                                                                 <div class="rating" style="margin-left:-50px;">
                                                                                     <div class="rating-inner"
                                                                                         style="text-align:left;">
@@ -419,13 +454,13 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div style="display:flex;margin-top:6px;">
+                                                                        <div style="margin-top:1px">
                                                                             <div class="items items-bg">
                                                                             <div style="display: flex;">';
                                                                                 $spellNum = "4,8,2";
                                                                                 $row_array = explode(',', $spellNum);
                                                                                 for ($i = 0; $i < count($row_array); $i++) {
-                                                                                    $sql = "SELECT * FROM champions JOIN stats_spell ON champions.ID = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id AND champions.champ_Name = '$name' AND stats_spell.id_spell = $row_array[$i]";
+                                                                                    $sql = "SELECT * FROM champions JOIN stats_spell ON champions.id_champ = stats_spell.id_Champ JOIN spells WHERE stats_spell.id_spell = spells.id_spell AND champions.id_champ = $GLOBALS[id]  AND stats_spell.id_spell = $row_array[$i]";
                                                                                     $result = mysqli_query($conn, $sql);
                                                                                     $row = mysqli_fetch_assoc($result);
                                                                                     if ($i <= count($row_array)) {
@@ -437,7 +472,7 @@
                                                                                     '<div>
                                                                                         <div class = "spell">
                                                                                             <div class="spell-inner">
-                                                                                                <img src="../../../Images/Spell/' . $spell_img . '"
+                                                                                                <img src="../../../../Images/Spell/' . $spell_img . '"
                                                                                                     style="width:42px;height:42px;"
                                                                                                     alt=" ' . $spell_name . '">
                                                                                             </div>
@@ -457,26 +492,26 @@
                                                                                 }
                                                                             }
                                                                         ?>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- div show the champion's items(đây là phần hiển thị các vật phẩm của tướng) -->
-                                    <div class="bct-text">
-                                        <div class="bct-paragraph bct-bg">
-                                            <h2 class="bct-title">
-                                                Best <?php echo $GLOBALS['name'] ?> Starting Items
-                                            </h2>
-                                            <div class="bct-p bct-bg">
-                                                <div
-                                                    style="width:100%;display:flex;align-items:center;justify-content: space-around;">
-                                                    <!-- this command show the main items of the champion(đây là phần hiển
-                                                    thị vật phẩm chính của tướng) -->
-                                                    <?php
-                                                                $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.ID = stats_start_items.id_Champ JOIN items WHERE stats_start_items.id_items = items.id AND champions.ID = 1";
+                                </div>
+                            </div>
+                        </div>
+                        <!-- div show the champion's items(đây là phần hiển thị các vật phẩm của tướng) -->
+                        <div class="bct-text">
+                            <div class="bct-paragraph bct-bg">
+                                <h2 class="bct-title">
+                                    Best <?php echo $GLOBALS['name'] ?> Starting Items
+                                </h2>
+                                <div class="bct-p bct-bg">
+                                    <div
+                                        style="width:100%;display:flex;align-items:center;justify-content: space-around;">
+                                        <!-- this command show the starting items of the champion(đây là phần hiển 
+                                                    thị vật phẩm khởi đầu của tướng)-->
+                                        <?php
+                                                                $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id_items WHERE stats_start_items.id_items = items.id_items AND champions.id_champ = $GLOBALS[id]";
                                                                 $result = mysqli_query($conn, $sql);
                                                                 $count = mysqli_num_rows($result);
                                                                 $row = mysqli_fetch_assoc($result);
@@ -489,11 +524,11 @@
                                                                     <div style="gap: 3px;display: flex;padding:3px;"
                                                                         class="group-gap">
                                                                         <div class="items-st">
-                                                                            <img src="../../../Images/Items/' . $item_img . '"
+                                                                            <img src="../../../../Images/Items/' . $item_img . '"
                                                                                 style="width:42px;height:42px">
                                                                         </div>
                                                                     </div>
-                                                                    <div style="display:flex;">
+                                                                    <div style="display:flex;margin-top:6px">
                                                                         <div class="rating" style="margin-left:-50px;">
                                                                             <div class="rating-inner"
                                                                                 style="text-align:left;">
@@ -517,13 +552,14 @@
                                                                     </div>
                                                                 </div>
                                                                 <!-- this command show the other items of the champion(đây là phần hiển thị các vật phẩm khác của tướng) -->
-                                                            <div style="display:flex;margin-top:6px;">
+                                                            <div style="margin-top:1px">
                                                                 <div class="items items-bg">
                                                                     <div style="display: flex;">';
                                                                     $itemNum = "17,11,8";
                                                                     $row_array = explode(',', $itemNum);
                                                                     for ($i = 0; $i < count($row_array); $i++) {
-                                                                        $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.ID = stats_start_items.id_Champ JOIN items WHERE stats_start_items.id_items = items.id AND champions.ID = 1 AND stats_start_items.id_items = $row_array[$i]";
+                                                                        $sql = "SELECT * FROM champions JOIN stats_start_items ON champions.id_champ = stats_start_items.id_champ JOIN items ON stats_start_items.id_items = items.id_items WHERE stats_start_items.id_items = items.id_items
+                                                                        AND champions.id_champ = $GLOBALS[id] AND stats_start_items.id_items = $row_array[$i]";
                                                                         $result = mysqli_query($conn, $sql);
                                                                         $row = mysqli_fetch_assoc($result);
                                                                         if ($i <= count($row_array)) {
@@ -535,7 +571,7 @@
                                                                         '<div>
                                                                             <div class = "items-st">
                                                                                 <div class="items-inner">
-                                                                                    <img src="../../../Images/Items/' . $item_img . '"
+                                                                                    <img src="../../../../Images/Items/' . $item_img . '"
                                                                                         style="width:42px;height:42px;"
                                                                                         alt=" ' . $item_name . '">
                                                                                 </div>
@@ -555,587 +591,514 @@
                                                                 }
                                                             }
                                                             ?>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- div show the champion's runes(đây là phần hiển thị các phù hiệu của tướng) -->
-                    <div class="bct-inner ct-grid">
-                        <div class="bct-text">
-                            <div class="bct-paragraph bct-bg">
-                                <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Runes</h2>
-                                <div id="active-runes" class="bct-p bct-bg">
-                                    <!-- div show the badge generality(show phu hieu 1 cach tong quat) -->
-                                    <div style="margin-top: -10px;width:100%;display:flex;justify-content:center;">
-                                        <div>
-                                            <div style="width:42px;height:79px;"></div>
-                                            <div class="rating">
-                                                <div class="rating-inner" style="text-align:left;">
-                                                    <span class="win">Win%</span>
-                                                </div>
-                                                <div class="rating-inner" style="text-align:left;">
-                                                    <span class="pick">Pick%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- div show the first primary badge(show phu hieu chinh thu 1) -->
-                                        <div id="10-1-tab" class="tab-selected badge b-hover" style="cursor:pointer"
-                                            onclick="tab('active-runes','10-1')">
-                                            <div class="activerunes-image drop-hover badge-st be">
-                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                    height="72">
-                                                    <circle cx="36" cy="36" fill="black">
-                                                    </circle>
-                                                    <circle cx="36" cy="36" fill="transparent"
-                                                        stroke="rgb(239, 227, 24)" stroke-width="2">
-                                                    </circle>
-                                                    <image class="badge-img" x="0" y="0" height="72" width="72"
-                                                        xlink:href="../../../Images/PhuHieu/ThapQuangMinh.png" />
-                                                </svg>
-                                            </div>
-                                            <div class="activerunes-image drop-hover badge-st be badge-2">
-                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="54"
-                                                    height="45">
-                                                    <circle cx="27" cy="27" r="15" fill="black">
-                                                    </circle>
-                                                    <image class="badge-img" x="17" y="17" height="20" width="20"
-                                                        xlink:href="../../../Images/PhuHieu/VucHonMang.png" />
-                                                    <circle cx="27" cy="27" r="15" fill="transparent"
-                                                        stroke="rgb(217, 40, 16)" stroke-width="2">
-                                                    </circle>
-                                                </svg>
-                                            </div>
-                                            <div class="rating" style="width:100%">
-                                                <div class="rating-inner text-hover" style="text-align:center">
-                                                    <span class="win">53%</span>
-                                                </div>
-                                                <div class="rating-inner text-hover" style="text-align:center">
-                                                    <span class="pick">48%</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- div show the second primary badge(show phu hieu chinh thu 2) -->
-                                        <div id="10-19-tab" class="badge b-hover" style="cursor:pointer"
-                                            onclick="tab('active-runes','10-19')">
-                                            <div class="activerunes-image drop-hover badge-st be">
-                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                    height="72">
-                                                    <circle cx="36" cy="36" fill="black">
-                                                    </circle>
-                                                    <circle cx="36" cy="36" fill="transparent"
-                                                        stroke="rgb(239, 227, 24)" stroke-width="2">
-                                                    </circle>
-                                                    <image class="badge-img" x="0" y="0" height="72" width="80"
-                                                        xlink:href="../../../Images/PhuHieu/ThapQuangMinh.png" />
-                                                </svg>
-                                            </div>
-                                            <div class="activerunes-image drop-hover badge-st be badge-2">
-                                                <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="54"
-                                                    height="45">
-                                                    <circle cx="27" cy="27" r="15" fill="black">
-                                                    </circle>
-                                                    <image class="badge-img" x="17" y="17" height="20" width="20"
-                                                        xlink:href="../../../Images/PhuHieu/ThanhKhoiNguyen.png" />
-                                                    <circle cx="27" cy="27" r="15" fill="transparent"
-                                                        stroke="rgb(239, 219, 33)" stroke-width="2">
-                                                    </circle>
-                                                </svg>
-                                            </div>
-                                            <div class="rating" style="width:100%">
-                                                <div class="rating-inner text-hover" style="text-align:center">
-                                                    <span class="win">50%</span>
-                                                </div>
-                                                <div class="rating-inner text-hover" style="text-align:center">
-                                                    <span class="pick">34%</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- div show the champion's runes(đây là phần hiển thị các phù hiệu của tướng) -->
+        <div class="bct-inner ct-grid">
+            <div class="bct-text">
+                <div class="bct-paragraph bct-bg">
+                    <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Runes</h2>
+                    <div id="active-runes" class="bct-p bct-bg">
+                        <!-- div show the badge generality(show phu hieu 1 cach tong quat) -->
+                        <div style="margin-top: -10px;width:100%;display:flex;justify-content:center;">
+                            <div>
+                                <div style="width:42px;height:79px;"></div>
+                                <div class="rating">
+                                    <div class="rating-inner" style="text-align:left;">
+                                        <span class="options">Options </span>
                                     </div>
-                                    <!-- div show the inner details of the badge(show chi tiet phu hieu) -->
-                                    <div style="margin-top:30px;">
-                                        <!-- div show the details of the first badge(show chi tiet phu hieu thu 1) -->
-                                        <div id="10-1-content" class="content-selected ct-sd">
-                                            <div style="display:flex;margin-bottom:-10px;margin-top:-30px;">
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="26" cy="36" r="25" fill="black">
-                                                        </circle>
-                                                        <line x1="50" y1="36" x2="72" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="5" y="15" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/ThapQuangMinh.png">
-                                                        </image>
-                                                        <circle cx="26" cy="36" r="25" fill="transparent"
-                                                            stroke="rgb(251, 175, 23)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="10" fill="black">
-                                                        </circle>
-                                                        <line x1="56" y1="36" x2="72" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <line x1="0" y1="36" x2="26" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <circle cx="36" cy="36" r="10" fill="transparent"
-                                                            stroke="rgb(251, 175, 23)" stroke-width="2">
-                                                        </circle>
-                                                        <image class="badge-img" x="0" y="0" height="72" width="72"
-                                                            xlink:href="../../../Images/PhuHieu/ThanQuang.png">
-                                                        </image>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="20" fill="black">
-                                                        </circle>
-                                                        <line x1="56" y1="36" x2="72" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <line x1="0" y1="36" x2="26" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/XuyenTam.png">
-                                                        </image>
-                                                        <circle cx="36" cy="36" r="20" fill="transparent"
-                                                            stroke="rgb(251, 175, 23)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="20" fill="black">
-                                                        </circle>
-                                                        <line x1="0" y1="36" x2="26" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/ThanhChau.png">
-                                                        </image>
-                                                        <circle cx="36" cy="36" r="20" fill="transparent"
-                                                            stroke="rgb(251, 175, 23)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <!-- div show the secondary badge(show phu hieu phu) -->
-                                            <div style="display:flex;flex-wrap:wrap;margin-bottom:-10px;">
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="26" cy="36" r="25" fill="black">
-                                                        </circle>
-                                                        <line x1="50" y1="36" x2="72" y2="36"
-                                                            style="stroke:rgb(217, 40, 16);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="7" y="15" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/VucHonMang.png">
-                                                        </image>
-                                                        <circle cx="26" cy="36" r="25" fill="transparent"
-                                                            stroke="rgb(217, 40, 16)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="20" fill="black">
-                                                        </circle>
-                                                        <line x1="0" y1="36" x2="26" y2="36"
-                                                            style="stroke:rgb(217, 40, 16);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/MaHoa.png">
-                                                        </image>
-                                                        <circle cx="36" cy="36" r="20" fill="transparent"
-                                                            stroke="rgb(217, 40, 16)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="25" fill="black">
-                                                        </circle>
-                                                        <line x1="50" y1="36" x2="72" y2="36"
-                                                            style="stroke:rgb(217, 40, 16);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="17" y="15" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/VucHonMang.png">
-                                                        </image>
-                                                        <circle cx="36" cy="36" r="25" fill="transparent"
-                                                            stroke="rgb(217, 40, 16)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="20" fill="black">
-                                                        </circle>
-                                                        <line x1="0" y1="36" x2="26" y2="36"
-                                                            style="stroke:rgb(217, 40, 16);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/CuongCong.png">
-                                                        </image>
-                                                        <circle cx="36" cy="36" r="20" fill="transparent"
-                                                            stroke="rgb(217, 40, 16)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- div show the details of the second badge( show chi tiet phu hieu thu2)-->
-                                        <div id="10-19-content" class="ct-sd hidden">
-                                            <div style="display:flex;margin-bottom:-10px;margin-top:-30px;">
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="26" cy="36" r="25" fill="black">
-                                                        </circle>
-                                                        <line x1="50" y1="36" x2="72" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="5" y="15" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/ThanhKhoiNguyen.png">
-                                                        </image>
-                                                        <circle cx="26" cy="36" r="25" fill="transparent"
-                                                            stroke="rgb(251, 175, 23)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="10" fill="black">
-                                                        </circle>
-                                                        <line x1="56" y1="36" x2="72" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <line x1="0" y1="36" x2="26" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <circle cx="36" cy="36" r="10" fill="transparent"
-                                                            stroke="rgb(251, 175, 23)" stroke-width="2">
-                                                        </circle>
-                                                        <image class="badge-img" x="0" y="0" height="72" width="72"
-                                                            xlink:href="../../../Images/PhuHieu/ThanQuang.png">
-                                                        </image>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="20" fill="black">
-                                                        </circle>
-                                                        <line x1="56" y1="36" x2="72" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <line x1="0" y1="36" x2="26" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/BiQuyet.png">
-                                                        </image>
-                                                        <circle cx="36" cy="36" r="20" fill="transparent"
-                                                            stroke="rgb(251, 175, 23)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="20" fill="black">
-                                                        </circle>
-                                                        <line x1="0" y1="36" x2="26" y2="36"
-                                                            style="stroke:rgb(251, 175, 23);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/ThanhChau.png">
-                                                        </image>
-                                                        <circle cx="36" cy="36" r="20" fill="transparent"
-                                                            stroke="rgb(251, 175, 23)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div style="display:flex;flex-wrap:wrap;margin-bottom:-10px;">
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="26" cy="36" r="25" fill="black">
-                                                        </circle>
-                                                        <line x1="50" y1="36" x2="72" y2="36"
-                                                            style="stroke:rgb(10,0,148);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="7" y="15" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/ThanhKhoiNguyen.png">
-                                                        </image>
-                                                        <circle cx="26" cy="36" r="25" fill="transparent"
-                                                            stroke="rgb(10,0,148)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="20" fill="black">
-                                                        </circle>
-                                                        <line x1="0" y1="36" x2="26" y2="36"
-                                                            style="stroke:rgb(10,0,148);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/MatNgu.png">
-                                                        </image>
-                                                        <circle cx="36" cy="36" r="20" fill="transparent"
-                                                            stroke="rgb(10,0,148)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="25" fill="black">
-                                                        </circle>
-                                                        <line x1="50" y1="36" x2="72" y2="36"
-                                                            style="stroke:rgb(10,0,148);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="17" y="15" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/ThanhKhoiNguyen.png">
-                                                        </image>
-                                                        <circle cx="36" cy="36" r="25" fill="transparent"
-                                                            stroke="rgb(10,0,148)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                                <div class="be badge-st">
-                                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72"
-                                                        height="72">
-                                                        <circle cx="36" cy="36" r="20" fill="black">
-                                                        </circle>
-                                                        <line x1="0" y1="36" x2="26" y2="36"
-                                                            style="stroke:rgb(10,0,148);stroke-width:2">
-                                                        </line>
-                                                        <image class="badge-img" x="16" y="16" height="40" width="40"
-                                                            xlink:href="../../../Images/PhuHieu/ThoSan.png">
-                                                        </image>
-                                                        <circle cx="36" cy="36" r="20" fill="transparent"
-                                                            stroke="rgb(10,0,148)" stroke-width="2">
-                                                        </circle>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                            <!-- div show the first primary badge(show phu hieu chinh thu 1) -->
+                            <div id="10-1-tab" class="tab-selected badge b-hover" style="cursor:pointer"
+                                onclick="tab('active-runes','10-1')">
+                                <div class="activerunes-image drop-hover badge-st be">
+                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                        <circle cx="36" cy="36"="20" fill="black">
+                                        </circle>
+                                        <circle cx="36" cy="36"="20" fill="transparent" stroke="rgb(239, 227, 24)"
+                                            stroke-width="2">
+                                        </circle>
+                                        <image class="badge-img" x="0" y="0" height="72" width="72"
+                                            xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png" />
+                                    </svg>
+                                </div>
+                                <div class="activerunes-image drop-hover badge-st be badge-2">
+                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="54" height="45">
+                                        <circle cx="27" cy="27" r="15" fill="black">
+                                        </circle>
+                                        <image class="badge-img" x="17" y="17" height="20" width="20"
+                                            xlink:href="../../../../Images/PhuHieu/VucHonMang.png" />
+                                        <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(217, 40, 16)"
+                                            stroke-width="2">
+                                        </circle>
+                                    </svg>
+                                </div>
+                                <div class="rating" style="width:100%">
+                                    <div class="rating-inner text-hover" style="text-align:center">
+                                        <span class="options">Option 1</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- div show the second primary badge(show phu hieu chinh thu 2) -->
+                            <div id="10-19-tab" class="badge b-hover" style="cursor:pointer"
+                                onclick="tab('active-runes','10-19')">
+                                <div class="activerunes-image drop-hover badge-st be">
+                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                        <circle cx="36" cy="36" fill="black">
+                                        </circle>
+                                        <circle cx="36" cy="36" fill="transparent" stroke="rgb(239, 227, 24)"
+                                            stroke-width="2">
+                                        </circle>
+                                        <image class="badge-img" x="0" y="0" height="72" width="80"
+                                            xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png" />
+                                    </svg>
+                                </div>
+                                <div class="activerunes-image drop-hover badge-st be badge-2">
+                                    <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="54" height="45">
+                                        <circle cx="27" cy="27" r="15" fill="black">
+                                        </circle>
+                                        <image class="badge-img" x="17" y="17" height="20" width="20"
+                                            xlink:href="../../../../Images/PhuHieu/ThanhKhoiNguyen.png" />
+                                        <circle cx="27" cy="27" r="15" fill="transparent" stroke="rgb(239, 219, 33)"
+                                            stroke-width="2">
+                                        </circle>
+                                    </svg>
+                                </div>
+                                <div class="rating" style="width:100%">
+                                    <div class="rating-inner text-hover" style="text-align:center">
+                                        <span class="options">Option 2</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- div show the best build(show trang bi tot nhat) -->
-                        <div class="bct-text ct-grid">
-                            <d class="bct-bg"
-                                style="display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:5px;">
-                                <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Item Build</h2>
-                                <div class="bct-p">
-                                    <div style="width:100%;display:flex;justify-content:space-around;flex-wrap:wrap"
-                                        class="content-details">
-                                        <div style="display:flex;align-items:center;justify-content:center;">
-                                            <?php
-                                            //  46: giay kien cuong, 53: sach truy hon, 58:vuong mien hecate, 60: truong bung no, 61: xuyen tam lenh, 62: sach thanh
+                        <!-- div show the inner details of the badge(show chi tiet phu hieu) -->
+                        <div style="margin-top:30px;">
+                            <!-- div show the details of the first badge(show chi tiet phu hieu thu 1) -->
+                            <div id="10-1-content" class="content-selected ct-sd">
+                                <div style="display:flex;margin-bottom:-10px;margin-top:-30px;">
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="26" cy="36" r="25" fill="black">
+                                            </circle>
+                                            <line x1="50" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="5" y="15" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png">
+                                            </image>
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="10" fill="black">
+                                            </circle>
+                                            <line x1="56" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(251, 175, 23)"
+                                                stroke-width="2">
+                                            </circle>
+                                            <image class="badge-img" x="0" y="0" height="72" width="72"
+                                                xlink:href="../../../../Images/PhuHieu/ThanQuang.png">
+                                            </image>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="56" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/XuyenTam.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/ThanhChau.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <!-- div show the secondary badge(show phu hieu phu) -->
+                                <div style="display:flex;flex-wrap:wrap;margin-bottom:-10px;">
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="26" cy="36" r="25" fill="black">
+                                            </circle>
+                                            <line x1="50" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="7" y="15" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
+                                            </image>
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/MaHoa.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="25" fill="black">
+                                            </circle>
+                                            <line x1="50" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="17" y="15" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/VucHonMang.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="25" fill="transparent" stroke="rgb(217, 40, 16)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(217, 40, 16);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/CuongCong.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(217, 40, 16)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- div show the details of the second badge( show chi tiet phu hieu thu2)-->
+                            <div id="10-19-content" class="ct-sd hidden">
+                                <div style="display:flex;margin-bottom:-10px;margin-top:-30px;">
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="26" cy="36" r="25" fill="black">
+                                            </circle>
+                                            <line x1="50" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="5" y="15" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/ThapQuangMinh.png">
+                                            </image>
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(251, 175, 23)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="10" fill="black">
+                                            </circle>
+                                            <line x1="56" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <circle cx="36" cy="36" r="10" fill="transparent" stroke="rgb(251, 175, 23)"
+                                                stroke-width="2">
+                                            </circle>
+                                            <image class="badge-img" x="0" y="0" height="72" width="72"
+                                                xlink:href="../../../../Images/PhuHieu/ThanQuang.png">
+                                            </image>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="56" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/BiQuyet.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(251, 175, 23);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/ThanhChau.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(251, 175, 23)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div style="display:flex;flex-wrap:wrap;margin-bottom:-10px;">
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="26" cy="36" r="25" fill="black">
+                                            </circle>
+                                            <line x1="50" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(10,0,148);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="7" y="15" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/ThanhKhoiNguyen.png">
+                                            </image>
+                                            <circle cx="26" cy="36" r="25" fill="transparent" stroke="rgb(10,0,148)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(10,0,148);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/MatNgu.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(10,0,148)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="25" fill="black">
+                                            </circle>
+                                            <line x1="50" y1="36" x2="72" y2="36"
+                                                style="stroke:rgb(10,0,148);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="17" y="15" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/ThanhKhoiNguyen.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="25" fill="transparent" stroke="rgb(10,0,148)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                    <div class="be badge-st">
+                                        <svg xmlns="https://www.w3.org/2000/svg" version="1.1" width="72" height="72">
+                                            <circle cx="36" cy="36" r="20" fill="black">
+                                            </circle>
+                                            <line x1="0" y1="36" x2="26" y2="36"
+                                                style="stroke:rgb(10,0,148);stroke-width:2">
+                                            </line>
+                                            <image class="badge-img" x="16" y="16" height="40" width="40"
+                                                xlink:href="../../../../Images/PhuHieu/ThoSan.png">
+                                            </image>
+                                            <circle cx="36" cy="36" r="20" fill="transparent" stroke="rgb(10,0,148)"
+                                                stroke-width="2">
+                                            </circle>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- div show the best build(show trang bi tot nhat) -->
+            <div class="bct-text ct-grid">
+                <d class="bct-bg"
+                    style="display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:5px;">
+                    <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Item Build</h2>
+                    <div class="bct-p">
+                        <div style="width:100%;display:flex;justify-content:space-around;flex-wrap:wrap"
+                            class="content-details">
+                            <div style="display:flex;align-items:center;justify-content:center;">
+                                <?php
+                                            // 46: giay kien cuong, 53: sach truy hon, 58:vuong mien hecate, 60: truong bung no, 61: xuyen tam lenh, 62: sach thanh
                                                $itemNum = "46,53,58,60,61,62";
                                                $row_array = explode(',', $itemNum);
                                                for ($i = 0; $i < count($row_array); $i++) {
-                                                   $sql = "SELECT * FROM champions JOIN stats_items ON champions.ID = stats_items.id_Champ JOIN items WHERE stats_items.id_items = items.id AND champions.champ_Name = '$name' AND stats_items.id_items = '$row_array[$i]'";
+                                                $sql = "SELECT * FROM items WHERE id_items = '$row_array[$i]'";
                                                    $result = mysqli_query($conn, $sql);
                                                    $row = mysqli_fetch_assoc($result);
                                                    if ($i <= count($row_array)) {
                                                        echo '<div>
                                                            <div class="badge-st">
                                                            <div class="items items-pos">
-                                                               <img src="../../../Images/Items/' . $row['item_img'] . '" style="width:42px;height:42px">
+                                                               <img src="../../../../Images/Items/' . $row['item_img'] . '" style="width:42px;height:42px">
                                                            </div>
-                                                       </div>
-                                                       <div class="rating">
-                                                           <div class="rating-inner">
-                                                               <span class="win">' . $row['win_rate'] . '%</span>
-                                                           </div>
-                                                           <div class="rating-inner">
-                                                               <span class="pick">' . $row['pick_rate'] . '%</span>
-                                                            </div>
                                                        </div>
                                                    </div>';
                                                    }
                                                }
                                                ?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- div show the best skill order(show thu tu up skill) -->
-                                <div class="bct-bg"
-                                    style="display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:5px;">
-                                    <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Skill Order</h2>
-                                    <div class="bct-p">
-                                        <table class="skill-table sl-te"
-                                            style="border-top:1px solid black;border-bottom:1px solid black;margin-bottom:5px;">
-                                            <tbody>
-                                                <tr class="skills">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- div show the best skill order(show thu tu up skill) -->
+                    <div class="bct-bg"
+                        style="display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:5px;">
+                        <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Skill Order</h2>
+                        <div class="bct-p">
+                            <table class="skill-table sl-te"
+                                style="border-top:1px solid black;border-bottom:1px solid black;margin-bottom:5px;">
+                                <tbody>
+                                    <?php
+                                                $sql = "SELECT * FROM champions, skills WHERE champions.id_champ = skills.id_champ AND champions.id_champ = $GLOBALS[id]";
+                                                $result = mysqli_query($conn, $sql);
+                                                $row = mysqli_fetch_assoc($result);
+                                                $passive = $row['passive'];
+                                                $skill1 = $row['first_skill'];
+                                                $skill2 = $row['second_skill'];
+                                                $skill3 = $row['third_skill'];
+                                                echo
+                                                '<tr class="skills">
                                                     <th class="skill-inner">
                                                         <div class="skills-st">
-                                                            <!-- the passive(nội tại) -->
-                                                            <img src="../../../Images/Skills/Illumia/NoiTai.png"
+                                                           <!-- the passive(nội tại) -->
+                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'.$passive.'"
                                                                 style="width:20px;height:20px">
                                                         </div>
-                                                        <!-- each champions have 15 level to up skill -->
                                                     </th>
-                                                    <th class="skill-inner">1</th>
-                                                    <th class="skill-inner">2</th>
-                                                    <th class="skill-inner">3</th>
-                                                    <th class="skill-inner">4</th>
-                                                    <th class="skill-inner">5</th>
-                                                    <th class="skill-inner">6</th>
-                                                    <th class="skill-inner">7</th>
-                                                    <th class="skill-inner">8</th>
-                                                    <th class="skill-inner">9</th>
-                                                    <th class="skill-inner">10</th>
-                                                    <th class="skill-inner">11</th>
-                                                    <th class="skill-inner">12</th>
-                                                    <th class="skill-inner">13</th>
-                                                    <th class="skill-inner">14</th>
-                                                    <th class="skill-inner">15</th>
-                                                </tr>
+                                                     <!-- each champions have 15 level to up skill -->';
+                                                    for ($i = 1;$i <= 15;$i++) {
+                                                        echo '<th class="skill-inner">'.$i.'</th>';
+                                                    }
+                                                echo
+                                                '</tr>
                                                 <!-- skill 1(kỹ năng 1) -->
                                                 <tr class="skills">
                                                     <td class="skill-inner">
                                                         <div class="skill-st">
-                                                            <img src="../../../Images/Skills/Illumia/QuaCauAS_1.png"
-                                                                style="width:20px;height:20px">
+                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill1.'"style="width:20px;height:20px">
                                                         </div>
-                                                    </td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-
-                                                </tr>
+                                                    </td>';
+                                                    for ($i = 1; $i <= 15;$i++) {
+                                                        if($i == 1 || $i == 3 || $i == 6 || $i == 9 || $i == 10 || $i == 13){
+                                                            echo '<td class="skill-inner active-skill">X</td>';
+                                                        }
+                                                        else 
+                                                        {
+                                                            echo '<td class="skill-inner"></td>';
+                                                        }
+                                                    }
+                                                    echo 
+                                                '</tr>
                                                 <!-- skill 2(kỹ năng 2) -->
                                                 <tr class="skills">
                                                     <td class="skill-inner">
                                                         <div class="skill-st">
-                                                            <img src="../../../Images/Skills/Illumia/TrucXuat_2.png"
+                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill2.'"
                                                                 style="width:20px;height:20px">
                                                         </div>
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-
-                                                </tr>
+                                                    </td>';
+                                                    for ($i = 1;$i <= 15;$i++) {
+                                                        if($i == 2 || $i == 5 || $i == 7 || $i == 11 || $i == 14 || $i == 15){
+                                                            echo '<td class="skill-inner active-skill">X</td>';
+                                                        }
+                                                        else 
+                                                        {
+                                                            echo '<td class="skill-inner"></td>';
+                                                        }
+                                                    }
+                                                    echo
+                                                '</tr>
                                                 <!-- skill 3(kỹ năng 3) -->
                                                 <tr class="skills">
                                                     <td class="skill-inner">
                                                         <div class="skill-st">
-                                                            <img src="../../../Images/Skills/Illumia/ThanTran_3.png"
+                                                            <img src="../../../../Images/Skills/'. $GLOBALS['name'].'/'. $skill3.'"
                                                                 style="width:20px;height:20px">
                                                         </div>
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner skill-active">X
-                                                    </td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                    <td class="skill-inner"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                                    </td>';
+                                                    for ($i = 1;$i <= 15;$i++) {
+                                                        if($i == 4 || $i == 8 || $i == 12){
+                                                            echo '<td class="skill-inner active-skill">X</td>';
+                                                        }
+                                                        else 
+                                                        {
+                                                            echo '<td class="skill-inner"></td>';
+                                                        }
+                                                    }
+                                                '</tr>';
+                                                ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <!-- div show the items details build(show chi tiet buoc len trang bi) -->
-                    <div class="bct-inner ct-grid">
-                        <div class="bct-text bct-bg">
-                            <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Items Build Order</h2>
-                            <div class="bct-p">
-                                <?php
-                                    require '../../1v1/connect_1v1.php';
-                                    $sql = "SELECT * FROM `items`";
+            </div>
+        </div>
+        <!-- div show the items details build(show chi tiet buoc len trang bi) -->
+        <div class="bct-inner te-st">
+            <div class="bct-text bct-bg">
+                <h2 class="bct-title">Best <?php echo $GLOBALS['name'] ?> Items Build Order</h2>
+                <div class="bct-p">
+                    <?php
+                                    $sql = "SELECT * FROM items";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
                                     ?>
-                                <span style="margin-left:4px;"></span>
-                                <?php
-                                    //  $itemNum to store the item id, $row_array to store the item id in array
-                                    //  using explode to split the string into array, then loopto get each id item
-                                    //  then using sql to get the item details
-                                    //  finally echo the item details
-                                    //  $itemNum dùng để lưu id của item, $row_array dùng để lưu id của item vào mảng
-                                    //  sử dụng explode để chia chuỗi thành mảng, sau đó lặp để lấy từng id item
-                                    //  sau đó sử dụng sql để lấy chi tiết item
-                                    //  cuối cùng là echo chi tiết item
+                    <span style="margin-left:4px;"></span>
+                    <?php
+                                    // $itemNum to store the item id, $row_array to store the item id in array
+                                    // using explode to split the string into array, then loopto get each id item
+                                    // then using sql to get the item details
+                                    // finally echo the item details
+                                    // $itemNum dùng để lưu id của item, $row_array dùng để lưu id của item vào mảng
+                                    // sử dụng explode để chia chuỗi thành mảng, sau đó lặp để lấy từng id item
+                                    // sau đó sử dụng sql để lấy chi tiết item
+                                    // cuối cùng là echo chi tiết item
                                    $itemNum = "17,46,6,25,11,53,6,25,58,6,59,60,6,27,11,61,6,25,62";
                                    $row_array = explode(',', $itemNum);
                                    for ($i = 0; $i < count($row_array); $i++) {
-                                       $sql = "SELECT * FROM `items` WHERE `id` = $row_array[$i]";
+                                       $sql = "SELECT * FROM items WHERE id_items = $row_array[$i]";
                                        $result = mysqli_query($conn, $sql);
                                        $row = mysqli_fetch_assoc($result);
                                        $level_item = $row['level_item'];
@@ -1143,203 +1106,222 @@
                                            echo '<span class="fa fa-arrow-right" style="margin:4px;"></span>
                                            <div class="items-st>
                                            <div class="itemsin-st spec-item">
-                                       <img src="../../../Images/Items/' . $row['item_img'] . '"
+                                       <img src="../../../../Images/Items/' . $row['item_img'] . '"
                                            style="width:42px;height:42px">
                                    </div>';
                                        }
                                    }
                                    ?>
+                </div>
+            </div>
+        </div>
+        <!-- div show the filter lane and search bar(để hiện thị bộ lọc và thanh tìm kiếm) -->
+        <div class="bct-inner te-st">
+            <div>
+                <div id="relation-search" class="counters">
+                    <div style="width:100%;">
+                        <div style="display:flex;">
+                            <div style="width: 16.5%;" class="lane-tick">
+                                <label class="tkln-st bct-bg">
+                                    <input class="champions-filter" name="filter" value="all" type="checkbox"
+                                        checked="checked" hidden="hidden">
+                                    <span>
+                                        <span class="tick-st"></span>
+                                        <img style="margin-right: 2px;width: 16px;height: 16px;"
+                                            src="../../../../Images/Icon-Logo/all_icon.png" alt="All">
+                                    </span>
+                                    <span class="tkln-name">All</span>
+                                </label>
+                            </div>
+                            <div style="width: 16.5%;" class="lane-tick">
+                                <label class="tkln-st champ-bg-fighter">
+                                    <input class="champions-filter" name="filter" value="all" type="checkbox"
+                                        checked="checked" hidden="hidden">
+                                    <span>
+                                        <span class="tick-st"></span>
+                                        <img style="margin-right: 2px;width: 16px;height: 16px;"
+                                            src="../../../../Images/Role/fighter_role.png" alt="All">
+                                    </span>
+                                    <span class="tkln-name">Fighter</span>
+                                </label>
+                            </div>
+                            <div style="width: 16.5%;" class="lane-tick">
+                                <label class="tkln-st champ-bg-assassin">
+                                    <input class="champions-filter" name="filter" value="all" type="checkbox"
+                                        checked="checked" hidden="hidden">
+                                    <span>
+                                        <span class="tick-st"></span>
+                                        <img style="margin-right: 2px;width: 16px;height: 16px;"
+                                            src="../../../../Images/Role/assassin_role.png" alt="All">
+                                    </span>
+                                    <span class="tkln-name">Assasin</span>
+                                </label>
+                            </div>
+                            <div style="width: 16.5%;" class="lane-tick">
+                                <label class="tkln-st champ-bg-mage">
+                                    <input class="champions-filter" name="filter" value="all" type="checkbox"
+                                        checked="checked" hidden="hidden">
+                                    <span>
+                                        <span class="tick-st"></span>
+                                        <img style="margin-right: 2px;width: 16px;height: 16px;"
+                                            src="../../../../Images/Role/wizard_role.png" alt="All">
+                                    </span>
+                                    <span class="tkln-name">Mage</span>
+                                </label>
+                            </div>
+                            <div style="width: 16.5%;" class="lane-tick">
+                                <label class="tkln-st champ-bg-marksman">
+                                    <input class="champions-filter" name="filter" value="all" type="checkbox"
+                                        checked="checked" hidden="hidden">
+                                    <span>
+                                        <span class="tick-st"></span>
+                                        <img style="margin-right: 2px;width: 16px;height: 16px;"
+                                            src="../../../../Images/Role/marksman_role.png" alt="All">
+                                    </span>
+                                    <span class="tkln-name">Marksman</span>
+                                </label>
+                            </div>
+                            <div style="width: 16.5%;" class="lane-tick">
+                                <label class="tkln-st champ-bg-tank">
+                                    <input class="champions-filter" name="filter" value="all" type="checkbox"
+                                        checked="checked" hidden="hidden">
+                                    <span>
+                                        <span class="tick-st"></span>
+                                        <img style="margin-right: 2px;width: 16px;height: 16px;"
+                                            src="../../../../Images/Role/tank_role.png" alt="All">
+                                    </span>
+                                    <span class="tkln-name">Tank</span>
+                                </label>
+                            </div>
+                            <div style="width: 16.5%;" class="lane-tick">
+                                <label class="tkln-st champ-bg-support">
+                                    <input class="champions-filter" name="filter" value="all" type="checkbox"
+                                        checked="checked" hidden="hidden">
+                                    <span>
+                                        <span class="tick-st"></span>
+                                        <img style="margin-right: 2px;width: 16px;height: 16px;"
+                                            src="../../../../Images/Role/support_role.png" alt="All">
+                                    </span>
+                                    <span class="tkln-name">Support</span>
+                                </label>
                             </div>
                         </div>
                     </div>
-                    <!-- div show the filter lane and search bar(để hiện thị bộ lọc và thanh tìm kiếm) -->
-                    <div class="bct-inner te-st">
-                        <div>
-                            <div id="relation-search" class="counters">
-                                <div style="width:100%;">
-                                    <div style="display:flex;">
-                                        <div style="width: 16.5%;" class="lane-tick">
-                                            <label class="tkln-st bct-bg">
-                                                <input class="champions-filter" name="filter" value="all"
-                                                    type="checkbox" checked="checked" hidden="hidden">
-                                                <span>
-                                                    <span class="tick-st"></span>
-                                                    <img style="margin-right: 2px;width: 16px;height: 16px;"
-                                                        src="../../../Images/Icon-Logo/all_icon.png" alt="All">
-                                                </span>
-                                                <span class="tkln-name">All</span>
-                                            </label>
-                                        </div>
-                                        <div style="width: 16.5%;" class="lane-tick">
-                                            <label class="tkln-st colorv-1">
-                                                <input class="champions-filter" name="filter" value="all"
-                                                    type="checkbox" checked="checked" hidden="hidden">
-                                                <span>
-                                                    <span class="tick-st"></span>
-                                                    <img style="margin-right: 2px;width: 16px;height: 16px;"
-                                                        src="../../../Images/Lane/top_icon.png" alt="All">
-                                                </span>
-                                                <span class="tkln-name">Top</span>
-                                            </label>
-                                        </div>
-                                        <div style="width: 16.5%;" class="lane-tick">
-                                            <label class="tkln-st colorv-2">
-                                                <input class="champions-filter" name="filter" value="all"
-                                                    type="checkbox" checked="checked" hidden="hidden">
-                                                <span>
-                                                    <span class="tick-st"></span>
-                                                    <img style="margin-right: 2px;width: 16px;height: 16px;"
-                                                        src="../../../Images/Lane/jungle_icon.png" alt="All">
-                                                </span>
-                                                <span class="tkln-name">Jungle</span>
-                                            </label>
-                                        </div>
-                                        <div style="width: 16.5%;" class="lane-tick">
-                                            <label class="tkln-st colorv-3">
-                                                <input class="champions-filter" name="filter" value="all"
-                                                    type="checkbox" checked="checked" hidden="hidden">
-                                                <span>
-                                                    <span class="tick-st"></span>
-                                                    <img style="margin-right: 2px;width: 16px;height: 16px;"
-                                                        src="../../../Images/Lane/mid_icon.png" alt="All">
-                                                </span>
-                                                <span class="tkln-name">Mid</span>
-                                            </label>
-                                        </div>
-                                        <div style="width: 16.5%;" class="lane-tick">
-                                            <label class="tkln-st colorv-4">
-                                                <input class="champions-filter" name="filter" value="all"
-                                                    type="checkbox" checked="checked" hidden="hidden">
-                                                <span>
-                                                    <span class="tick-st"></span>
-                                                    <img style="margin-right: 2px;width: 16px;height: 16px;"
-                                                        src="../../../Images/Lane/adc_icon.png" alt="All">
-                                                </span>
-                                                <span class="tkln-name">ADC</span>
-                                            </label>
-                                        </div>
-                                        <div style="width: 16.5%;" class="lane-tick">
-                                            <label class="tkln-st colorv-5">
-                                                <input class="champions-filter" name="filter" value="all"
-                                                    type="checkbox" checked="checked" hidden="hidden">
-                                                <span>
-                                                    <span class="tick-st"></span>
-                                                    <img style="margin-right: 2px;width: 16px;height: 16px;"
-                                                        src="../../../Images/Lane/support_icon.png" alt="All">
-                                                </span>
-                                                <span class="tkln-name">Support</span>
-                                            </label>
+                    <div style="width:20%" class="search-counters">
+                        <div class="typeahead-container">
+                            <div class="bx-search">
+                                <form class="search search-counter-filter">
+                                    <input type="text" class="input-bx1" id="filter-counter-name"
+                                        placeholder="Tìm kiếm...">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- div show the champions's counters(để hiện thị các tướng đối kháng) -->
+        <div class="bct-inner te-st">
+            <div class="bct-bg counter-content">
+                <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> counters</h2>
+                <div style="padding-top: 10px;" class="counters-grid">
+                    <?php
+                    function setBgRole($role_all) {
+                        if($role_all == "Pháp sư") {
+                            return "champ-bg-mage";
+                        }
+                        else
+                        {
+                            if($role_all == "Xạ thủ") {
+                                return "champ-bg-marksman";
+                            }
+                            else
+                            {
+                                if($role_all == "Đấu sĩ") {
+                                    return "champ-bg-fighter";
+                                }
+                                else
+                                {
+                                    if($role_all == "Trợ thủ") {
+                                        return "champ-bg-support";
+                                    }
+                                    else
+                                    {
+                                        if($role_all == "Đỡ đòn") {
+                                            return "champ-bg-tank";
+                                        }
+                                        else
+                                        {
+                                            return "champ-bg-assassin";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN role_champions WHERE stats.id_role = role_champions.id_role EXCEPT SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN role_champions WHERE stats.id_role = role_champions.id_role AND champions.id_champ = $GLOBALS[id]";
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_num_rows($result);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $sql_oneChamp = "SELECT * FROM champions , stats WHERE champions.id_champ = stats.id_champ AND champions.id_champ = $GLOBALS[id]";
+                            $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
+                            $row_one = mysqli_fetch_assoc($result_oneChamp);
+                            $champ_name = $row['champ_Name'];
+                            $champ_id = $row['id_champ'];
+                            $champ_image = $row['image'];
+                            $role_all = $row['name_role'];
+                            $winrate = $row['win_rate'];
+                            $winrate_one = $row_one['win_rate'];
+                            if ($winrate < $winrate_one) {
+                            echo
+                              '<a href = "../Champion/'.$champ_name.'.php">
+                                  <div class="champct-item counters-st champct-st ' .setBgRole($role_all).'">
+                                          <img src="../../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 50px;height: 50px;">
+                                      <div class="champct-name">
+                                          <span>'.$champ_name.'</span>
+                                      </div>
+                                  </div>
+                              </a>';
+                          }
+                        }
+            
+                 ?>
+                </div>
+            </div>
+        </div>
+        <!-- div show the champions is countered(để hiện thị các tướng bi đối kháng) -->
+        <div class="bct-inner te-st">
+            <div class="bct-bg counter-content">
+                <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> is countered
+                </h2>
+                <div style="padding-top: 10px;" class="counters-grid">
+                    <?php
+                        $sql = "SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN role_champions WHERE stats.id_role = role_champions.id_role EXCEPT SELECT * FROM champions JOIN stats ON champions.id_champ = stats.id_champ JOIN role_champions WHERE stats.id_role = role_champions.id_role AND champions.id_champ = $GLOBALS[id]";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_num_rows($result);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $sql_oneChamp = "SELECT * FROM champions , stats WHERE champions.id_champ = stats.id_champ AND champions.id_champ = $GLOBALS[id]";
+                                $result_oneChamp = mysqli_query($conn, $sql_oneChamp);
+                                $row_one = mysqli_fetch_assoc($result_oneChamp);
+                                $champ_name = $row['champ_Name'];
+                                $champ_id = $row['id_champ'];
+                                $champ_image = $row['image'];
+                                $role_all = $row['name_role'];
+                                $winrate = $row['win_rate'];
+                                $winrate_one = $row_one['win_rate'];
+                                if ($winrate > $winrate_one) {
+                                echo
+                                '<a href = "../Champion/'.$champ_name.'.php">
+                                    <div class="champct-item counters-st champct-st ' .setBgRole($role_all).'">
+                                            <img src="../../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 60px;height: 50px;">
+                                        <div class="champct-name">
+                                            <span>'.$champ_name.'</span>
                                         </div>
                                     </div>
-                                </div>
-                                <div style="width:20%" class="search-counters">
-                                    <div class="typeahead-container">
-                                        <div class="bx-search">
-                                            <form class="search search-counter-filter">
-                                                <input type="text" class="input-bx1" id="filter-counter-name"
-                                                    placeholder="Tìm kiếm...">
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- div show the champions's counters(để hiện thị các tướng đối kháng) -->
-                    <div class="bct-inner te-st">
-                        <div class="bct-bg counter-content">
-                            <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> counters(over 52% win rate)</h2>
-                            <div style="padding-top: 10px;" class="counters-grid">
-                                <?php
-                                        $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = 1 AND stats.win_rate < 52 EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_champ = 1";    
-                                        $result = mysqli_query($conn, $sql);
-                                        $row = mysqli_num_rows($result);
-                                        if ($row > 0) {
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                $champ_name = $row['champ_Name'];
-                                                $champ_id = $row['ID'];
-                                                $champ_image = $row['image'];
-                                                $champ_lane = $row['lane_name'];
-                                                echo
-                                                '<a href = "../../Champions/Champion.php?name='.$champ_name.'/Mid.php">
-                                                    <div class="champct-item counters-st champct-st colorv-3">
-                                                            <img src="../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 50px;height: 50px;">
-                                                        <div class="champct-name">
-                                                            <span>'.$champ_name.'</span>
-                                                        </div>
-                                                    </div>
-                                                </a>';
-                                            }
-                                        }
-
-                                   ?>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- div show the champions is countered(để hiện thị các tướng bi đối kháng) -->
-                    <div class="bct-inner te-st">
-                        <div class="bct-bg counter-content">
-                            <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> is countered(under 49% win rate)
-                            </h2>
-                            <div style="padding-top: 10px;" class="counters-grid">
-                                <?php
-                                        $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = 1 AND stats.win_rate > 52 EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_champ = 1";    
-                                        $result = mysqli_query($conn, $sql);
-                                        $row = mysqli_num_rows($result);
-                                        if ($row > 0) {
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                $champ_name = $row['champ_Name'];
-                                                $champ_id = $row['ID'];
-                                                $champ_image = $row['image'];
-                                                $champ_lane = $row['lane_name'];
-                                                echo
-                                                '<a href = "../../Champions/Champion.php?name='.$champ_name.'/Mid.php">
-                                                    <div class="champct-item counters-st champct-st colorv-3">
-                                                            <img src="../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 60px;height: 50px;">
-                                                        <div class="champct-name">
-                                                            <span>'.$champ_name.'</span>
-                                                        </div>
-                                                    </div>
-                                                </a>';
-                                            }
-                                        }
-
-                                   ?>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- div show the champions goes even with(để hiện thị các tướng có khả năng ngang nhau) -->
-                    <div class="bct-inner te-st">
-                        <div class="bct-bg counter-content">
-                            <h2 class="champct-title"><?php echo $GLOBALS['name'] ?> goes even with(49% ~ 51% win rate)
-                            </h2>
-                            <div style="padding-top: 10px;" class="counters-grid">
-                                <?php
-                                        $sql = "SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_lane = lane.id AND stats.id_lane = 1 AND stats.win_rate > 49 AND stats.win_rate < 52  EXCEPT SELECT * FROM champions JOIN stats ON champions.ID = stats.id_Champ JOIN lane WHERE stats.id_champ = 1";    
-                                        $result = mysqli_query($conn, $sql);
-                                        $row = mysqli_num_rows($result);
-                                        if ($row > 0) {
-                                            while ($row = mysqli_fetch_assoc($result)) {
-                                                $champ_name = $row['champ_Name'];
-                                                $champ_id = $row['ID'];
-                                                $champ_image = $row['image'];
-                                                $champ_lane = $row['lane_name'];
-                                                echo
-                                                '<a href = "../../Champions/Champion.php?name='.$champ_name.'/Mid.php">
-                                                    <div class="champct-item counters-st champct-st colorv-3">
-                                                            <img src="../../../Images/Champions/'.$champ_image.'" alt="'.$champ_name.'"style="width: 60px;height: 50px;">
-                                                        <div class="champct-name">
-                                                            <span>'.$champ_name.'</span>
-                                                        </div>
-                                                    </div>
-                                                </a>';
-                                            }
-                                        }
-
-                                   ?>
-                            </div>
-                        </div>
-                    </div>
+                                </a>';
+                                }
+                            }
+                   ?>
                 </div>
             </div>
         </div>
@@ -1349,41 +1331,130 @@
     </div>
     </div>
     </div>
+    <!--Footer-->
+    <div class="footer ge-ct ft-bg">
+        <div class="ft ge-ct">
+            <div class="ep-ct"></div>
+            <div class="ft-content ct-gap">
+                <div class="left-text text-st">
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">AOV 5v5 items</div>
+                            <a href="../../../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Home</span>
+                            </a>
+                            <a href="../../../5v5/Stats.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Stats</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">AOV mode</div>
+                            <a href="../../../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">5v5</span>
+                            </a>
+                            <a href="../../../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">3v3</span>
+                            </a>
+                            <a href="../../../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">1v1</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="left-grid">
+                        <div class="left-para">
+                            <div class="para-title">Team members</div>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Trịnh Huỳnh Bảo Ngân</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Huỳnh Ngọc Trang</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Nhật Huy</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Đình Vỹ</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Đoàn Võ Nguyên</span>
+                            </a>
+                            <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
+                                <span class="text-underline" style="font-size:14px;">Nguyễn Trương Thái Khang</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-text">
+                    <div class="right-para">
+                        <a href="../../../5v5/Home.php">
+                            <img src="../../../../Images/Icon-Logo/Logo-team.png" alt="Logo"
+                                style="width:100%;height:100%;">
+                        </a>
+                    </div>
+                </div>
+                <!--Feedback-->
+                <div class="feedback-form fb-form">
+                    <form action="" method="post">
+                        <div class="feedback-title">Feedback</div>
+                        <div class="feedback-input">
+                            <input type="text" name="user_name" class="feedback-form-ct name" placeholder="Name">
+                            <input type="text" name="user_email" class="feedback-form-ct email" placeholder="Email">
+                            <input type="text" name="subject" class="feedback-form-ct subject" placeholder="Subject">
+                            <textarea name="feedback-text" id="feedback-ct" cols="30" rows="10"
+                                class="feedback-form-ct message" placeholder="Message"></textarea>
+                            <div class="feedback-form buttons">
+                                <button name="submit-feedback" class="feedback-button">SEND</button>
+                                <?php
+                                        include '../../account/send_mail.php';
+                                    ?>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
     </div>
 
-    <script type="module" src="https:unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https:unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="https:cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../../../JS/navigation.js"></script>
-    <script type="text/javascript" src="../../../JS/Home.js"></script>
-    <script type="text/javascript" src="../../../JS/metaaov.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../../JS/navigation.js"></script>
+    <script type="text/javascript" src="../../../../JS/Home.js"></script>
+    <script type="text/javascript" src="../../../../JS/metaaov.js"></script>
     <?php
-    //  Start the session( bắt đầu phiên)
+        // Start the session
+    error_reporting(E_ERROR | E_PARSE);
     $username = $_SESSION['user'];
-    //  Check if the session variable username is set( kiểm tra xem biến session username có được đặt hay không)
-    if (isset($username)) {
-        echo '
-        <script>
-        // using JS to change the login and register button to user name and logout button if session is set( sử dụng JS để thay đổi nút đăng nhập và đăng ký thành tên người dùng và nút đăng xuất nếu phiên được đặt)
-        var show_log = document.getElementById("login");
-        var show_reg = document.getElementById("signup");
-        if(show_log != null || show_reg != null) {
-            show_log.innerHTML = "<p>Xin chào, ' . $username . '</p>";
-            //  Print the echo statement in the a tag have id login( In câu lệnh echo trong thẻ a có id là login)
-            show_reg.innerHTML = "<a href=\"../../../PHP/User/logout.php\">Đăng xuất</a>";
+    // Check if the session variable username is set
+    if (!empty($username)) {
+    ?>
+    <?php echo '
+    <script>
+    // using JS to change the login and register button to user name and logout button if session is set
+    var show_log = document.getElementById("login");
+    var show_reg = document.getElementById("signup");
+    if(show_log != null || show_reg != null) {
+        show_log.innerHTML = "<p>Xin chào, ' . $username . '</p>";
+        // Print the echo statement in the a tag have id login
+        show_reg.innerHTML = "<a href=\"../../../account/logout.php\">Đăng xuất</a>";
     }
     </script>';
-    ?>
+        ?>
     <?php
     } else {
     ?>
     <?php echo '
     <script>
-        //  Print back the login and register button if session variable username is not set( In lại nút đăng nhập và đăng ký nếu biến session username không được đặt)
-        <a href="../../../PHP/User/login.php">Đăng nhập</a>
-        <a href="../../../PHP/User/register.php">Đăng ký</a>\
+        // Print back the login and register button if session variable username is not set
+        <a href="../account/Login/Login.php">Đăng nhập</a>
+        <a href="../account/Register/Register.php">Đăng ký</a>
     </script>';
-    ?>
+        ?>
     <?php
     }
     ?>
