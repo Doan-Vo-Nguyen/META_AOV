@@ -324,8 +324,7 @@
                         <div class="left-grid">
                             <div class="left-para">
                                 <div class="para-title">AOV 5v5 items</div>
-                                <a href="../../../5v5/Home.php" class="para-st"
-                                    style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="#" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">Home</span>
                                 </a>
                                 <a href="../5v5/Stats.php" class=" para-st" style="margin-left: 5px;padding: 3px 0px;">
@@ -336,16 +335,13 @@
                         <div class="left-grid">
                             <div class="left-para">
                                 <div class="para-title">AOV mode</div>
-                                <a href="../../../5v5/Home.php" class="para-st"
-                                    style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../5v5/Home.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">5v5</span>
                                 </a>
-                                <a href="../../../3v3/3v3.php" class="para-st"
-                                    style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../3v3/3v3.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">3v3</span>
                                 </a>
-                                <a href="../../../1v1/1v1.php" class="para-st"
-                                    style="margin-left: 5px;padding: 3px 0px;">
+                                <a href="../1v1/1v1.php" class="para-st" style="margin-left: 5px;padding: 3px 0px;">
                                     <span class="text-underline" style="font-size:14px;">1v1</span>
                                 </a>
                             </div>

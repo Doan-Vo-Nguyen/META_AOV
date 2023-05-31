@@ -353,7 +353,7 @@ $GLOBALS['id'] = $row['id_champ'];
                                                 </span>
                                                 <span class="descript-text">
                                                 <strong>KDA: </strong>
-                                                <span class="kda-value">' . $KDA . '%</span>
+                                                <span class="kda-value">' . $KDA . '</span>
                                                 </span>
                                                 </div>';
                                             }

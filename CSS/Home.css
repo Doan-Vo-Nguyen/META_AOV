@@ -80,7 +80,7 @@ ul {
 .content-body {
     background-color: rgba(37, 37, 37, .85);
 }
-/* Head wrapper */
+/* HEAD SECTION (head-wrapper) */
 .head {
     position: fixed;
     top:0;
@@ -109,151 +109,6 @@ ul {
     max-width: 350px;
     color: #000;
 }
-/* MENU SECTION */
-
-.mu-wr {
-    position: fixed;
-    transition: width .4s ease .1s;
-    top: 68px;
-    box-shadow: 0 10px 10px #000;
-    z-index: 9999;
-}
-
-.tab-link {
-    transition: width .4s ease .1s;
-    height: calc(100vh - 50px);
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 288px;
-    user-select: none;
-}
-
-/* When not hover , the width will be set at 70px */
-.tab-link:not(:hover) {
-    width: 70px;
-}
-/* When not hover , the width of menu will be set at 70px */
-.tab-link:not(:hover) .menu-inner {
-    width: 70px;
-}
-/* When not hover, the content will be hidden until hover*/
-.tab-link:not(:hover) .logo-st {
-    visibility: hidden;
-}
-/* When not hover, the content */
-.tab-link:not(:hover) .patch {
-    visibility: visible;
-}
-/* set transition with ease .2s */
-.logo-st {
-    transition: visibility 0s ease .2s;
-}
-
-/* set transition with ease .2s and when hover successful , it will disappear */
-.patch {
-    transition: visibility 0s ease .2s;
-    visibility: hidden;
-}
-
-@media only screen and (min-device-width:1024px) {
-    ._bca1 {
-        scrollbar-width: thin;
-        scrollbar-color: dimgray;
-    }
-}
-
-/* set background color for the head and menu */
-.info-tab {
-    background-color: rgb(22, 14, 30);
-}
-
-/* set background color for the box in the menu */
-.info-link {
-    background-color: rgb(68, 68, 93);
-}
-
-/* this css set the content of the menu */
-.menu-inner {
-    transition: width .4s ease .1s;
-    display: flex;
-    flex-direction: column;
-    width: 288px;
-}
-
-.content-logo {
-    display: flex;
-}
-
-/* set the css for the items in the menu */
-.item-logo {
-    padding:3px;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 15%;
-    color: #fff !important;
-}
-
-.item-logo {
-    padding-right: 5px;
-}
-
-.text-underline:hover {
-    text-decoration: underline;
-}
-.img-pos {
-    margin:5px;
-
-}
-
-.text-logo {
-    font-size: 14px;
-    white-space: nowrap;
-}
-
-.menu-item {
-    border-radius:10px;
-    margin: 10px;
-    overflow: hidden;
-}
-
-.transition {
-    transition: visibility 0s ease .2s;
-}
-/* hightlight the word META */
-.f-word {
-    color: #fbaf17;
-}
-
-.otherCt-1 {
-    display:none;
-}
-
-
-/*ct-gap sets the gap between grid items to 10
-pixels using both the "gap" and "grid-gap" properties. This class can be applied to a container
-element to create a grid layout with evenly spaced gaps between the grid items. */
-.ct-gap {
-    gap:10px;
-    grid-gap:10px;
-}
-
-.btn-cl {
-    background-color: rgb(93, 68, 93);
-}
-
-/* set aov word to white */
-.s-word {
-    color: #fff;
-}
-
-.text {
-    color: #fff!important;
-}
-
 .menu-top li {
     float: left;
 }
@@ -280,7 +135,149 @@ its container. */
     background: none;
 }
 
-/* Menu wrapper */
+.detail-title {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* MENU SECTION(menu-wrapper) */
+
+.mu-wr {
+    position: fixed;
+    transition: width .4s ease .1s;
+    top: 68px;
+    box-shadow: 0 10px 10px #000;
+    z-index: 9999;
+}
+/* css của menu không bao gồm nội dung */
+.tab-link {
+    transition: width .4s ease .1s;
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 288px;
+    user-select: none;
+}
+
+
+/* Khi chưa hover, width sẽ được thiết lập 70px */
+.tab-link:not(:hover) {
+    width: 70px;
+}
+
+/* Khi chưa hover, width của menu sẽ được thiết lập 70px */
+.tab-link:not(:hover) .menu-inner {
+    width: 70px;
+}
+
+/* Khi chưa hover, các nội dung sẽ được ẩn cho dến khi đươc hover */
+.tab-link:not(:hover) .logo-st {
+    visibility: hidden;
+}
+/* When not hover, the content */
+.tab-link:not(:hover) .patch {
+    visibility: visible;
+}
+/* tên web sẽ di chuyển sau khi hover vào menu .2s */
+.logo-st {
+    transition: visibility 0s ease .2s;
+}
+
+/* nội dung của patch và mode sẽ di chuyển đầy đủ sau khi hover vào menu .2s */
+.patch {
+    transition: visibility 0s ease .2s;
+    visibility: hidden;
+}
+
+/* set màu nền cho head và menu */
+.info-tab {
+    background-color: rgb(22, 14, 30);
+}
+
+/* set màu nền cho các box ở menu */
+.info-link {
+    background-color: rgb(68, 68, 93);
+}
+
+/* CSS CỦA CÁC CONTENT MENU */
+/* hover vào menu, width sẽ được thiết lập 288px */
+.menu-inner {
+    transition: width .4s ease .1s;
+    display: flex;
+    flex-direction: column;
+    width: 288px;
+}
+
+.content-logo {
+    display: flex;
+}
+
+/* set the css for the items in the menu */
+.item-logo {
+    padding:3px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 15%;
+    color: #fff !important;
+}
+
+/* khi hover vào các mode, nội dung sẽ được underline */
+.text-underline:hover {
+    text-decoration: underline;
+}
+.img-pos {
+    margin:5px;
+
+}
+/* điều chỉnh kích thước của mode và patch của menu */
+.text-logo {
+    font-size: 14px;
+    white-space: nowrap;
+}
+/* điều chỉnh border của các mode và patch */
+.menu-item {
+    border-radius:10px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.transition {
+    transition: visibility 0s ease .2s;
+}
+/* hightlight chữ META */
+.f-word {
+    color: #fbaf17;
+}
+
+/* set chữ aov là màu trắng */
+.s-word {
+    color: #fff;
+}
+
+.otherCt-1 {
+    display:none;
+}
+
+/* tạo các grid với khoảng cách 10px */
+.ct-gap {
+    gap:10px;
+    grid-gap:10px;
+}
+
+/* nền của các chức năng khi được chọn (Home, stats, etc) */
+.btn-cl {
+    background-color: rgb(93, 68, 93);
+}
+
+.text {
+    color: #fff!important;
+}
 
 .menu-wrapper {
     visibility: hidden;
@@ -301,7 +298,8 @@ its container. */
 .item-logo:hover .word {
     color: #000 !important;
 }
-/* main content */
+/* MAIN CONTENT(content-wrapper) */
+/* thiết lập main content fit với màn hình */
 .wr-tt {
     display: flex;
     flex-direction: column;
@@ -309,29 +307,32 @@ its container. */
     width: 100%;
     margin: 0 auto;
 }
-
+/* css phần đầu tiên của Content */
 .ct-wr {
     display: flex;
     width: 100%;
 }
+/* điều chỉnh cho nội dung nằm trong Content */
 .ct-02 {
     min-height: 100vh;
     display: flex;
     justify-content: space-between;
 }
 
+/* điều chỉnh gap của row và column */
 .ge-ct {
     row-gap:20px;
     column-gap:20px;
 }
 
-
+/* css của phần menu khi đang ở content */
 .ep-ct {
     transition: width .4s ease .1s;
     min-width:70px;
     flex-shrink: 0;
     width:288px;
 }
+/* menu sẽ thu lại 80px và nội dung sẽ hiển thị bth */
 .ep-ct {
     width:80px;
 }
@@ -342,11 +343,6 @@ its container. */
 .para {
     width: 100%;
     min-width: 375px;
-}
-@media only screen and(min-device-width: 0px) {
-    .search {
-        width: 100%;
-    }
 }
 
 .search {
@@ -367,13 +363,6 @@ its container. */
     color: #acacac;
     width: 100%;
     outline: none!important;
-}
-.detail-title {
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .f-color {
@@ -415,6 +404,7 @@ its container. */
     text-align: center;
 }
 
+/* chỉnh border và thêm box-shadow cho khung tướng */
 .list-champ li .champions img {
     width: 100%;
     border: 3px solid #a08945;
@@ -422,22 +412,8 @@ its container. */
 }
 
 .list-champ li {
-    width: 14.111%;
+    width: 15%;
     float: left;
-}
-
-@media only screen and (min-width: 0px) and (max-width: 768px) {
-    .list-champ li {
-        width: 33.3333%;
-    }
-}
-
-.bx-wrapper {
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    left: 250px;
 }
 
 .table-st {
@@ -508,13 +484,6 @@ its container. */
     gap:20px;
     grid-gap:20px;
     grid-template-columns: auto auto auto auto;
-}
-
-@media (max-width: 1065px) {
-    .left-grid {
-        margin:20px 0;
-        grid-template-columns: auto auto;
-    }
 }
 
 .left-para {
@@ -616,7 +585,6 @@ its container. */
     display: flex;
     flex-direction: column;
     position: relative;
-    color: linear-gradient(to right top, #fff600, #ffd96c, #ffcebd, #ffdcf4, #ffedff, #ffe7fe, #ffe0fe, #ffdafd, #ffb8e2, #ff95af, #ff796a, #ff7100);
     font-size: 26px;
   }
 
@@ -639,7 +607,7 @@ its container. */
 
 .feedback-input input,textarea, button {
     font-weight: 700;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Tahoma', sans-serif;
 }
 /* Paging */
 
